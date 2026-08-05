@@ -1,0 +1,5 @@
+# PrimeLoft Tech Robots Directive
+User-agent: *
+Allow: /
+
+Sitemap: https://primeloft.tech/sitemap.xml

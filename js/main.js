@@ -1,6 +1,13 @@
 /* ==========================================================================
-   PRIME LOFT - MAIN JAVASCRIPT & OPTIMIZED LOADER
+   PRIME LOFT - MAIN APPLICATION CONTROLLER
+   Integrates Theme, Modular Services (Consent, Tracking, Analytics, SEO),
+   and Lazy Loaded Animations.
    ========================================================================== */
+
+import { trackingService } from './services/tracking-service.js';
+import { analyticsService } from './services/analytics-service.js';
+import { SeoService } from './services/seo-service.js';
+import { CookieConsentUI } from './services/cookie-consent-ui.js';
 
 // 1. Instant Theme Initialization (0 ms FOIT/FOUC prevention)
 (function initTheme() {
@@ -18,7 +25,13 @@ window.addEventListener('pageshow', (event) => {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ---------- 1. THEME TOGGLE ----------
+  // ---------- 1. MODULAR SERVICES INITIALIZATION ----------
+  SeoService.init();
+  trackingService.init();
+  analyticsService.init();
+  CookieConsentUI.init();
+
+  // ---------- 2. THEME TOGGLE ----------
   const root = document.documentElement;
   const themeToggleBtn = document.getElementById('themeToggle');
 
@@ -31,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---------- 2. MOBILE MENU TOGGLE ----------
+  // ---------- 3. MOBILE MENU TOGGLE ----------
   const mobileToggleBtn = document.getElementById('mobileToggle');
   const primaryNav = document.querySelector('nav.primary');
 
@@ -55,8 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ---------- 3. DYNAMIC LAZY GSAP ANIMATIONS LOADER ----------
-  // Loads animation vendor bundle on-demand/idle to optimize initial page performance & eliminates unused JS warnings
+  // ---------- 4. DYNAMIC LAZY GSAP ANIMATIONS LOADER ----------
   function loadGSAP() {
     if (window._gsapLoaded) return;
     window._gsapLoaded = true;
@@ -158,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener(evt, loadGSAP, { passive: true, once: true });
   });
 
-  // ---------- 4. ANCHOR SMOOTH SCROLL ----------
+  // ---------- 5. ANCHOR SMOOTH SCROLL ----------
   if (window.location.hash) {
     const targetEl = document.querySelector(window.location.hash);
     if (targetEl) {
@@ -167,89 +179,5 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 150);
     }
   }
-
-  // ---------- 5. COOKIE CONSENT & PREFERENCES CENTER ----------
-  const COOKIE_KEY = 'primeloft_cookie_consent_v1';
-  const cookieBanner = document.getElementById('cookieBanner');
-  const cookieModal = document.getElementById('cookieModal');
-
-  function getConsent() {
-    try {
-      const stored = localStorage.getItem(COOKIE_KEY);
-      return stored ? JSON.parse(stored) : null;
-    } catch(e) { return null; }
-  }
-
-  function saveConsent(consent) {
-    try {
-      localStorage.setItem(COOKIE_KEY, JSON.stringify({
-        ...consent,
-        timestamp: new Date().toISOString()
-      }));
-    } catch(e) {}
-    hideBanner();
-    hideModal();
-  }
-
-  function showBanner() {
-    if (cookieBanner) cookieBanner.style.display = 'block';
-  }
-  function hideBanner() {
-    if (cookieBanner) cookieBanner.style.display = 'none';
-  }
-  function showModal() {
-    const current = getConsent() || { essential: true, analytics: false, marketing: false };
-    const chkAnalytics = document.getElementById('chkAnalytics');
-    const chkMarketing = document.getElementById('chkMarketing');
-    if (chkAnalytics) chkAnalytics.checked = !!current.analytics;
-    if (chkMarketing) chkMarketing.checked = !!current.marketing;
-    if (cookieModal) cookieModal.style.display = 'flex';
-  }
-  function hideModal() {
-    if (cookieModal) cookieModal.style.display = 'none';
-  }
-
-  // Init check
-  const consentData = getConsent();
-  if (!consentData) {
-    setTimeout(showBanner, 600);
-  }
-
-  // Event Listeners
-  document.getElementById('btnAcceptCookies')?.addEventListener('click', () => {
-    saveConsent({ essential: true, analytics: true, marketing: true });
-  });
-
-  document.getElementById('btnRejectCookies')?.addEventListener('click', () => {
-    saveConsent({ essential: true, analytics: false, marketing: false });
-  });
-
-  document.getElementById('btnCookiePrefs')?.addEventListener('click', () => {
-    hideBanner();
-    showModal();
-  });
-
-  document.getElementById('btnCloseCookieModal')?.addEventListener('click', hideModal);
-
-  document.getElementById('btnSaveCookiePrefs')?.addEventListener('click', () => {
-    const chkAnalytics = document.getElementById('chkAnalytics');
-    const chkMarketing = document.getElementById('chkMarketing');
-    saveConsent({
-      essential: true,
-      analytics: chkAnalytics ? chkAnalytics.checked : false,
-      marketing: chkMarketing ? chkMarketing.checked : false
-    });
-  });
-
-  document.getElementById('btnAcceptAllModal')?.addEventListener('click', () => {
-    saveConsent({ essential: true, analytics: true, marketing: true });
-  });
-
-  document.querySelectorAll('.open-cookie-settings').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      showModal();
-    });
-  });
 
 });

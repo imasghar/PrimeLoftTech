@@ -5,17 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us — PrimeLoft Digital Commerce Studio</title>
   <meta name="description" content="Get in touch with PrimeLoft. Share project details and receive a response within one business day.">
+  <link rel="canonical" href="https://primeloft.tech/contact.html">
   <meta property="og:title" content="Contact Us — PrimeLoft Digital Commerce Studio">
   <meta property="og:description" content="Get in touch with PrimeLoft. Share project details and receive a response within one business day.">
+  <meta property="og:url" content="https://primeloft.tech/contact.html">
   <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact Us — PrimeLoft Digital Commerce Studio">
+  <meta name="twitter:description" content="Get in touch with PrimeLoft. Share project details and receive a response within one business day.">
+  <meta name="theme-color" content="#0F0E13">
+  <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 42'><rect x='1' y='9' width='4.5' height='4.5' rx='0.8' fill='%23E54838'/><rect x='7' y='3.5' width='4.5' height='4.5' rx='0.8' fill='%23E54838'/><rect x='1' y='15' width='4.5' height='4.5' rx='0.8' fill='%23E54838'/><path d='M12.5 10H26C31.5 10 35 13.5 35 19C35 24.5 31.5 28 26 28H18.5L14 41H8L12.5 10Z M16.2 15.5L14.2 22.5H25C27.8 22.5 29.5 21 29.5 19C29.5 17 27.8 15.5 25 15.5H16.2Z' fill-rule='evenodd' fill='%23EF4E38'/></svg>">
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" defer></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script type="module" src="js/main.js" defer></script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- ================= HEADER ================= -->
   <header>
@@ -95,7 +104,7 @@
   </header>
 
   <!-- ================= MAIN CONTENT ================= -->
-  <main>
+  <main id="main-content">
     <div class="wrap page-hero reveal">
       <div class="eyebrow" style="justify-content:center;">Get in touch</div>
       <h1>Tell us what you're <span class="script">building</span></h1>
@@ -136,7 +145,7 @@
         </div>
 
         <div class="contact-form reveal">
-          <form onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent.');">
+          <form id="contactForm" onsubmit="event.preventDefault(); if(window.analyticsService) window.analyticsService.trackFormSubmission('contactForm'); alert('Thank you! Your message has been sent.');">
             <div style="display:flex; flex-direction:column; gap:18px;">
               <label for="contact-name">Name</label>
               <input type="text" id="contact-name" placeholder="Your name" required>
@@ -146,6 +155,9 @@
 
               <label for="contact-message">Project details</label>
               <textarea id="contact-message" placeholder="What are you looking to build?" required></textarea>
+
+              <!-- Cloudflare Turnstile Bot Protection Widget -->
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAAAX..."></div>
 
               <button type="submit" class="btn btn-primary" style="align-self:flex-start; border:none; margin-top:6px;">
                 Send message <span class="btn-arrow">→</span>
@@ -213,7 +225,7 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 PrimeLoft Tech. All rights reserved.</span>
-        <span>GardenTown, Multan Road, DGK · <a href="#" class="open-cookie-settings" style="color:inherit; text-decoration:underline;">Cookie Settings</a></span>
+        <span><a href="privacy.html">Privacy Policy</a> · <a href="cookies.html">Cookie Policy</a> · <a href="terms.html">Terms</a> · <a href="contact.html">Contact</a> · <a href="#" class="open-cookie-settings">Manage Cookie Preferences</a></span>
       </div>
     </div>
   </footer>
@@ -229,8 +241,8 @@
         <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. Essential cookies are required for basic site functionality.</p>
       </div>
       <div class="cookie-actions">
-        <button type="button" id="btnRejectCookies" class="btn btn-outline btn-sm">Reject Non-Essential</button>
-        <button type="button" id="btnCookiePrefs" class="btn btn-outline btn-sm">Preferences</button>
+        <button type="button" id="btnRejectCookies" class="btn btn-outline btn-sm">Reject All</button>
+        <button type="button" id="btnCookiePrefs" class="btn btn-outline btn-sm">Customize</button>
         <button type="button" id="btnAcceptCookies" class="btn btn-primary btn-sm">Accept All</button>
       </div>
     </div>
@@ -286,6 +298,7 @@
         </div>
       </div>
       <div class="cookie-modal-footer">
+        <button type="button" id="btnRejectAllModal" class="btn btn-outline btn-sm">Reject All</button>
         <button type="button" id="btnSaveCookiePrefs" class="btn btn-primary btn-sm">Save Preferences</button>
         <button type="button" id="btnAcceptAllModal" class="btn btn-outline btn-sm">Accept All</button>
       </div>
