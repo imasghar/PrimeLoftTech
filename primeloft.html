@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrimeLoft — Digital Commerce Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --bg:#FAF7F2;
+  --bg-alt:#F1ECE2;
+  --bg-raised:#FFFFFF;
+  --ink:#201E1B;
+  --ink-soft:#5B564E;
+  --ink-faint:#8C8578;
+  --red:#C1584A;
+  --red-deep:#A94437;
+  --red-tint:#F3DDD7;
+  --gold:#C99A4E;
+  --teal:#5F8F84;
+  --line:rgba(32,30,27,0.12);
+  --line-strong:rgba(32,30,27,0.22);
+  --shadow:0 20px 60px -25px rgba(32,30,27,0.25);
+  --note-1:#F7DFA0;
+  --note-2:#F4C9B9;
+  --note-3:#C9DFD3;
+  --note-4:#CFDAEE;
+  --radius:18px;
+  --font-display:'Fraunces', serif;
+  --font-script:'Instrument Serif', serif;
+  --font-body:'Inter', sans-serif;
+  --font-mono:'IBM Plex Mono', monospace;
+}
+html[data-theme="dark"]{
+  --bg:#161319;
+  --bg-alt:#1E1A21;
+  --bg-raised:#242028;
+  --ink:#F3EFE7;
+  --ink-soft:#B7AFA2;
+  --ink-faint:#847C71;
+  --red:#E17E68;
+  --red-deep:#EB937F;
+  --red-tint:#3B2621;
+  --gold:#E3BC7B;
+  --teal:#8FC0B2;
+  --line:rgba(243,239,231,0.12);
+  --line-strong:rgba(243,239,231,0.22);
+  --shadow:0 20px 60px -25px rgba(0,0,0,0.6);
+  --note-1:#4A3F26;
+  --note-2:#4A2E27;
+  --note-3:#243A31;
+  --note-4:#232C40;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  transition:background .4s ease, color .4s ease;
+  overflow-x:hidden;
+}
+img,svg{display:block; max-width:100%;}
+a{color:inherit; text-decoration:none;}
+button{font-family:inherit; cursor:pointer;}
+.wrap{max-width:1240px; margin:0 auto; padding:0 40px;}
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--red);
+  display:flex; align-items:center; gap:10px;
+}
+.eyebrow::before{content:''; width:22px; height:1px; background:var(--red);}
+h1,h2,h3{font-family:var(--font-display); font-weight:500; letter-spacing:-.01em; line-height:1.05;}
+.italic{font-style:italic; font-weight:400;}
+.script{font-family:var(--font-script); font-style:italic; font-weight:400; color:var(--red); letter-spacing:.005em;}
+p{color:var(--ink-soft); line-height:1.65;}
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 26px; border-radius:100px; font-weight:600; font-size:14.5px;
+  border:1px solid var(--line-strong); transition:all .25s ease; white-space:nowrap;
+}
+.btn-primary{background:var(--ink); color:var(--bg); border-color:var(--ink);}
+.btn-primary:hover{background:var(--red); border-color:var(--red); transform:translateY(-2px);}
+.btn-ghost{background:transparent; color:var(--ink); }
+.btn-ghost:hover{border-color:var(--red); color:var(--red); transform:translateY(-2px);}
+.btn-arrow{transition:transform .25s ease;}
+.btn:hover .btn-arrow{transform:translateX(3px);}
+
+/* ============ HEADER ============ */
+header{
+  position:fixed; top:0; left:0; right:0; z-index:500;
+  background:color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 40px; max-width:1240px; margin:0 auto;
+}
+.logo{font-family:var(--font-display); font-size:23px; font-weight:600; letter-spacing:-.01em; display:flex; align-items:center; gap:2px;}
+.logo .prime{color:var(--ink);}
+.logo .loft{color:var(--red); font-style:italic; font-weight:500;}
+.logo-dot{width:6px; height:6px; border-radius:50%; background:var(--red); margin-left:4px; margin-top:-14px;}
+nav.primary{display:flex; align-items:center; gap:2px;}
+nav.primary .navlink{
+  position:relative; padding:10px 18px; font-size:14.5px; font-weight:500; color:var(--ink-soft);
+  display:flex; align-items:center; gap:6px; border-radius:100px; transition:color .2s ease, background .2s ease;
+}
+nav.primary .navlink:hover, nav.primary .navlink.active{color:var(--ink); background:var(--bg-alt);}
+.caret{width:9px; height:9px; transition:transform .25s ease;}
+.has-mega:hover .caret{transform:rotate(180deg);}
+.header-right{display:flex; align-items:center; gap:14px;}
+.theme-toggle{
+  width:52px; height:30px; border-radius:100px; background:var(--bg-alt); border:1px solid var(--line-strong);
+  position:relative; padding:0;
+}
+.theme-toggle .knob{
+  position:absolute; top:2px; left:2px; width:24px; height:24px; border-radius:50%;
+  background:var(--ink); transition:transform .3s cubic-bezier(.65,0,.35,1), background .3s ease;
+  display:flex; align-items:center; justify-content:center;
+}
+html[data-theme="dark"] .theme-toggle .knob{transform:translateX(22px); background:var(--red);}
+.theme-toggle .knob svg{width:13px; height:13px; stroke:var(--bg);}
+.mobile-toggle{display:none; background:none; border:none; flex-direction:column; gap:4px;}
+.mobile-toggle span{width:22px; height:1.5px; background:var(--ink);}
+
+/* mega menu */
+.mega{
+  position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px);
+  width:min(880px, 92vw); background:var(--bg-raised); border:1px solid var(--line); border-radius:20px;
+  box-shadow:var(--shadow); padding:14px; opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .22s ease, transform .22s ease; display:grid; grid-template-columns:repeat(3,1fr); gap:4px;
+}
+.has-mega:hover .mega{opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0);}
+.mega a{padding:14px 16px; border-radius:12px; display:flex; gap:12px; align-items:flex-start; transition:background .2s ease;}
+.mega a:hover{background:var(--bg-alt);}
+.mega .micon{width:34px; height:34px; flex:none; border-radius:9px; background:var(--red-tint); display:flex; align-items:center; justify-content:center;}
+.mega .micon svg{width:17px; height:17px; stroke:var(--red);}
+.mega .mtitle{font-weight:600; font-size:14px; margin-bottom:3px;}
+.mega .mdesc{font-size:12.5px; color:var(--ink-faint); line-height:1.4;}
+
+/* ============ PAGES ============ */
+main{padding-top:82px;}
+.page{display:none;}
+.page.active{display:block;}
+
+/* ============ HERO ============ */
+.hero{position:relative; padding:96px 0 80px; overflow:hidden;}
+.hero-blob{position:absolute; border-radius:50%; filter:blur(70px); opacity:.35; z-index:0;}
+.blob-1{width:480px; height:480px; background:var(--red-tint); top:-160px; right:-120px;}
+.blob-2{width:360px; height:360px; background:var(--teal); opacity:.18; bottom:-140px; left:-100px;}
+.hero-inner{position:relative; z-index:1; text-align:center; max-width:880px; margin:0 auto;}
+.hero-inner .eyebrow{justify-content:center; margin-bottom:26px;}
+.hero-inner .eyebrow::before{display:none;}
+.hero h1{font-size:clamp(40px,6.4vw,78px); margin-bottom:26px;}
+.hero h1 .line{display:block; overflow:hidden;}
+.hero h1 .line span{display:inline-block;}
+.hero p.lead{font-size:18px; max-width:560px; margin:0 auto 40px; color:var(--ink-soft);}
+.hero-ctas{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+.hero-scroll{margin-top:70px; display:flex; flex-direction:column; align-items:center; gap:10px; color:var(--ink-faint); font-family:var(--font-mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;}
+.hero-scroll .stick{width:1px; height:38px; background:var(--line-strong); position:relative; overflow:hidden;}
+.hero-scroll .stick::after{content:''; position:absolute; top:-40px; left:0; width:100%; height:40%; background:var(--red); animation:scrolldrip 1.8s ease-in-out infinite;}
+@keyframes scrolldrip{ 0%{top:-40%;} 100%{top:100%;} }
+
+/* ============ EXPERTISE ============ */
+section{padding:110px 0;}
+.section-head{max-width:640px; margin-bottom:56px;}
+.section-head h2{font-size:clamp(28px,3.6vw,42px); margin-top:16px;}
+.expertise-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:20px; overflow:hidden;}
+.exp-card{background:var(--bg-raised); padding:34px 24px; transition:background .3s ease; min-height:230px; display:flex; flex-direction:column; justify-content:space-between;}
+.exp-card:hover{background:var(--bg-alt);}
+.exp-num{font-family:var(--font-mono); font-size:12px; color:var(--ink-faint);}
+.exp-icon{width:38px; height:38px; margin:18px 0 14px;}
+.exp-icon svg{width:100%; height:100%; stroke:var(--red);}
+.exp-card h3{font-size:17px; font-weight:600; font-family:var(--font-body); line-height:1.3;}
+
+/* ============ RESULTS ============ */
+.results{background:var(--ink); color:var(--bg);}
+.results p, .results .eyebrow{color:var(--ink-faint);}
+.results .section-head h2{color:var(--bg);}
+.results-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:36px; margin-top:20px;}
+.result-stat .num{font-family:var(--font-display); font-size:clamp(40px,4.5vw,58px); color:var(--red-deep); font-weight:500;}
+.result-stat p{color:rgba(250,247,242,.62); font-size:14.5px; margin-top:10px;}
+html[data-theme="dark"] .results{background:#0F0D11;}
+
+/* ============ TESTIMONIALS / STICKY NOTES ============ */
+.testi-board{position:relative; background:var(--bg-alt); border-radius:28px; padding:70px 50px; border:1px solid var(--line);}
+.testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:34px 28px;}
+.note{
+  border-radius:4px; padding:30px 26px 26px; position:relative;
+  box-shadow:0 14px 28px -14px rgba(32,30,27,.35);
+  font-family:var(--font-body); transition:transform .3s ease, box-shadow .3s ease;
+}
+.note::before{
+  content:''; position:absolute; top:-10px; left:50%; transform:translateX(-50%) rotate(var(--pin-rot,0deg));
+  width:26px; height:14px; background:rgba(255,255,255,.55); border-radius:2px;
+  box-shadow:0 2px 4px rgba(0,0,0,.15); backdrop-filter:blur(2px);
+}
+.note:hover{transform:translateY(-6px) rotate(0deg) !important; box-shadow:0 26px 40px -18px rgba(32,30,27,.4);}
+.note:nth-child(1){background:var(--note-1); transform:rotate(-3deg);}
+.note:nth-child(2){background:var(--note-2); transform:rotate(2deg);}
+.note:nth-child(3){background:var(--note-3); transform:rotate(-2deg);}
+.note:nth-child(4){background:var(--note-4); transform:rotate(3deg);}
+.note:nth-child(5){background:var(--note-2); transform:rotate(-1deg);}
+.note:nth-child(6){background:var(--note-1); transform:rotate(2.5deg);}
+.note q{color:#2A2621; font-size:15px; line-height:1.55; display:block; font-style:normal;}
+.note .who{margin-top:20px; font-family:var(--font-mono); font-size:11.5px; color:#4a4640; text-transform:uppercase; letter-spacing:.06em;}
+
+/* ============ WHY PRIMELOFT ============ */
+.why{display:grid; grid-template-columns:0.9fr 1.1fr; gap:80px; align-items:start;}
+.why-list{display:flex; flex-direction:column; margin-top:10px;}
+.why-item{padding:26px 0; border-top:1px solid var(--line); display:grid; grid-template-columns:50px 1fr; gap:20px;}
+.why-item:last-child{border-bottom:1px solid var(--line);}
+.why-item .wnum{font-family:var(--font-mono); color:var(--red); font-size:13px; padding-top:3px;}
+.why-item h3{font-size:19px; font-weight:600; font-family:var(--font-body); margin-bottom:8px;}
+
+/* ============ CTA ============ */
+.cta-section{background:var(--red-tint); border-radius:32px; margin:0 40px; padding:90px 60px; text-align:center;}
+html[data-theme="dark"] .cta-section{background:linear-gradient(160deg, var(--red-tint), var(--bg-alt));}
+.cta-section h2{font-size:clamp(30px,4.2vw,50px); max-width:800px; margin:0 auto 36px; color:var(--ink);}
+
+/* ============ FOOTER ============ */
+footer{border-top:1px solid var(--line); padding:80px 0 34px;}
+.footer-top{display:grid; grid-template-columns:1.1fr 1fr 1fr 1.2fr; gap:50px; padding-bottom:60px; border-bottom:1px solid var(--line);}
+.footer-brand .logo{margin-bottom:18px;}
+.footer-brand p{font-size:14px; max-width:260px;}
+.footer-col h4{font-family:var(--font-mono); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:16px;}
+.footer-col .addr{font-size:14px; line-height:1.7; color:var(--ink-soft);}
+.footer-col a.mail{font-size:14.5px; font-weight:600; color:var(--red); display:inline-block; margin-top:14px;}
+.cert-row{display:flex; gap:14px; margin-top:16px;}
+.cert-badge{width:52px; height:52px; border-radius:10px; background:var(--bg-alt); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; text-align:center; color:var(--ink-faint); padding:4px;}
+.newsletter form{display:flex; margin-top:16px; border:1px solid var(--line-strong); border-radius:100px; overflow:hidden;}
+.newsletter input{flex:1; border:none; background:none; padding:12px 16px; font-family:var(--font-body); font-size:13.5px; color:var(--ink); outline:none;}
+.newsletter button{padding:12px 20px; background:var(--ink); color:var(--bg); border:none; font-size:13px; font-weight:600; border-radius:100px;}
+.footer-bottom{display:flex; justify-content:space-between; align-items:center; padding-top:28px; font-size:12.5px; color:var(--ink-faint);}
+
+/* ============ SERVICES PAGE ============ */
+.page-hero{padding:70px 0 40px; text-align:center;}
+.page-hero h1{font-size:clamp(34px,5vw,58px); margin-top:18px;}
+.service-block{display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; padding:80px 0; border-top:1px solid var(--line);}
+.service-block:nth-child(even) .sb-media{order:2;}
+.sb-icon-lg{width:60px; height:60px; border-radius:16px; background:var(--red-tint); display:flex; align-items:center; justify-content:center; margin-bottom:24px;}
+.sb-icon-lg svg{width:28px; height:28px; stroke:var(--red);}
+.service-block h2{font-size:clamp(24px,2.8vw,34px); margin-bottom:16px;}
+.sb-tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:22px;}
+.sb-tags span{font-family:var(--font-mono); font-size:11.5px; padding:6px 12px; border:1px solid var(--line-strong); border-radius:100px; color:var(--ink-soft);}
+.sb-media{aspect-ratio:1/0.85; border-radius:22px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;}
+.sb-media svg{width:70%; height:70%;}
+
+/* ============ ABOUT PAGE ============ */
+.about-hero{padding:70px 0 90px;}
+.about-hero-grid{display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:end;}
+.about-stats{display:flex; gap:50px; margin-top:40px;}
+.about-stats .num{font-family:var(--font-display); font-size:38px; color:var(--red);}
+.about-stats span{display:block; font-size:12.5px; color:var(--ink-faint); margin-top:4px; max-width:120px;}
+.locations-row{display:flex; gap:14px; flex-wrap:wrap; margin-top:30px;}
+.loc-pill{font-family:var(--font-mono); font-size:12px; padding:8px 16px; border:1px solid var(--line-strong); border-radius:100px; display:flex; align-items:center; gap:8px;}
+.loc-pill::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--teal);}
+.team-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:28px;}
+.team-card{border-radius:18px; overflow:hidden; background:var(--bg-alt); border:1px solid var(--line);}
+.team-photo{aspect-ratio:1/1.05; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;}
+.team-photo svg{width:60%; height:60%;}
+.team-info{padding:18px 20px 22px;}
+.team-info h3{font-family:var(--font-body); font-size:16px; font-weight:600;}
+.team-info .role{font-size:12.5px; color:var(--red); margin-top:4px; font-weight:600;}
+.team-info .loc{font-size:12px; color:var(--ink-faint); margin-top:8px; font-family:var(--font-mono);}
+.culture-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:20px; overflow:hidden; margin-top:20px;}
+.culture-card{background:var(--bg-raised); padding:38px 30px;}
+.culture-card h3{font-size:19px; margin-bottom:12px; font-family:var(--font-body); font-weight:600;}
+
+/* ============ CONTACT PAGE ============ */
+.contact-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px;}
+.contact-info-item{padding:22px 0; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center;}
+.contact-form{display:flex; flex-direction:column; gap:18px;}
+.contact-form input, .contact-form textarea{
+  background:var(--bg-alt); border:1px solid var(--line); border-radius:12px; padding:15px 18px;
+  font-family:var(--font-body); font-size:14.5px; color:var(--ink); outline:none; transition:border-color .2s ease;
+}
+.contact-form input:focus, .contact-form textarea:focus{border-color:var(--red);}
+.contact-form textarea{min-height:130px; resize:vertical;}
+.contact-form label{font-family:var(--font-mono); font-size:11.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-faint); margin-bottom:-10px;}
+
+/* ============ REVEAL UTIL ============ */
+.reveal{opacity:0; transform:translateY(28px);}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1000px){
+  .expertise-grid{grid-template-columns:repeat(2,1fr);}
+  .results-grid{grid-template-columns:repeat(2,1fr); row-gap:40px;}
+  .testi-grid{grid-template-columns:repeat(2,1fr);}
+  .why{grid-template-columns:1fr; gap:36px;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .service-block{grid-template-columns:1fr; gap:32px;}
+  .service-block:nth-child(even) .sb-media{order:0;}
+  .about-hero-grid{grid-template-columns:1fr;}
+  .team-grid{grid-template-columns:repeat(2,1fr);}
+  .culture-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+}
+@media (max-width:720px){
+  .wrap, .nav-row{padding-left:22px; padding-right:22px;}
+  nav.primary{display:none;}
+  .mobile-toggle{display:flex;}
+  .expertise-grid, .results-grid, .testi-grid{grid-template-columns:1fr;}
+  .cta-section{margin:0 20px; padding:60px 26px;}
+  .footer-top{grid-template-columns:1fr;}
+  .team-grid{grid-template-columns:1fr 1fr;}
+  section{padding:70px 0;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-row">
+    <a href="#" class="logo" data-nav="home"><span class="prime">Prime</span><span class="loft">Loft</span><span class="logo-dot"></span></a>
+    <nav class="primary">
+      <a href="#" class="navlink" data-nav="home">Home</a>
+      <div class="has-mega" style="position:relative;">
+        <a href="#" class="navlink" data-nav="services">Services
+          <svg class="caret" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </a>
+        <div class="mega">
+          <a href="#" data-nav="services" data-anchor="s-strategy">
+            <span class="micon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V13M12 19V5M20 19V9" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            <span><span class="mtitle">Strategy &amp; Innovation</span><span class="mdesc">Roadmaps that turn ambition into a plan.</span></span>
+          </a>
+          <a href="#" data-nav="services" data-anchor="s-engineering">
+            <span class="micon"><svg viewBox="0 0 24 24" fill="none"><path d="M8 6L2 12L8 18M16 6L22 12L16 18" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span><span class="mtitle">Software Engineering</span><span class="mdesc">Resilient products, built to scale.</span></span>
+          </a>
+          <a href="#" data-nav="services" data-anchor="s-design">
+            <span class="micon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke-width="1.6"/><path d="M12 3a9 9 0 010 18" stroke-width="1.6"/></svg></span>
+            <span><span class="mtitle">Product &amp; Experience Design</span><span class="mdesc">Interfaces people actually enjoy.</span></span>
+          </a>
+          <a href="#" data-nav="services" data-anchor="s-ai">
+            <span class="micon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke-width="1.6"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            <span><span class="mtitle">AI &amp; Data</span><span class="mdesc">Intelligence embedded in the product.</span></span>
+          </a>
+          <a href="#" data-nav="services" data-anchor="s-cloud">
+            <span class="micon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 18a4 4 0 01-1-7.87A5 5 0 0116 8a4.5 4.5 0 011 8.9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span><span class="mtitle">Cloud &amp; Platform Engineering</span><span class="mdesc">Infrastructure that stays out of the way.</span></span>
+          </a>
+          <a href="#" data-nav="services" data-anchor="s-quality">
+            <span class="micon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span><span class="mtitle">Quality, Delivery &amp; Scale</span><span class="mdesc">Ship often, ship safely.</span></span>
+          </a>
+        </div>
+      </div>
+      <a href="#" class="navlink" data-nav="about">About Us</a>
+      <a href="#" class="navlink" data-nav="contact">Contact Us</a>
+    </nav>
+    <div class="header-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="knob"><svg viewBox="0 0 24 24" fill="none" id="knobIcon"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.8"/><path d="M12 1v3M12 20v3M4.2 4.2l2 2M17.8 17.8l2 2M1 12h3M20 12h3M4.2 19.8l2-2M17.8 6.2l2-2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      </button>
+      <a href="#" class="btn btn-primary" data-nav="contact" style="display:none" id="headerCta">Estimate project</a>
+      <button class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HOME PAGE ================= -->
+<section class="page active" data-page="home">
+
+  <div class="hero">
+    <div class="hero-blob blob-1"></div>
+    <div class="hero-blob blob-2"></div>
+    <div class="wrap hero-inner">
+      <div class="eyebrow" style="justify-content:center;">IT &amp; Software Development Studio</div>
+      <h1 id="heroHeading">
+        <span class="line"><span>We design &amp; build</span></span>
+        <span class="line"><span>digital commerce that <span class="script">converts</span></span></span>
+      </h1>
+      <p class="lead">PrimeLoft partners with ambitious brands to plan, engineer and scale commerce experiences — from first sketch to nine-figure revenue.</p>
+      <div class="hero-ctas">
+        <a href="#" class="btn btn-primary" data-nav="contact">Estimate project <span class="btn-arrow">→</span></a>
+        <a href="#" class="btn btn-ghost" data-nav="services">Explore services</a>
+      </div>
+      <div class="hero-scroll"><span>Scroll</span><span class="stick"></span></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">What we do</div>
+        <h2>Leverage full digital commerce expertise</h2>
+      </div>
+      <div class="expertise-grid">
+        <div class="exp-card reveal">
+          <div class="exp-num">01</div>
+          <div><div class="exp-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V13M12 19V5M20 19V9" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+          <h3>Strategy &amp; Transformation</h3></div>
+        </div>
+        <div class="exp-card reveal">
+          <div class="exp-num">02</div>
+          <div><div class="exp-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke-width="1.6"/><path d="M12 3a9 9 0 010 18" stroke-width="1.6"/></svg></div>
+          <h3>Expertise &amp; Design</h3></div>
+        </div>
+        <div class="exp-card reveal">
+          <div class="exp-num">03</div>
+          <div><div class="exp-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 9h18M3 15h18M8 4v16M16 4v16" stroke-width="1.6"/></svg></div>
+          <h3>Commerce Development</h3></div>
+        </div>
+        <div class="exp-card reveal">
+          <div class="exp-num">04</div>
+          <div><div class="exp-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke-width="1.6"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+          <h3>AI, Data &amp; Engagement</h3></div>
+        </div>
+        <div class="exp-card reveal">
+          <div class="exp-num">05</div>
+          <div><div class="exp-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 18a4 4 0 01-1-7.87A5 5 0 0116 8a4.5 4.5 0 011 8.9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Ops &amp; Managed Services</h3></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="results">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Track record</div>
+        <h2>See tangible results</h2>
+        <p style="margin-top:14px; max-width:520px;">Over the years we've built a process that delivers exceptional results with blazing-fast efficiency.</p>
+      </div>
+      <div class="results-grid">
+        <div class="result-stat reveal"><div class="num" data-count="40" data-suffix="%">0%</div><p>Growth in international &amp; GCC orders for a global retailer</p></div>
+        <div class="result-stat reveal"><div class="num" data-count="5.0" data-decimal="true">0</div><p>App rating on App Store for a major sports ecommerce platform</p></div>
+        <div class="result-stat reveal"><div class="num" data-count="60" data-suffix="%">0%</div><p>More user engagement with hyper-personalization for a US proptech</p></div>
+        <div class="result-stat reveal"><div class="num" data-count="21" data-suffix="%">0%</div><p>Higher conversion for a top global marketplace</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal" style="margin:0 auto 50px; text-align:center;">
+        <div class="eyebrow" style="justify-content:center;">Testimonials</div>
+        <h2>Check our clients' words</h2>
+      </div>
+      <div class="testi-board reveal">
+        <div class="testi-grid">
+          <div class="note" style="--pin-rot:-6deg"><q>"PrimeLoft rebuilt our checkout in six weeks — conversion hasn't dipped since launch."</q><div class="who">— Head of Digital, Retail Group</div></div>
+          <div class="note" style="--pin-rot:5deg"><q>"They think like founders, not vendors. Every recommendation tied back to revenue."</q><div class="who">— VP Product, Proptech Platform</div></div>
+          <div class="note" style="--pin-rot:-3deg"><q>"The AI personalization engine paid for itself in the first quarter."</q><div class="who">— CMO, Sports Ecommerce</div></div>
+          <div class="note" style="--pin-rot:4deg"><q>"Fastest, calmest engineering team we've worked with. Zero drama launches."</q><div class="who">— CTO, Global Marketplace</div></div>
+          <div class="note" style="--pin-rot:-4deg"><q>"They rebuilt our design system and our whole brand felt sharper overnight."</q><div class="who">— Design Director, DTC Brand</div></div>
+          <div class="note" style="--pin-rot:3deg"><q>"Managed services team quietly keeps everything running. Best kind of partner."</q><div class="who">— Ops Lead, GCC Retailer</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap why">
+      <div class="reveal">
+        <div class="eyebrow">Why PrimeLoft</div>
+        <h2 style="margin-top:16px; font-size:clamp(28px,3.4vw,40px);">A studio built around outcomes, not deliverables</h2>
+        <p style="margin-top:18px;">We embed with your team, learn the commerce metrics that matter, and stay accountable to them long after launch day. No handoffs into a black box — just steady, senior craft from strategy through to scale.</p>
+      </div>
+      <div class="why-list reveal">
+        <div class="why-item"><div class="wnum">01</div><div><h3>Senior teams, from day one</h3><p>No juniors learning on your budget — every engagement is led by people who've shipped this before.</p></div></div>
+        <div class="why-item"><div class="wnum">02</div><div><h3>Commerce-native thinking</h3><p>We understand margin, AOV and retention as well as we understand code.</p></div></div>
+        <div class="why-item"><div class="wnum">03</div><div><h3>Built to hand over</h3><p>Clean, documented systems your internal team can actually own.</p></div></div>
+        <div class="why-item"><div class="wnum">04</div><div><h3>Measured, not marketed</h3><p>We report the numbers that moved — good, bad, or in-between.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta-section reveal">
+        <div class="eyebrow" style="justify-content:center;">Let's build</div>
+        <h2>Design, build, and scale digital commerce solutions that drive revenue and operational excellence</h2>
+        <a href="#" class="btn btn-primary" data-nav="contact">Estimate project <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+</section>
+
+<!-- ================= SERVICES PAGE ================= -->
+<section class="page" data-page="services">
+  <div class="wrap page-hero">
+    <div class="eyebrow" style="justify-content:center;">What we do</div>
+    <h1>Six disciplines. <span class="script">One</span> studio.</h1>
+    <p style="max-width:560px; margin:20px auto 0;">Every engagement draws from the same senior bench — pick one discipline or lean on all six.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="service-block" id="s-strategy">
+      <div>
+        <div class="sb-icon-lg"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V13M12 19V5M20 19V9" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h2>Strategy &amp; Innovation</h2>
+        <p>We turn ambiguous ambition into a sequenced roadmap — market position, platform choice, and a build plan your board can sign off on.</p>
+        <div class="sb-tags"><span>Discovery</span><span>Roadmapping</span><span>Platform selection</span><span>Innovation labs</span></div>
+      </div>
+      <div class="sb-media" style="background:var(--red-tint);">
+        <svg viewBox="0 0 200 160" fill="none"><path d="M20 130 L60 80 L100 100 L140 40 L180 60" stroke="var(--red)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="180" cy="60" r="6" fill="var(--red)"/><circle cx="140" cy="40" r="6" fill="var(--red)"/><circle cx="100" cy="100" r="6" fill="var(--red)"/><circle cx="60" cy="80" r="6" fill="var(--red)"/><circle cx="20" cy="130" r="6" fill="var(--red)"/></svg>
+      </div>
+    </div>
+
+    <div class="service-block" id="s-engineering">
+      <div class="sb-media" style="background:var(--bg-alt);">
+        <svg viewBox="0 0 200 160" fill="none"><path d="M70 40L30 80L70 120M130 40L170 80L130 120" stroke="var(--red)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M110 30L90 130" stroke="var(--gold)" stroke-width="3" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <div class="sb-icon-lg"><svg viewBox="0 0 24 24" fill="none"><path d="M8 6L2 12L8 18M16 6L22 12L16 18" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h2>Software Engineering</h2>
+        <p>Full-stack teams building commerce platforms, storefronts and internal tools that hold up under real traffic and change gracefully.</p>
+        <div class="sb-tags"><span>Web &amp; mobile</span><span>Headless commerce</span><span>API architecture</span><span>Legacy modernization</span></div>
+      </div>
+    </div>
+
+    <div class="service-block" id="s-design">
+      <div>
+        <div class="sb-icon-lg"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke-width="1.6"/><path d="M12 3a9 9 0 010 18" stroke-width="1.6"/></svg></div>
+        <h2>Product &amp; Experience Design</h2>
+        <p>Research-led design that reduces friction across the whole journey — from first ad click to repeat purchase.</p>
+        <div class="sb-tags"><span>UX research</span><span>Design systems</span><span>Conversion design</span><span>Prototyping</span></div>
+      </div>
+      <div class="sb-media" style="background:var(--red-tint);">
+        <svg viewBox="0 0 200 160" fill="none"><rect x="30" y="30" width="60" height="100" rx="10" stroke="var(--red)" stroke-width="3"/><rect x="110" y="50" width="60" height="60" rx="10" stroke="var(--gold)" stroke-width="3"/></svg>
+      </div>
+    </div>
+
+    <div class="service-block" id="s-ai">
+      <div class="sb-media" style="background:var(--bg-alt);">
+        <svg viewBox="0 0 200 160" fill="none"><circle cx="100" cy="80" r="16" stroke="var(--red)" stroke-width="3"/><path d="M100 20v30M100 110v30M40 80h30M130 80h30M60 40l21 21M119 119l21 21M60 120l21-21M119 41l21-21" stroke="var(--red)" stroke-width="2.5" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <div class="sb-icon-lg"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke-width="1.6"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h2>AI &amp; Data</h2>
+        <p>Personalization, forecasting and recommendation engines built on data foundations your team can trust and extend.</p>
+        <div class="sb-tags"><span>Personalization</span><span>ML pipelines</span><span>Data platforms</span><span>LLM integration</span></div>
+      </div>
+    </div>
+
+    <div class="service-block" id="s-cloud">
+      <div>
+        <div class="sb-icon-lg"><svg viewBox="0 0 24 24" fill="none"><path d="M7 18a4 4 0 01-1-7.87A5 5 0 0116 8a4.5 4.5 0 011 8.9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h2>Cloud &amp; Platform Engineering</h2>
+        <p>Infrastructure, CI/CD and observability that scale quietly under peak sale traffic — built once, trusted forever.</p>
+        <div class="sb-tags"><span>AWS / GCP / Azure</span><span>DevOps</span><span>Infra as code</span><span>Reliability</span></div>
+      </div>
+      <div class="sb-media" style="background:var(--red-tint);">
+        <svg viewBox="0 0 200 160" fill="none"><path d="M60 100a24 24 0 01-6-47 32 32 0 0162-9 26 26 0 0128 44" stroke="var(--red)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+
+    <div class="service-block" id="s-quality" style="border-bottom:1px solid var(--line);">
+      <div class="sb-media" style="background:var(--bg-alt);">
+        <svg viewBox="0 0 200 160" fill="none"><path d="M40 90l35 35L165 45" stroke="var(--red)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <div class="sb-icon-lg"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h2>Quality, Delivery &amp; Scale</h2>
+        <p>QA, release management and performance engineering so your team can ship often without ever holding its breath.</p>
+        <div class="sb-tags"><span>Test automation</span><span>Performance</span><span>Release management</span><span>Load testing</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="cta-section reveal">
+        <div class="eyebrow" style="justify-content:center;">Let's build</div>
+        <h2>Not sure which discipline you need? We'll help you scope it.</h2>
+        <a href="#" class="btn btn-primary" data-nav="contact">Estimate project <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ================= ABOUT PAGE ================= -->
+<section class="page" data-page="about">
+  <div class="wrap about-hero">
+    <div class="about-hero-grid">
+      <div class="reveal">
+        <div class="eyebrow">About PrimeLoft</div>
+        <h1 style="font-size:clamp(32px,4.6vw,52px); margin-top:16px;">A studio of <span class="script">senior</span> builders, spread across three offices</h1>
+      </div>
+      <div class="reveal">
+        <p>PrimeLoft started as a two-person freelance practice and grew into a full digital commerce studio without ever losing the habit of showing up like it's still just the two of us. We keep teams small, senior and close to the outcome.</p>
+        <div class="about-stats">
+          <div><div class="num">54</div><span>People across engineering, design &amp; strategy</span></div>
+          <div><div class="num">9</div><span>Years building commerce platforms</span></div>
+          <div><div class="num">3</div><span>Studio locations</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="locations-row reveal">
+      <div class="loc-pill">Poznań, Poland</div>
+      <div class="loc-pill">Amsterdam, Netherlands</div>
+      <div class="loc-pill">Dubai, UAE</div>
+    </div>
+  </div>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">The team</div>
+        <h2>The people behind the work</h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="team-photo" style="background:var(--note-1);"><svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="38" r="18" stroke="#2A2621" stroke-width="2.5"/><path d="M18 90c4-22 20-32 32-32s28 10 32 32" stroke="#2A2621" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="team-info"><h3>Adam Nowak</h3><div class="role">Founder &amp; CEO</div><div class="loc">Poznań, PL</div></div>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-photo" style="background:var(--note-4);"><svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="38" r="18" stroke="#221F2E" stroke-width="2.5"/><path d="M18 90c4-22 20-32 32-32s28 10 32 32" stroke="#221F2E" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="team-info"><h3>Layla Haddad</h3><div class="role">Head of Design</div><div class="loc">Dubai, UAE</div></div>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-photo" style="background:var(--note-3);"><svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="38" r="18" stroke="#1E2E27" stroke-width="2.5"/><path d="M18 90c4-22 20-32 32-32s28 10 32 32" stroke="#1E2E27" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="team-info"><h3>Sofia van Dijk</h3><div class="role">VP Engineering</div><div class="loc">Amsterdam, NL</div></div>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-photo" style="background:var(--note-2);"><svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="38" r="18" stroke="#332420" stroke-width="2.5"/><path d="M18 90c4-22 20-32 32-32s28 10 32 32" stroke="#332420" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <div class="team-info"><h3>Omar Farouk</h3><div class="role">Director, AI &amp; Data</div><div class="loc">Dubai, UAE</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">How we work</div>
+        <h2>Culture, in three parts</h2>
+      </div>
+      <div class="culture-grid">
+        <div class="culture-card reveal"><h3>Senior by default</h3><p>Every project is staffed by people who could run it solo — collaboration is a choice, not a crutch.</p></div>
+        <div class="culture-card reveal"><h3>Async-first, always close</h3><p>Distributed across three time zones, but never more than a day from an answer.</p></div>
+        <div class="culture-card reveal"><h3>Craft over churn</h3><p>We'd rather keep a client for five years than land ten logos for a case study slide.</p></div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ================= CONTACT PAGE ================= -->
+<section class="page" data-page="contact">
+  <div class="wrap page-hero">
+    <div class="eyebrow" style="justify-content:center;">Get in touch</div>
+    <h1>Tell us what you're <span class="script">building</span></h1>
+    <p style="max-width:520px; margin:20px auto 0;">Share a few details and a senior partner will reply within one business day.</p>
+  </div>
+  <section style="padding-top:20px;">
+    <div class="wrap contact-grid">
+      <div class="reveal">
+        <div class="contact-info-item"><span style="color:var(--ink-faint); font-family:var(--font-mono); font-size:12px; text-transform:uppercase;">Email</span><span style="font-weight:600;">hello@primeloft.com</span></div>
+        <div class="contact-info-item"><span style="color:var(--ink-faint); font-family:var(--font-mono); font-size:12px; text-transform:uppercase;">Studios</span><span style="font-weight:600;">Poznań · Amsterdam · Dubai</span></div>
+        <div class="contact-info-item"><span style="color:var(--ink-faint); font-family:var(--font-mono); font-size:12px; text-transform:uppercase;">Response time</span><span style="font-weight:600;">Within 1 business day</span></div>
+      </div>
+      <div class="contact-form reveal">
+        <label>Name</label>
+        <input type="text" placeholder="Your name">
+        <label>Work email</label>
+        <input type="email" placeholder="you@company.com">
+        <label>Project details</label>
+        <textarea placeholder="What are you looking to build?"></textarea>
+        <button class="btn btn-primary" style="align-self:flex-start; border:none; margin-top:6px;">Send message <span class="btn-arrow">→</span></button>
+      </div>
+    </div>
+  </section>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo"><span class="prime">Prime</span><span class="loft">Loft</span></div>
+        <p>A digital commerce studio designing, building and scaling revenue-driving platforms.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Studio</h4>
+        <div class="addr">PrimeLoft S.A.<br>Nowe Garbary Office Center<br>ul. Małe Garbary 9<br>61-756 Poznań, Poland<br><br>VAT-ID: PL7781454968<br>REGON: 300826280<br>KRS: 0000745671</div>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="addr">General inquiries</div>
+        <a href="mailto:hello@primeloft.com" class="mail">hello@primeloft.com</a>
+        <h4 style="margin-top:26px;">Certificates</h4>
+        <div class="cert-row">
+          <div class="cert-badge">B Corp</div>
+          <div class="cert-badge">TÜV Nord</div>
+        </div>
+      </div>
+      <div class="footer-col newsletter">
+        <h4>Next in Commerce Newsletter</h4>
+        <div class="addr">Trends &amp; insights for commerce leaders</div>
+        <form onsubmit="return false;">
+          <input type="email" placeholder="Your email address">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PrimeLoft S.A. All rights reserved.</span>
+      <span>Poznań · Amsterdam · Dubai</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ---------- Theme toggle ----------
+const root = document.documentElement;
+document.getElementById('themeToggle').addEventListener('click', ()=>{
+  const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  root.setAttribute('data-theme', next);
+});
+
+// ---------- Page routing ----------
+const pages = document.querySelectorAll('.page');
+const navlinks = document.querySelectorAll('[data-nav]');
+function goTo(name, anchor){
+  pages.forEach(p=> p.classList.toggle('active', p.dataset.page === name));
+  document.querySelectorAll('nav.primary .navlink').forEach(l=> l.classList.toggle('active', l.dataset.nav === name));
+  window.scrollTo({top:0});
+  if(anchor){
+    setTimeout(()=>{
+      const el = document.getElementById(anchor);
+      if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); }
+    }, 60);
+  }
+  refreshReveal();
+}
+navlinks.forEach(l=>{
+  l.addEventListener('click', (e)=>{
+    e.preventDefault();
+    goTo(l.dataset.nav, l.dataset.anchor);
+  });
+});
+
+// ---------- Mobile menu (simple) ----------
+document.getElementById('mobileToggle').addEventListener('click', ()=>{
+  const nav = document.querySelector('nav.primary');
+  nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+  nav.style.position='absolute'; nav.style.top='100%'; nav.style.left='0'; nav.style.right='0';
+  nav.style.flexDirection='column'; nav.style.background='var(--bg-raised)'; nav.style.padding='16px';
+  nav.style.borderTop='1px solid var(--line)';
+});
+
+// ---------- GSAP ----------
+gsap.registerPlugin(ScrollTrigger);
+
+// Hero stagger
+gsap.to('.hero h1 .line span', {
+  y:0, opacity:1, duration:1, ease:'power4.out', stagger:0.14, delay:0.2,
+  onStart:function(){ gsap.set('.hero h1 .line span', {y:'110%', opacity:0}); this.progress(0); }
+});
+gsap.set('.hero h1 .line span', {y:'110%', opacity:0});
+gsap.to('.hero h1 .line span', {y:0, opacity:1, duration:1, ease:'power4.out', stagger:0.14, delay:0.15});
+gsap.fromTo('.hero-inner .eyebrow', {opacity:0, y:14}, {opacity:1, y:0, duration:.8, delay:.05});
+gsap.fromTo('.hero-inner p.lead, .hero-ctas, .hero-scroll', {opacity:0, y:16}, {opacity:1, y:0, duration:.8, stagger:.12, delay:.75});
+gsap.fromTo('.hero-blob', {opacity:0, scale:.8}, {opacity:.35, scale:1, duration:1.6, ease:'power2.out'});
+
+// Counter animation
+document.querySelectorAll('.result-stat .num').forEach(el=>{
+  const target = parseFloat(el.dataset.count);
+  const suffix = el.dataset.suffix || '';
+  const decimal = el.dataset.decimal === 'true';
+  ScrollTrigger.create({
+    trigger: el, start:'top 85%', once:true,
+    onEnter:()=>{
+      let obj = {v:0};
+      gsap.to(obj, {v:target, duration:1.6, ease:'power2.out', onUpdate:()=>{
+        el.textContent = (decimal ? obj.v.toFixed(1) : Math.round(obj.v)) + suffix;
+      }});
+    }
+  });
+});
+
+// Generic scroll reveal
+function refreshReveal(){
+  gsap.utils.toArray('.reveal').forEach(el=>{
+    if(el._revealed) return;
+    ScrollTrigger.create({
+      trigger: el, start:'top 88%', once:true,
+      onEnter:()=>{
+        gsap.to(el, {opacity:1, y:0, duration:.9, ease:'power3.out'});
+        el._revealed = true;
+      }
+    });
+  });
+  ScrollTrigger.refresh();
+}
+refreshReveal();
+</script>
+</body>
+</html>
