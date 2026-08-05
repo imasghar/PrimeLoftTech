@@ -1241,7 +1241,7 @@ footer {
   .results-grid { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
   .testi-grid { grid-template-columns: repeat(2, 1fr); }
   .why { grid-template-columns: 1fr; gap: 36px; }
-  .footer-top { grid-template-columns: 1fr 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
   .service-block { grid-template-columns: 1fr; gap: 32px; }
   .service-block:nth-child(even) .sb-media { order: 0; }
   .about-hero-grid { grid-template-columns: 1fr; }
@@ -1251,8 +1251,44 @@ footer {
 }
 
 @media (max-width: 720px) {
-  .wrap, .nav-row { padding-left: 22px; padding-right: 22px; }
-  .header-right .btn { display: none !important; }
+  /* Prevent Any Horizontal Overflow */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+
+  .wrap, .nav-row {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  main {
+    padding-top: 72px;
+  }
+
+  section {
+    padding: 50px 0 !important;
+  }
+
+  /* Header & Mobile Toggle */
+  .header-right .btn {
+    display: none !important;
+  }
+
+  .mobile-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+  }
+
   nav.primary {
     display: none;
     position: absolute;
@@ -1261,16 +1297,17 @@ footer {
     right: 0;
     flex-direction: column;
     background: var(--bg-raised);
-    padding: 18px 22px;
+    padding: 18px 20px;
     border-top: 1px solid var(--line);
     box-shadow: var(--shadow);
     max-height: 85vh;
     overflow-y: auto;
     gap: 8px;
+    z-index: 999;
   }
 
   nav.primary.active {
-    display: flex;
+    display: flex !important;
   }
 
   nav.primary .navlink {
@@ -1284,7 +1321,7 @@ footer {
     width: 100%;
   }
 
-  /* Mobile Mega Menu - Clean Inline Stack */
+  /* Mobile Mega Menu */
   .mega {
     position: static;
     transform: none;
@@ -1324,17 +1361,105 @@ footer {
     font-size: 13.5px;
   }
 
-/* ============ MAP CONTAINER & STYLING ============ */
-/* ============ VECTOR MAP (ZERO THIRD-PARTY COOKIES) ============ */
-.map-card {
-  border-radius: 24px;
-  overflow: hidden;
-  background: var(--bg-raised);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
+  /* Hero Section Mobile */
+  .hero {
+    padding: 24px 0 !important;
+  }
+
+  .hero-inner {
+    padding: 32px 18px !important;
+    border-radius: 20px !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 7vw, 42px) !important;
+    margin-bottom: 16px !important;
+  }
+
+  .hero p.lead {
+    font-size: 15px !important;
+    margin-bottom: 24px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Sticky Notes / Testimonials Mobile Fix */
+  .testi-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .testi-card {
+    min-height: auto !important;
+    padding: 26px 20px !important;
+  }
+
+  /* Grids Collapse to Single Column */
+  .expertise-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Footer Mobile Fix */
+  footer {
+    padding: 40px 0 24px !important;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .footer-brand p {
+    max-width: 100% !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    text-align: left !important;
+    padding-top: 20px !important;
+  }
+
+  .footer-bottom span {
+    display: block;
+    width: 100%;
+    line-height: 1.6;
+  }
 }
 
-/* ============ STUDIO HEADQUARTERS CARD & INFO BANNER ============ */
+@media (max-width: 480px) {
+  .newsletter form {
+    flex-direction: column;
+    border-radius: 16px;
+    gap: 8px;
+    border: none;
+    background: transparent;
+  }
+
+  .newsletter input {
+    border: 1px solid var(--line-strong);
+    border-radius: 100px;
+    background: var(--bg-alt);
+    width: 100%;
+  }
+
+  .newsletter button {
+    width: 100%;
+    justify-content: center;
+    border-radius: 100px;
+  }
+}
+
+/* ============ STUDIO HEADQUARTERS CARD & MAP ============ */
 .hq-card {
   background: var(--bg-raised);
   border: 1px solid var(--line-strong);
@@ -1447,34 +1572,6 @@ footer {
     padding: 24px 20px;
   }
   .hq-map-wrapper {
-    height: 280px;
-  }
-}  font-weight: 600;
-}
-
-.map-info-col strong {
-  font-family: var(--font-body);
-  font-size: 16px;
-  color: var(--ink);
-}
-
-.map-info-col span {
-  font-size: 13.5px;
-  color: var(--ink-soft);
-}
-
-.map-link {
-  font-size: 13.5px;
-  color: var(--ink-soft);
-  transition: color .2s ease;
-}
-
-.map-link:hover {
-  color: var(--red);
-}
-
-@media (max-width: 720px) {
-  .map-wrapper {
     height: 280px;
   }
 }

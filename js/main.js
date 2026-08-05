@@ -49,8 +49,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const primaryNav = document.querySelector('nav.primary');
 
   if (mobileToggleBtn && primaryNav) {
-    mobileToggleBtn.addEventListener('click', () => {
-      primaryNav.classList.toggle('active');
+    mobileToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isActive = primaryNav.classList.toggle('active');
+      mobileToggleBtn.setAttribute('aria-expanded', String(isActive));
+    });
+
+    // Close menu when clicking links (except mega menu accordion parent)
+    primaryNav.querySelectorAll('.navlink:not(.has-mega > .navlink)').forEach(link => {
+      link.addEventListener('click', () => {
+        primaryNav.classList.remove('active');
+        mobileToggleBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!primaryNav.contains(e.target) && !mobileToggleBtn.contains(e.target)) {
+        primaryNav.classList.remove('active');
+        mobileToggleBtn.setAttribute('aria-expanded', 'false');
+      }
     });
   }
 
