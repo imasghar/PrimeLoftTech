@@ -198,4 +198,65 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // ---------- 6. FORMSPREE AJAX SUBMISSION HANDLER ----------
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('btnSubmitContact');
+      const status = document.getElementById('formStatus');
+
+      if (btn) {
+        btn.disabled = true;
+        btn.style.opacity = '0.7';
+      }
+
+      if (status) {
+        status.style.display = 'block';
+        status.style.background = 'var(--bg-alt)';
+        status.style.color = 'var(--ink)';
+        status.textContent = 'Sending your message...';
+      }
+
+      try {
+        const formData = new FormData(contactForm);
+        const endpoint = contactForm.getAttribute('action') || 'https://formspree.io/f/xeajqqoy';
+
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          if (status) {
+            status.style.background = 'rgba(37, 211, 102, 0.15)';
+            status.style.color = '#25D366';
+            status.style.border = '1px solid rgba(37, 211, 102, 0.3)';
+            status.textContent = 'Thank you! Your message has been sent successfully. We will reply within 1 business day.';
+          }
+          contactForm.reset();
+          analyticsService.trackFormSubmission('contactForm');
+        } else {
+          const result = await response.json();
+          throw new Error(result.errors ? result.errors.map(err => err.message).join(', ') : 'Submission failed');
+        }
+      } catch (error) {
+        if (status) {
+          status.style.background = 'rgba(239, 78, 56, 0.15)';
+          status.style.color = 'var(--red)';
+          status.style.border = '1px solid rgba(239, 78, 56, 0.3)';
+          status.textContent = 'Oops! There was an issue sending your message. Please try again or email contact@primeloft.tech directly.';
+        }
+      } finally {
+        if (btn) {
+          btn.disabled = false;
+          btn.style.opacity = '1';
+        }
+      }
+    });
+  }
+
 });

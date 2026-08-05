@@ -1,8 +1,11 @@
 /**
  * PrimeLoft Tech - Central Application & Tracking Configuration
- * Contains environment placeholders for GTM, GA4, Clarity, Meta Pixel, LinkedIn Insight Tag, and Turnstile.
+ * Contains environment placeholders for GTM, GA4, Clarity, Meta Pixel, LinkedIn Insight Tag, Turnstile, and Formspree.
  */
 export const CONFIG = {
+  // Formspree Integration Endpoint
+  FORMSPREE_ENDPOINT: 'https://formspree.io/f/xeajqqoy',
+
   // Consent Management Configuration
   CONSENT_KEY: 'primeloft_cookie_consent_v1',
   CONSENT_VERSION: 1,
