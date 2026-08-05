@@ -262,10 +262,12 @@
         <div class="footer-col newsletter">
           <h3 class="footer-title">Next in Commerce Newsletter</h3>
           <div class="addr">Trends &amp; insights for commerce leaders</div>
-          <form aria-label="Newsletter Subscription" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
-            <input type="email" id="nl-email-services" aria-label="Your email address" placeholder="Your email address" required>
+          <form class="newsletterForm" action="https://formspree.io/f/xeajqqoy" method="POST" aria-label="Newsletter Subscription">
+            <input type="hidden" name="_subject" value="New Newsletter Subscription - PrimeLoft Tech">
+            <input type="email" name="email" id="nl-email-services" aria-label="Your email address" placeholder="Your email address" required>
             <button type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
           </form>
+          <div class="newsletterStatus" style="display:none; margin-top:8px; font-size:12.5px; font-weight:600;"></div>
         </div>
       </div>
       <div class="footer-bottom">

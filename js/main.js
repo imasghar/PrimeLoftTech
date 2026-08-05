@@ -259,4 +259,51 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ---------- 7. NEWSLETTER FORMSPREE SUBMISSION HANDLER ----------
+  document.querySelectorAll('.newsletterForm').forEach(form => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      const status = form.nextElementSibling;
+
+      if (btn) btn.disabled = true;
+      if (status && status.classList.contains('newsletterStatus')) {
+        status.style.display = 'block';
+        status.style.color = 'var(--ink-soft)';
+        status.textContent = 'Subscribing...';
+      }
+
+      try {
+        const formData = new FormData(form);
+        const endpoint = form.getAttribute('action') || 'https://formspree.io/f/xeajqqoy';
+
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          if (status && status.classList.contains('newsletterStatus')) {
+            status.style.color = '#25D366';
+            status.textContent = '✓ Subscribed successfully!';
+          }
+          form.reset();
+          if (analyticsService) {
+            analyticsService.pushEvent('newsletter_subscribed');
+          }
+        } else {
+          throw new Error('Subscription failed');
+        }
+      } catch (err) {
+        if (status && status.classList.contains('newsletterStatus')) {
+          status.style.color = 'var(--red)';
+          status.textContent = 'Failed to subscribe. Please try again.';
+        }
+      } finally {
+        if (btn) btn.disabled = false;
+      }
+    });
+  });
+
 });
