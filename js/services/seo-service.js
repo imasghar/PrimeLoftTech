@@ -29,7 +29,7 @@ export class SeoService {
         "availableLanguage": ["English"]
       },
       "sameAs": [
-        "https://www.linkedin.com/company/primeloft-tech",
+        "https://www.linkedin.com/company/primloft/",
         "https://www.facebook.com/primelofttech",
         "https://wa.me/923359873132"
       ]
