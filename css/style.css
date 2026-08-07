@@ -210,17 +210,18 @@ header {
   height: 38px;
   width: auto;
   object-fit: contain;
-  display: block;
 }
 
-html[data-theme="light"] .logo-img-dark {
-  display: none !important;
-}
-
-html[data-theme="light"] .logo-img-light {
+/* Default: Light mode logo active, Dark mode logo hidden */
+.logo-img-light {
   display: block !important;
 }
 
+.logo-img-dark {
+  display: none !important;
+}
+
+/* Dark mode override */
 html[data-theme="dark"] .logo-img-light {
   display: none !important;
 }
