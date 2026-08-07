@@ -206,71 +206,27 @@ header {
   text-decoration: none;
 }
 
-.brand-icon {
-  width: 32px;
-  height: 35px;
-  flex-shrink: 0;
+.logo-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
-.brand-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
+html[data-theme="light"] .logo-img-dark {
+  display: none !important;
 }
 
-.brand-name {
-  font-family: var(--font-body);
-  font-size: 21px;
-  font-weight: 800;
-  font-style: italic;
-  letter-spacing: -.02em;
-  display: flex;
-  align-items: baseline;
+html[data-theme="light"] .logo-img-light {
+  display: block !important;
 }
 
-.brand-name .prime {
-  color: var(--ink);
+html[data-theme="dark"] .logo-img-light {
+  display: none !important;
 }
 
-.brand-name .loft {
-  color: var(--red);
-  font-weight: 700;
-}
-
-.brand-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--red);
-  display: inline-block;
-  margin-left: 2px;
-}
-
-.brand-sub {
-  font-family: var(--font-mono);
-  font-size: 8px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  color: var(--ink-soft);
-  text-transform: uppercase;
-  margin-top: 3px;
-}
-
-/* Standalone Icon P badge */
-.icon-p-badge {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: var(--bg-alt);
-  border: 1px solid var(--line);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.icon-p-badge svg {
-  width: 24px;
-  height: 26px;
+html[data-theme="dark"] .logo-img-dark {
+  display: block !important;
 }
 
 
