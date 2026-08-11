@@ -938,6 +938,15 @@ html[data-theme="dark"] .cta-section {
   height: 60%;
 }
 
+.team-photo img,
+.team-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
 .team-info {
   padding: 18px 20px 22px;
 }
