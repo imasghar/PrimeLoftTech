@@ -426,9 +426,12 @@ section {
 .hero-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(70px);
+  filter: blur(60px);
   opacity: .35;
   z-index: 0;
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
 }
 
 .blob-1 {
