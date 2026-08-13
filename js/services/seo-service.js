@@ -6,10 +6,25 @@ import { CONFIG } from './config.js';
 
 export class SeoService {
   static init() {
+    this.ensureSelfReferencingCanonical();
     this.injectOrganizationSchema();
     if (window.location.pathname.includes('contact') || window.location.pathname.includes('about')) {
       this.injectLocalBusinessSchema();
     }
+  }
+
+  static ensureSelfReferencingCanonical() {
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    // On 404 pages or noindex pages, do not force canonical
+    if (document.querySelector('meta[name="robots"][content*="noindex"]')) return;
+
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.rel = 'canonical';
+      document.head.appendChild(canonicalLink);
+    }
+    const cleanUrl = window.location.origin + window.location.pathname;
+    canonicalLink.href = cleanUrl;
   }
 
   static injectOrganizationSchema() {
