@@ -36,8 +36,14 @@
   <header>
     <div class="nav-row">
       <a href="index.html" class="logo-brand" aria-label="PrimeLoft Software Solutions">
-        <img src="images/logo-light.png" class="logo-img logo-img-light" alt="PrimeLoft Software Solutions">
-        <img src="images/logo-dark.png" class="logo-img logo-img-dark" alt="PrimeLoft Software Solutions">
+        <picture class="logo-img logo-img-light">
+          <source srcset="images/logo-light.webp" type="image/webp">
+          <img src="images/logo-light.png" class="logo-img" alt="PrimeLoft Software Solutions" width="200" height="66">
+        </picture>
+        <picture class="logo-img logo-img-dark">
+          <source srcset="images/logo-dark.webp" type="image/webp">
+          <img src="images/logo-dark.png" class="logo-img" alt="PrimeLoft Software Solutions" width="200" height="66">
+        </picture>
       </a>
       <nav class="primary">
         <a href="index.html" class="navlink active">Home</a>
@@ -247,8 +253,14 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="index.html" class="logo-brand" aria-label="PrimeLoft Software Solutions">
-            <img src="images/logo-light.png" class="logo-img logo-img-light" alt="PrimeLoft Software Solutions">
-            <img src="images/logo-dark.png" class="logo-img logo-img-dark" alt="PrimeLoft Software Solutions">
+            <picture class="logo-img logo-img-light">
+              <source srcset="images/logo-light.webp" type="image/webp">
+              <img src="images/logo-light.png" class="logo-img" alt="PrimeLoft Software Solutions" width="200" height="66" loading="lazy">
+            </picture>
+            <picture class="logo-img logo-img-dark">
+              <source srcset="images/logo-dark.webp" type="image/webp">
+              <img src="images/logo-dark.png" class="logo-img" alt="PrimeLoft Software Solutions" width="200" height="66" loading="lazy">
+            </picture>
           </a>
           <p style="margin-top:14px;">A digital commerce studio designing, building and scaling revenue-driving platforms.</p>
         </div>
