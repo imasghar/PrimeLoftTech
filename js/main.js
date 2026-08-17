@@ -31,6 +31,24 @@ document.addEventListener('DOMContentLoaded', () => {
   analyticsService.init();
   CookieConsentUI.init();
 
+  // ---------- 1B. INSTANT NATIVE REVEAL ANIMATIONS (0ms CDN DELAY) ----------
+  document.documentElement.classList.add('js');
+  const revealElements = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px 60px 0px' });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  } else {
+    revealElements.forEach(el => el.classList.add('visible'));
+  }
+
   // ---------- 2. THEME TOGGLE ----------
   const root = document.documentElement;
   const themeToggleBtn = document.getElementById('themeToggle');
