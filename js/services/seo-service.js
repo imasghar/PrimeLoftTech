@@ -45,7 +45,7 @@ export class SeoService {
       },
       "sameAs": [
         "https://www.linkedin.com/company/primloft/",
-        "https://www.facebook.com/primelofttech",
+        "https://www.facebook.com/share/1UUv6vvFdu/",
         "https://wa.me/923359873132"
       ]
     };
