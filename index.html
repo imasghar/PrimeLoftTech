@@ -31,6 +31,76 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   <link rel="stylesheet" href="css/style.css?v=1.0.1">
   <script type="module" src="js/main.js" defer></script>
+  <!-- Google Sitelinks & Entity Structured Data -->
+  <script type="application/ld+json" id="org-schema">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://primeloft.tech/#website",
+        "url": "https://primeloft.tech/",
+        "name": "PrimeLoft",
+        "alternateName": ["PrimeLoft Tech", "PrimeLoft Software Solutions"],
+        "description": "Digital commerce and software development studio engineering high-converting platforms.",
+        "publisher": {
+          "@id": "https://primeloft.tech/#organization"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://primeloft.tech/#organization",
+        "name": "PrimeLoft Tech",
+        "url": "https://primeloft.tech/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://primeloft.tech/images/favicon-192x192.png",
+          "width": 192,
+          "height": 192
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+923359873132",
+          "contactType": "customer service",
+          "email": "contact@primeloft.tech",
+          "availableLanguage": ["English"]
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/primloft/",
+          "https://www.facebook.com/share/1UUv6vvFdu/",
+          "https://wa.me/923359873132"
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "Main Navigation",
+        "itemListElement": [
+          {
+            "@type": "SiteNavigationElement",
+            "position": 1,
+            "name": "About Us",
+            "description": "Meet the team and engineering culture behind PrimeLoft digital commerce studio.",
+            "url": "https://primeloft.tech/about.html"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 2,
+            "name": "Services",
+            "description": "Explore software engineering, design, AI & cloud commerce solutions.",
+            "url": "https://primeloft.tech/services.html"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 3,
+            "name": "Contact Us",
+            "description": "Get in touch to estimate and build your digital commerce platform.",
+            "url": "https://primeloft.tech/contact.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
