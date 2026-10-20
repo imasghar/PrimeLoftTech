@@ -273,6 +273,12 @@ footer{border-top:1px solid var(--line); padding:80px 0 34px;}
 .sb-tags span{font-family:var(--font-mono); font-size:11.5px; padding:6px 12px; border:1px solid var(--line-strong); border-radius:100px; color:var(--ink-soft);}
 .sb-media{aspect-ratio:1/0.85; border-radius:22px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;}
 .sb-media svg{width:70%; height:70%;}
+#s-design .sb-media{background:linear-gradient(135deg, rgba(243,221,215,0.45) 0%, rgba(241,236,226,0.7) 100%); border:1px solid var(--line); box-shadow:inset 0 0 40px rgba(193,88,74,0.05);}
+html[data-theme="dark"] #s-design .sb-media{background:linear-gradient(135deg, rgba(30,26,33,0.9) 0%, rgba(20,17,24,0.95) 100%); border:1px solid rgba(243,239,231,0.08); box-shadow:inset 0 0 40px rgba(0,0,0,0.4);}
+.sb-media-lottie{display:flex !important; align-items:center !important; justify-content:center !important; padding:10px;}
+.sb-media-lottie .design-lottie-container{width:100%; height:100%; max-height:520px; display:flex; align-items:center; justify-content:center;}
+.sb-media-lottie svg{width:100% !important; height:100% !important; max-height:100%; filter:drop-shadow(0 14px 30px rgba(0,0,0,0.12));}
+html[data-theme="dark"] .sb-media-lottie svg{filter:drop-shadow(0 18px 36px rgba(0,0,0,0.5));}
 
 /* ============ ABOUT PAGE ============ */
 .about-hero{padding:70px 0 90px;}
@@ -611,8 +617,8 @@ footer{border-top:1px solid var(--line); padding:80px 0 34px;}
         <p>Research-led design that reduces friction across the whole journey — from first ad click to repeat purchase.</p>
         <div class="sb-tags"><span>UX research</span><span>Design systems</span><span>Conversion design</span><span>Prototyping</span></div>
       </div>
-      <div class="sb-media" style="background:var(--red-tint);">
-        <svg viewBox="0 0 200 160" fill="none"><rect x="30" y="30" width="60" height="100" rx="10" stroke="var(--red)" stroke-width="3"/><rect x="110" y="50" width="60" height="60" rx="10" stroke="var(--gold)" stroke-width="3"/></svg>
+      <div class="sb-media sb-media-lottie">
+        <div id="designLottieContainerPrimeloft" class="design-lottie-container" aria-label="Product &amp; Experience Design Mobile App Animation"></div>
       </div>
     </div>
 
@@ -880,6 +886,130 @@ function refreshReveal(){
   ScrollTrigger.refresh();
 }
 refreshReveal();
+
+// ---------- Product & Experience Design Lottie Controller ----------
+(function initDesignLottiePrimeloft() {
+  const containers = document.querySelectorAll('.design-lottie-container');
+  if (!containers.length) return;
+
+  let lightData = null;
+  let darkData = null;
+
+  function loadLottieScript(cb) {
+    if (window.lottie) return cb();
+    const existing = document.querySelector('script[src*="lottie_light.min.js"]');
+    if (existing) {
+      existing.addEventListener('load', cb, { once: true });
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = 'js/libs/lottie_light.min.js';
+    script.onload = cb;
+    document.head.appendChild(script);
+  }
+
+  async function loadJsonData() {
+    const isDarkInitial = document.documentElement.getAttribute('data-theme') === 'dark';
+    const primaryUrl = isDarkInitial ? 'animations/design-dark.json' : 'animations/design-light.json';
+    const secondaryUrl = isDarkInitial ? 'animations/design-light.json' : 'animations/design-dark.json';
+
+    try {
+      const primaryRes = await fetch(primaryUrl);
+      const data = await primaryRes.json();
+      if (isDarkInitial) {
+        darkData = data;
+      } else {
+        lightData = data;
+      }
+    } catch (e) {
+      console.warn('Could not preload primary Lottie JSON:', e);
+    }
+
+    fetch(secondaryUrl)
+      .then(res => res.json())
+      .then(data => {
+        if (isDarkInitial) {
+          lightData = data;
+        } else {
+          darkData = data;
+        }
+      })
+      .catch(() => {});
+  }
+
+  loadLottieScript(async () => {
+    await loadJsonData();
+
+    containers.forEach(container => {
+      let animInstance = null;
+      let isVisible = true;
+
+      function renderAnimation() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const targetData = isDark ? darkData : lightData;
+        const fallbackPath = isDark ? 'animations/design-dark.json' : 'animations/design-light.json';
+
+        if (animInstance) {
+          animInstance.destroy();
+          animInstance = null;
+        }
+        container.innerHTML = '';
+
+        const config = {
+          container: container,
+          renderer: 'svg',
+          loop: true,
+          autoplay: isVisible,
+          rendererSettings: {
+            preserveAspectRatio: 'xMidYMid meet',
+            progressiveLoad: true,
+            hideOnTransparent: true
+          }
+        };
+
+        if (targetData) {
+          config.animationData = targetData;
+        } else {
+          config.path = fallbackPath;
+        }
+
+        try {
+          animInstance = window.lottie.loadAnimation(config);
+        } catch (err) {
+          console.error('Error rendering Lottie:', err);
+        }
+      }
+
+      renderAnimation();
+
+      const themeObserver = new MutationObserver((mutations) => {
+        for (const m of mutations) {
+          if (m.type === 'attributes' && m.attributeName === 'data-theme') {
+            renderAnimation();
+            break;
+          }
+        }
+      });
+      themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            isVisible = entry.isIntersecting;
+            if (animInstance) {
+              if (isVisible) {
+                animInstance.play();
+              } else {
+                animInstance.pause();
+              }
+            }
+          });
+        }, { threshold: 0.1 });
+        observer.observe(container);
+      }
+    });
+  });
+})();
 </script>
 </body>
 </html>
