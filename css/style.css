@@ -999,6 +999,12 @@ html[data-theme="dark"] #s-quality .sb-media {
   position: relative;
 }
 
+.design-lottie-container,
+.strategy-lottie-container,
+.engineering-lottie-container,
+.ai-lottie-container,
+.cloud-lottie-container,
+.quality-lottie-container,
 .sb-media-lottie .design-lottie-container,
 .sb-media-lottie .strategy-lottie-container,
 .sb-media-lottie .engineering-lottie-container,
@@ -1007,6 +1013,7 @@ html[data-theme="dark"] #s-quality .sb-media {
 .sb-media-lottie .quality-lottie-container {
   width: 100%;
   height: 100%;
+  min-height: 400px;
   max-width: 480px;
   display: flex;
   align-items: center;
@@ -1014,6 +1021,12 @@ html[data-theme="dark"] #s-quality .sb-media {
   overflow: visible;
 }
 
+.design-lottie-container svg,
+.strategy-lottie-container svg,
+.engineering-lottie-container svg,
+.ai-lottie-container svg,
+.cloud-lottie-container svg,
+.quality-lottie-container svg,
 .sb-media-lottie svg {
   width: 100% !important;
   height: 100% !important;
@@ -1024,6 +1037,12 @@ html[data-theme="dark"] #s-quality .sb-media {
   overflow: visible !important;
 }
 
+html[data-theme="dark"] .design-lottie-container svg,
+html[data-theme="dark"] .strategy-lottie-container svg,
+html[data-theme="dark"] .engineering-lottie-container svg,
+html[data-theme="dark"] .ai-lottie-container svg,
+html[data-theme="dark"] .cloud-lottie-container svg,
+html[data-theme="dark"] .quality-lottie-container svg,
 html[data-theme="dark"] .sb-media-lottie svg {
   filter: drop-shadow(0 24px 50px rgba(0, 0, 0, 0.6));
 }

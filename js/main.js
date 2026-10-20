@@ -358,6 +358,150 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ---------- 8. LOTTIE ANIMATIONS CONTROLLER (ALL 6 DISCIPLINES) ----------
+  let lottieLoadedPromise = null;
+  function ensureLottieLoaded() {
+    if (window.lottie) return Promise.resolve(window.lottie);
+    if (lottieLoadedPromise) return lottieLoadedPromise;
+
+    lottieLoadedPromise = new Promise((resolve) => {
+      if (window.lottie) return resolve(window.lottie);
+
+      let script = document.querySelector('script[src*="lottie"]');
+      if (!script) {
+        script = document.createElement('script');
+        script.src = 'js/libs/lottie_light.min.js?v=2.5.0';
+        document.head.appendChild(script);
+      }
+
+      const pollInterval = setInterval(() => {
+        if (window.lottie) {
+          clearInterval(pollInterval);
+          resolve(window.lottie);
+        }
+      }, 30);
+
+      script.addEventListener('load', () => {
+        clearInterval(pollInterval);
+        resolve(window.lottie);
+      }, { once: true });
+
+      // Fallback: If local file load takes over 2s, fetch from cloudflare cdn
+      setTimeout(() => {
+        if (!window.lottie) {
+          const cdnScript = document.createElement('script');
+          cdnScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie_light.min.js';
+          cdnScript.onload = () => {
+            clearInterval(pollInterval);
+            resolve(window.lottie);
+          };
+          document.head.appendChild(cdnScript);
+        }
+      }, 2000);
+    });
+
+    return lottieLoadedPromise;
+  }
+
+  const animationJsonCache = new Map();
+  async function fetchAnimationJson(url) {
+    if (animationJsonCache.has(url)) return animationJsonCache.get(url);
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      animationJsonCache.set(url, data);
+      return data;
+    } catch (e) {
+      console.warn('Could not fetch Lottie JSON from', url, e);
+      return null;
+    }
+  }
+
+  async function initLottieAnimation(containers, lightUrl, darkUrl) {
+    if (!containers || containers.length === 0) return;
+
+    await ensureLottieLoaded();
+
+    const isInitialDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const primaryUrl = isInitialDark ? darkUrl : lightUrl;
+    const secondaryUrl = isInitialDark ? lightUrl : darkUrl;
+
+    // Fetch primary theme immediately, background-fetch secondary theme for smooth switching
+    await fetchAnimationJson(primaryUrl);
+    fetchAnimationJson(secondaryUrl);
+
+    containers.forEach(container => {
+      let animInstance = null;
+
+      function renderAnimation() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const targetUrl = isDark ? darkUrl : lightUrl;
+        const targetData = animationJsonCache.get(targetUrl);
+
+        if (animInstance) {
+          try {
+            animInstance.destroy();
+          } catch (_) {}
+          animInstance = null;
+        }
+        container.innerHTML = '';
+
+        const config = {
+          container: container,
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+          rendererSettings: {
+            preserveAspectRatio: 'xMidYMid meet',
+            progressiveLoad: true,
+            hideOnTransparent: true
+          }
+        };
+
+        if (targetData) {
+          config.animationData = targetData;
+        } else {
+          config.path = targetUrl;
+        }
+
+        try {
+          animInstance = window.lottie.loadAnimation(config);
+        } catch (err) {
+          console.error('Error rendering Lottie:', err);
+        }
+      }
+
+      renderAnimation();
+
+      // Reactive theme observer on <html data-theme="...">
+      const themeObserver = new MutationObserver((mutations) => {
+        for (const m of mutations) {
+          if (m.type === 'attributes' && m.attributeName === 'data-theme') {
+            renderAnimation();
+            break;
+          }
+        }
+      });
+      themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+      // Viewport intersection observer: keeps playing near viewport (400px margin) to conserve resources without freeze
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (animInstance) {
+              if (entry.isIntersecting) {
+                animInstance.play();
+              } else {
+                animInstance.pause();
+              }
+            }
+          });
+        }, { rootMargin: '400px 0px 400px 0px' });
+        observer.observe(container);
+      }
+    });
+  }
+
   const designContainers = document.querySelectorAll('.design-lottie-container');
   if (designContainers.length > 0) {
     initLottieAnimation(designContainers, 'animations/design-light.json', 'animations/design-dark.json');
@@ -388,126 +532,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initLottieAnimation(qualityContainers, 'animations/quality-light.json', 'animations/quality-dark.json');
   }
 
-  function initLottieAnimation(containers, lightUrl, darkUrl) {
-    let lightData = null;
-    let darkData = null;
-
-    function loadLottieScript(cb) {
-      if (window.lottie) return cb();
-      const existing = document.querySelector('script[src*="lottie_light.min.js"]');
-      if (existing) {
-        existing.addEventListener('load', cb, { once: true });
-        return;
-      }
-      const script = document.createElement('script');
-      script.src = 'js/libs/lottie_light.min.js';
-      script.onload = cb;
-      document.head.appendChild(script);
-    }
-
-    async function loadJsonData() {
-      const isDarkInitial = document.documentElement.getAttribute('data-theme') === 'dark';
-      const primaryUrl = isDarkInitial ? darkUrl : lightUrl;
-      const secondaryUrl = isDarkInitial ? lightUrl : darkUrl;
-
-      try {
-        const primaryRes = await fetch(primaryUrl);
-        const data = await primaryRes.json();
-        if (isDarkInitial) {
-          darkData = data;
-        } else {
-          lightData = data;
-        }
-      } catch (e) {
-        console.warn('Could not preload primary Lottie JSON:', e);
-      }
-
-      fetch(secondaryUrl)
-        .then(res => res.json())
-        .then(data => {
-          if (isDarkInitial) {
-            lightData = data;
-          } else {
-            darkData = data;
-          }
-        })
-        .catch(() => {});
-    }
-
-    loadLottieScript(async () => {
-      await loadJsonData();
-
-      containers.forEach(container => {
-        let animInstance = null;
-        let isVisible = true;
-
-        function renderAnimation() {
-          const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-          const targetData = isDark ? darkData : lightData;
-          const fallbackPath = isDark ? darkUrl : lightUrl;
-
-          if (animInstance) {
-            animInstance.destroy();
-            animInstance = null;
-          }
-          container.innerHTML = '';
-
-          const config = {
-            container: container,
-            renderer: 'svg',
-            loop: true,
-            autoplay: isVisible,
-            rendererSettings: {
-              preserveAspectRatio: 'xMidYMid meet',
-              progressiveLoad: true,
-              hideOnTransparent: true
-            }
-          };
-
-          if (targetData) {
-            config.animationData = targetData;
-          } else {
-            config.path = fallbackPath;
-          }
-
-          try {
-            animInstance = window.lottie.loadAnimation(config);
-          } catch (err) {
-            console.error('Error rendering Lottie:', err);
-          }
-        }
-
-        renderAnimation();
-
-        // Reactive theme observer on <html data-theme="...">
-        const themeObserver = new MutationObserver((mutations) => {
-          for (const m of mutations) {
-            if (m.type === 'attributes' && m.attributeName === 'data-theme') {
-              renderAnimation();
-              break;
-            }
-          }
-        });
-        themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-
-        // Viewport intersection observer to pause off-screen and save CPU/battery
-        if ('IntersectionObserver' in window) {
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              isVisible = entry.isIntersecting;
-              if (animInstance) {
-                if (isVisible) {
-                  animInstance.play();
-                } else {
-                  animInstance.pause();
-                }
-              }
-            });
-          }, { threshold: 0.1 });
-          observer.observe(container);
-        }
-      });
-    });
-  }
-
 });
+
