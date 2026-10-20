@@ -257,6 +257,20 @@ document.addEventListener('DOMContentLoaded', () => {
       const btn = document.getElementById('btnSubmitContact');
       const status = document.getElementById('formStatus');
 
+      // Invisible Honeypot Anti-Bot Trap: if filled, silently discard bot request
+      const gotcha = contactForm.querySelector('input[name="_gotcha"]');
+      if (gotcha && gotcha.value.trim() !== '') {
+        if (status) {
+          status.style.display = 'block';
+          status.style.background = 'rgba(37, 211, 102, 0.15)';
+          status.style.color = '#25D366';
+          status.style.border = '1px solid rgba(37, 211, 102, 0.3)';
+          status.textContent = 'Thank you! Your message has been sent successfully. We will reply within 1 business day.';
+        }
+        contactForm.reset();
+        return;
+      }
+
       if (btn) {
         btn.disabled = true;
         btn.style.opacity = '0.7';
@@ -316,6 +330,18 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
       const status = form.nextElementSibling;
+
+      // Invisible Honeypot Anti-Bot Trap: if filled, silently discard bot request
+      const gotcha = form.querySelector('input[name="_gotcha"]');
+      if (gotcha && gotcha.value.trim() !== '') {
+        if (status && status.classList.contains('newsletterStatus')) {
+          status.style.display = 'block';
+          status.style.color = '#25D366';
+          status.textContent = '✓ Subscribed successfully!';
+        }
+        form.reset();
+        return;
+      }
 
       if (btn) btn.disabled = true;
       if (status && status.classList.contains('newsletterStatus')) {

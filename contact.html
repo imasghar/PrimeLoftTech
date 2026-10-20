@@ -31,9 +31,8 @@
   <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png?v=1.0.2">
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png?v=1.0.2">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=1.0.2">
-  <link rel="stylesheet" href="css/style.css?v=2.5.0">
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-  <script type="module" src="js/main.js?v=2.5.0" defer></script>
+  <link rel="stylesheet" href="css/style.css?v=2.6.0">
+  <script type="module" src="js/main.js?v=2.6.0" defer></script>
   <!-- Google Sitelinks & Breadcrumb Schema -->
   <script type="application/ld+json">
   {
@@ -217,6 +216,9 @@
 
         <div class="contact-form reveal">
           <form id="contactForm" action="https://formspree.io/f/xeajqqoy" method="POST">
+            <!-- Invisible Honeypot Anti-Bot Field -->
+            <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off" aria-hidden="true">
+
             <div style="display:flex; flex-direction:column; gap:18px;">
               <label for="contact-name">Name</label>
               <input type="text" id="contact-name" name="name" placeholder="Your name" required>
@@ -226,9 +228,6 @@
 
               <label for="contact-message">Project details</label>
               <textarea id="contact-message" name="message" placeholder="What are you looking to build?" required></textarea>
-
-              <!-- Cloudflare Turnstile Bot Protection Widget -->
-              <div class="cf-turnstile" data-sitekey="0x4AAAAAAAX..."></div>
 
               <!-- Form Submission Status Alert Box -->
               <div id="formStatus" style="display:none; padding: 12px 16px; border-radius: 10px; font-size: 14px; font-weight: 500;"></div>
@@ -284,6 +283,7 @@
             <div class="addr" style="font-size:13px;">Trends &amp; insights for commerce leaders</div>
             <form class="newsletterForm" action="https://formspree.io/f/xeajqqoy" method="POST" aria-label="Newsletter Subscription">
               <input type="hidden" name="_subject" value="New Newsletter Subscription | PrimeLoft Tech">
+              <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off" aria-hidden="true">
               <input type="email" name="email" id="nl-email-contact" aria-label="Your email address" placeholder="Your email address" required>
               <button type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
             </form>
