@@ -275,20 +275,20 @@ footer{border-top:1px solid var(--line); padding:80px 0 34px;}
 .sb-tags span{font-family:var(--font-mono); font-size:11.5px; padding:6px 12px; border:1px solid var(--line-strong); border-radius:100px; color:var(--ink-soft);}
 .sb-media{aspect-ratio:1/0.85; border-radius:22px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;}
 .sb-media svg{width:70%; height:70%;}
-#s-design .sb-media, #s-ai .sb-media, #s-cloud .sb-media{background:transparent; border:none; box-shadow:none;}
-html[data-theme="dark"] #s-design .sb-media, html[data-theme="dark"] #s-ai .sb-media, html[data-theme="dark"] #s-cloud .sb-media{background:transparent; border:none; box-shadow:none;}
+#s-design .sb-media, #s-strategy .sb-media, #s-engineering .sb-media, #s-ai .sb-media, #s-cloud .sb-media, #s-quality .sb-media{background:transparent; border:none; box-shadow:none;}
+html[data-theme="dark"] #s-design .sb-media, html[data-theme="dark"] #s-strategy .sb-media, html[data-theme="dark"] #s-engineering .sb-media, html[data-theme="dark"] #s-ai .sb-media, html[data-theme="dark"] #s-cloud .sb-media, html[data-theme="dark"] #s-quality .sb-media{background:transparent; border:none; box-shadow:none;}
 .sb-media-lottie{aspect-ratio:auto !important; width:100%; min-height:600px; height:620px; display:flex !important; align-items:center !important; justify-content:center !important; padding:0; overflow:visible !important; position:relative;}
-.sb-media-lottie .design-lottie-container, .sb-media-lottie .ai-lottie-container, .sb-media-lottie .cloud-lottie-container{width:100%; height:100%; max-width:480px; display:flex; align-items:center; justify-content:center; overflow:visible;}
+.sb-media-lottie .design-lottie-container, .sb-media-lottie .strategy-lottie-container, .sb-media-lottie .engineering-lottie-container, .sb-media-lottie .ai-lottie-container, .sb-media-lottie .cloud-lottie-container, .sb-media-lottie .quality-lottie-container{width:100%; height:100%; max-width:480px; display:flex; align-items:center; justify-content:center; overflow:visible;}
 .sb-media-lottie svg{width:100% !important; height:100% !important; max-height:100%; filter:drop-shadow(0 20px 45px rgba(0,0,0,0.12)); transform:scale(1.18); transform-origin:center center; overflow:visible !important;}
 html[data-theme="dark"] .sb-media-lottie svg{filter:drop-shadow(0 24px 50px rgba(0,0,0,0.6));}
 @media (max-width:900px){
   .sb-media-lottie{min-height:520px; height:540px; margin:10px auto 0;}
-  .sb-media-lottie .design-lottie-container, .sb-media-lottie .ai-lottie-container, .sb-media-lottie .cloud-lottie-container{max-width:380px;}
+  .sb-media-lottie .design-lottie-container, .sb-media-lottie .strategy-lottie-container, .sb-media-lottie .engineering-lottie-container, .sb-media-lottie .ai-lottie-container, .sb-media-lottie .cloud-lottie-container, .sb-media-lottie .quality-lottie-container{max-width:380px;}
   .sb-media-lottie svg{transform:scale(1.22);}
 }
 @media (max-width:480px){
   .sb-media-lottie{min-height:480px; height:500px; margin:5px auto 0;}
-  .sb-media-lottie .design-lottie-container, .sb-media-lottie .ai-lottie-container, .sb-media-lottie .cloud-lottie-container{max-width:340px;}
+  .sb-media-lottie .design-lottie-container, .sb-media-lottie .strategy-lottie-container, .sb-media-lottie .engineering-lottie-container, .sb-media-lottie .ai-lottie-container, .sb-media-lottie .cloud-lottie-container, .sb-media-lottie .quality-lottie-container{max-width:340px;}
   .sb-media-lottie svg{transform:scale(1.25);}
 }
 
@@ -596,8 +596,8 @@ html[data-theme="dark"] .sb-media-lottie svg{filter:drop-shadow(0 24px 50px rgba
     </div>
 
     <div class="service-block" id="s-strategy">
-      <div class="sb-media" style="background:var(--red-tint);">
-        <svg viewBox="0 0 200 160" fill="none"><path d="M20 130 L60 80 L100 100 L140 40 L180 60" stroke="var(--red)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="180" cy="60" r="6" fill="var(--red)"/><circle cx="140" cy="40" r="6" fill="var(--red)"/><circle cx="100" cy="100" r="6" fill="var(--red)"/><circle cx="60" cy="80" r="6" fill="var(--red)"/><circle cx="20" cy="130" r="6" fill="var(--red)"/></svg>
+      <div class="sb-media sb-media-lottie">
+        <div id="strategyLottieContainerPrimeloft" class="strategy-lottie-container" aria-label="Strategy &amp; Innovation Target and Roadmap Animation"></div>
       </div>
       <div>
         <div class="sb-icon-lg"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V13M12 19V5M20 19V9" stroke-width="1.6" stroke-linecap="round"/></svg></div>
@@ -614,8 +614,8 @@ html[data-theme="dark"] .sb-media-lottie svg{filter:drop-shadow(0 24px 50px rgba
         <p>Full-stack teams building commerce platforms, storefronts and internal tools that hold up under real traffic and change gracefully.</p>
         <div class="sb-tags"><span>Web &amp; mobile</span><span>Headless commerce</span><span>API architecture</span><span>Legacy modernization</span></div>
       </div>
-      <div class="sb-media" style="background:var(--bg-alt);">
-        <svg viewBox="0 0 200 160" fill="none"><path d="M70 40L30 80L70 120M130 40L170 80L130 120" stroke="var(--red)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M110 30L90 130" stroke="var(--gold)" stroke-width="3" stroke-linecap="round"/></svg>
+      <div class="sb-media sb-media-lottie">
+        <div id="engineeringLottieContainerPrimeloft" class="engineering-lottie-container" aria-label="Software Engineering Code Test Deploy Animation"></div>
       </div>
     </div>
 
@@ -644,8 +644,8 @@ html[data-theme="dark"] .sb-media-lottie svg{filter:drop-shadow(0 24px 50px rgba
     </div>
 
     <div class="service-block" id="s-quality">
-      <div class="sb-media" style="background:var(--bg-alt);">
-        <svg viewBox="0 0 200 160" fill="none"><path d="M40 90l35 35L165 45" stroke="var(--red)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="sb-media sb-media-lottie">
+        <div id="qualityLottieContainerPrimeloft" class="quality-lottie-container" aria-label="Quality, Delivery and Scale Delivery Truck and Testing Animation"></div>
       </div>
       <div>
         <div class="sb-icon-lg"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -895,11 +895,21 @@ function refreshReveal(){
 }
 refreshReveal();
 
-// ---------- Lottie Animations Controller (Design, AI/Data & Cloud) ----------
+// ---------- Lottie Animations Controller (All 6 Disciplines) ----------
 (function initLottieAnimationsPrimeloft() {
   const designContainers = document.querySelectorAll('.design-lottie-container');
   if (designContainers.length > 0) {
     initLottieAnimation(designContainers, 'animations/design-light.json', 'animations/design-dark.json');
+  }
+
+  const strategyContainers = document.querySelectorAll('.strategy-lottie-container');
+  if (strategyContainers.length > 0) {
+    initLottieAnimation(strategyContainers, 'animations/strategy-light.json', 'animations/strategy-dark.json');
+  }
+
+  const engineeringContainers = document.querySelectorAll('.engineering-lottie-container');
+  if (engineeringContainers.length > 0) {
+    initLottieAnimation(engineeringContainers, 'animations/engineering-light.json', 'animations/engineering-dark.json');
   }
 
   const aiContainers = document.querySelectorAll('.ai-lottie-container');
@@ -910,6 +920,11 @@ refreshReveal();
   const cloudContainers = document.querySelectorAll('.cloud-lottie-container');
   if (cloudContainers.length > 0) {
     initLottieAnimation(cloudContainers, 'animations/cloud-light.json', 'animations/cloud-dark.json');
+  }
+
+  const qualityContainers = document.querySelectorAll('.quality-lottie-container');
+  if (qualityContainers.length > 0) {
+    initLottieAnimation(qualityContainers, 'animations/quality-light.json', 'animations/quality-dark.json');
   }
 
   function initLottieAnimation(containers, lightUrl, darkUrl) {

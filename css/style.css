@@ -963,18 +963,24 @@ html[data-theme="dark"] .cta-section {
   height: 70%;
 }
 
-/* Product & Experience Design, AI & Data, and Cloud & Platform Lottie Media Boxes */
+/* All 6 Disciplines Lottie Media Boxes */
 #s-design .sb-media,
+#s-strategy .sb-media,
+#s-engineering .sb-media,
 #s-ai .sb-media,
-#s-cloud .sb-media {
+#s-cloud .sb-media,
+#s-quality .sb-media {
   background: transparent;
   border: none;
   box-shadow: none;
 }
 
 html[data-theme="dark"] #s-design .sb-media,
+html[data-theme="dark"] #s-strategy .sb-media,
+html[data-theme="dark"] #s-engineering .sb-media,
 html[data-theme="dark"] #s-ai .sb-media,
-html[data-theme="dark"] #s-cloud .sb-media {
+html[data-theme="dark"] #s-cloud .sb-media,
+html[data-theme="dark"] #s-quality .sb-media {
   background: transparent;
   border: none;
   box-shadow: none;
@@ -994,8 +1000,11 @@ html[data-theme="dark"] #s-cloud .sb-media {
 }
 
 .sb-media-lottie .design-lottie-container,
+.sb-media-lottie .strategy-lottie-container,
+.sb-media-lottie .engineering-lottie-container,
 .sb-media-lottie .ai-lottie-container,
-.sb-media-lottie .cloud-lottie-container {
+.sb-media-lottie .cloud-lottie-container,
+.sb-media-lottie .quality-lottie-container {
   width: 100%;
   height: 100%;
   max-width: 480px;
@@ -1026,8 +1035,11 @@ html[data-theme="dark"] .sb-media-lottie svg {
     margin: 10px auto 0;
   }
   .sb-media-lottie .design-lottie-container,
+  .sb-media-lottie .strategy-lottie-container,
+  .sb-media-lottie .engineering-lottie-container,
   .sb-media-lottie .ai-lottie-container,
-  .sb-media-lottie .cloud-lottie-container {
+  .sb-media-lottie .cloud-lottie-container,
+  .sb-media-lottie .quality-lottie-container {
     max-width: 380px;
   }
   .sb-media-lottie svg {
@@ -1042,8 +1054,11 @@ html[data-theme="dark"] .sb-media-lottie svg {
     margin: 5px auto 0;
   }
   .sb-media-lottie .design-lottie-container,
+  .sb-media-lottie .strategy-lottie-container,
+  .sb-media-lottie .engineering-lottie-container,
   .sb-media-lottie .ai-lottie-container,
-  .sb-media-lottie .cloud-lottie-container {
+  .sb-media-lottie .cloud-lottie-container,
+  .sb-media-lottie .quality-lottie-container {
     max-width: 340px;
   }
   .sb-media-lottie svg {

@@ -357,10 +357,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ---------- 8. LOTTIE ANIMATIONS CONTROLLER (DESIGN, AI/DATA & CLOUD) ----------
+  // ---------- 8. LOTTIE ANIMATIONS CONTROLLER (ALL 6 DISCIPLINES) ----------
   const designContainers = document.querySelectorAll('.design-lottie-container');
   if (designContainers.length > 0) {
     initLottieAnimation(designContainers, 'animations/design-light.json', 'animations/design-dark.json');
+  }
+
+  const strategyContainers = document.querySelectorAll('.strategy-lottie-container');
+  if (strategyContainers.length > 0) {
+    initLottieAnimation(strategyContainers, 'animations/strategy-light.json', 'animations/strategy-dark.json');
+  }
+
+  const engineeringContainers = document.querySelectorAll('.engineering-lottie-container');
+  if (engineeringContainers.length > 0) {
+    initLottieAnimation(engineeringContainers, 'animations/engineering-light.json', 'animations/engineering-dark.json');
   }
 
   const aiContainers = document.querySelectorAll('.ai-lottie-container');
@@ -371,6 +381,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const cloudContainers = document.querySelectorAll('.cloud-lottie-container');
   if (cloudContainers.length > 0) {
     initLottieAnimation(cloudContainers, 'animations/cloud-light.json', 'animations/cloud-dark.json');
+  }
+
+  const qualityContainers = document.querySelectorAll('.quality-lottie-container');
+  if (qualityContainers.length > 0) {
+    initLottieAnimation(qualityContainers, 'animations/quality-light.json', 'animations/quality-dark.json');
   }
 
   function initLottieAnimation(containers, lightUrl, darkUrl) {
