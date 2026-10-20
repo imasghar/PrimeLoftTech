@@ -357,4 +357,157 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ---------- 8. LOTTIE ANIMATIONS CONTROLLER (ALL 6 DISCIPLINES) ----------
+  const designContainers = document.querySelectorAll('.design-lottie-container');
+  if (designContainers.length > 0) {
+    initLottieAnimation(designContainers, 'animations/design-light.json', 'animations/design-dark.json');
+  }
+
+  const strategyContainers = document.querySelectorAll('.strategy-lottie-container');
+  if (strategyContainers.length > 0) {
+    initLottieAnimation(strategyContainers, 'animations/strategy-light.json', 'animations/strategy-dark.json');
+  }
+
+  const engineeringContainers = document.querySelectorAll('.engineering-lottie-container');
+  if (engineeringContainers.length > 0) {
+    initLottieAnimation(engineeringContainers, 'animations/engineering-light.json', 'animations/engineering-dark.json');
+  }
+
+  const aiContainers = document.querySelectorAll('.ai-lottie-container');
+  if (aiContainers.length > 0) {
+    initLottieAnimation(aiContainers, 'animations/ai-light.json', 'animations/ai-dark.json');
+  }
+
+  const cloudContainers = document.querySelectorAll('.cloud-lottie-container');
+  if (cloudContainers.length > 0) {
+    initLottieAnimation(cloudContainers, 'animations/cloud-light.json', 'animations/cloud-dark.json');
+  }
+
+  const qualityContainers = document.querySelectorAll('.quality-lottie-container');
+  if (qualityContainers.length > 0) {
+    initLottieAnimation(qualityContainers, 'animations/quality-light.json', 'animations/quality-dark.json');
+  }
+
+  function initLottieAnimation(containers, lightUrl, darkUrl) {
+    let lightData = null;
+    let darkData = null;
+
+    function loadLottieScript(cb) {
+      if (window.lottie) return cb();
+      const existing = document.querySelector('script[src*="lottie_light.min.js"]');
+      if (existing) {
+        existing.addEventListener('load', cb, { once: true });
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = 'js/libs/lottie_light.min.js';
+      script.onload = cb;
+      document.head.appendChild(script);
+    }
+
+    async function loadJsonData() {
+      const isDarkInitial = document.documentElement.getAttribute('data-theme') === 'dark';
+      const primaryUrl = isDarkInitial ? darkUrl : lightUrl;
+      const secondaryUrl = isDarkInitial ? lightUrl : darkUrl;
+
+      try {
+        const primaryRes = await fetch(primaryUrl);
+        const data = await primaryRes.json();
+        if (isDarkInitial) {
+          darkData = data;
+        } else {
+          lightData = data;
+        }
+      } catch (e) {
+        console.warn('Could not preload primary Lottie JSON:', e);
+      }
+
+      fetch(secondaryUrl)
+        .then(res => res.json())
+        .then(data => {
+          if (isDarkInitial) {
+            lightData = data;
+          } else {
+            darkData = data;
+          }
+        })
+        .catch(() => {});
+    }
+
+    loadLottieScript(async () => {
+      await loadJsonData();
+
+      containers.forEach(container => {
+        let animInstance = null;
+        let isVisible = true;
+
+        function renderAnimation() {
+          const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          const targetData = isDark ? darkData : lightData;
+          const fallbackPath = isDark ? darkUrl : lightUrl;
+
+          if (animInstance) {
+            animInstance.destroy();
+            animInstance = null;
+          }
+          container.innerHTML = '';
+
+          const config = {
+            container: container,
+            renderer: 'svg',
+            loop: true,
+            autoplay: isVisible,
+            rendererSettings: {
+              preserveAspectRatio: 'xMidYMid meet',
+              progressiveLoad: true,
+              hideOnTransparent: true
+            }
+          };
+
+          if (targetData) {
+            config.animationData = targetData;
+          } else {
+            config.path = fallbackPath;
+          }
+
+          try {
+            animInstance = window.lottie.loadAnimation(config);
+          } catch (err) {
+            console.error('Error rendering Lottie:', err);
+          }
+        }
+
+        renderAnimation();
+
+        // Reactive theme observer on <html data-theme="...">
+        const themeObserver = new MutationObserver((mutations) => {
+          for (const m of mutations) {
+            if (m.type === 'attributes' && m.attributeName === 'data-theme') {
+              renderAnimation();
+              break;
+            }
+          }
+        });
+        themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+        // Viewport intersection observer to pause off-screen and save CPU/battery
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              isVisible = entry.isIntersecting;
+              if (animInstance) {
+                if (isVisible) {
+                  animInstance.play();
+                } else {
+                  animInstance.pause();
+                }
+              }
+            });
+          }, { threshold: 0.1 });
+          observer.observe(container);
+        }
+      });
+    });
+  }
+
 });

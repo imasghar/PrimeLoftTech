@@ -186,7 +186,6 @@ header {
   z-index: 500;
   background: color-mix(in srgb, var(--bg) 82%, transparent);
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
 }
 
 .nav-row {
@@ -374,9 +373,9 @@ html[data-theme="dark"] .theme-toggle .knob {
 .mega a,
 .mega-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
-  padding: 9px 10px;
+  padding: 8px 10px;
   border-radius: 12px;
   text-decoration: none;
   transition: background-color .18s ease;
@@ -398,7 +397,7 @@ html[data-theme="dark"] .theme-toggle .knob {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 0;
   box-shadow: 0 1px 3px rgba(193, 88, 74, 0.12);
   transition: background-color .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
 }
@@ -431,7 +430,7 @@ html[data-theme="dark"] .theme-toggle .knob {
   font-size: 12.5px;
   color: var(--ink);
   line-height: 1.3;
-  margin-bottom: 2px;
+  margin-bottom: 0;
   display: block;
   transition: color .18s ease;
 }
@@ -908,12 +907,7 @@ html[data-theme="dark"] .cta-section {
   gap: 70px;
   align-items: center;
   padding: 80px 0;
-  border-top: 1px solid var(--line);
   scroll-margin-top: 100px;
-}
-
-.service-block:nth-child(even) .sb-media {
-  order: 2;
 }
 
 .sb-icon-lg {
@@ -967,6 +961,109 @@ html[data-theme="dark"] .cta-section {
 .sb-media svg {
   width: 70%;
   height: 70%;
+}
+
+/* All 6 Disciplines Lottie Media Boxes */
+#s-design .sb-media,
+#s-strategy .sb-media,
+#s-engineering .sb-media,
+#s-ai .sb-media,
+#s-cloud .sb-media,
+#s-quality .sb-media {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+html[data-theme="dark"] #s-design .sb-media,
+html[data-theme="dark"] #s-strategy .sb-media,
+html[data-theme="dark"] #s-engineering .sb-media,
+html[data-theme="dark"] #s-ai .sb-media,
+html[data-theme="dark"] #s-cloud .sb-media,
+html[data-theme="dark"] #s-quality .sb-media {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.sb-media-lottie {
+  aspect-ratio: auto !important;
+  width: 100%;
+  min-height: 600px;
+  height: 620px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0;
+  overflow: visible !important;
+  position: relative;
+}
+
+.sb-media-lottie .design-lottie-container,
+.sb-media-lottie .strategy-lottie-container,
+.sb-media-lottie .engineering-lottie-container,
+.sb-media-lottie .ai-lottie-container,
+.sb-media-lottie .cloud-lottie-container,
+.sb-media-lottie .quality-lottie-container {
+  width: 100%;
+  height: 100%;
+  max-width: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.sb-media-lottie svg {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 100%;
+  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.12));
+  transform: scale(1.18);
+  transform-origin: center center;
+  overflow: visible !important;
+}
+
+html[data-theme="dark"] .sb-media-lottie svg {
+  filter: drop-shadow(0 24px 50px rgba(0, 0, 0, 0.6));
+}
+
+@media (max-width: 900px) {
+  .sb-media-lottie {
+    min-height: 520px;
+    height: 540px;
+    margin: 10px auto 0;
+  }
+  .sb-media-lottie .design-lottie-container,
+  .sb-media-lottie .strategy-lottie-container,
+  .sb-media-lottie .engineering-lottie-container,
+  .sb-media-lottie .ai-lottie-container,
+  .sb-media-lottie .cloud-lottie-container,
+  .sb-media-lottie .quality-lottie-container {
+    max-width: 380px;
+  }
+  .sb-media-lottie svg {
+    transform: scale(1.22);
+  }
+}
+
+@media (max-width: 480px) {
+  .sb-media-lottie {
+    min-height: 480px;
+    height: 500px;
+    margin: 5px auto 0;
+  }
+  .sb-media-lottie .design-lottie-container,
+  .sb-media-lottie .strategy-lottie-container,
+  .sb-media-lottie .engineering-lottie-container,
+  .sb-media-lottie .ai-lottie-container,
+  .sb-media-lottie .cloud-lottie-container,
+  .sb-media-lottie .quality-lottie-container {
+    max-width: 340px;
+  }
+  .sb-media-lottie svg {
+    transform: scale(1.25);
+  }
 }
 
 /* ============ ABOUT PAGE STYLES ============ */
@@ -1171,8 +1268,8 @@ footer {
 
 .footer-top {
   display: grid;
-  grid-template-columns: 1.1fr 1fr 1fr 1.2fr;
-  gap: 50px;
+  grid-template-columns: 1.15fr 0.95fr 1.3fr 0.95fr;
+  gap: 44px;
   padding-bottom: 60px;
   border-bottom: 1px solid var(--line);
 }
@@ -1273,33 +1370,80 @@ footer {
   box-shadow: 0 4px 14px rgba(24, 119, 242, 0.35);
 }
 
-.newsletter form {
+.newsletter form,
+.footer-newsletter form {
   display: flex;
-  margin-top: 16px;
+  margin-top: 14px;
   border: 1px solid var(--line-strong);
   border-radius: 100px;
   overflow: hidden;
+  background: var(--bg);
+  transition: border-color .2s ease;
 }
 
-.newsletter input {
+.newsletter form:focus-within,
+.footer-newsletter form:focus-within {
+  border-color: var(--red);
+}
+
+.newsletter input,
+.footer-newsletter input {
   flex: 1;
   border: none;
   background: none;
-  padding: 12px 16px;
+  padding: 11px 16px;
   font-family: var(--font-body);
-  font-size: 13.5px;
+  font-size: 13px;
   color: var(--ink);
   outline: none;
+  min-width: 0;
 }
 
-.newsletter button {
-  padding: 12px 20px;
+.newsletter button,
+.footer-newsletter button {
+  padding: 11px 18px;
   background: var(--ink);
   color: var(--bg);
   border: none;
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
   border-radius: 100px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity .2s ease;
+}
+
+.newsletter button:hover,
+.footer-newsletter button:hover {
+  opacity: .88;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.footer-links li {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links a {
+  font-size: 14px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color .2s ease, transform .2s ease;
+  display: inline-block;
+  line-height: 1.45;
+}
+
+.footer-links a:hover {
+  color: var(--red);
+  transform: translateX(3px);
 }
 
 .footer-bottom {
@@ -1335,7 +1479,7 @@ html.js .reveal:not(.visible) {
   .why { grid-template-columns: 1fr; gap: 36px; }
   .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
   .service-block { grid-template-columns: 1fr; gap: 32px; }
-  .service-block:nth-child(even) .sb-media { order: 0; }
+  .service-block .sb-media { order: 2; }
   .about-hero-grid { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: repeat(2, 1fr); }
   .culture-grid { grid-template-columns: 1fr; }
@@ -1533,7 +1677,8 @@ html.js .reveal:not(.visible) {
 }
 
 @media (max-width: 480px) {
-  .newsletter form {
+  .newsletter form,
+  .footer-newsletter form {
     flex-direction: column;
     border-radius: 16px;
     gap: 8px;
@@ -1541,17 +1686,21 @@ html.js .reveal:not(.visible) {
     background: transparent;
   }
 
-  .newsletter input {
+  .newsletter input,
+  .footer-newsletter input {
     border: 1px solid var(--line-strong);
     border-radius: 100px;
     background: var(--bg-alt);
     width: 100%;
+    padding: 12px 16px;
   }
 
-  .newsletter button {
+  .newsletter button,
+  .footer-newsletter button {
     width: 100%;
     justify-content: center;
     border-radius: 100px;
+    padding: 12px 20px;
   }
 }
 
@@ -1915,7 +2064,5 @@ input:checked + .slider:before {
   outline: 2px solid var(--red) !important;
   outline-offset: 3px !important;
 }
-
-
 
 

@@ -99,7 +99,6 @@ header{
   position:fixed; top:0; left:0; right:0; z-index:500;
   background:color-mix(in srgb, var(--bg) 82%, transparent);
   backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line);
 }
 .nav-row{
   display:flex; align-items:center; justify-content:space-between;
@@ -142,18 +141,18 @@ html[data-theme="dark"] .theme-toggle .knob{transform:translateX(22px); backgrou
 .mega::before{content:''; position:absolute; top:-12px; left:0; right:0; height:12px;}
 .has-mega:hover .mega, .has-mega.open .mega, .has-mega:focus-within .mega{opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0);}
 .mega-list{display:flex; flex-direction:column; gap:2px;}
-.mega a, .mega-item{display:flex; align-items:flex-start; gap:12px; padding:9px 10px; border-radius:12px; text-decoration:none; transition:background-color .18s ease;}
+.mega a, .mega-item{display:flex; align-items:center; gap:12px; padding:8px 10px; border-radius:12px; text-decoration:none; transition:background-color .18s ease;}
 .mega a:hover, .mega-item:hover{background:var(--bg-alt);}
 .mega .micon, .mega-icon{
   width:28px; height:28px; border-radius:8px; background:var(--red-tint); color:var(--red);
-  display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:0;
   box-shadow:0 1px 3px rgba(193, 88, 74, 0.12);
   transition:background-color .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
 }
 .mega .micon svg, .mega-icon svg{width:14px; height:14px; stroke:currentColor; transition:stroke .2s ease;}
 .mega a:hover .micon, .mega-item:hover .mega-icon{background:var(--red); color:#FFFFFF; box-shadow:0 4px 12px -2px rgba(193, 88, 74, 0.4); transform:scale(1.05);}
 .mega-content{flex:1; min-width:0; display:flex; flex-direction:column;}
-.mega .mtitle{font-weight:600; font-size:12.5px; color:var(--ink); line-height:1.3; margin-bottom:2px; display:block; transition:color .18s ease;}
+.mega .mtitle{font-weight:600; font-size:12.5px; color:var(--ink); line-height:1.3; margin-bottom:0; display:block; transition:color .18s ease;}
 .mega a:hover .mtitle, .mega-item:hover .mtitle{color:var(--red);}
 .mega .mdesc{font-size:11px; color:var(--ink-faint); line-height:1.35; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
 .mega-footer{margin-top:4px; padding-top:8px; padding-left:10px; padding-right:10px; padding-bottom:2px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between;}
@@ -248,7 +247,7 @@ html[data-theme="dark"] .cta-section{background:linear-gradient(160deg, var(--re
 
 /* ============ FOOTER ============ */
 footer{border-top:1px solid var(--line); padding:80px 0 34px;}
-.footer-top{display:grid; grid-template-columns:1.1fr 1fr 1fr 1.2fr; gap:50px; padding-bottom:60px; border-bottom:1px solid var(--line);}
+.footer-top{display:grid; grid-template-columns:1.15fr 0.95fr 1.3fr 0.95fr; gap:44px; padding-bottom:60px; border-bottom:1px solid var(--line);}
 .footer-brand .logo{margin-bottom:18px;}
 .footer-brand p{font-size:14px; max-width:260px;}
 .footer-col h4{font-family:var(--font-mono); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:16px;}
@@ -256,16 +255,19 @@ footer{border-top:1px solid var(--line); padding:80px 0 34px;}
 .footer-col a.mail{font-size:14.5px; font-weight:600; color:var(--red); display:inline-block; margin-top:14px;}
 .cert-row{display:flex; gap:14px; margin-top:16px;}
 .cert-badge{width:52px; height:52px; border-radius:10px; background:var(--bg-alt); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; text-align:center; color:var(--ink-faint); padding:4px;}
-.newsletter form{display:flex; margin-top:16px; border:1px solid var(--line-strong); border-radius:100px; overflow:hidden;}
-.newsletter input{flex:1; border:none; background:none; padding:12px 16px; font-family:var(--font-body); font-size:13.5px; color:var(--ink); outline:none;}
-.newsletter button{padding:12px 20px; background:var(--ink); color:var(--bg); border:none; font-size:13px; font-weight:600; border-radius:100px;}
+.newsletter form, .footer-newsletter form{display:flex; margin-top:14px; border:1px solid var(--line-strong); border-radius:100px; overflow:hidden; background:var(--bg);}
+.newsletter input, .footer-newsletter input{flex:1; border:none; background:none; padding:11px 16px; font-family:var(--font-body); font-size:13px; color:var(--ink); outline:none; min-width:0;}
+.newsletter button, .footer-newsletter button{padding:11px 18px; background:var(--ink); color:var(--bg); border:none; font-size:12.5px; font-weight:600; border-radius:100px; cursor:pointer; white-space:nowrap;}
+.footer-links{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px;}
+.footer-links li{margin:0; padding:0;}
+.footer-links a{font-size:14px; color:var(--ink-soft); text-decoration:none; transition:color .2s ease, transform .2s ease; display:inline-block; line-height:1.45;}
+.footer-links a:hover{color:var(--red); transform:translateX(3px);}
 .footer-bottom{display:flex; justify-content:space-between; align-items:center; padding-top:28px; font-size:12.5px; color:var(--ink-faint);}
 
 /* ============ SERVICES PAGE ============ */
 .page-hero{padding:70px 0 40px; text-align:center;}
 .page-hero h1{font-size:clamp(34px,5vw,58px); margin-top:18px;}
-.service-block{display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; padding:80px 0; border-top:1px solid var(--line);}
-.service-block:nth-child(even) .sb-media{order:2;}
+.service-block{display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; padding:80px 0;}
 .sb-icon-lg{width:60px; height:60px; border-radius:16px; background:var(--red-tint); display:flex; align-items:center; justify-content:center; margin-bottom:24px;}
 .sb-icon-lg svg{width:28px; height:28px; stroke:var(--red);}
 .service-block h2{font-size:clamp(24px,2.8vw,34px); margin-bottom:16px;}
@@ -273,6 +275,22 @@ footer{border-top:1px solid var(--line); padding:80px 0 34px;}
 .sb-tags span{font-family:var(--font-mono); font-size:11.5px; padding:6px 12px; border:1px solid var(--line-strong); border-radius:100px; color:var(--ink-soft);}
 .sb-media{aspect-ratio:1/0.85; border-radius:22px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;}
 .sb-media svg{width:70%; height:70%;}
+#s-design .sb-media, #s-strategy .sb-media, #s-engineering .sb-media, #s-ai .sb-media, #s-cloud .sb-media, #s-quality .sb-media{background:transparent; border:none; box-shadow:none;}
+html[data-theme="dark"] #s-design .sb-media, html[data-theme="dark"] #s-strategy .sb-media, html[data-theme="dark"] #s-engineering .sb-media, html[data-theme="dark"] #s-ai .sb-media, html[data-theme="dark"] #s-cloud .sb-media, html[data-theme="dark"] #s-quality .sb-media{background:transparent; border:none; box-shadow:none;}
+.sb-media-lottie{aspect-ratio:auto !important; width:100%; min-height:600px; height:620px; display:flex !important; align-items:center !important; justify-content:center !important; padding:0; overflow:visible !important; position:relative;}
+.sb-media-lottie .design-lottie-container, .sb-media-lottie .strategy-lottie-container, .sb-media-lottie .engineering-lottie-container, .sb-media-lottie .ai-lottie-container, .sb-media-lottie .cloud-lottie-container, .sb-media-lottie .quality-lottie-container{width:100%; height:100%; max-width:480px; display:flex; align-items:center; justify-content:center; overflow:visible;}
+.sb-media-lottie svg{width:100% !important; height:100% !important; max-height:100%; filter:drop-shadow(0 20px 45px rgba(0,0,0,0.12)); transform:scale(1.18); transform-origin:center center; overflow:visible !important;}
+html[data-theme="dark"] .sb-media-lottie svg{filter:drop-shadow(0 24px 50px rgba(0,0,0,0.6));}
+@media (max-width:900px){
+  .sb-media-lottie{min-height:520px; height:540px; margin:10px auto 0;}
+  .sb-media-lottie .design-lottie-container, .sb-media-lottie .strategy-lottie-container, .sb-media-lottie .engineering-lottie-container, .sb-media-lottie .ai-lottie-container, .sb-media-lottie .cloud-lottie-container, .sb-media-lottie .quality-lottie-container{max-width:380px;}
+  .sb-media-lottie svg{transform:scale(1.22);}
+}
+@media (max-width:480px){
+  .sb-media-lottie{min-height:480px; height:500px; margin:5px auto 0;}
+  .sb-media-lottie .design-lottie-container, .sb-media-lottie .strategy-lottie-container, .sb-media-lottie .engineering-lottie-container, .sb-media-lottie .ai-lottie-container, .sb-media-lottie .cloud-lottie-container, .sb-media-lottie .quality-lottie-container{max-width:340px;}
+  .sb-media-lottie svg{transform:scale(1.25);}
+}
 
 /* ============ ABOUT PAGE ============ */
 .about-hero{padding:70px 0 90px;}
@@ -318,7 +336,7 @@ footer{border-top:1px solid var(--line); padding:80px 0 34px;}
   .why{grid-template-columns:1fr; gap:36px;}
   .footer-top{grid-template-columns:1fr 1fr;}
   .service-block{grid-template-columns:1fr; gap:32px;}
-  .service-block:nth-child(even) .sb-media{order:0;}
+  .service-block .sb-media{order:2;}
   .about-hero-grid{grid-template-columns:1fr;}
   .team-grid{grid-template-columns:repeat(2,1fr);}
   .culture-grid{grid-template-columns:1fr;}
@@ -349,6 +367,17 @@ footer{border-top:1px solid var(--line); padding:80px 0 34px;}
         </a>
         <div class="mega dropdown-card" id="servicesDropdown" role="menu" aria-label="Services dropdown">
           <div class="mega-list">
+            <a href="#" class="mega-item" data-nav="services" data-anchor="s-design" role="menuitem">
+              <div class="mega-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </div>
+              <div class="mega-content">
+                <span class="mtitle">Product &amp; Experience Design</span>
+              </div>
+            </a>
             <a href="#" class="mega-item" data-nav="services" data-anchor="s-strategy" role="menuitem">
               <div class="mega-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -359,7 +388,6 @@ footer{border-top:1px solid var(--line); padding:80px 0 34px;}
               </div>
               <div class="mega-content">
                 <span class="mtitle">Strategy &amp; Innovation</span>
-                <span class="mdesc">Roadmaps that turn ambition into a plan.</span>
               </div>
             </a>
             <a href="#" class="mega-item" data-nav="services" data-anchor="s-engineering" role="menuitem">
@@ -371,19 +399,6 @@ footer{border-top:1px solid var(--line); padding:80px 0 34px;}
               </div>
               <div class="mega-content">
                 <span class="mtitle">Software Engineering</span>
-                <span class="mdesc">Resilient products, built to scale.</span>
-              </div>
-            </a>
-            <a href="#" class="mega-item" data-nav="services" data-anchor="s-design" role="menuitem">
-              <div class="mega-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <circle cx="12" cy="12" r="3"></circle>
-                </svg>
-              </div>
-              <div class="mega-content">
-                <span class="mtitle">Product &amp; Experience Design</span>
-                <span class="mdesc">Interfaces people actually enjoy.</span>
               </div>
             </a>
             <a href="#" class="mega-item" data-nav="services" data-anchor="s-ai" role="menuitem">
@@ -398,7 +413,6 @@ footer{border-top:1px solid var(--line); padding:80px 0 34px;}
               </div>
               <div class="mega-content">
                 <span class="mtitle">AI &amp; Data</span>
-                <span class="mdesc">Intelligence embedded in the product.</span>
               </div>
             </a>
             <a href="#" class="mega-item" data-nav="services" data-anchor="s-cloud" role="menuitem">
@@ -409,7 +423,6 @@ footer{border-top:1px solid var(--line); padding:80px 0 34px;}
               </div>
               <div class="mega-content">
                 <span class="mtitle">Cloud &amp; Platform Engineering</span>
-                <span class="mdesc">Infrastructure that stays out of the way.</span>
               </div>
             </a>
             <a href="#" class="mega-item" data-nav="services" data-anchor="s-quality" role="menuitem">
@@ -421,17 +434,7 @@ footer{border-top:1px solid var(--line); padding:80px 0 34px;}
               </div>
               <div class="mega-content">
                 <span class="mtitle">Quality, Delivery &amp; Scale</span>
-                <span class="mdesc">Ship often, ship safely.</span>
               </div>
-            </a>
-          </div>
-          <div class="mega-footer">
-            <span class="mega-footer-label">PrimeLoft Services</span>
-            <a href="#" data-nav="services" class="mega-footer-link">
-              <span>View all</span>
-              <svg class="mega-footer-arrow" viewBox="0 0 12 12" fill="none">
-                <path d="M2.5 6H9.5M6.5 3L9.5 6L6.5 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
             </a>
           </div>
         </div>
@@ -463,7 +466,7 @@ footer{border-top:1px solid var(--line); padding:80px 0 34px;}
         <span class="line"><span>We design &amp; build</span></span>
         <span class="line"><span>digital commerce that <span class="script">converts</span></span></span>
       </h1>
-      <p class="lead">PrimeLoft partners with ambitious brands to plan, engineer and scale commerce experiences — from first sketch to nine-figure revenue.</p>
+      <p class="lead">PrimeLoft partners with ambitious brands to plan, engineer and scale commerce experiences, from first sketch to nine-figure revenue.</p>
       <div class="hero-ctas">
         <a href="#" class="btn btn-primary" data-nav="contact">Estimate project <span class="btn-arrow">→</span></a>
         <a href="#" class="btn btn-ghost" data-nav="services">Explore services</a>
@@ -532,12 +535,12 @@ footer{border-top:1px solid var(--line); padding:80px 0 34px;}
       </div>
       <div class="testi-board reveal">
         <div class="testi-grid">
-          <div class="note" style="--pin-rot:-6deg"><q>"PrimeLoft rebuilt our checkout in six weeks — conversion hasn't dipped since launch."</q><div class="who">— Head of Digital, Retail Group</div></div>
-          <div class="note" style="--pin-rot:5deg"><q>"They think like founders, not vendors. Every recommendation tied back to revenue."</q><div class="who">— VP Product, Proptech Platform</div></div>
-          <div class="note" style="--pin-rot:-3deg"><q>"The AI personalization engine paid for itself in the first quarter."</q><div class="who">— CMO, Sports Ecommerce</div></div>
-          <div class="note" style="--pin-rot:4deg"><q>"Fastest, calmest engineering team we've worked with. Zero drama launches."</q><div class="who">— CTO, Global Marketplace</div></div>
-          <div class="note" style="--pin-rot:-4deg"><q>"They rebuilt our design system and our whole brand felt sharper overnight."</q><div class="who">— Design Director, DTC Brand</div></div>
-          <div class="note" style="--pin-rot:3deg"><q>"Managed services team quietly keeps everything running. Best kind of partner."</q><div class="who">— Ops Lead, GCC Retailer</div></div>
+          <div class="note" style="--pin-rot:-6deg"><q>"PrimeLoft rebuilt our checkout in six weeks, and conversion hasn't dipped since launch."</q><div class="who">Head of Digital, Retail Group</div></div>
+          <div class="note" style="--pin-rot:5deg"><q>"They think like founders, not vendors. Every recommendation tied back to revenue."</q><div class="who">VP Product, Proptech Platform</div></div>
+          <div class="note" style="--pin-rot:-3deg"><q>"The AI personalization engine paid for itself in the first quarter."</q><div class="who">CMO, Sports Ecommerce</div></div>
+          <div class="note" style="--pin-rot:4deg"><q>"Fastest, calmest engineering team we've worked with. Zero drama launches."</q><div class="who">CTO, Global Marketplace</div></div>
+          <div class="note" style="--pin-rot:-4deg"><q>"They rebuilt our design system and our whole brand felt sharper overnight."</q><div class="who">Design Director, DTC Brand</div></div>
+          <div class="note" style="--pin-rot:3deg"><q>"Managed services team quietly keeps everything running. Best kind of partner."</q><div class="who">Ops Lead, GCC Retailer</div></div>
         </div>
       </div>
     </div>
@@ -548,13 +551,13 @@ footer{border-top:1px solid var(--line); padding:80px 0 34px;}
       <div class="reveal">
         <div class="eyebrow">Why PrimeLoft</div>
         <h2 style="margin-top:16px; font-size:clamp(28px,3.4vw,40px);">A studio built around outcomes, not deliverables</h2>
-        <p style="margin-top:18px;">We embed with your team, learn the commerce metrics that matter, and stay accountable to them long after launch day. No handoffs into a black box — just steady, senior craft from strategy through to scale.</p>
+        <p style="margin-top:18px;">We embed with your team, learn the commerce metrics that matter, and stay accountable to them long after launch day. No handoffs into a black box, just steady, senior craft from strategy through to scale.</p>
       </div>
       <div class="why-list reveal">
-        <div class="why-item"><div class="wnum">01</div><div><h3>Senior teams, from day one</h3><p>No juniors learning on your budget — every engagement is led by people who've shipped this before.</p></div></div>
+        <div class="why-item"><div class="wnum">01</div><div><h3>Senior teams, from day one</h3><p>No juniors learning on your budget. Every engagement is led by people who've shipped this before.</p></div></div>
         <div class="why-item"><div class="wnum">02</div><div><h3>Commerce-native thinking</h3><p>We understand margin, AOV and retention as well as we understand code.</p></div></div>
         <div class="why-item"><div class="wnum">03</div><div><h3>Built to hand over</h3><p>Clean, documented systems your internal team can actually own.</p></div></div>
-        <div class="why-item"><div class="wnum">04</div><div><h3>Measured, not marketed</h3><p>We report the numbers that moved — good, bad, or in-between.</p></div></div>
+        <div class="why-item"><div class="wnum">04</div><div><h3>Measured, not marketed</h3><p>We report the numbers that moved: good, bad, or in-between.</p></div></div>
       </div>
     </div>
   </section>
@@ -576,49 +579,49 @@ footer{border-top:1px solid var(--line); padding:80px 0 34px;}
   <div class="wrap page-hero">
     <div class="eyebrow" style="justify-content:center;">What we do</div>
     <h1>Six disciplines. <span class="script">One</span> studio.</h1>
-    <p style="max-width:560px; margin:20px auto 0;">Every engagement draws from the same senior bench — pick one discipline or lean on all six.</p>
+    <p style="max-width:560px; margin:20px auto 0;">Every engagement draws from the same senior bench: pick one discipline or lean on all six.</p>
   </div>
 
   <div class="wrap">
+    <div class="service-block" id="s-design">
+      <div>
+        <div class="sb-icon-lg"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke-width="1.6"/><path d="M12 3a9 9 0 010 18" stroke-width="1.6"/></svg></div>
+        <h2>Product &amp; Experience Design</h2>
+        <p>Research-led design that reduces friction across the whole journey, from first ad click to repeat purchase.</p>
+        <div class="sb-tags"><span>UX research</span><span>Design systems</span><span>Conversion design</span><span>Prototyping</span></div>
+      </div>
+      <div class="sb-media sb-media-lottie">
+        <div id="designLottieContainerPrimeloft" class="design-lottie-container" aria-label="Product &amp; Experience Design Mobile App Animation"></div>
+      </div>
+    </div>
+
     <div class="service-block" id="s-strategy">
+      <div class="sb-media sb-media-lottie">
+        <div id="strategyLottieContainerPrimeloft" class="strategy-lottie-container" aria-label="Strategy &amp; Innovation Target and Roadmap Animation"></div>
+      </div>
       <div>
         <div class="sb-icon-lg"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V13M12 19V5M20 19V9" stroke-width="1.6" stroke-linecap="round"/></svg></div>
         <h2>Strategy &amp; Innovation</h2>
-        <p>We turn ambiguous ambition into a sequenced roadmap — market position, platform choice, and a build plan your board can sign off on.</p>
+        <p>We turn ambiguous ambition into a sequenced roadmap covering market position, platform choice, and a build plan your board can sign off on.</p>
         <div class="sb-tags"><span>Discovery</span><span>Roadmapping</span><span>Platform selection</span><span>Innovation labs</span></div>
-      </div>
-      <div class="sb-media" style="background:var(--red-tint);">
-        <svg viewBox="0 0 200 160" fill="none"><path d="M20 130 L60 80 L100 100 L140 40 L180 60" stroke="var(--red)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="180" cy="60" r="6" fill="var(--red)"/><circle cx="140" cy="40" r="6" fill="var(--red)"/><circle cx="100" cy="100" r="6" fill="var(--red)"/><circle cx="60" cy="80" r="6" fill="var(--red)"/><circle cx="20" cy="130" r="6" fill="var(--red)"/></svg>
       </div>
     </div>
 
     <div class="service-block" id="s-engineering">
-      <div class="sb-media" style="background:var(--bg-alt);">
-        <svg viewBox="0 0 200 160" fill="none"><path d="M70 40L30 80L70 120M130 40L170 80L130 120" stroke="var(--red)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M110 30L90 130" stroke="var(--gold)" stroke-width="3" stroke-linecap="round"/></svg>
-      </div>
       <div>
         <div class="sb-icon-lg"><svg viewBox="0 0 24 24" fill="none"><path d="M8 6L2 12L8 18M16 6L22 12L16 18" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h2>Software Engineering</h2>
         <p>Full-stack teams building commerce platforms, storefronts and internal tools that hold up under real traffic and change gracefully.</p>
         <div class="sb-tags"><span>Web &amp; mobile</span><span>Headless commerce</span><span>API architecture</span><span>Legacy modernization</span></div>
       </div>
-    </div>
-
-    <div class="service-block" id="s-design">
-      <div>
-        <div class="sb-icon-lg"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke-width="1.6"/><path d="M12 3a9 9 0 010 18" stroke-width="1.6"/></svg></div>
-        <h2>Product &amp; Experience Design</h2>
-        <p>Research-led design that reduces friction across the whole journey — from first ad click to repeat purchase.</p>
-        <div class="sb-tags"><span>UX research</span><span>Design systems</span><span>Conversion design</span><span>Prototyping</span></div>
-      </div>
-      <div class="sb-media" style="background:var(--red-tint);">
-        <svg viewBox="0 0 200 160" fill="none"><rect x="30" y="30" width="60" height="100" rx="10" stroke="var(--red)" stroke-width="3"/><rect x="110" y="50" width="60" height="60" rx="10" stroke="var(--gold)" stroke-width="3"/></svg>
+      <div class="sb-media sb-media-lottie">
+        <div id="engineeringLottieContainerPrimeloft" class="engineering-lottie-container" aria-label="Software Engineering Code Test Deploy Animation"></div>
       </div>
     </div>
 
     <div class="service-block" id="s-ai">
-      <div class="sb-media" style="background:var(--bg-alt);">
-        <svg viewBox="0 0 200 160" fill="none"><circle cx="100" cy="80" r="16" stroke="var(--red)" stroke-width="3"/><path d="M100 20v30M100 110v30M40 80h30M130 80h30M60 40l21 21M119 119l21 21M60 120l21-21M119 41l21-21" stroke="var(--red)" stroke-width="2.5" stroke-linecap="round"/></svg>
+      <div class="sb-media sb-media-lottie">
+        <div id="aiLottieContainerPrimeloft" class="ai-lottie-container" aria-label="AI and Data Architecture Animation"></div>
       </div>
       <div>
         <div class="sb-icon-lg"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke-width="1.6"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8" stroke-width="1.6" stroke-linecap="round"/></svg></div>
@@ -632,17 +635,17 @@ footer{border-top:1px solid var(--line); padding:80px 0 34px;}
       <div>
         <div class="sb-icon-lg"><svg viewBox="0 0 24 24" fill="none"><path d="M7 18a4 4 0 01-1-7.87A5 5 0 0116 8a4.5 4.5 0 011 8.9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h2>Cloud &amp; Platform Engineering</h2>
-        <p>Infrastructure, CI/CD and observability that scale quietly under peak sale traffic — built once, trusted forever.</p>
+        <p>Infrastructure, CI/CD and observability that scale quietly under peak sale traffic: built once, trusted forever.</p>
         <div class="sb-tags"><span>AWS / GCP / Azure</span><span>DevOps</span><span>Infra as code</span><span>Reliability</span></div>
       </div>
-      <div class="sb-media" style="background:var(--red-tint);">
-        <svg viewBox="0 0 200 160" fill="none"><path d="M60 100a24 24 0 01-6-47 32 32 0 0162-9 26 26 0 0128 44" stroke="var(--red)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="sb-media sb-media-lottie">
+        <div id="cloudLottieContainerPrimeloft" class="cloud-lottie-container" aria-label="Cloud &amp; Platform Engineering Infrastructure Animation"></div>
       </div>
     </div>
 
-    <div class="service-block" id="s-quality" style="border-bottom:1px solid var(--line);">
-      <div class="sb-media" style="background:var(--bg-alt);">
-        <svg viewBox="0 0 200 160" fill="none"><path d="M40 90l35 35L165 45" stroke="var(--red)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="service-block" id="s-quality">
+      <div class="sb-media sb-media-lottie">
+        <div id="qualityLottieContainerPrimeloft" class="quality-lottie-container" aria-label="Quality, Delivery and Scale Delivery Truck and Testing Animation"></div>
       </div>
       <div>
         <div class="sb-icon-lg"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -722,7 +725,7 @@ footer{border-top:1px solid var(--line); padding:80px 0 34px;}
         <h2>Culture, in three parts</h2>
       </div>
       <div class="culture-grid">
-        <div class="culture-card reveal"><h3>Senior by default</h3><p>Every project is staffed by people who could run it solo — collaboration is a choice, not a crutch.</p></div>
+        <div class="culture-card reveal"><h3>Senior by default</h3><p>Every project is staffed by people who could run it solo: collaboration is a choice, not a crutch.</p></div>
         <div class="culture-card reveal"><h3>Async-first, always close</h3><p>Distributed across three time zones, but never more than a day from an answer.</p></div>
         <div class="culture-card reveal"><h3>Craft over churn</h3><p>We'd rather keep a client for five years than land ten logos for a case study slide.</p></div>
       </div>
@@ -779,14 +782,25 @@ footer{border-top:1px solid var(--line); padding:80px 0 34px;}
           <div class="cert-badge">B Corp</div>
           <div class="cert-badge">TÜV Nord</div>
         </div>
+        <div class="footer-newsletter" style="margin-top:24px;">
+          <h4 style="margin-bottom:6px;">Next in Commerce Newsletter</h4>
+          <div class="addr" style="font-size:13px;">Trends &amp; insights for commerce leaders</div>
+          <form onsubmit="return false;">
+            <input type="email" placeholder="Your email address">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
       </div>
-      <div class="footer-col newsletter">
-        <h4>Next in Commerce Newsletter</h4>
-        <div class="addr">Trends &amp; insights for commerce leaders</div>
-        <form onsubmit="return false;">
-          <input type="email" placeholder="Your email address">
-          <button type="submit">Subscribe</button>
-        </form>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="#" data-nav="services" data-anchor="s-design">Product &amp; Experience Design</a></li>
+          <li><a href="#" data-nav="services" data-anchor="s-strategy">Strategy &amp; Innovation</a></li>
+          <li><a href="#" data-nav="services" data-anchor="s-engineering">Software Engineering</a></li>
+          <li><a href="#" data-nav="services" data-anchor="s-ai">AI &amp; Data</a></li>
+          <li><a href="#" data-nav="services" data-anchor="s-cloud">Cloud &amp; Platform Engineering</a></li>
+          <li><a href="#" data-nav="services" data-anchor="s-quality">Quality, Delivery &amp; Scale</a></li>
+        </ul>
       </div>
     </div>
     <div class="footer-bottom">
@@ -880,6 +894,159 @@ function refreshReveal(){
   ScrollTrigger.refresh();
 }
 refreshReveal();
+
+// ---------- Lottie Animations Controller (All 6 Disciplines) ----------
+(function initLottieAnimationsPrimeloft() {
+  const designContainers = document.querySelectorAll('.design-lottie-container');
+  if (designContainers.length > 0) {
+    initLottieAnimation(designContainers, 'animations/design-light.json', 'animations/design-dark.json');
+  }
+
+  const strategyContainers = document.querySelectorAll('.strategy-lottie-container');
+  if (strategyContainers.length > 0) {
+    initLottieAnimation(strategyContainers, 'animations/strategy-light.json', 'animations/strategy-dark.json');
+  }
+
+  const engineeringContainers = document.querySelectorAll('.engineering-lottie-container');
+  if (engineeringContainers.length > 0) {
+    initLottieAnimation(engineeringContainers, 'animations/engineering-light.json', 'animations/engineering-dark.json');
+  }
+
+  const aiContainers = document.querySelectorAll('.ai-lottie-container');
+  if (aiContainers.length > 0) {
+    initLottieAnimation(aiContainers, 'animations/ai-light.json', 'animations/ai-dark.json');
+  }
+
+  const cloudContainers = document.querySelectorAll('.cloud-lottie-container');
+  if (cloudContainers.length > 0) {
+    initLottieAnimation(cloudContainers, 'animations/cloud-light.json', 'animations/cloud-dark.json');
+  }
+
+  const qualityContainers = document.querySelectorAll('.quality-lottie-container');
+  if (qualityContainers.length > 0) {
+    initLottieAnimation(qualityContainers, 'animations/quality-light.json', 'animations/quality-dark.json');
+  }
+
+  function initLottieAnimation(containers, lightUrl, darkUrl) {
+    let lightData = null;
+    let darkData = null;
+
+    function loadLottieScript(cb) {
+      if (window.lottie) return cb();
+      const existing = document.querySelector('script[src*="lottie_light.min.js"]');
+      if (existing) {
+        existing.addEventListener('load', cb, { once: true });
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = 'js/libs/lottie_light.min.js';
+      script.onload = cb;
+      document.head.appendChild(script);
+    }
+
+    async function loadJsonData() {
+      const isDarkInitial = document.documentElement.getAttribute('data-theme') === 'dark';
+      const primaryUrl = isDarkInitial ? darkUrl : lightUrl;
+      const secondaryUrl = isDarkInitial ? lightUrl : darkUrl;
+
+      try {
+        const primaryRes = await fetch(primaryUrl);
+        const data = await primaryRes.json();
+        if (isDarkInitial) {
+          darkData = data;
+        } else {
+          lightData = data;
+        }
+      } catch (e) {
+        console.warn('Could not preload primary Lottie JSON:', e);
+      }
+
+      fetch(secondaryUrl)
+        .then(res => res.json())
+        .then(data => {
+          if (isDarkInitial) {
+            lightData = data;
+          } else {
+            darkData = data;
+          }
+        })
+        .catch(() => {});
+    }
+
+    loadLottieScript(async () => {
+      await loadJsonData();
+
+      containers.forEach(container => {
+        let animInstance = null;
+        let isVisible = true;
+
+        function renderAnimation() {
+          const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          const targetData = isDark ? darkData : lightData;
+          const fallbackPath = isDark ? darkUrl : lightUrl;
+
+          if (animInstance) {
+            animInstance.destroy();
+            animInstance = null;
+          }
+          container.innerHTML = '';
+
+          const config = {
+            container: container,
+            renderer: 'svg',
+            loop: true,
+            autoplay: isVisible,
+            rendererSettings: {
+              preserveAspectRatio: 'xMidYMid meet',
+              progressiveLoad: true,
+              hideOnTransparent: true
+            }
+          };
+
+          if (targetData) {
+            config.animationData = targetData;
+          } else {
+            config.path = fallbackPath;
+          }
+
+          try {
+            animInstance = window.lottie.loadAnimation(config);
+          } catch (err) {
+            console.error('Error rendering Lottie:', err);
+          }
+        }
+
+        renderAnimation();
+
+        const themeObserver = new MutationObserver((mutations) => {
+          for (const m of mutations) {
+            if (m.type === 'attributes' && m.attributeName === 'data-theme') {
+              renderAnimation();
+              break;
+            }
+          }
+        });
+        themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              isVisible = entry.isIntersecting;
+              if (animInstance) {
+                if (isVisible) {
+                  animInstance.play();
+                } else {
+                  animInstance.pause();
+                }
+              }
+            });
+          }, { threshold: 0.1 });
+          observer.observe(container);
+        }
+      });
+    });
+  }
+})();
 </script>
 </body>
 </html>

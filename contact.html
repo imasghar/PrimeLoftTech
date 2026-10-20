@@ -79,6 +79,17 @@
           </a>
           <div class="mega dropdown-card" id="servicesDropdown" role="menu" aria-label="Services dropdown">
             <div class="mega-list">
+              <a href="services.html#s-design" class="mega-item" role="menuitem">
+                <div class="mega-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </div>
+                <div class="mega-content">
+                  <span class="mtitle">Product &amp; Experience Design</span>
+                </div>
+              </a>
               <a href="services.html#s-strategy" class="mega-item" role="menuitem">
                 <div class="mega-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -89,7 +100,6 @@
                 </div>
                 <div class="mega-content">
                   <span class="mtitle">Strategy &amp; Innovation</span>
-                  <span class="mdesc">Roadmaps that turn ambition into a plan.</span>
                 </div>
               </a>
               <a href="services.html#s-engineering" class="mega-item" role="menuitem">
@@ -101,19 +111,6 @@
                 </div>
                 <div class="mega-content">
                   <span class="mtitle">Software Engineering</span>
-                  <span class="mdesc">Resilient products, built to scale.</span>
-                </div>
-              </a>
-              <a href="services.html#s-design" class="mega-item" role="menuitem">
-                <div class="mega-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <circle cx="12" cy="12" r="3"></circle>
-                  </svg>
-                </div>
-                <div class="mega-content">
-                  <span class="mtitle">Product &amp; Experience Design</span>
-                  <span class="mdesc">Interfaces people actually enjoy.</span>
                 </div>
               </a>
               <a href="services.html#s-ai" class="mega-item" role="menuitem">
@@ -128,7 +125,6 @@
                 </div>
                 <div class="mega-content">
                   <span class="mtitle">AI &amp; Data</span>
-                  <span class="mdesc">Intelligence embedded in the product.</span>
                 </div>
               </a>
               <a href="services.html#s-cloud" class="mega-item" role="menuitem">
@@ -139,7 +135,6 @@
                 </div>
                 <div class="mega-content">
                   <span class="mtitle">Cloud &amp; Platform Engineering</span>
-                  <span class="mdesc">Infrastructure that stays out of the way.</span>
                 </div>
               </a>
               <a href="services.html#s-quality" class="mega-item" role="menuitem">
@@ -151,17 +146,7 @@
                 </div>
                 <div class="mega-content">
                   <span class="mtitle">Quality, Delivery &amp; Scale</span>
-                  <span class="mdesc">Ship often, ship safely.</span>
                 </div>
-              </a>
-            </div>
-            <div class="mega-footer">
-              <span class="mega-footer-label">PrimeLoft Services</span>
-              <a href="services.html" class="mega-footer-link">
-                <span>View all</span>
-                <svg class="mega-footer-arrow" viewBox="0 0 12 12" fill="none">
-                  <path d="M2.5 6H9.5M6.5 3L9.5 6L6.5 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
               </a>
             </div>
           </div>
@@ -294,16 +279,27 @@
               <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.69c0-2.47 1.47-3.83 3.72-3.83 1.08 0 2.21.19 2.21.19v2.43h-1.25c-1.22 0-1.6.76-1.6 1.54V12h2.73l-.44 3h-2.29v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>
             </a>
           </div>
+          <div class="footer-newsletter" style="margin-top:24px;">
+            <h4 class="footer-title" style="margin-bottom:6px;">Next in Commerce Newsletter</h4>
+            <div class="addr" style="font-size:13px;">Trends &amp; insights for commerce leaders</div>
+            <form class="newsletterForm" action="https://formspree.io/f/xeajqqoy" method="POST" aria-label="Newsletter Subscription">
+              <input type="hidden" name="_subject" value="New Newsletter Subscription | PrimeLoft Tech">
+              <input type="email" name="email" id="nl-email-contact" aria-label="Your email address" placeholder="Your email address" required>
+              <button type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
+            </form>
+            <div class="newsletterStatus" style="display:none; margin-top:8px; font-size:12.5px; font-weight:600;"></div>
+          </div>
         </div>
-        <div class="footer-col newsletter">
-          <h3 class="footer-title">Next in Commerce Newsletter</h3>
-          <div class="addr">Trends &amp; insights for commerce leaders</div>
-          <form class="newsletterForm" action="https://formspree.io/f/xeajqqoy" method="POST" aria-label="Newsletter Subscription">
-            <input type="hidden" name="_subject" value="New Newsletter Subscription - PrimeLoft Tech">
-            <input type="email" name="email" id="nl-email-contact" aria-label="Your email address" placeholder="Your email address" required>
-            <button type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
-          </form>
-          <div class="newsletterStatus" style="display:none; margin-top:8px; font-size:12.5px; font-weight:600;"></div>
+        <div class="footer-col">
+          <h3 class="footer-title">Services</h3>
+          <ul class="footer-links">
+            <li><a href="services.html#s-design">Product &amp; Experience Design</a></li>
+            <li><a href="services.html#s-strategy">Strategy &amp; Innovation</a></li>
+            <li><a href="services.html#s-engineering">Software Engineering</a></li>
+            <li><a href="services.html#s-ai">AI &amp; Data</a></li>
+            <li><a href="services.html#s-cloud">Cloud &amp; Platform Engineering</a></li>
+            <li><a href="services.html#s-quality">Quality, Delivery &amp; Scale</a></li>
+          </ul>
         </div>
       </div>
       <div class="footer-bottom">
