@@ -73,34 +73,96 @@
       <nav class="primary">
         <a href="index.html" class="navlink">Home</a>
         <div class="has-mega" style="position:relative;">
-          <a href="services.html" class="navlink active">Services
+          <a href="services.html" class="navlink active" aria-expanded="false" aria-haspopup="true">Services
             <svg class="caret" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
           </a>
-          <div class="mega">
-            <a href="services.html#s-strategy">
-              <span class="micon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V13M12 19V5M20 19V9" stroke-width="1.6" stroke-linecap="round"/></svg></span>
-              <span><span class="mtitle">Strategy &amp; Innovation</span><span class="mdesc">Roadmaps that turn ambition into a plan.</span></span>
-            </a>
-            <a href="services.html#s-engineering">
-              <span class="micon"><svg viewBox="0 0 24 24" fill="none"><path d="M8 6L2 12L8 18M16 6L22 12L16 18" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span><span class="mtitle">Software Engineering</span><span class="mdesc">Resilient products, built to scale.</span></span>
-            </a>
-            <a href="services.html#s-design">
-              <span class="micon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke-width="1.6"/><path d="M12 3a9 9 0 010 18" stroke-width="1.6"/></svg></span>
-              <span><span class="mtitle">Product &amp; Experience Design</span><span class="mdesc">Interfaces people actually enjoy.</span></span>
-            </a>
-            <a href="services.html#s-ai">
-              <span class="micon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke-width="1.6"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8" stroke-width="1.6" stroke-linecap="round"/></svg></span>
-              <span><span class="mtitle">AI &amp; Data</span><span class="mdesc">Intelligence embedded in the product.</span></span>
-            </a>
-            <a href="services.html#s-cloud">
-              <span class="micon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 18a4 4 0 01-1-7.87A5 5 0 0116 8a4.5 4.5 0 011 8.9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span><span class="mtitle">Cloud &amp; Platform Engineering</span><span class="mdesc">Infrastructure that stays out of the way.</span></span>
-            </a>
-            <a href="services.html#s-quality">
-              <span class="micon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span><span class="mtitle">Quality, Delivery &amp; Scale</span><span class="mdesc">Ship often, ship safely.</span></span>
-            </a>
+          <div class="mega dropdown-card" id="servicesDropdown" role="menu" aria-label="Services dropdown">
+            <div class="mega-list">
+              <a href="services.html#s-strategy" class="mega-item" role="menuitem">
+                <div class="mega-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                  </svg>
+                </div>
+                <div class="mega-content">
+                  <span class="mtitle">Strategy &amp; Innovation</span>
+                  <span class="mdesc">Roadmaps that turn ambition into a plan.</span>
+                </div>
+              </a>
+              <a href="services.html#s-engineering" class="mega-item" role="menuitem">
+                <div class="mega-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                </div>
+                <div class="mega-content">
+                  <span class="mtitle">Software Engineering</span>
+                  <span class="mdesc">Resilient products, built to scale.</span>
+                </div>
+              </a>
+              <a href="services.html#s-design" class="mega-item" role="menuitem">
+                <div class="mega-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </div>
+                <div class="mega-content">
+                  <span class="mtitle">Product &amp; Experience Design</span>
+                  <span class="mdesc">Interfaces people actually enjoy.</span>
+                </div>
+              </a>
+              <a href="services.html#s-ai" class="mega-item" role="menuitem">
+                <div class="mega-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2"></path><path d="M12 20v2"></path>
+                    <path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path>
+                    <path d="M2 12h2"></path><path d="M20 12h2"></path>
+                    <path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path>
+                  </svg>
+                </div>
+                <div class="mega-content">
+                  <span class="mtitle">AI &amp; Data</span>
+                  <span class="mdesc">Intelligence embedded in the product.</span>
+                </div>
+              </a>
+              <a href="services.html#s-cloud" class="mega-item" role="menuitem">
+                <div class="mega-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+                  </svg>
+                </div>
+                <div class="mega-content">
+                  <span class="mtitle">Cloud &amp; Platform Engineering</span>
+                  <span class="mdesc">Infrastructure that stays out of the way.</span>
+                </div>
+              </a>
+              <a href="services.html#s-quality" class="mega-item" role="menuitem">
+                <div class="mega-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                    <polyline points="22 10 13 19 11 17"></polyline>
+                  </svg>
+                </div>
+                <div class="mega-content">
+                  <span class="mtitle">Quality, Delivery &amp; Scale</span>
+                  <span class="mdesc">Ship often, ship safely.</span>
+                </div>
+              </a>
+            </div>
+            <div class="mega-footer">
+              <span class="mega-footer-label">PrimeLoft Services</span>
+              <a href="services.html" class="mega-footer-link">
+                <span>View all</span>
+                <svg class="mega-footer-arrow" viewBox="0 0 12 12" fill="none">
+                  <path d="M2.5 6H9.5M6.5 3L9.5 6L6.5 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
         <a href="about.html" class="navlink">About Us</a>

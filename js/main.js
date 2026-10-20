@@ -90,16 +90,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Mobile Mega Menu Accordion Toggle
+  // Services Dropdown Card Toggle (Click & Hover Support)
   const hasMegaElements = document.querySelectorAll('.has-mega');
   hasMegaElements.forEach(item => {
     const navLink = item.querySelector('.navlink');
     if (navLink) {
       navLink.addEventListener('click', (e) => {
-        if (window.matchMedia('(max-width: 720px)').matches) {
-          e.preventDefault();
-          item.classList.toggle('open');
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = item.classList.toggle('open');
+        navLink.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+
+    // Close dropdown when a service link is clicked
+    item.querySelectorAll('.mega a').forEach(link => {
+      link.addEventListener('click', () => {
+        item.classList.remove('open');
+        if (primaryNav) {
+          primaryNav.classList.remove('active');
+          if (mobileToggleBtn) mobileToggleBtn.setAttribute('aria-expanded', 'false');
         }
+      });
+    });
+  });
+
+  // Close dropdown on click outside
+  document.addEventListener('click', (e) => {
+    hasMegaElements.forEach(item => {
+      if (!item.contains(e.target)) {
+        item.classList.remove('open');
+        const navLink = item.querySelector('.navlink');
+        if (navLink) navLink.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  // Close dropdown on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      hasMegaElements.forEach(item => {
+        item.classList.remove('open');
+        const navLink = item.querySelector('.navlink');
+        if (navLink) navLink.setAttribute('aria-expanded', 'false');
       });
     }
   });
