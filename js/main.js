@@ -357,13 +357,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ---------- 8. PRODUCT & EXPERIENCE DESIGN LOTTIE CONTROLLER ----------
-  const lottieContainers = document.querySelectorAll('.design-lottie-container');
-  if (lottieContainers.length > 0) {
-    initDesignLottie(lottieContainers);
+  // ---------- 8. LOTTIE ANIMATIONS CONTROLLER (DESIGN, AI/DATA & CLOUD) ----------
+  const designContainers = document.querySelectorAll('.design-lottie-container');
+  if (designContainers.length > 0) {
+    initLottieAnimation(designContainers, 'animations/design-light.json', 'animations/design-dark.json');
   }
 
-  function initDesignLottie(containers) {
+  const aiContainers = document.querySelectorAll('.ai-lottie-container');
+  if (aiContainers.length > 0) {
+    initLottieAnimation(aiContainers, 'animations/ai-light.json', 'animations/ai-dark.json');
+  }
+
+  const cloudContainers = document.querySelectorAll('.cloud-lottie-container');
+  if (cloudContainers.length > 0) {
+    initLottieAnimation(cloudContainers, 'animations/cloud-light.json', 'animations/cloud-dark.json');
+  }
+
+  function initLottieAnimation(containers, lightUrl, darkUrl) {
     let lightData = null;
     let darkData = null;
 
@@ -382,8 +392,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function loadJsonData() {
       const isDarkInitial = document.documentElement.getAttribute('data-theme') === 'dark';
-      const primaryUrl = isDarkInitial ? 'animations/design-dark.json' : 'animations/design-light.json';
-      const secondaryUrl = isDarkInitial ? 'animations/design-light.json' : 'animations/design-dark.json';
+      const primaryUrl = isDarkInitial ? darkUrl : lightUrl;
+      const secondaryUrl = isDarkInitial ? lightUrl : darkUrl;
 
       try {
         const primaryRes = await fetch(primaryUrl);
@@ -419,7 +429,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function renderAnimation() {
           const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
           const targetData = isDark ? darkData : lightData;
-          const fallbackPath = isDark ? 'animations/design-dark.json' : 'animations/design-light.json';
+          const fallbackPath = isDark ? darkUrl : lightUrl;
 
           if (animInstance) {
             animInstance.destroy();
