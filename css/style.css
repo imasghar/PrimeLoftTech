@@ -971,15 +971,15 @@ html[data-theme="dark"] .cta-section {
 
 /* Product & Experience Design Lottie Media Box */
 #s-design .sb-media {
-  background: linear-gradient(135deg, rgba(243, 221, 215, 0.45) 0%, rgba(241, 236, 226, 0.7) 100%);
-  border: 1px solid var(--line);
-  box-shadow: inset 0 0 40px rgba(193, 88, 74, 0.05);
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 html[data-theme="dark"] #s-design .sb-media {
-  background: linear-gradient(135deg, rgba(30, 26, 33, 0.9) 0%, rgba(20, 17, 24, 0.95) 100%);
-  border: 1px solid rgba(243, 239, 231, 0.08);
-  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4);
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .sb-media-lottie {
