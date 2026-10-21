@@ -58,16 +58,19 @@
           <img src="images/logo-dark.png" class="logo-img" alt="PrimeLoft Software Solutions" width="200" height="66">
         </picture>
       </a>
-      <nav class="primary" aria-label="Main Navigation">
+      <nav class="primary">
         <a href="index.html" class="navlink">Home</a>
-        <div class="nav-item has-mega">
-          <a href="services.html" class="navlink active" aria-haspopup="true" aria-expanded="false">Services <span class="arrow-down"></span></a>
-          <div class="mega-menu" role="menu">
-            <div class="mega-grid">
+        <div class="has-mega" style="position:relative;">
+          <a href="services.html" class="navlink active" aria-expanded="false" aria-haspopup="true">Services
+            <svg class="caret" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </a>
+          <div class="mega dropdown-card" id="servicesDropdown" role="menu" aria-label="Services dropdown">
+            <div class="mega-list">
               <a href="service-design.html" class="mega-item active" role="menuitem">
                 <div class="mega-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path>
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="3"></circle>
                   </svg>
                 </div>
                 <div class="mega-content">
@@ -77,7 +80,9 @@
               <a href="service-strategy.html" class="mega-item" role="menuitem">
                 <div class="mega-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path><circle cx="12" cy="12" r="4"></circle>
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="14"></line>
                   </svg>
                 </div>
                 <div class="mega-content">
@@ -87,7 +92,8 @@
               <a href="service-engineering.html" class="mega-item" role="menuitem">
                 <div class="mega-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline>
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
                   </svg>
                 </div>
                 <div class="mega-content">
@@ -97,7 +103,11 @@
               <a href="service-ai.html" class="mega-item" role="menuitem">
                 <div class="mega-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path>
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2"></path><path d="M12 20v2"></path>
+                    <path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path>
+                    <path d="M2 12h2"></path><path d="M20 12h2"></path>
+                    <path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path>
                   </svg>
                 </div>
                 <div class="mega-content">
@@ -117,12 +127,22 @@
               <a href="service-quality.html" class="mega-item" role="menuitem">
                 <div class="mega-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline><polyline points="22 10 13 19 11 17"></polyline>
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                    <polyline points="22 10 13 19 11 17"></polyline>
                   </svg>
                 </div>
                 <div class="mega-content">
                   <span class="mtitle">Quality, Delivery &amp; Scale</span>
                 </div>
+              </a>
+            </div>
+            <div class="mega-footer">
+              <span class="mega-footer-label">Six disciplines. One studio.</span>
+              <a href="services.html" class="mega-footer-link">
+                <span>View all services</span>
+                <svg class="mega-footer-arrow" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
               </a>
             </div>
           </div>
@@ -139,6 +159,7 @@
             </svg>
           </span>
         </button>
+        <a href="contact.html" class="btn btn-primary">Estimate project</a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
             <path d="M4 6h16M4 12h16M4 18h16"/>

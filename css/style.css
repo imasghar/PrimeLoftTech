@@ -261,8 +261,13 @@ nav.primary .navlink.active {
   transition: transform .25s ease;
 }
 
-.has-mega:hover .caret {
+.has-mega:hover .caret,
+.has-mega.open .caret {
   transform: rotate(180deg);
+}
+
+.has-mega {
+  position: relative;
 }
 
 .header-right {
@@ -343,7 +348,7 @@ html[data-theme="dark"] .theme-toggle .knob {
   transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
   display: flex;
   flex-direction: column;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .mega::before {
