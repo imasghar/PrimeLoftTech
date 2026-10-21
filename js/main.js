@@ -558,5 +558,21 @@ document.addEventListener('DOMContentLoaded', () => {
     initLottieAnimation(qualityContainers, 'animations/quality-light.json', 'animations/quality-dark.json');
   }
 
+  const contactEmailContainers = document.querySelectorAll('.contact-email-lottie');
+  if (contactEmailContainers.length > 0) {
+    initLottieAnimation(contactEmailContainers, 'animations/contact-email-light.json', 'animations/contact-email-dark.json');
+  }
+
+  const contactPhoneContainers = document.querySelectorAll('.contact-phone-lottie');
+  if (contactPhoneContainers.length > 0) {
+    initLottieAnimation(contactPhoneContainers, 'animations/contact-phone-light.json', 'animations/contact-phone-dark.json');
+  }
+
+  const contactAddressContainers = document.querySelectorAll('.contact-address-lottie');
+  if (contactAddressContainers.length > 0) {
+    initLottieAnimation(contactAddressContainers, 'animations/contact-address-light.json', 'animations/contact-address-dark.json');
+  }
+
 });
+
 
