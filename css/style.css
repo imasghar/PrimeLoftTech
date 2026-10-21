@@ -155,6 +155,7 @@ p {
 .btn-primary:hover {
   background: var(--red);
   border-color: var(--red);
+  color: #FFFFFF;
   transform: translateY(-2px);
 }
 
@@ -2431,7 +2432,7 @@ input:checked + .slider:before {
 
 .service-cta-banner {
   background: var(--ink);
-  color: var(--bg);
+  color: #FFFFFF;
   border-radius: 24px;
   padding: 70px 50px;
   text-align: center;
@@ -2440,22 +2441,48 @@ input:checked + .slider:before {
   overflow: hidden;
 }
 
+.service-cta-banner .eyebrow {
+  color: #E17E68 !important;
+}
+
 .service-cta-banner h2 {
   font-size: clamp(32px, 4.5vw, 52px);
-  color: var(--bg);
+  color: #FFFFFF !important;
   margin-bottom: 16px;
+  line-height: 1.15;
 }
 
 .service-cta-banner p {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 17px;
   max-width: 580px;
   margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+.service-cta-banner .btn:hover {
+  background: var(--red-deep) !important;
+  border-color: var(--red-deep) !important;
+  color: #FFFFFF !important;
 }
 
 html[data-theme="dark"] .service-cta-banner {
-  background: var(--bg-alt);
+  background: linear-gradient(160deg, rgba(225, 126, 104, 0.08), var(--bg-raised));
   border: 1px solid var(--line-strong);
+  box-shadow: var(--shadow);
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .service-cta-banner .eyebrow {
+  color: var(--red) !important;
+}
+
+html[data-theme="dark"] .service-cta-banner h2 {
+  color: var(--ink) !important;
+}
+
+html[data-theme="dark"] .service-cta-banner p {
+  color: var(--ink-soft);
 }
 
 @media (max-width: 1000px) {
