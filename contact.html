@@ -223,10 +223,7 @@
           </div>
           <div class="contact-info-item">
             <div class="contact-lottie-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:24px; height:24px; color:var(--red);">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M12 6v6l4 2"/>
-              </svg>
+              <div id="contactResponseLottie" class="contact-lottie-icon contact-response-lottie" aria-label="Animated response clock"></div>
             </div>
             <div class="contact-info-text">
               <span class="contact-info-label">Response Time</span>
@@ -254,7 +251,8 @@
               <div id="formStatus" style="display:none; padding: 12px 16px; border-radius: 10px; font-size: 14px; font-weight: 500;"></div>
 
               <button type="submit" id="btnSubmitContact" class="btn btn-primary" style="align-self:flex-start; border:none; margin-top:6px;">
-                Send message <span class="btn-arrow">→</span>
+                <span>Send message</span>
+                <span class="contact-btn-lottie contact-send-lottie" aria-hidden="true"></span>
               </button>
             </div>
           </form>

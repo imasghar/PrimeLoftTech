@@ -1354,6 +1354,27 @@ html[data-theme="dark"] .sb-media-lottie svg {
   margin-bottom: -10px;
 }
 
+.contact-btn-lottie {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  min-height: 22px;
+  transition: transform .25s ease;
+}
+
+.contact-btn-lottie svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+#btnSubmitContact:hover .contact-btn-lottie {
+  transform: translate(3px, -2px);
+}
+
 /* ============ FOOTER STYLES ============ */
 footer {
   border-top: 1px solid var(--line);

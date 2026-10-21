@@ -573,6 +573,16 @@ document.addEventListener('DOMContentLoaded', () => {
     initLottieAnimation(contactAddressContainers, 'animations/contact-address-light.json', 'animations/contact-address-dark.json');
   }
 
+  const contactResponseContainers = document.querySelectorAll('.contact-response-lottie');
+  if (contactResponseContainers.length > 0) {
+    initLottieAnimation(contactResponseContainers, 'animations/contact-response-light.json', 'animations/contact-response-dark.json');
+  }
+
+  const contactSendContainers = document.querySelectorAll('.contact-send-lottie');
+  if (contactSendContainers.length > 0) {
+    initLottieAnimation(contactSendContainers, 'animations/contact-send-light.json', 'animations/contact-send-dark.json');
+  }
+
 });
 
 
