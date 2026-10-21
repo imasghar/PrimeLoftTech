@@ -1,0 +1,16 @@
+{
+  "name": "primeloft-site",
+  "version": "3.0.0",
+  "private": true,
+  "description": "PrimeLoft Tech marketing site: static HTML generated from tools/site, Lottie animations generated from tools/lottie.",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/site/build.mjs",
+    "build:animations": "node tools/lottie/build.mjs",
+    "build:all": "npm run build:animations && npm run build",
+    "serve": "python -m http.server 8765 --bind 127.0.0.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -16,3 +16,14 @@
 /animations/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600

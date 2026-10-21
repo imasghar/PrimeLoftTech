@@ -1,11 +1,11 @@
 {
-  "name": "PrimeLoft Tech",
+  "name": "PrimeLoft Software Solutions",
   "short_name": "PrimeLoft",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0F0E13",
-  "theme_color": "#EF4E38",
-  "description": "IT & Software Development Studio",
+  "background_color": "#FAF7F2",
+  "theme_color": "#C1584A",
+  "description": "Software development studio: custom web development, mobile apps, WordPress, Squarespace, SEO and cloud for businesses worldwide.",
   "icons": [
     {
       "src": "images/favicon-48x48.png",
@@ -16,6 +16,12 @@
       "src": "images/favicon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
+    },
+    {
+      "src": "images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }

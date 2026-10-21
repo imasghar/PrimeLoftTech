@@ -18,3 +18,7 @@ build/
 # Logs & Temporary Files
 *.log
 scratch/
+
+# local preview/probe harnesses
+_preview.html
+_probe*.html

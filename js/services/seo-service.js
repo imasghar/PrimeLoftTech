@@ -1,94 +1,23 @@
 /**
- * PrimeLoft Tech - SEO & Structured Data Service
- * Injects Organization & LocalBusiness JSON-LD schemas into document head.
+ * PrimeLoft Tech - SEO safety net.
+ * All structured data and canonical tags are rendered statically by the site generator
+ * (tools/site). This service only guarantees a canonical link exists and never overrides one,
+ * so index.html keeps its canonical pointing at the root URL.
  */
 import { CONFIG } from './config.js';
 
 export class SeoService {
   static init() {
-    this.ensureSelfReferencingCanonical();
-    this.injectOrganizationSchema();
-    if (window.location.pathname.includes('contact') || window.location.pathname.includes('about')) {
-      this.injectLocalBusinessSchema();
-    }
+    this.ensureCanonical();
   }
 
-  static ensureSelfReferencingCanonical() {
-    let canonicalLink = document.querySelector('link[rel="canonical"]');
-    // On 404 pages or noindex pages, do not force canonical
+  static ensureCanonical() {
+    if (document.querySelector('link[rel="canonical"]')) return;
     if (document.querySelector('meta[name="robots"][content*="noindex"]')) return;
-
-    if (!canonicalLink) {
-      canonicalLink = document.createElement('link');
-      canonicalLink.rel = 'canonical';
-      document.head.appendChild(canonicalLink);
-    }
-    const cleanUrl = window.location.origin + window.location.pathname;
-    canonicalLink.href = cleanUrl;
-  }
-
-  static injectOrganizationSchema() {
-    if (document.getElementById('org-schema')) return;
-
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": CONFIG.COMPANY_NAME,
-      "url": CONFIG.SITE_URL,
-      "logo": `${CONFIG.SITE_URL}/favicon.ico`,
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": CONFIG.CONTACT_PHONE,
-        "contactType": "customer service",
-        "email": CONFIG.CONTACT_EMAIL,
-        "availableLanguage": ["English"]
-      },
-      "sameAs": [
-        "https://www.linkedin.com/company/primloft/",
-        "https://www.facebook.com/share/1UUv6vvFdu/",
-        "https://wa.me/923359873132"
-      ]
-    };
-
-    const script = document.createElement('script');
-    script.id = 'org-schema';
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify(schema);
-    document.head.appendChild(script);
-  }
-
-  static injectLocalBusinessSchema() {
-    if (document.getElementById('local-business-schema')) return;
-
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": CONFIG.COMPANY_NAME,
-      "image": `${CONFIG.SITE_URL}/favicon.ico`,
-      "telephone": CONFIG.CONTACT_PHONE,
-      "email": CONFIG.CONTACT_EMAIL,
-      "address": {
-        "@type": "PostalAddress",
-        ...CONFIG.ADDRESS
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 30.055,
-        "longitude": 70.638
-      },
-      "url": CONFIG.SITE_URL,
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "opens": "09:00",
-        "closes": "18:00"
-      }
-    };
-
-    const script = document.createElement('script');
-    script.id = 'local-business-schema';
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify(schema);
-    document.head.appendChild(script);
+    const link = document.createElement('link');
+    link.rel = 'canonical';
+    const path = window.location.pathname.replace(/index\.html$/, '');
+    link.href = CONFIG.SITE_URL + path;
+    document.head.appendChild(link);
   }
 }

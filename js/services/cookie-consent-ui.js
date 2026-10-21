@@ -19,11 +19,11 @@ export class CookieConsentUI {
   }
 
   static showBanner() {
-    if (this.banner) this.banner.style.display = 'block';
+    if (this.banner) this.banner.hidden = false;
   }
 
   static hideBanner() {
-    if (this.banner) this.banner.style.display = 'none';
+    if (this.banner) this.banner.hidden = true;
   }
 
   static showModal() {
@@ -34,11 +34,11 @@ export class CookieConsentUI {
     if (chkAnalytics) chkAnalytics.checked = Boolean(current.analytics);
     if (chkMarketing) chkMarketing.checked = Boolean(current.marketing);
 
-    if (this.modal) this.modal.style.display = 'flex';
+    if (this.modal) { this.modal.hidden = false; this.modal.querySelector('input:not([disabled])')?.focus(); }
   }
 
   static hideModal() {
-    if (this.modal) this.modal.style.display = 'none';
+    if (this.modal) this.modal.hidden = true;
   }
 
   static bindEvents() {
@@ -82,6 +82,9 @@ export class CookieConsentUI {
       consentService.rejectAll();
       this.hideModal();
     });
+
+    this.modal?.addEventListener('click', (e) => { if (e.target === this.modal) this.hideModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && this.modal && !this.modal.hidden) this.hideModal(); });
 
     // Footer "Manage Cookie Preferences" Links
     document.querySelectorAll('.open-cookie-settings').forEach(link => {
