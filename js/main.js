@@ -8,6 +8,7 @@ import { trackingService } from './services/tracking-service.js';
 import { analyticsService } from './services/analytics-service.js';
 import { SeoService } from './services/seo-service.js';
 import { CookieConsentUI } from './services/cookie-consent-ui.js';
+import { InertiaScrollService } from './services/inertia-scroll.js';
 
 // 1. Instant Theme Initialization (0 ms FOIT/FOUC prevention)
 (function initTheme() {
@@ -26,6 +27,7 @@ window.addEventListener('pageshow', (event) => {
 document.addEventListener('DOMContentLoaded', () => {
 
   // ---------- 1. MODULAR SERVICES INITIALIZATION ----------
+  InertiaScrollService.init();
   SeoService.init();
   trackingService.init();
   analyticsService.init();
@@ -159,6 +161,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
     gsap.registerPlugin(ScrollTrigger);
 
+    // Sync Lenis Inertia Scroll with GSAP ScrollTrigger & Ticker
+    if (window.lenis) {
+      window.lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add((time) => {
+        window.lenis.raf(time * 1000);
+      });
+      gsap.ticker.lagSmoothing(0);
+    }
+
     // Hero Text Entrance Animation
     const heroHeading = document.getElementById('heroHeading');
     if (heroHeading) {
@@ -244,8 +255,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const targetEl = document.querySelector(window.location.hash);
     if (targetEl) {
       setTimeout(() => {
-        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 150);
+        if (window.lenis) {
+          window.lenis.scrollTo(targetEl, { offset: -80, duration: 1.2 });
+        } else {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 250);
     }
   }
 

@@ -34,11 +34,17 @@ export class CookieConsentUI {
     if (chkAnalytics) chkAnalytics.checked = Boolean(current.analytics);
     if (chkMarketing) chkMarketing.checked = Boolean(current.marketing);
 
-    if (this.modal) this.modal.style.display = 'flex';
+    if (this.modal) {
+      this.modal.style.display = 'flex';
+      if (window.lenis) window.lenis.stop();
+    }
   }
 
   static hideModal() {
-    if (this.modal) this.modal.style.display = 'none';
+    if (this.modal) {
+      this.modal.style.display = 'none';
+      if (window.lenis) window.lenis.start();
+    }
   }
 
   static bindEvents() {
