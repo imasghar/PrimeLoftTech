@@ -31,7 +31,7 @@
   <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png?v=1.0.2">
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png?v=1.0.2">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=1.0.2">
-  <link rel="stylesheet" href="css/style.css?v=2.6.2">
+  <link rel="stylesheet" href="css/style.css?v=2.6.3">
   <script src="js/libs/lottie_light.min.js?v=2.6.0" defer></script>
   <script type="module" src="js/main.js?v=2.6.0" defer></script>
   <!-- Google Sitelinks & Breadcrumb Schema -->
@@ -227,7 +227,7 @@
             </div>
             <div class="contact-info-text">
               <span class="contact-info-label">Response Time</span>
-              <span class="contact-info-val">Within 1 business day (&lt; 24h)</span>
+              <span class="contact-info-val">&lt; 1 hour</span>
             </div>
           </div>
         </div>
@@ -282,8 +282,8 @@
                 </div>
                 <div class="form-group">
                   <label for="contact-budget">Budget Range</label>
-                  <select id="contact-budget" name="budget" required>
-                    <option value="" disabled selected>Select budget range</option>
+                  <select id="contact-budget" name="budget">
+                    <option value="Prefer not to choose" selected>Prefer not to choose</option>
                     <option value="< $500">&lt; $500</option>
                     <option value="$500 - $1,000">$500 – $1,000</option>
                     <option value="$1,000 - $2,000">$1,000 – $2,000</option>
