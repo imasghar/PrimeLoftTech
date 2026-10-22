@@ -118,6 +118,28 @@ nav.primary .navlink:hover, nav.primary .navlink.active{color:var(--ink); backgr
 .caret{width:9px; height:9px; transition:transform .25s ease;}
 .has-mega:hover .caret{transform:rotate(180deg);}
 .header-right{display:flex; align-items:center; gap:14px;}
+.header-contact-block{
+  display:flex; flex-direction:column; align-items:flex-end; justify-content:center;
+  line-height:1.25; text-align:right; gap:2px; user-select:none;
+}
+.header-contact-badge{
+  display:inline-flex; align-items:center; gap:4px; font-family:var(--font-mono);
+  font-size:11px; font-weight:500; letter-spacing:0.02em; color:var(--ink-soft);
+  text-decoration:none; transition:color .2s ease;
+}
+.header-contact-badge .badge-arrow{
+  display:inline-block; font-size:11px; line-height:1; transition:transform .2s ease;
+}
+.header-contact-badge:hover{color:var(--red);}
+.header-contact-badge:hover .badge-arrow{transform:translateX(2px);}
+.header-phone-link{
+  font-family:var(--font-body); font-size:13.5px; font-weight:700; letter-spacing:-0.01em;
+  color:var(--ink); text-decoration:none; white-space:nowrap; transition:color .2s ease;
+}
+.header-phone-link:hover{color:var(--red);}
+@media(max-width:980px){
+  .header-contact-block{display:none;}
+}
 .theme-toggle{
   width:52px; height:30px; border-radius:100px; background:var(--bg-alt); border:1px solid var(--line-strong);
   position:relative; padding:0;
@@ -441,13 +463,16 @@ html[data-theme="dark"] .sb-media-lottie svg{filter:drop-shadow(0 24px 50px rgba
         </div>
       </div>
       <a href="#" class="navlink" data-nav="about">About Us</a>
-      <a href="#" class="navlink" data-nav="contact">Contact Us</a>
     </nav>
     <div class="header-right">
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
         <span class="knob"><svg viewBox="0 0 24 24" fill="none" id="knobIcon"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.8"/><path d="M12 1v3M12 20v3M4.2 4.2l2 2M17.8 17.8l2 2M1 12h3M20 12h3M4.2 19.8l2-2M17.8 6.2l2-2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
       </button>
-      <a href="#" class="btn btn-primary" data-nav="contact" style="display:none" id="headerCta">Estimate project</a>
+      <div class="header-contact-block">
+        <a href="#" class="header-contact-badge" data-nav="contact">Client Support <span class="badge-arrow">→</span></a>
+        <a href="tel:+923359873132" class="header-phone-link">+92 335 9873132</a>
+      </div>
+      <a href="#" class="btn btn-primary" data-nav="contact" id="headerCta">Contact Us</a>
       <button class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
     </div>
   </div>
