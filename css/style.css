@@ -206,18 +206,21 @@ header {
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
   z-index: 500;
   background: color-mix(in srgb, var(--bg) 82%, transparent);
   backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .nav-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 40px;
-  max-width: 1240px;
-  margin: 0 auto;
+  padding: 16px 40px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .logo,
@@ -359,6 +362,10 @@ nav.primary .navlink.active {
 }
 
 @media (max-width: 980px) {
+  .nav-row {
+    padding: 14px 24px;
+  }
+
   .header-contact-block {
     display: none !important;
   }
