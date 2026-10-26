@@ -1521,12 +1521,14 @@ html[data-theme="dark"] #s-quality .sb-media {
 .ai-lottie-container,
 .cloud-lottie-container,
 .quality-lottie-container,
+.mobile-lottie-container,
 .sb-media-lottie .design-lottie-container,
 .sb-media-lottie .strategy-lottie-container,
 .sb-media-lottie .engineering-lottie-container,
 .sb-media-lottie .ai-lottie-container,
 .sb-media-lottie .cloud-lottie-container,
-.sb-media-lottie .quality-lottie-container {
+.sb-media-lottie .quality-lottie-container,
+.sb-media-lottie .mobile-lottie-container {
   width: 100%;
   height: 100%;
   min-height: 400px;
@@ -1543,6 +1545,7 @@ html[data-theme="dark"] #s-quality .sb-media {
 .ai-lottie-container svg,
 .cloud-lottie-container svg,
 .quality-lottie-container svg,
+.mobile-lottie-container svg,
 .sb-media-lottie svg {
   width: 100% !important;
   height: 100% !important;
@@ -1559,6 +1562,7 @@ html[data-theme="dark"] .engineering-lottie-container svg,
 html[data-theme="dark"] .ai-lottie-container svg,
 html[data-theme="dark"] .cloud-lottie-container svg,
 html[data-theme="dark"] .quality-lottie-container svg,
+html[data-theme="dark"] .mobile-lottie-container svg,
 html[data-theme="dark"] .sb-media-lottie svg {
   filter: drop-shadow(0 24px 50px rgba(0, 0, 0, 0.6));
 }
@@ -1574,7 +1578,8 @@ html[data-theme="dark"] .sb-media-lottie svg {
   .sb-media-lottie .engineering-lottie-container,
   .sb-media-lottie .ai-lottie-container,
   .sb-media-lottie .cloud-lottie-container,
-  .sb-media-lottie .quality-lottie-container {
+  .sb-media-lottie .quality-lottie-container,
+  .sb-media-lottie .mobile-lottie-container {
     max-width: 380px;
   }
   .sb-media-lottie svg {
@@ -1593,7 +1598,8 @@ html[data-theme="dark"] .sb-media-lottie svg {
   .sb-media-lottie .engineering-lottie-container,
   .sb-media-lottie .ai-lottie-container,
   .sb-media-lottie .cloud-lottie-container,
-  .sb-media-lottie .quality-lottie-container {
+  .sb-media-lottie .quality-lottie-container,
+  .sb-media-lottie .mobile-lottie-container {
     max-width: 340px;
   }
   .sb-media-lottie svg {
@@ -4652,4 +4658,268 @@ html[data-theme="dark"] .pl-chat-header-avatar {
     border-left: none;
     border-right: none;
   }
+}
+
+/* ============ MOBILE APP DEVELOPMENT & TECH STRIP ============ */
+/* Tech Marquee Moving Stripe (Reduced Height, Slow Right-to-Left Continuous Flow) */
+.tech-marquee-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06);
+  padding: 0;
+  margin: 0 auto;
+  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+html[data-theme="dark"] .tech-marquee-wrapper {
+  box-shadow: 0 14px 36px -10px rgba(0, 0, 0, 0.4);
+}
+
+.tech-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: techMarqueeScroll 32s linear infinite;
+  will-change: transform;
+}
+
+.tech-marquee-wrapper:hover .tech-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes techMarqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.tech-marquee-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 250px;
+  padding: 15px 28px 13px;
+  border-right: 1px solid var(--line);
+  flex-shrink: 0;
+  text-align: center;
+  transition: background-color .22s ease;
+  user-select: none;
+}
+
+.tech-marquee-item:hover {
+  background: var(--bg-alt);
+}
+
+.tech-marquee-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+  transition: transform .24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tech-marquee-item:hover .tech-marquee-icon {
+  transform: translateY(-2px) scale(1.08);
+}
+
+.tech-marquee-icon svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.tech-marquee-name {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 3px;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.tech-marquee-desc {
+  font-size: 0.74rem;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.35;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 640px) {
+  .tech-marquee-item {
+    min-width: 210px;
+    padding: 12px 18px 10px;
+  }
+  .tech-marquee-icon {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 4px;
+  }
+  .tech-marquee-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  .tech-marquee-name {
+    font-size: 0.95rem;
+  }
+  .tech-marquee-desc {
+    font-size: 0.7rem;
+  }
+}
+
+/* Platform Showcase Cards (Android & iOS) */
+.platform-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.platform-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 44px 40px;
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform .3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .3s ease, border-color .3s ease;
+  position: relative;
+}
+
+.platform-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--red);
+  box-shadow: 0 24px 50px -12px rgba(224, 25, 63, 0.12);
+}
+
+html[data-theme="dark"] .platform-card:hover {
+  box-shadow: 0 24px 50px -12px rgba(224, 25, 63, 0.22);
+}
+
+.platform-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.platform-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--red-tint);
+  color: var(--red);
+}
+
+.platform-card-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.platform-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.platform-card-body {
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  line-height: 1.68;
+  margin-bottom: 28px;
+}
+
+.platform-card-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.platform-card-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.94rem;
+  color: var(--ink);
+  line-height: 1.48;
+}
+
+.platform-card-bullets svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--red);
+}
+
+.platform-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.platform-tags-row span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--bg-alt);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+@media (max-width: 900px) {
+  .platform-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .platform-card {
+    padding: 32px 26px;
+  }
+}
+
+/* FAQ Angle Icon (Matching Uploaded Image 3) */
+.faq-angle-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--red);
+  stroke-width: 2.6;
+  transition: transform .28s cubic-bezier(0.16, 1, 0.3, 1), color .2s ease;
+  display: block;
+}
+
+.faq-item.is-open .faq-angle-icon {
+  transform: rotate(90deg);
+  color: var(--ink);
 }
