@@ -28,9 +28,9 @@
   <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png?v=1.0.2">
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png?v=1.0.2">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=1.0.2">
-  <link rel="stylesheet" href="css/style.css?v=2.6.1">
+  <link rel="stylesheet" href="css/style.css?v=2.7.0">
   <script src="js/libs/lottie_light.min.js?v=2.6.0" defer></script>
-  <script type="module" src="js/main.js?v=2.6.0" defer></script>
+  <script type="module" src="js/main.js?v=2.7.0" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -117,7 +117,6 @@
         </a>
       </nav>
       <div class="header-right">
-        <!-- Theme toggle (commented out for now; default light mode enabled)
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
           <span class="knob">
             <svg viewBox="0 0 24 24" fill="none" id="knobIcon">
@@ -126,7 +125,6 @@
             </svg>
           </span>
         </button>
-        -->
         <div class="header-contact-block">
           <a href="mailto:contact@primeloft.tech" class="header-email-link">
             <svg class="header-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -337,6 +335,119 @@
     </section>
 
   </main>
+
+    <!-- ================= FAQS SECTION ================= -->
+  <section class="faq-section" id="faqs" aria-labelledby="faqHeading">
+    <div class="wrap">
+      <div class="faq-grid">
+        <!-- Left Column: Title, Sub-description, Direct Contact -->
+        <div class="faq-intro reveal">
+          <div class="eyebrow">Quality & QA FAQs</div>
+          <h2 id="faqHeading" class="faq-title">Frequently asked <span class="italic">QA & scale questions</span></h2>
+          <p class="faq-desc">Everything you need to know about automated testing pipelines, performance benchmarking, security audits, and release engineering.</p>
+          <div class="faq-support-box">
+            <span class="faq-support-title">Experiencing bugs or performance bottlenecks?</span>
+            <p class="faq-support-text">Request a comprehensive QA and performance audit from our senior release engineers.</p>
+            <a href="contact.html" class="faq-support-btn">
+              <span>Request a QA audit</span>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Accordion (Single-open) -->
+        <div class="faq-accordion-list reveal">
+          <!-- FAQ 1 -->
+          <div class="faq-item is-open">
+            <button class="faq-question" type="button" aria-expanded="true" aria-controls="faq-ans-1" id="faq-q-1">
+              <span class="faq-question-text">What types of automated testing do you build and maintain?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
+              <div class="faq-answer-inner">
+                <p>We architect multi-tiered testing suites: unit tests, integration tests, API contract tests, end-to-end user journeys (Playwright, Cypress), performance load tests, and automated visual regression checks.</p>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
+              <span class="faq-question-text">How do you measure and optimize website performance and latency?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-q-2">
+              <div class="faq-answer-inner">
+                <p>We implement synthetic and real-user monitoring (RUM) targeting sub-second page loads, 99th-percentile API response times, and 95+ Core Web Vitals scores across all target devices.</p>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
+              <span class="faq-question-text">Can you audit our codebase for security vulnerabilities and technical debt?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-q-3">
+              <div class="faq-answer-inner">
+                <p>Yes. We conduct static application security testing (SAST), software composition analysis (SCA) for third-party dependencies, and manual architecture reviews to deliver prioritized remediation roadmaps.</p>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-4" id="faq-q-4">
+              <span class="faq-question-text">How do you test for high concurrency and peak traffic events?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-q-4">
+              <div class="faq-answer-inner">
+                <p>We perform distributed load, stress, and spike testing using tools like k6 and Locust, simulating tens of thousands of simultaneous users to uncover database locks, memory leaks, and connection pool bottlenecks.</p>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-5" id="faq-q-5">
+              <span class="faq-question-text">How does QA integrate into our team's existing release cycle?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-q-5">
+              <div class="faq-answer-inner">
+                <p>We embed automated quality gates directly into your CI/CD pipelines (GitHub Actions, GitLab CI), blocking regressions before code ever reaches production.</p>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 6 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-6" id="faq-q-6">
+              <span class="faq-question-text">Do you provide continuous testing retainers?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-6" role="region" aria-labelledby="faq-q-6">
+              <div class="faq-answer-inner">
+                <p>Yes. We offer dedicated QA engineering retainers that write and maintain test suites, run regression sweeps for every sprint release, and monitor production uptime SLAs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- ================= FOOTER ================= -->
   <footer>

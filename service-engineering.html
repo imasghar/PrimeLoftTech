@@ -28,9 +28,9 @@
   <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png?v=1.0.2">
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png?v=1.0.2">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=1.0.2">
-  <link rel="stylesheet" href="css/style.css?v=2.6.1">
+  <link rel="stylesheet" href="css/style.css?v=2.7.0">
   <script src="js/libs/lottie_light.min.js?v=2.6.0" defer></script>
-  <script type="module" src="js/main.js?v=2.6.0" defer></script>
+  <script type="module" src="js/main.js?v=2.7.0" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -117,7 +117,6 @@
         </a>
       </nav>
       <div class="header-right">
-        <!-- Theme toggle (commented out for now; default light mode enabled)
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
           <span class="knob">
             <svg viewBox="0 0 24 24" fill="none" id="knobIcon">
@@ -126,7 +125,6 @@
             </svg>
           </span>
         </button>
-        -->
         <div class="header-contact-block">
           <a href="mailto:contact@primeloft.tech" class="header-email-link">
             <svg class="header-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -337,6 +335,119 @@
     </section>
 
   </main>
+
+    <!-- ================= FAQS SECTION ================= -->
+  <section class="faq-section" id="faqs" aria-labelledby="faqHeading">
+    <div class="wrap">
+      <div class="faq-grid">
+        <!-- Left Column: Title, Sub-description, Direct Contact -->
+        <div class="faq-intro reveal">
+          <div class="eyebrow">Engineering FAQs</div>
+          <h2 id="faqHeading" class="faq-title">Frequently asked <span class="italic">engineering questions</span></h2>
+          <p class="faq-desc">Insights into our full-stack engineering standards, architectural decisions, tech stacks, and agile sprint delivery.</p>
+          <div class="faq-support-box">
+            <span class="faq-support-title">Need an architectural assessment?</span>
+            <p class="faq-support-text">Discuss your codebase, system architecture, and scaling bottlenecks directly with our tech leads.</p>
+            <a href="contact.html" class="faq-support-btn">
+              <span>Talk to our engineers</span>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Accordion (Single-open) -->
+        <div class="faq-accordion-list reveal">
+          <!-- FAQ 1 -->
+          <div class="faq-item is-open">
+            <button class="faq-question" type="button" aria-expanded="true" aria-controls="faq-ans-1" id="faq-q-1">
+              <span class="faq-question-text">What tech stacks and frameworks do your engineers specialize in?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
+              <div class="faq-answer-inner">
+                <p>We specialize in modern full-stack architectures: TypeScript, React, Next.js, Node.js, Python, Go, GraphQL/REST APIs, PostgreSQL, Redis, and cloud-native serverless or containerized microservices.</p>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
+              <span class="faq-question-text">Do you build greenfield platforms from scratch or integrate with existing code?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-q-2">
+              <div class="faq-answer-inner">
+                <p>Both. We architect scalable greenfield platforms from requirements to production deployment, and seamlessly embed into existing repositories to eliminate tech debt, refactor legacy modules, and build new high-throughput services.</p>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
+              <span class="faq-question-text">How do you guarantee code quality, reliability, and security?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-q-3">
+              <div class="faq-answer-inner">
+                <p>We enforce strict CI/CD quality gates: automated unit and integration test suites, end-to-end testing, peer code reviews, typed codebases, automated vulnerability scanning, and clean Domain-Driven Design (DDD) patterns.</p>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-4" id="faq-q-4">
+              <span class="faq-question-text">How does your team handle complex API integrations and third-party systems?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-q-4">
+              <div class="faq-answer-inner">
+                <p>We build resilient, fault-tolerant integrations for payment processors (Stripe, Adyen), ERPs, CRMs, headless commerce engines, and event-driven data pipelines with robust retry logic, webhooks, and rate-limiting safeguards.</p>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-5" id="faq-q-5">
+              <span class="faq-question-text">What is your sprint cadence and communication rhythm?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-q-5">
+              <div class="faq-answer-inner">
+                <p>We operate in two-week agile sprints. You participate in sprint planning, async daily updates, and bi-weekly demo calls with working software deployed to dedicated staging environments.</p>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 6 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-6" id="faq-q-6">
+              <span class="faq-question-text">Who owns the code and intellectual property?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-6" role="region" aria-labelledby="faq-q-6">
+              <div class="faq-answer-inner">
+                <p>You own 100% of all intellectual property. All source code, commit history, deployment scripts, and architectural documentation are pushed directly to your organization's Git repositories.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- ================= FOOTER ================= -->
   <footer>

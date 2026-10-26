@@ -28,9 +28,9 @@
   <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png?v=1.0.2">
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png?v=1.0.2">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=1.0.2">
-  <link rel="stylesheet" href="css/style.css?v=2.6.1">
+  <link rel="stylesheet" href="css/style.css?v=2.7.0">
   <script src="js/libs/lottie_light.min.js?v=2.6.0" defer></script>
-  <script type="module" src="js/main.js?v=2.6.0" defer></script>
+  <script type="module" src="js/main.js?v=2.7.0" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -117,7 +117,6 @@
         </a>
       </nav>
       <div class="header-right">
-        <!-- Theme toggle (commented out for now; default light mode enabled)
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
           <span class="knob">
             <svg viewBox="0 0 24 24" fill="none" id="knobIcon">
@@ -126,7 +125,6 @@
             </svg>
           </span>
         </button>
-        -->
         <div class="header-contact-block">
           <a href="mailto:contact@primeloft.tech" class="header-email-link">
             <svg class="header-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -337,6 +335,119 @@
     </section>
 
   </main>
+
+    <!-- ================= FAQS SECTION ================= -->
+  <section class="faq-section" id="faqs" aria-labelledby="faqHeading">
+    <div class="wrap">
+      <div class="faq-grid">
+        <!-- Left Column: Title, Sub-description, Direct Contact -->
+        <div class="faq-intro reveal">
+          <div class="eyebrow">Cloud FAQs</div>
+          <h2 id="faqHeading" class="faq-title">Frequently asked <span class="italic">cloud questions</span></h2>
+          <p class="faq-desc">Details on cloud architecture, DevOps automation, zero-downtime migrations, and infrastructure cost optimization.</p>
+          <div class="faq-support-box">
+            <span class="faq-support-title">Planning a cloud migration or scaling?</span>
+            <p class="faq-support-text">Schedule an infrastructure audit with our certified cloud architects to optimize resilience and cost.</p>
+            <a href="contact.html" class="faq-support-btn">
+              <span>Schedule a cloud consultation</span>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Accordion (Single-open) -->
+        <div class="faq-accordion-list reveal">
+          <!-- FAQ 1 -->
+          <div class="faq-item is-open">
+            <button class="faq-question" type="button" aria-expanded="true" aria-controls="faq-ans-1" id="faq-q-1">
+              <span class="faq-question-text">Which cloud platforms and providers do you support?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
+              <div class="faq-answer-inner">
+                <p>We support AWS, Google Cloud Platform (GCP), and Microsoft Azure, along with edge compute and modern cloud platforms like Cloudflare and Vercel for low-latency worldwide delivery.</p>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
+              <span class="faq-question-text">How do you execute cloud migrations without downtime?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-q-2">
+              <div class="faq-answer-inner">
+                <p>We utilize blue-green deployments, canary releases, and dual-write database synchronization to test and validate each service layer before switching traffic, guaranteeing uninterrupted uptime.</p>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
+              <span class="faq-question-text">What is Infrastructure as Code (IaC) and why do you use it?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-q-3">
+              <div class="faq-answer-inner">
+                <p>We manage all cloud resources via Terraform and Pulumi. This ensures reproducible, version-controlled environments that eliminate human configuration error and enable rapid disaster recovery.</p>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-4" id="faq-q-4">
+              <span class="faq-question-text">Can you help reduce our existing monthly cloud hosting bill?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-q-4">
+              <div class="faq-answer-inner">
+                <p>Yes. Our Cloud FinOps audits typically uncover 20% to 45% in cost savings through right-sizing compute instances, spot/reserved instance planning, storage tier optimization, and edge caching.</p>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-5" id="faq-q-5">
+              <span class="faq-question-text">How do you handle Kubernetes and container orchestration?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-q-5">
+              <div class="faq-answer-inner">
+                <p>We engineer production-grade Kubernetes clusters (EKS, GKE, AKS) with automated horizontal pod autoscaling, zero-downtime rolling updates, and GitOps workflows via ArgoCD.</p>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 6 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-6" id="faq-q-6">
+              <span class="faq-question-text">What security and compliance standards do you implement?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-6" role="region" aria-labelledby="faq-q-6">
+              <div class="faq-answer-inner">
+                <p>We enforce least-privilege IAM policies, automated vulnerability scanning in CI/CD, VPC isolation, TLS encryption at rest and in transit, and compliance frameworks for SOC2, HIPAA, and GDPR.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- ================= FOOTER ================= -->
   <footer>

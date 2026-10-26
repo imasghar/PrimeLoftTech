@@ -23,8 +23,8 @@
   <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png?v=1.0.2">
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png?v=1.0.2">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=1.0.2">
-  <link rel="stylesheet" href="css/style.css?v=2.6.1">
-  <script type="module" src="js/main.js?v=2.6.0" defer></script>
+  <link rel="stylesheet" href="css/style.css?v=2.7.0">
+  <script type="module" src="js/main.js?v=2.7.0" defer></script>
 </head>
 <body>
   <header>
@@ -101,6 +101,124 @@
       </div>
     </section>
   </main>
+
+    <!-- ================= FAQS SECTION ================= -->
+  <section class="faq-section" id="faqs" aria-labelledby="faqHeading">
+    <div class="wrap">
+      <div class="faq-grid">
+        <!-- Left Column: Title, Sub-description, Direct Contact -->
+        <div class="faq-intro reveal">
+          <div class="eyebrow">FAQs</div>
+          <h2 id="faqHeading" class="faq-title">Frequently asked <span class="italic">questions</span></h2>
+          <p class="faq-desc">Everything you need to know about our services, delivery timelines, engineering standards, and post-launch support.</p>
+          <div class="faq-support-box">
+            <span class="faq-support-title">Still have questions?</span>
+            <p class="faq-support-text">Can't find the answer you're looking for? Our team is always ready to discuss your specific requirements.</p>
+            <a href="contact.html" class="faq-support-btn">
+              <span>Talk to our team</span>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Accordion (Single-open) -->
+        <div class="faq-accordion-list reveal">
+          <!-- FAQ 1 -->
+          <div class="faq-item is-open">
+            <button class="faq-question" type="button" aria-expanded="true" aria-controls="faq-ans-1" id="faq-q-1">
+              <span class="faq-question-text">What services does PrimeLoft specialize in?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
+              <div class="faq-answer-inner">
+                <p>We deliver full-spectrum digital engineering and design services, including custom software development, mobile applications (iOS & Android), UI/UX design & design systems, high-performance custom websites, SEO (On-Page & Off-Page), and CMS builds (WordPress & Squarespace).</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
+              <span class="faq-question-text">How does your pricing and engagement model work?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-q-2">
+              <div class="faq-answer-inner">
+                <p>We provide two flexible engagement models: Fixed-Price Milestones for defined project scopes with concrete deliverables, and Dedicated Monthly Retainers for fast-moving teams that require ongoing engineering and design capacity. You receive clear scope breakdowns and transparent cost estimates upfront.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
+              <span class="faq-question-text">What is the typical project turnaround time?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-q-3">
+              <div class="faq-answer-inner">
+                <p>Timelines depend on technical depth. Custom marketing sites, WordPress builds, and Squarespace launches typically take 2 to 4 weeks. Full-scale SaaS platforms, custom software, and native mobile apps generally span 6 to 12 weeks. We work in two-week agile sprints with working demos at every review.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-4" id="faq-q-4">
+              <span class="faq-question-text">Who owns the intellectual property and code?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-q-4">
+              <div class="faq-answer-inner">
+                <p>You do, 100%. Upon project milestone settlement, all source code, design systems, Figma artboards, databases, and architectural assets are transferred directly to your team's Git repositories and cloud accounts. Zero vendor lock-in, ever.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-5" id="faq-q-5">
+              <span class="faq-question-text">How do you approach SEO and Core Web Vitals?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-q-5">
+              <div class="faq-answer-inner">
+                <p>Every platform we develop is engineered for top-tier speed and search discoverability. We implement semantic HTML5, clean structured data (JSON-LD), on-page keyword architecture, technical SEO auditing, Core Web Vitals optimization, and targeted off-page link building strategies.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-6" id="faq-q-6">
+              <span class="faq-question-text">Do you provide post-launch support and maintenance?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-6" role="region" aria-labelledby="faq-q-6">
+              <div class="faq-answer-inner">
+                <p>Yes. Every project includes a 30-day post-launch warranty period for performance tuning and bug fixes. Thereafter, we offer SLA-backed maintenance plans covering proactive security updates, cloud infrastructure monitoring, database backups, and ongoing feature iterations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <footer>
     <div class="wrap">

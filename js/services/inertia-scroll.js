@@ -29,7 +29,12 @@ export class InertiaScrollService {
         touchMultiplier: 1.0,
         syncTouch: false,
         autoResize: true,
-        prevent: (node) => Boolean(node?.closest?.('#cookieModal') || node?.closest?.('.primary.active')),
+        prevent: (node) => Boolean(
+          node?.closest?.('#cookieModal') ||
+          node?.closest?.('.primary.active') ||
+          node?.closest?.('.pl-chat-widget') ||
+          node?.closest?.('[data-lenis-prevent]')
+        ),
       });
 
       this.instance = lenis;

@@ -9,16 +9,20 @@ import { analyticsService } from './services/analytics-service.js';
 import { SeoService } from './services/seo-service.js';
 import { CookieConsentUI } from './services/cookie-consent-ui.js';
 import { InertiaScrollService } from './services/inertia-scroll.js';
+import { ChatbotService } from './services/chatbot.js';
+import { FAQAccordion } from './services/faq-accordion.js';
 
-// 1. Instant Theme Initialization (Default light / white mode)
+// 1. Instant Theme Initialization
 (function initTheme() {
-  document.documentElement.setAttribute('data-theme', 'light');
+  const savedTheme = localStorage.getItem('primeloft-theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
 })();
 
 // BFCache (Back/Forward Cache) Restoration Handler
 window.addEventListener('pageshow', (event) => {
   if (event.persisted) {
-    document.documentElement.setAttribute('data-theme', 'light');
+    const savedTheme = localStorage.getItem('primeloft-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
   }
 });
 
@@ -30,6 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
   trackingService.init();
   analyticsService.init();
   CookieConsentUI.init();
+  ChatbotService.init();
+  FAQAccordion.init();
 
   // ---------- 1B. INSTANT NATIVE REVEAL ANIMATIONS (0ms CDN DELAY) ----------
   document.documentElement.classList.add('js');

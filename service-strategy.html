@@ -28,9 +28,9 @@
   <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png?v=1.0.2">
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png?v=1.0.2">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=1.0.2">
-  <link rel="stylesheet" href="css/style.css?v=2.6.1">
+  <link rel="stylesheet" href="css/style.css?v=2.7.0">
   <script src="js/libs/lottie_light.min.js?v=2.6.0" defer></script>
-  <script type="module" src="js/main.js?v=2.6.0" defer></script>
+  <script type="module" src="js/main.js?v=2.7.0" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -117,7 +117,6 @@
         </a>
       </nav>
       <div class="header-right">
-        <!-- Theme toggle (commented out for now; default light mode enabled)
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
           <span class="knob">
             <svg viewBox="0 0 24 24" fill="none" id="knobIcon">
@@ -126,7 +125,6 @@
             </svg>
           </span>
         </button>
-        -->
         <div class="header-contact-block">
           <a href="mailto:contact@primeloft.tech" class="header-email-link">
             <svg class="header-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -335,6 +333,119 @@
     </section>
 
   </main>
+
+    <!-- ================= FAQS SECTION ================= -->
+  <section class="faq-section" id="faqs" aria-labelledby="faqHeading">
+    <div class="wrap">
+      <div class="faq-grid">
+        <!-- Left Column: Title, Sub-description, Direct Contact -->
+        <div class="faq-intro reveal">
+          <div class="eyebrow">Strategy FAQs</div>
+          <h2 id="faqHeading" class="faq-title">Frequently asked <span class="italic">strategy questions</span></h2>
+          <p class="faq-desc">Insights on technical advisory, modernization roadmaps, tech stack selection, and digital transformation.</p>
+          <div class="faq-support-box">
+            <span class="faq-support-title">Need strategic direction for your tech stack?</span>
+            <p class="faq-support-text">Book a strategy session with our fractional CTOs to align your engineering investments with business growth.</p>
+            <a href="contact.html" class="faq-support-btn">
+              <span>Book a strategy session</span>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Accordion (Single-open) -->
+        <div class="faq-accordion-list reveal">
+          <!-- FAQ 1 -->
+          <div class="faq-item is-open">
+            <button class="faq-question" type="button" aria-expanded="true" aria-controls="faq-ans-1" id="faq-q-1">
+              <span class="faq-question-text">What does a Strategy & Innovation engagement look like?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
+              <div class="faq-answer-inner">
+                <p>We collaborate with your executive and engineering stakeholders to audit current architecture, evaluate business goals, identify technical bottlenecks, and formulate actionable 6-to-18-month execution roadmaps.</p>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
+              <span class="faq-question-text">Can you help us choose between microservices and a modular monolith?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-q-2">
+              <div class="faq-answer-inner">
+                <p>Yes. We evaluate team size, deployment frequency, organizational maturity, and scalability needs to recommend the most cost-effective and maintainable architecture for your specific stage.</p>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
+              <span class="faq-question-text">What is your Fractional CTO / Advisory service?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-q-3">
+              <div class="faq-answer-inner">
+                <p>Our senior technology leaders act as embedded advisors to your executive team, guiding high-stakes architecture choices, vendor negotiations, engineering hiring, and investor technical due diligence.</p>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-4" id="faq-q-4">
+              <span class="faq-question-text">How do you approach legacy modernization without disrupting operations?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-q-4">
+              <div class="faq-answer-inner">
+                <p>We employ the Strangler Fig pattern to progressively migrate critical workflows to modern microservices or modular components while keeping the core business operational throughout.</p>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-5" id="faq-q-5">
+              <span class="faq-question-text">How do you evaluate third-party tools vs. custom development?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-q-5">
+              <div class="faq-answer-inner">
+                <p>We perform build-versus-buy analyses comparing total cost of ownership (TCO), vendor lock-in risk, feature fit, and maintenance overhead to ensure your engineering budget is invested where it provides competitive advantage.</p>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 6 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-6" id="faq-q-6">
+              <span class="faq-question-text">What deliverables do we receive at the end of a strategic audit?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-6" role="region" aria-labelledby="faq-q-6">
+              <div class="faq-answer-inner">
+                <p>An executive summary, prioritized technical debt matrix, target architecture diagrams, cloud cost projections, and a phased execution roadmap ready for engineering implementation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- ================= FOOTER ================= -->
   <footer>
