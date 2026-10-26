@@ -31,7 +31,7 @@
   <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png?v=1.0.2">
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png?v=1.0.2">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=1.0.2">
-  <link rel="stylesheet" href="css/style.css?v=2.7.0">
+  <link rel="stylesheet" href="css/style.css?v=2.9.0">
   <script type="module" src="js/main.js?v=2.7.0" defer></script>
   <!-- Google Sitelinks & Entity Structured Data -->
   <script type="application/ld+json" id="org-schema">
@@ -371,35 +371,157 @@
       </div>
     </section>
 
-    <!-- WHY PRIMELOFT -->
-    <section>
-      <div class="wrap why">
-        <div class="reveal">
-          <div class="eyebrow">Why PrimeLoft</div>
-          <h2 style="margin-top:16px; font-size:clamp(28px,3.4vw,40px);">A studio built around outcomes, not deliverables</h2>
-          <p style="margin-top:18px;">We embed with your team, learn the commerce metrics that matter, and stay accountable to them long after launch day. No handoffs into a black box, just steady, senior craft from strategy through to scale.</p>
+    <!-- WHY CHOOSE PRIMELOFT -->
+    <section class="why-choose-section" id="why-choose" aria-labelledby="whyChooseHeading">
+      <div class="wrap">
+        <div class="section-head reveal" style="text-align: center; max-width: 760px; margin: 0 auto 56px;">
+          <div class="eyebrow" style="justify-content: center;">Why Choose PrimeLoft</div>
+          <h2 id="whyChooseHeading">Engineered for outcomes, <span class="italic">not deliverables</span></h2>
+          <p style="margin-top: 16px; font-size: 17px; line-height: 1.6; color: var(--ink-soft);">
+            We combine senior software craftsmanship with commercial accountability. No junior bench learning on your dime, no black-box handoffs—just measurable engineering velocity, battle-tested architecture, and 100% code ownership.
+          </p>
         </div>
-        <div class="why-list reveal">
-          <div class="why-item"><div class="wnum">01</div><div><h3>Senior teams, from day one</h3><p>No juniors learning on your budget. Every engagement is led by people who've shipped this before.</p></div></div>
-          <div class="why-item"><div class="wnum">02</div><div><h3>Commerce-native thinking</h3><p>We understand margin, AOV and retention as well as we understand code.</p></div></div>
-          <div class="why-item"><div class="wnum">03</div><div><h3>Built to hand over</h3><p>Clean, documented systems your internal team can actually own.</p></div></div>
-          <div class="why-item"><div class="wnum">04</div><div><h3>Measured, not marketed</h3><p>We report the numbers that moved: good, bad, or in-between.</p></div></div>
+
+        <div class="why-grid">
+          <!-- Card 1: Senior Talent -->
+          <div class="why-card reveal">
+            <div class="why-card-top">
+              <div class="why-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <span class="why-card-tag">Senior Talent</span>
+            </div>
+            <h3 class="why-card-title">Direct Senior Access</h3>
+            <p class="why-card-desc">Work exclusively with seasoned tech leads and full-stack engineers who have shipped high-traffic systems. Zero junior bench learning on your budget.</p>
+          </div>
+
+          <!-- Card 2: 100% Ownership -->
+          <div class="why-card reveal">
+            <div class="why-card-top">
+              <div class="why-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+              </div>
+              <span class="why-card-tag">Freedom</span>
+            </div>
+            <h3 class="why-card-title">100% Code &amp; IP Ownership</h3>
+            <p class="why-card-desc">All Figma files, Git repositories, database architectures, and cloud setups belong entirely to you from day one. Zero proprietary vendor lock-in, ever.</p>
+          </div>
+
+          <!-- Card 3: Agile Sprints -->
+          <div class="why-card reveal">
+            <div class="why-card-top">
+              <div class="why-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+              </div>
+              <span class="why-card-tag">Velocity</span>
+            </div>
+            <h3 class="why-card-title">Rapid 2-Week Agile Sprints</h3>
+            <p class="why-card-desc">Continuous deployment rhythm with functional staging builds deployed every 14 days. Tight feedback loops ensure velocity with complete predictability.</p>
+          </div>
+
+          <!-- Card 4: Milestones & Retainers -->
+          <div class="why-card reveal">
+            <div class="why-card-top">
+              <div class="why-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 14 14"/>
+                </svg>
+              </div>
+              <span class="why-card-tag">Transparency</span>
+            </div>
+            <h3 class="why-card-title">Milestones &amp; Retainers</h3>
+            <p class="why-card-desc">No surprise hourly creep. Clear scope breakdowns with fixed milestone payments or dedicated sprint retainer capacity aligned to your product roadmap.</p>
+          </div>
+
+          <!-- Card 5: Performance & Speed -->
+          <div class="why-card reveal">
+            <div class="why-card-top">
+              <div class="why-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+              </div>
+              <span class="why-card-tag">Performance</span>
+            </div>
+            <h3 class="why-card-title">Conversion &amp; Speed Native</h3>
+            <p class="why-card-desc">We build for sub-second page speeds, Core Web Vitals excellence, semantic on-page SEO, and smooth conversion flows that directly drive business ROI.</p>
+          </div>
+
+          <!-- Card 6: Warranty & SLAs -->
+          <div class="why-card reveal">
+            <div class="why-card-top">
+              <div class="why-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <span class="why-card-tag">Reliability</span>
+            </div>
+            <h3 class="why-card-title">Warranty &amp; Ongoing Support</h3>
+            <p class="why-card-desc">Every release comes with a complimentary 30-day post-launch warranty for bug fixes and tuning, followed by proactive SLA-backed maintenance.</p>
+          </div>
         </div>
       </div>
     </section>
-
     <!-- CTA SECTION -->
     <section>
       <div class="wrap">
         <div class="cta-section reveal">
-          <div class="eyebrow" style="justify-content:center;">Let's build</div>
-          <h2>Design, build, and scale digital commerce solutions that drive revenue and operational excellence</h2>
-          <a href="contact.html" class="btn btn-primary">
-            <span>Contact Us</span>
-            <span class="btn-lottie-icon contact-btn-lottie" aria-hidden="true"><svg class="btn-arrow-diag" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
-            </svg></span>
-          </a>
+          <div class="cta-glow-blob blob-left" aria-hidden="true"></div>
+          <div class="cta-glow-blob blob-right" aria-hidden="true"></div>
+          <div class="cta-inner">
+            <div class="cta-badge">
+              <span class="cta-pulse-dot" aria-hidden="true"></span>
+              <span>Now Accepting New Client Projects</span>
+            </div>
+            <h2>
+              Ready to design, build, and scale digital commerce that <span class="cta-heading-accent">actually converts?</span>
+            </h2>
+            <p class="cta-sub">
+              Schedule a 30-minute discovery call with our senior engineering leads. We'll audit your architecture, outline an agile sprint roadmap, and provide transparent milestone pricing.
+            </p>
+            <div class="cta-actions">
+              <a href="contact.html" class="btn btn-cta-primary">
+                <span>Book a Discovery Call</span>
+                <svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
+                </svg>
+              </a>
+              <a href="https://wa.me/923359873132?text=Hi%20PrimeLoft%20team!%20I'd%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" class="btn btn-cta-secondary">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                <span>Chat on WhatsApp</span>
+              </a>
+            </div>
+            <div class="cta-perks">
+              <div class="cta-perk">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg>
+                <span>Free 30-Min Discovery</span>
+              </div>
+              <div class="cta-perk-sep" aria-hidden="true">•</div>
+              <div class="cta-perk">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg>
+                <span>Senior Engineers Only</span>
+              </div>
+              <div class="cta-perk-sep" aria-hidden="true">•</div>
+              <div class="cta-perk">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg>
+                <span>Fast 24h Response</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

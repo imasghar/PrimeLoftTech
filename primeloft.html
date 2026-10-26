@@ -262,10 +262,400 @@ html[data-theme="dark"] .results{background:#0F0D11;}
 .why-item .wnum{font-family:var(--font-mono); color:var(--red); font-size:13px; padding-top:3px;}
 .why-item h3{font-size:19px; font-weight:600; font-family:var(--font-body); margin-bottom:8px;}
 
-/* ============ CTA ============ */
-.cta-section{background:var(--red-tint); border-radius:32px; margin:0 40px; padding:90px 60px; text-align:center;}
-html[data-theme="dark"] .cta-section{background:linear-gradient(160deg, var(--red-tint), var(--bg-alt));}
-.cta-section h2{font-size:clamp(30px,4.2vw,50px); max-width:800px; margin:0 auto 36px; color:var(--ink);}
+/* ============ WHY CHOOSE PRIMELOFT (MODERN FEATURE GRID) ============ */
+.why-choose-section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.why-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 34px 28px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.why-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--red) 40%, var(--line));
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.08);
+}
+
+.why-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.why-card-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--red-tint);
+  color: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.why-card-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.why-card:hover .why-card-icon {
+  transform: scale(1.06);
+  background: var(--red);
+  color: #FFFFFF;
+}
+
+.why-card-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  font-weight: 500;
+  background: var(--bg-alt);
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.why-card-title {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  margin-bottom: 12px;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.why-card-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  flex-grow: 1;
+  margin-bottom: 0;
+}
+
+.why-card-footer {
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+}
+
+.why-card-pill {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--ink);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.why-card-pill svg {
+  color: var(--red);
+  flex-shrink: 0;
+}
+
+/* Dark mode adjustments */
+html[data-theme="dark"] .why-card {
+  background: #161514;
+  border-color: rgba(243, 239, 231, 0.08);
+}
+
+html[data-theme="dark"] .why-card:hover {
+  border-color: color-mix(in srgb, var(--red) 50%, rgba(243, 239, 231, 0.1));
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.5);
+}
+
+html[data-theme="dark"] .why-card-footer {
+  border-top-color: rgba(243, 239, 231, 0.08);
+}
+
+html[data-theme="dark"] .why-card-tag {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ink-soft);
+}
+
+@media (max-width: 1024px) {
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 680px) {
+  .why-choose-section {
+    padding: 70px 0;
+  }
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .why-card {
+    padding: 26px 20px;
+  }
+}
+
+/* ============ CTA SECTION (PREMIUM MODERN REDESIGN) ============ */
+.cta-section {
+  position: relative;
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(225, 126, 104, 0.22), transparent 70%),
+              radial-gradient(circle at 100% 100%, rgba(225, 126, 104, 0.08), transparent 40%),
+              linear-gradient(180deg, #1C1816 0%, #12100F 100%);
+  border: 1px solid rgba(225, 126, 104, 0.28);
+  border-radius: 32px;
+  margin: 0 40px;
+  padding: 86px 54px;
+  text-align: center;
+  color: #FAF7F2;
+  overflow: hidden;
+  box-shadow: 0 24px 64px -16px rgba(0, 0, 0, 0.4), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] .cta-section {
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(225, 126, 104, 0.25), transparent 70%),
+              radial-gradient(circle at 100% 100%, rgba(225, 126, 104, 0.1), transparent 40%),
+              linear-gradient(180deg, #161413 0%, #0E0D0C 100%);
+  border-color: rgba(225, 126, 104, 0.32);
+}
+
+.cta-section .cta-glow-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(70px);
+  opacity: 0.35;
+  z-index: 1;
+}
+
+.cta-section .cta-glow-blob.blob-left {
+  width: 240px;
+  height: 240px;
+  background: var(--red);
+  top: -50px;
+  left: -50px;
+}
+
+.cta-section .cta-glow-blob.blob-right {
+  width: 280px;
+  height: 280px;
+  background: #EB937F;
+  bottom: -70px;
+  right: -60px;
+  opacity: 0.18;
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* Status Badge with Live Pulse */
+.cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(225, 126, 104, 0.12);
+  border: 1px solid rgba(225, 126, 104, 0.3);
+  color: #EB937F;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 22px;
+}
+
+.cta-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #E17E68;
+  box-shadow: 0 0 0 0 rgba(225, 126, 104, 0.7);
+  animation: ctaPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes ctaPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(225, 126, 104, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(225, 126, 104, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(225, 126, 104, 0);
+  }
+}
+
+/* Headline */
+.cta-section h2 {
+  font-size: clamp(32px, 4.2vw, 52px);
+  line-height: 1.15;
+  color: #FAF7F2 !important;
+  max-width: 800px;
+  margin: 0 auto 18px;
+  letter-spacing: -0.02em;
+}
+
+.cta-heading-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: #EB937F;
+  background: linear-gradient(135deg, #FFB4A4 0%, #E17E68 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Sub-description */
+.cta-sub {
+  color: rgba(250, 247, 242, 0.78);
+  font-size: clamp(15px, 1.6vw, 17.5px);
+  line-height: 1.65;
+  max-width: 640px;
+  margin: 0 auto 34px;
+}
+
+/* Dual Actions */
+.cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 34px;
+}
+
+.btn-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--red);
+  color: #FFFFFF !important;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 100px;
+  border: 1px solid var(--red);
+  text-decoration: none;
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1), background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 18px rgba(217, 83, 56, 0.35);
+}
+
+.btn-cta-primary:hover {
+  background: var(--red-deep);
+  border-color: var(--red-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(217, 83, 56, 0.45);
+}
+
+.btn-cta-primary svg {
+  transition: transform 0.2s ease;
+}
+
+.btn-cta-primary:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.btn-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #FAF7F2 !important;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 14px 26px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(225, 126, 104, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-cta-secondary svg {
+  color: #25D366;
+}
+
+/* Trust Perks Strip */
+.cta-perks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: rgba(250, 247, 242, 0.65);
+  letter-spacing: 0.02em;
+}
+
+.cta-perk {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cta-perk svg {
+  color: #E17E68;
+}
+
+.cta-perk-sep {
+  color: rgba(250, 247, 242, 0.25);
+  font-size: 11px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cta-section {
+    margin: 0 16px;
+    padding: 60px 22px;
+    border-radius: 24px;
+  }
+  .cta-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .btn-cta-primary,
+  .btn-cta-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+  .cta-perks {
+    gap: 10px;
+    font-size: 11px;
+  }
+}
 
 /* ============ FOOTER ============ */
 footer{border-top:1px solid var(--line); padding:80px 0 34px;}
@@ -1448,37 +1838,160 @@ html[data-theme="dark"] .pl-prompt-btn-go {
       </div>
     </div>
   </section>
+    <!-- WHY CHOOSE PRIMELOFT -->
+    <section class="why-choose-section" id="why-choose" aria-labelledby="whyChooseHeading">
+      <div class="wrap">
+        <div class="section-head reveal" style="text-align: center; max-width: 760px; margin: 0 auto 56px;">
+          <div class="eyebrow" style="justify-content: center;">Why Choose PrimeLoft</div>
+          <h2 id="whyChooseHeading">Engineered for outcomes, <span class="italic">not deliverables</span></h2>
+          <p style="margin-top: 16px; font-size: 17px; line-height: 1.6; color: var(--ink-soft);">
+            We combine senior software craftsmanship with commercial accountability. No junior bench learning on your dime, no black-box handoffs—just measurable engineering velocity, battle-tested architecture, and 100% code ownership.
+          </p>
+        </div>
 
-  <section>
-    <div class="wrap why">
-      <div class="reveal">
-        <div class="eyebrow">Why PrimeLoft</div>
-        <h2 style="margin-top:16px; font-size:clamp(28px,3.4vw,40px);">A studio built around outcomes, not deliverables</h2>
-        <p style="margin-top:18px;">We embed with your team, learn the commerce metrics that matter, and stay accountable to them long after launch day. No handoffs into a black box, just steady, senior craft from strategy through to scale.</p>
-      </div>
-      <div class="why-list reveal">
-        <div class="why-item"><div class="wnum">01</div><div><h3>Senior teams, from day one</h3><p>No juniors learning on your budget. Every engagement is led by people who've shipped this before.</p></div></div>
-        <div class="why-item"><div class="wnum">02</div><div><h3>Commerce-native thinking</h3><p>We understand margin, AOV and retention as well as we understand code.</p></div></div>
-        <div class="why-item"><div class="wnum">03</div><div><h3>Built to hand over</h3><p>Clean, documented systems your internal team can actually own.</p></div></div>
-        <div class="why-item"><div class="wnum">04</div><div><h3>Measured, not marketed</h3><p>We report the numbers that moved: good, bad, or in-between.</p></div></div>
-      </div>
-    </div>
-  </section>
+        <div class="why-grid">
+          <!-- Card 1: Senior Talent -->
+          <div class="why-card reveal">
+            <div class="why-card-top">
+              <div class="why-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <span class="why-card-tag">Senior Talent</span>
+            </div>
+            <h3 class="why-card-title">Direct Senior Access</h3>
+            <p class="why-card-desc">Work exclusively with seasoned tech leads and full-stack engineers who have shipped high-traffic systems. Zero junior bench learning on your budget.</p>
+          </div>
 
-  <section>
-    <div class="wrap">
-      <div class="cta-section reveal">
-        <div class="eyebrow" style="justify-content:center;">Let's build</div>
-        <h2>Design, build, and scale digital commerce solutions that drive revenue and operational excellence</h2>
-        <a href="#" class="btn btn-primary" data-nav="contact">
-          <span>Contact Us</span>
-          <span class="btn-lottie-icon contact-btn-lottie" aria-hidden="true"><svg class="btn-arrow-diag" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
-          </svg></span>
-        </a>
+          <!-- Card 2: 100% Ownership -->
+          <div class="why-card reveal">
+            <div class="why-card-top">
+              <div class="why-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+              </div>
+              <span class="why-card-tag">Freedom</span>
+            </div>
+            <h3 class="why-card-title">100% Code &amp; IP Ownership</h3>
+            <p class="why-card-desc">All Figma files, Git repositories, database architectures, and cloud setups belong entirely to you from day one. Zero proprietary vendor lock-in, ever.</p>
+          </div>
+
+          <!-- Card 3: Agile Sprints -->
+          <div class="why-card reveal">
+            <div class="why-card-top">
+              <div class="why-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+              </div>
+              <span class="why-card-tag">Velocity</span>
+            </div>
+            <h3 class="why-card-title">Rapid 2-Week Agile Sprints</h3>
+            <p class="why-card-desc">Continuous deployment rhythm with functional staging builds deployed every 14 days. Tight feedback loops ensure velocity with complete predictability.</p>
+          </div>
+
+          <!-- Card 4: Milestones & Retainers -->
+          <div class="why-card reveal">
+            <div class="why-card-top">
+              <div class="why-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 14 14"/>
+                </svg>
+              </div>
+              <span class="why-card-tag">Transparency</span>
+            </div>
+            <h3 class="why-card-title">Milestones &amp; Retainers</h3>
+            <p class="why-card-desc">No surprise hourly creep. Clear scope breakdowns with fixed milestone payments or dedicated sprint retainer capacity aligned to your product roadmap.</p>
+          </div>
+
+          <!-- Card 5: Performance & Speed -->
+          <div class="why-card reveal">
+            <div class="why-card-top">
+              <div class="why-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+              </div>
+              <span class="why-card-tag">Performance</span>
+            </div>
+            <h3 class="why-card-title">Conversion &amp; Speed Native</h3>
+            <p class="why-card-desc">We build for sub-second page speeds, Core Web Vitals excellence, semantic on-page SEO, and smooth conversion flows that directly drive business ROI.</p>
+          </div>
+
+          <!-- Card 6: Warranty & SLAs -->
+          <div class="why-card reveal">
+            <div class="why-card-top">
+              <div class="why-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <span class="why-card-tag">Reliability</span>
+            </div>
+            <h3 class="why-card-title">Warranty &amp; Ongoing Support</h3>
+            <p class="why-card-desc">Every release comes with a complimentary 30-day post-launch warranty for bug fixes and tuning, followed by proactive SLA-backed maintenance.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+    <!-- CTA SECTION -->
+    <section>
+      <div class="wrap">
+        <div class="cta-section reveal">
+          <div class="cta-glow-blob blob-left" aria-hidden="true"></div>
+          <div class="cta-glow-blob blob-right" aria-hidden="true"></div>
+          <div class="cta-inner">
+            <div class="cta-badge">
+              <span class="cta-pulse-dot" aria-hidden="true"></span>
+              <span>Now Accepting New Client Projects</span>
+            </div>
+            <h2>
+              Ready to design, build, and scale digital commerce that <span class="cta-heading-accent">actually converts?</span>
+            </h2>
+            <p class="cta-sub">
+              Schedule a 30-minute discovery call with our senior engineering leads. We'll audit your architecture, outline an agile sprint roadmap, and provide transparent milestone pricing.
+            </p>
+            <div class="cta-actions">
+              <a href="contact.html" class="btn btn-cta-primary">
+                <span>Book a Discovery Call</span>
+                <svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
+                </svg>
+              </a>
+              <a href="https://wa.me/923359873132?text=Hi%20PrimeLoft%20team!%20I'd%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" class="btn btn-cta-secondary">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                <span>Chat on WhatsApp</span>
+              </a>
+            </div>
+            <div class="cta-perks">
+              <div class="cta-perk">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg>
+                <span>Free 30-Min Discovery</span>
+              </div>
+              <div class="cta-perk-sep" aria-hidden="true">•</div>
+              <div class="cta-perk">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg>
+                <span>Senior Engineers Only</span>
+              </div>
+              <div class="cta-perk-sep" aria-hidden="true">•</div>
+              <div class="cta-perk">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg>
+                <span>Fast 24h Response</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 </section>
 
@@ -1563,21 +2076,57 @@ html[data-theme="dark"] .pl-prompt-btn-go {
       </div>
     </div>
   </div>
-
-  <section>
-    <div class="wrap">
-      <div class="cta-section reveal">
-        <div class="eyebrow" style="justify-content:center;">Let's build</div>
-        <h2>Not sure which discipline you need? We'll help you scope it.</h2>
-        <a href="#" class="btn btn-primary" data-nav="contact">
-          <span>Contact Us</span>
-          <span class="btn-lottie-icon contact-btn-lottie" aria-hidden="true"><svg class="btn-arrow-diag" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
-          </svg></span>
-        </a>
+    <!-- CTA SECTION -->
+    <section>
+      <div class="wrap">
+        <div class="cta-section reveal">
+          <div class="cta-glow-blob blob-left" aria-hidden="true"></div>
+          <div class="cta-glow-blob blob-right" aria-hidden="true"></div>
+          <div class="cta-inner">
+            <div class="cta-badge">
+              <span class="cta-pulse-dot" aria-hidden="true"></span>
+              <span>Now Accepting New Client Projects</span>
+            </div>
+            <h2>
+              Ready to design, build, and scale digital commerce that <span class="cta-heading-accent">actually converts?</span>
+            </h2>
+            <p class="cta-sub">
+              Schedule a 30-minute discovery call with our senior engineering leads. We'll audit your architecture, outline an agile sprint roadmap, and provide transparent milestone pricing.
+            </p>
+            <div class="cta-actions">
+              <a href="contact.html" class="btn btn-cta-primary">
+                <span>Book a Discovery Call</span>
+                <svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
+                </svg>
+              </a>
+              <a href="https://wa.me/923359873132?text=Hi%20PrimeLoft%20team!%20I'd%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" class="btn btn-cta-secondary">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                <span>Chat on WhatsApp</span>
+              </a>
+            </div>
+            <div class="cta-perks">
+              <div class="cta-perk">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg>
+                <span>Free 30-Min Discovery</span>
+              </div>
+              <div class="cta-perk-sep" aria-hidden="true">•</div>
+              <div class="cta-perk">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg>
+                <span>Senior Engineers Only</span>
+              </div>
+              <div class="cta-perk-sep" aria-hidden="true">•</div>
+              <div class="cta-perk">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg>
+                <span>Fast 24h Response</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 </section>
 
 <!-- ================= ABOUT PAGE ================= -->
