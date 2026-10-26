@@ -10,17 +10,15 @@ import { SeoService } from './services/seo-service.js';
 import { CookieConsentUI } from './services/cookie-consent-ui.js';
 import { InertiaScrollService } from './services/inertia-scroll.js';
 
-// 1. Instant Theme Initialization (0 ms FOIT/FOUC prevention)
+// 1. Instant Theme Initialization (Default light / white mode)
 (function initTheme() {
-  const savedTheme = localStorage.getItem('primeloft-theme') || 'light';
-  document.documentElement.setAttribute('data-theme', savedTheme);
+  document.documentElement.setAttribute('data-theme', 'light');
 })();
 
 // BFCache (Back/Forward Cache) Restoration Handler
 window.addEventListener('pageshow', (event) => {
   if (event.persisted) {
-    const savedTheme = localStorage.getItem('primeloft-theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
+    document.documentElement.setAttribute('data-theme', 'light');
   }
 });
 
@@ -596,6 +594,253 @@ document.addEventListener('DOMContentLoaded', () => {
   const contactSendContainers = document.querySelectorAll('.contact-send-lottie');
   if (contactSendContainers.length > 0) {
     initLottieAnimation(contactSendContainers, 'animations/contact-send-light.json', 'animations/contact-send-dark.json');
+  }
+
+  // ---------- 9. HOVER LOTTIE ANIMATIONS CONTROLLER (HEADER ICONS) ----------
+  async function initHoverLottieAnimation(containers, lightUrl, darkUrl, hoverTargetSelector) {
+    if (!containers || containers.length === 0) return;
+
+    await ensureLottieLoaded();
+
+    const isInitialDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const primaryUrl = isInitialDark ? darkUrl : lightUrl;
+    const secondaryUrl = isInitialDark ? lightUrl : darkUrl;
+
+    await fetchAnimationJson(primaryUrl);
+    fetchAnimationJson(secondaryUrl);
+
+    containers.forEach(container => {
+      let animInstance = null;
+      let isHovered = false;
+      const hoverTarget = hoverTargetSelector ? (container.closest(hoverTargetSelector) || container) : container;
+
+      hoverTarget.addEventListener('mouseenter', () => {
+        isHovered = true;
+        if (animInstance) {
+          animInstance.goToAndPlay(0, true);
+        }
+      });
+      hoverTarget.addEventListener('mouseleave', () => {
+        isHovered = false;
+        if (animInstance) {
+          animInstance.stop();
+          animInstance.goToAndStop(0, true);
+        }
+      });
+      hoverTarget.addEventListener('touchstart', () => {
+        isHovered = true;
+        if (animInstance) {
+          animInstance.goToAndPlay(0, true);
+        }
+      }, { passive: true });
+
+      function renderAnimation() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const targetUrl = isDark ? darkUrl : lightUrl;
+        const targetData = animationJsonCache.get(targetUrl);
+
+        if (animInstance) {
+          try {
+            animInstance.destroy();
+          } catch (_) {}
+          animInstance = null;
+        }
+        container.innerHTML = '';
+
+        const config = {
+          container: container,
+          renderer: 'svg',
+          loop: true,
+          autoplay: false,
+          rendererSettings: {
+            preserveAspectRatio: 'xMidYMid meet',
+            progressiveLoad: true,
+            hideOnTransparent: true
+          }
+        };
+
+        if (targetData) {
+          config.animationData = targetData;
+        } else {
+          config.path = targetUrl;
+        }
+
+        try {
+          animInstance = window.lottie.loadAnimation(config);
+          animInstance.addEventListener('DOMLoaded', () => {
+            if (isHovered) {
+              animInstance.goToAndPlay(0, true);
+            } else {
+              animInstance.goToAndStop(0, true);
+            }
+          });
+          try {
+            if (isHovered) {
+              animInstance.goToAndPlay(0, true);
+            } else {
+              animInstance.goToAndStop(0, true);
+            }
+          } catch (_) {}
+        } catch (err) {
+          console.error('Error rendering hover Lottie:', err);
+        }
+      }
+
+      renderAnimation();
+
+      const themeObserver = new MutationObserver((mutations) => {
+        for (const m of mutations) {
+          if (m.type === 'attributes' && m.attributeName === 'data-theme') {
+            renderAnimation();
+            break;
+          }
+        }
+      });
+      themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    });
+  }
+
+  // Header nav icons hover animations
+  const navHomeContainers = document.querySelectorAll('.nav-home-lottie');
+  if (navHomeContainers.length > 0) {
+    initHoverLottieAnimation(navHomeContainers, 'animations/nav-home-light.json', 'animations/nav-home-dark.json', '.navlink');
+  }
+
+  const navServicesContainers = document.querySelectorAll('.nav-services-lottie');
+  if (navServicesContainers.length > 0) {
+    initHoverLottieAnimation(navServicesContainers, 'animations/nav-services-light.json', 'animations/nav-services-dark.json', '.navlink');
+  }
+
+  const navAboutContainers = document.querySelectorAll('.nav-about-lottie');
+  if (navAboutContainers.length > 0) {
+    initHoverLottieAnimation(navAboutContainers, 'animations/nav-about-light.json', 'animations/nav-about-dark.json', '.navlink');
+  }
+
+  // Header Contact Us button hover animation (replaces arrow)
+  // Inside .btn-primary: light theme (dark button) -> dark JSON (cream stroke)
+  // dark theme (cream button) -> light JSON (dark stroke)
+  const contactBtnContainers = document.querySelectorAll('.contact-btn-lottie');
+  if (contactBtnContainers.length > 0) {
+    initHoverLottieAnimation(contactBtnContainers, 'animations/nav-contact-dark.json', 'animations/nav-contact-light.json', '.btn');
+  }
+
+  const navContactContainers = document.querySelectorAll('.nav-contact-lottie:not(.contact-btn-lottie)');
+  if (navContactContainers.length > 0) {
+    initHoverLottieAnimation(navContactContainers, 'animations/nav-contact-light.json', 'animations/nav-contact-dark.json', '.navlink');
+  }
+
+  // ---------- 13. CLIENTS CAROUSEL CONTROLLER ----------
+  const clientTrack = document.getElementById('clientCarouselTrack');
+  const prevBtn = document.getElementById('clientsPrev');
+  const nextBtn = document.getElementById('clientsNext');
+  const dotsContainer = document.getElementById('clientCarouselDots');
+
+  if (clientTrack && prevBtn && nextBtn) {
+    const dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll('.client-dot')) : [];
+
+    const getScrollStep = () => {
+      const firstItem = clientTrack.querySelector('.client-carousel-item');
+      return firstItem ? firstItem.offsetWidth + 24 : 240;
+    };
+
+    const updateNavState = () => {
+      const maxScroll = clientTrack.scrollWidth - clientTrack.clientWidth;
+      const canScroll = maxScroll > 8;
+      prevBtn.disabled = !canScroll || clientTrack.scrollLeft <= 4;
+      nextBtn.disabled = !canScroll || clientTrack.scrollLeft >= maxScroll - 4;
+      if (dotsContainer) {
+        dotsContainer.style.display = canScroll && dots.length > 1 ? 'flex' : 'none';
+      }
+    };
+
+    const updateDots = () => {
+      if (!dots.length) return;
+      const maxScroll = clientTrack.scrollWidth - clientTrack.clientWidth;
+      if (maxScroll <= 0) {
+        dots.forEach((dot, idx) => dot.classList.toggle('active', idx === 0));
+        return;
+      }
+      const scrollRatio = clientTrack.scrollLeft / maxScroll;
+      const activeIdx = Math.min(dots.length - 1, Math.max(0, Math.round(scrollRatio * (dots.length - 1))));
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === activeIdx);
+      });
+    };
+
+    prevBtn.addEventListener('click', () => {
+      clientTrack.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      const maxScroll = clientTrack.scrollWidth - clientTrack.clientWidth;
+      if (clientTrack.scrollLeft + getScrollStep() >= maxScroll - 10) {
+        clientTrack.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        clientTrack.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+      }
+    });
+
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        const maxScroll = clientTrack.scrollWidth - clientTrack.clientWidth;
+        const targetScroll = (maxScroll / Math.max(1, dots.length - 1)) * idx;
+        clientTrack.scrollTo({ left: targetScroll, behavior: 'smooth' });
+      });
+    });
+
+    let scrollTimeout;
+    clientTrack.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        updateDots();
+        updateNavState();
+      }, 50);
+    }, { passive: true });
+
+    window.addEventListener('resize', updateNavState, { passive: true });
+    updateDots();
+    updateNavState();
+  }
+
+  // ---------- 14. CURVED STEPPER CONTROLLER (CONTACT PAGE) ----------
+  const stepperRoot = document.querySelector('[data-stepper]');
+  if (stepperRoot) {
+    const svg = stepperRoot.querySelector('svg');
+    const path = stepperRoot.querySelector('[data-curve-path]');
+    const steps = Array.from(stepperRoot.querySelectorAll('.step'));
+
+    function drawStepperCurve() {
+      if (!stepperRoot || !svg || !path || !steps.length) return;
+      const box = stepperRoot.getBoundingClientRect();
+      if (!box.width || !box.height) return;
+      svg.setAttribute('viewBox', `0 0 ${box.width} ${box.height}`);
+      const anchors = steps.map((el, i) => {
+        const r = el.getBoundingClientRect();
+        return {
+          x: i % 2 === 0 ? r.right - box.left : r.left - box.left,
+          y: r.top - box.top + r.height / 2
+        };
+      });
+      let d = '';
+      for (let i = 0; i < anchors.length - 1; i++) {
+        const a = anchors[i], b = anchors[i + 1], dy = b.y - a.y;
+        d += (i === 0 ? `M ${a.x} ${a.y} ` : '') +
+          `C ${a.x + (i % 2 === 0 ? 85 : -85)} ${a.y + dy * .45}, ${b.x + (i % 2 === 0 ? -85 : 85)} ${b.y - dy * .45}, ${b.x} ${b.y} `;
+      }
+      path.setAttribute('d', d);
+    }
+
+    if (window.ResizeObserver) {
+      new ResizeObserver(drawStepperCurve).observe(stepperRoot);
+    }
+    window.addEventListener('load', drawStepperCurve);
+    window.addEventListener('resize', drawStepperCurve, { passive: true });
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(drawStepperCurve);
+    }
+    requestAnimationFrame(drawStepperCurve);
+    setTimeout(drawStepperCurve, 150);
+    setTimeout(drawStepperCurve, 500);
   }
 
 });

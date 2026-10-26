@@ -94,6 +94,9 @@ p{color:var(--ink-soft); line-height:1.65;}
 .btn-ghost:hover{border-color:var(--red); color:var(--red); transform:translateY(-2px);}
 .btn-arrow{transition:transform .25s ease;}
 .btn:hover .btn-arrow{transform:translateX(3px);}
+.btn-arrow-diag{width:14px; height:14px; stroke:currentColor; stroke-width:2; transition:transform .25s ease; flex-shrink:0; display:inline-block; margin-left:-2px;}
+.btn:hover .btn-arrow-diag{transform:translate(2.5px, -2.5px);}
+.header-right .btn{padding:10px 20px; font-size:14px; gap:7px;}
 
 /* ============ HEADER ============ */
 header{
@@ -112,26 +115,37 @@ header{
 nav.primary{display:flex; align-items:center; gap:2px; margin-left:36px; margin-right:auto;}
 nav.primary .navlink{
   position:relative; padding:10px 18px; font-size:14.5px; font-weight:500; color:var(--ink-soft);
-  display:flex; align-items:center; gap:6px; border-radius:100px; transition:color .2s ease, background .2s ease;
+  display:flex; align-items:center; gap:7px; border-radius:100px; transition:color .2s ease, background .2s ease;
 }
+.nav-icon{width:15px; height:15px; stroke:currentColor; stroke-width:1.8; flex-shrink:0; opacity:.8; transition:opacity .2s ease, color .2s ease;}
+.nav-lottie-icon{width:18px; height:18px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; line-height:1; pointer-events:none;}
+.nav-lottie-icon svg{width:100%!important; height:100%!important; display:block;}
+.nav-lottie-icon .nav-icon{width:15px; height:15px;}
+.btn-lottie-icon{width:18px; height:18px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; line-height:1; margin-left:2px; pointer-events:none;}
+.btn-lottie-icon svg{width:100%!important; height:100%!important; display:block;}
+.btn-lottie-icon .btn-arrow-diag{width:14px; height:14px; margin-left:0;}
 nav.primary .navlink:hover, nav.primary .navlink.active{color:var(--ink); background:var(--bg-alt);}
+nav.primary .navlink:hover .nav-icon, nav.primary .navlink.active .nav-icon{opacity:1;}
 .caret{width:9px; height:9px; transition:transform .25s ease;}
-.has-mega:hover .caret{transform:rotate(180deg);}
+.has-mega.open .caret{transform:rotate(180deg);}
 .header-right{display:flex; align-items:center; gap:14px;}
 .header-contact-block{
   display:flex; flex-direction:column; align-items:flex-end; justify-content:center;
-  line-height:1.25; text-align:right; gap:2px; user-select:none;
+  line-height:1.25; text-align:right; gap:3px; user-select:none;
 }
+.header-contact-icon{width:12.5px; height:12.5px; flex-shrink:0; stroke:currentColor; stroke-width:1.8; opacity:.8; transition:opacity .2s ease;}
 .header-email-link{
   font-family:var(--font-mono); font-size:11.5px; font-weight:500; letter-spacing:-0.01em;
-  color:var(--ink-soft); text-decoration:none; white-space:nowrap; margin-bottom:2px; transition:color .2s ease;
+  color:var(--ink-soft); text-decoration:none; white-space:nowrap; display:inline-flex; align-items:center; gap:5px; transition:color .2s ease;
 }
 .header-email-link:hover{color:var(--red);}
+.header-email-link:hover .header-contact-icon{opacity:1;}
 .header-phone-link{
   font-family:var(--font-body); font-size:13.5px; font-weight:700; letter-spacing:-0.01em;
-  color:var(--ink); text-decoration:none; white-space:nowrap; transition:color .2s ease;
+  color:var(--ink); text-decoration:none; white-space:nowrap; display:inline-flex; align-items:center; gap:5px; transition:color .2s ease;
 }
 .header-phone-link:hover{color:var(--red);}
+.header-phone-link:hover .header-contact-icon{opacity:1;}
 @media(max-width:980px){
   .nav-row{padding:14px 24px;}
   .header-contact-block{display:none;}
@@ -153,35 +167,24 @@ html[data-theme="dark"] .theme-toggle .knob{transform:translateX(22px); backgrou
 /* mega menu / services dropdown card */
 .mega{
   position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%) translateY(8px);
-  width:330px; max-width:92vw; background:var(--bg-raised); border:1px solid var(--line); border-radius:18px;
-  box-shadow:0 20px 40px -15px rgba(32, 30, 27, 0.18), 0 0 0 1px var(--line); padding:8px; opacity:0; visibility:hidden; pointer-events:none;
+  width:275px; max-width:92vw; background:var(--bg-raised); border:1px solid var(--line); border-radius:12px;
+  box-shadow:0 20px 40px -15px rgba(32, 30, 27, 0.18), 0 0 0 1px var(--line); padding:0; overflow:hidden; opacity:0; visibility:hidden; pointer-events:none;
   transition:opacity .2s ease, transform .2s ease, visibility .2s ease; display:flex; flex-direction:column; z-index:100;
 }
 .mega::before{content:''; position:absolute; top:-12px; left:0; right:0; height:12px;}
-.has-mega:hover .mega, .has-mega.open .mega, .has-mega:focus-within .mega{opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0);}
-.mega-list{display:flex; flex-direction:column; gap:2px;}
-.mega a, .mega-item{display:flex; align-items:center; gap:12px; padding:8px 10px; border-radius:12px; text-decoration:none; transition:background-color .18s ease;}
-.mega a:hover, .mega-item:hover{background:var(--bg-alt);}
-.mega .micon, .mega-icon{
-  width:28px; height:28px; border-radius:8px; background:var(--red-tint); color:var(--red);
-  display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:0;
-  box-shadow:0 1px 3px rgba(193, 88, 74, 0.12);
-  transition:background-color .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
-}
-.mega .micon svg, .mega-icon svg{width:14px; height:14px; stroke:currentColor; transition:stroke .2s ease;}
-.mega a:hover .micon, .mega-item:hover .mega-icon{background:var(--red); color:#FFFFFF; box-shadow:0 4px 12px -2px rgba(193, 88, 74, 0.4); transform:scale(1.05);}
+.has-mega.open .mega{opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0);}
+.mega-list{display:flex; flex-direction:column; gap:0;}
+.mega-list a, .mega-item{display:flex; align-items:center; gap:0; padding:12px 18px; border-radius:0; text-decoration:none; transition:background-color .18s ease, color .18s ease; width:100%; box-sizing:border-box;}
+.mega-list a:hover, .mega-item:hover{background:var(--bg-alt);}
+.mega .micon, .mega-icon{display:none !important;}
 .mega-content{flex:1; min-width:0; display:flex; flex-direction:column;}
-.mega .mtitle{font-weight:600; font-size:12.5px; color:var(--ink); line-height:1.3; margin-bottom:0; display:block; transition:color .18s ease;}
-.mega a:hover .mtitle, .mega-item:hover .mtitle{color:var(--red);}
+.mega .mtitle{font-weight:550; font-size:13.5px; color:var(--ink); line-height:1.4; margin-bottom:0; display:block; transition:color .18s ease;}
+.mega-list a:hover .mtitle, .mega-item:hover .mtitle{color:var(--red);}
 .mega .mdesc{font-size:11px; color:var(--ink-faint); line-height:1.35; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
-.mega-footer{margin-top:4px; padding-top:8px; padding-left:10px; padding-right:10px; padding-bottom:2px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between;}
-.mega-footer-label{font-size:11px; color:var(--ink-faint); font-weight:500;}
-.mega-footer-link{font-size:11px; font-weight:600; color:var(--red); display:inline-flex; align-items:center; gap:5px; text-decoration:none; transition:color .18s ease;}
-.mega-footer-link:hover{color:var(--red-deep);}
-.mega-footer-arrow{width:10px; height:10px; stroke:currentColor; transition:transform .18s ease;}
-.mega-footer-link:hover .mega-footer-arrow{transform:translateX(2px);}
+.mega-footer{margin-top:0; padding:10px 14px; border-top:1px solid var(--line); background:var(--bg-alt); display:flex; align-items:center; justify-content:center; box-sizing:border-box;}
+.mega-footer .btn, .mega-footer .btn.btn-primary{width:100%; justify-content:center; padding:9px 16px; font-size:13px; font-weight:600; gap:7px; border-radius:100px !important; box-sizing:border-box;}
 html[data-theme="dark"] .mega{background:#15131A; border-color:rgba(243, 239, 231, 0.1); box-shadow:0 24px 50px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(243, 239, 231, 0.08);}
-html[data-theme="dark"] .mega a:hover, html[data-theme="dark"] .mega-item:hover{background:rgba(255, 255, 255, 0.06);}
+html[data-theme="dark"] .mega-list a:hover, html[data-theme="dark"] .mega-item:hover{background:rgba(255, 255, 255, 0.06);}
 html[data-theme="dark"] .mega-footer{border-top-color:rgba(243, 239, 231, 0.08);}
 
 /* ============ PAGES ============ */
@@ -266,7 +269,7 @@ html[data-theme="dark"] .cta-section{background:linear-gradient(160deg, var(--re
 
 /* ============ FOOTER ============ */
 footer{border-top:1px solid var(--line); padding:80px 0 34px;}
-.footer-top{display:grid; grid-template-columns:1.25fr 1.25fr 1fr; gap:44px; padding-bottom:60px; border-bottom:1px solid var(--line);}
+.footer-top{display:grid; grid-template-columns:1.35fr 0.9fr 1.35fr 1.2fr; gap:40px; padding-bottom:60px; border-bottom:1px solid var(--line);}
 .footer-brand .logo{margin-bottom:18px;}
 .footer-brand p{font-size:14px; max-width:260px;}
 .footer-col h4{font-family:var(--font-mono); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:16px;}
@@ -372,50 +375,58 @@ html[data-theme="dark"] .sb-media-lottie svg{filter:drop-shadow(0 24px 50px rgba
   section{padding:70px 0;}
 }
 
-/* ============ CLIENTS WE WORKED WITH SECTION ============ */
-.clients-worked-section{
-  width:100%; padding:85px 0 95px; background:color-mix(in srgb, var(--bg-alt) 45%, transparent);
+/* ============ CLIENTS CAROUSEL SECTION ============ */
+.clients-carousel-section{
+  width:100%; padding:65px 0 75px; background:var(--bg);
   border-top:1px solid var(--line); border-bottom:1px solid var(--line); position:relative;
 }
-.clients-worked-head{text-align:center; max-width:680px; margin:0 auto 46px;}
-.clients-worked-head h3{font-size:clamp(26px, 3.2vw, 36px); letter-spacing:-0.02em; margin:12px 0 10px; line-height:1.2;}
-.clients-worked-head p{font-size:15.5px; color:var(--ink-soft); line-height:1.6;}
-.clients-worked-grid{display:flex; justify-content:center; align-items:stretch; max-width:960px; margin:0 auto;}
-.client-showcase-card{
-  width:100%; background:var(--bg-raised); border:1px solid var(--line); border-radius:20px;
-  padding:36px 42px; display:flex; align-items:center; gap:36px;
-  box-shadow:0 8px 30px -12px rgba(32, 30, 27, 0.08);
-  transition:transform .3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow .3s ease, border-color .3s ease;
+.clients-carousel-title{
+  font-family:var(--font-body); font-size:clamp(22px, 2.5vw, 28px); font-weight:700;
+  color:var(--red); margin:0 0 32px 0; letter-spacing:-0.015em; text-align:left;
 }
-.client-showcase-card:hover{
-  transform:translateY(-4px); border-color:var(--line-strong); box-shadow:0 20px 45px -15px rgba(32, 30, 27, 0.14);
+.clients-carousel-wrapper{position:relative; display:flex; align-items:center; gap:14px; width:100%;}
+.clients-nav-arrow{
+  background:none; border:none; padding:8px; cursor:pointer; color:var(--ink);
+  display:flex; align-items:center; justify-content:center; border-radius:50%;
+  transition:transform .2s ease, color .2s ease, background .2s ease; flex-shrink:0;
 }
-.client-logo-box{
-  width:110px; height:110px; min-width:110px; border-radius:22px; background:var(--bg);
-  border:1px solid var(--line); display:flex; align-items:center; justify-content:center;
-  padding:14px; box-shadow:inset 0 2px 6px rgba(0,0,0,0.04);
+.clients-nav-arrow:hover{color:var(--red); background:var(--bg-alt); transform:scale(1.1);}
+.clients-nav-arrow:disabled{opacity:0.25; cursor:not-allowed; transform:none; pointer-events:none;}
+.clients-nav-arrow svg{width:22px; height:22px;}
+.clients-carousel-track{
+  display:flex; align-items:center; gap:24px; overflow-x:auto; scroll-behavior:smooth;
+  scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; padding:10px 4px; width:100%;
 }
-.client-logo-box img{width:100%; height:100%; object-fit:contain; transition:transform .3s ease;}
-.client-showcase-card:hover .client-logo-box img{transform:scale(1.05);}
-.client-info-block{flex:1;}
-.client-badge-pill{
-  display:inline-flex; align-items:center; gap:6px; font-family:var(--font-mono); font-size:11px;
-  font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--red);
-  background:color-mix(in srgb, var(--red) 10%, transparent); border:1px solid color-mix(in srgb, var(--red) 25%, transparent);
-  padding:4px 10px; border-radius:100px; margin-bottom:12px;
+.clients-carousel-track::-webkit-scrollbar{display:none;}
+.client-carousel-item{
+  flex:0 0 calc(20% - 20px); min-width:190px; height:90px; scroll-snap-align:start;
+  display:flex; align-items:center; justify-content:center; padding:14px 20px;
+  background:var(--bg-raised); border:1px solid var(--line); border-radius:14px;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; user-select:none; box-sizing:border-box;
 }
-.client-title{font-size:clamp(22px, 2.5vw, 28px); font-weight:700; letter-spacing:-0.015em; color:var(--ink); margin-bottom:10px; line-height:1.25;}
-.client-summary{font-size:15px; line-height:1.6; color:var(--ink-soft); margin-bottom:18px; max-width:620px;}
-.client-meta-tags{display:flex; flex-wrap:wrap; align-items:center; gap:8px 12px;}
-.client-meta-tag{
-  font-family:var(--font-mono); font-size:12px; color:var(--ink-soft); background:var(--bg-alt);
-  border:1px solid var(--line); padding:5px 12px; border-radius:8px; letter-spacing:0.01em;
+.client-carousel-item:hover{
+  transform:translateY(-3px); border-color:var(--line-strong); box-shadow:0 10px 24px -8px rgba(32, 30, 27, 0.08);
 }
-@media (max-width:768px){
-  .client-showcase-card{flex-direction:column; text-align:center; padding:28px 22px; gap:22px;}
-  .client-logo-box{width:96px; height:96px; min-width:96px;}
-  .client-meta-tags{justify-content:center;}
-  .clients-worked-section{padding:60px 0 70px;}
+.client-carousel-logo{
+  max-width:140px; max-height:52px; width:auto; height:auto; object-fit:contain;
+  transition:transform .25s ease, opacity .25s ease; opacity:0.92;
+}
+.client-carousel-item:hover .client-carousel-logo{transform:scale(1.06); opacity:1;}
+.clients-carousel-dots{display:flex; align-items:center; justify-content:center; gap:8px; margin-top:26px;}
+.client-dot{
+  width:7px; height:7px; border-radius:50%; background:var(--line-strong); border:none; padding:0; cursor:pointer;
+  transition:background .25s ease, transform .25s ease;
+}
+.client-dot:hover{background:var(--ink-soft);}
+.client-dot.active{background:var(--ink); transform:scale(1.3);}
+.client-dot:only-child, .clients-carousel-dots:empty, .clients-carousel-dots:has(.client-dot:only-child){display:none !important;}
+@media(max-width:980px){
+  .client-carousel-item{flex:0 0 calc(33.333% - 16px); min-width:170px;}
+}
+@media(max-width:640px){
+  .client-carousel-item{flex:0 0 calc(65% - 14px); min-width:160px;}
+  .clients-carousel-title{margin-bottom:20px;}
+  .clients-carousel-section{padding:45px 0 55px;}
 }
 </style>
 </head>
@@ -425,96 +436,90 @@ html[data-theme="dark"] .sb-media-lottie svg{filter:drop-shadow(0 24px 50px rgba
   <div class="nav-row">
     <a href="#" class="logo" data-nav="home"><span class="prime">Prime</span><span class="loft">Loft</span><span class="logo-dot"></span></a>
     <nav class="primary">
-      <a href="#" class="navlink" data-nav="home">Home</a>
+      <a href="#" class="navlink" data-nav="home">
+        <span class="nav-lottie-icon nav-home-lottie" aria-hidden="true"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg></span>
+        <span>Home</span>
+      </a>
       <div class="has-mega" style="position:relative;">
-        <a href="#" class="navlink" data-nav="services" aria-expanded="false" aria-haspopup="true">Services
+        <a href="#" class="navlink" data-nav="services" aria-expanded="false" aria-haspopup="true">
+          <span class="nav-lottie-icon nav-services-lottie" aria-hidden="true"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg></span>
+          <span>Services</span>
           <svg class="caret" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
         </a>
         <div class="mega dropdown-card" id="servicesDropdown" role="menu" aria-label="Services dropdown">
           <div class="mega-list">
             <a href="#" class="mega-item" data-nav="services" data-anchor="s-design" role="menuitem">
-              <div class="mega-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <circle cx="12" cy="12" r="3"></circle>
-                </svg>
-              </div>
-              <div class="mega-content">
-                <span class="mtitle">Product &amp; Experience Design</span>
-              </div>
+              <span class="mtitle">Product &amp; Experience Design</span>
             </a>
             <a href="#" class="mega-item" data-nav="services" data-anchor="s-strategy" role="menuitem">
-              <div class="mega-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="18" y1="20" x2="18" y2="10"></line>
-                  <line x1="12" y1="20" x2="12" y2="4"></line>
-                  <line x1="6" y1="20" x2="6" y2="14"></line>
-                </svg>
-              </div>
-              <div class="mega-content">
-                <span class="mtitle">Strategy &amp; Innovation</span>
-              </div>
+              <span class="mtitle">Strategy &amp; Innovation</span>
             </a>
             <a href="#" class="mega-item" data-nav="services" data-anchor="s-engineering" role="menuitem">
-              <div class="mega-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="16 18 22 12 16 6"></polyline>
-                  <polyline points="8 6 2 12 8 18"></polyline>
-                </svg>
-              </div>
-              <div class="mega-content">
-                <span class="mtitle">Software Engineering</span>
-              </div>
+              <span class="mtitle">Software Engineering</span>
             </a>
             <a href="#" class="mega-item" data-nav="services" data-anchor="s-ai" role="menuitem">
-              <div class="mega-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="4"></circle>
-                  <path d="M12 2v2"></path><path d="M12 20v2"></path>
-                  <path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path>
-                  <path d="M2 12h2"></path><path d="M20 12h2"></path>
-                  <path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path>
-                </svg>
-              </div>
-              <div class="mega-content">
-                <span class="mtitle">AI &amp; Data</span>
-              </div>
+              <span class="mtitle">AI &amp; Data</span>
             </a>
             <a href="#" class="mega-item" data-nav="services" data-anchor="s-cloud" role="menuitem">
-              <div class="mega-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
-                </svg>
-              </div>
-              <div class="mega-content">
-                <span class="mtitle">Cloud &amp; Platform Engineering</span>
-              </div>
+              <span class="mtitle">Cloud &amp; Platform Engineering</span>
             </a>
             <a href="#" class="mega-item" data-nav="services" data-anchor="s-quality" role="menuitem">
-              <div class="mega-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                  <polyline points="22 10 13 19 11 17"></polyline>
-                </svg>
-              </div>
-              <div class="mega-content">
-                <span class="mtitle">Quality, Delivery &amp; Scale</span>
-              </div>
+              <span class="mtitle">Quality, Delivery &amp; Scale</span>
+            </a>
+          </div>
+          <div class="mega-footer">
+            <a href="#" class="btn btn-primary" data-nav="services">
+              <span>View all services</span>
+              <svg class="btn-arrow-diag" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
+              </svg>
             </a>
           </div>
         </div>
       </div>
-      <a href="#" class="navlink" data-nav="about">About Us</a>
+      <a href="#" class="navlink" data-nav="about">
+        <span class="nav-lottie-icon nav-about-lottie" aria-hidden="true"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg></span>
+        <span>About Us</span>
+      </a>
     </nav>
     <div class="header-right">
+      <!-- Theme toggle (commented out for now; default light mode enabled)
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
         <span class="knob"><svg viewBox="0 0 24 24" fill="none" id="knobIcon"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.8"/><path d="M12 1v3M12 20v3M4.2 4.2l2 2M17.8 17.8l2 2M1 12h3M20 12h3M4.2 19.8l2-2M17.8 6.2l2-2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
       </button>
+      -->
       <div class="header-contact-block">
-        <a href="mailto:contact@primeloft.tech" class="header-email-link">contact@primeloft.tech</a>
-        <a href="tel:+923359873132" class="header-phone-link">+92 335 9873132</a>
+        <a href="mailto:contact@primeloft.tech" class="header-email-link">
+          <svg class="header-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+          <span>contact@primeloft.tech</span>
+        </a>
+        <a href="tel:+923359873132" class="header-phone-link">
+          <svg class="header-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>+92 335 9873132</span>
+        </a>
       </div>
-      <a href="#" class="btn btn-primary" data-nav="contact" id="headerCta">Contact Us</a>
+      <a href="#" class="btn btn-primary" data-nav="contact" id="headerCta">
+        <span>Contact Us</span>
+        <span class="btn-lottie-icon contact-btn-lottie" aria-hidden="true"><svg class="btn-arrow-diag" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
+        </svg></span>
+      </a>
       <button class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -536,8 +541,12 @@ html[data-theme="dark"] .sb-media-lottie svg{filter:drop-shadow(0 24px 50px rgba
       </h1>
       <p class="lead">PrimeLoft partners with ambitious brands to plan, engineer and scale commerce experiences, from first sketch to nine-figure revenue.</p>
       <div class="hero-ctas">
-        <a href="#" class="btn btn-primary" data-nav="contact">Estimate project <span class="btn-arrow">→</span></a>
-        <a href="#" class="btn btn-ghost" data-nav="services">Explore services</a>
+        <a href="#" class="btn btn-primary" data-nav="services">
+          <span>Explore services</span>
+          <svg class="btn-arrow-diag" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
+          </svg>
+        </a>
       </div>
       <div class="hero-scroll"><span>Scroll</span><span class="stick"></span></div>
     </div>
@@ -614,31 +623,35 @@ html[data-theme="dark"] .sb-media-lottie svg{filter:drop-shadow(0 24px 50px rgba
     </div>
   </section>
 
-  <!-- ================= CLIENTS & PARTNERSHIPS ================= -->
-  <section class="clients-worked-section">
+  <!-- ================= CLIENTS CAROUSEL ================= -->
+  <section class="clients-carousel-section reveal">
     <div class="wrap">
-      <div class="clients-worked-head reveal">
-        <div class="eyebrow" style="justify-content:center;">Collaborations &amp; Clients</div>
-        <h3>Teams &amp; Companies We Worked With</h3>
-        <p>We partner with ambitious organizations and design studios to build, engineer, and scale high-impact digital platforms.</p>
-      </div>
+      <h2 class="clients-carousel-title">Our Prestigious Customers</h2>
 
-      <div class="clients-worked-grid reveal">
-        <div class="client-showcase-card">
-          <div class="client-logo-box">
-            <img src="images/client-native-tech.png" alt="Native Technology and Design Logo" width="109" height="109" loading="lazy">
-          </div>
-          <div class="client-info-block">
-            <span class="client-badge-pill">Featured Client</span>
-            <h4 class="client-title">Native Technology and Design</h4>
-            <p class="client-summary">Collaborating on advanced product architecture, modern design systems, and robust full-stack engineering solutions built for speed, precision, and longevity.</p>
-            <div class="client-meta-tags">
-              <span class="client-meta-tag">Technology &amp; Cloud</span>
-              <span class="client-meta-tag">UI/UX Design Systems</span>
-              <span class="client-meta-tag">Software Architecture</span>
-            </div>
+      <div class="clients-carousel-wrapper">
+        <button class="clients-nav-arrow prev" id="clientsPrev" aria-label="Previous client" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+        </button>
+
+        <div class="clients-carousel-track" id="clientCarouselTrack">
+          <!-- Client 1: Native Technology and Design -->
+          <div class="client-carousel-item">
+            <img src="images/client-native-tech.png" alt="Native Technology and Design" class="client-carousel-logo" width="68" height="68" loading="lazy">
           </div>
         </div>
+
+        <button class="clients-nav-arrow next" id="clientsNext" aria-label="Next client" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Pagination Dots -->
+      <div class="clients-carousel-dots" id="clientCarouselDots">
+        <button class="client-dot active" aria-label="Slide 1"></button>
       </div>
     </div>
   </section>
@@ -664,7 +677,12 @@ html[data-theme="dark"] .sb-media-lottie svg{filter:drop-shadow(0 24px 50px rgba
       <div class="cta-section reveal">
         <div class="eyebrow" style="justify-content:center;">Let's build</div>
         <h2>Design, build, and scale digital commerce solutions that drive revenue and operational excellence</h2>
-        <a href="#" class="btn btn-primary" data-nav="contact">Estimate project <span class="btn-arrow">→</span></a>
+        <a href="#" class="btn btn-primary" data-nav="contact">
+          <span>Contact Us</span>
+          <span class="btn-lottie-icon contact-btn-lottie" aria-hidden="true"><svg class="btn-arrow-diag" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
+          </svg></span>
+        </a>
       </div>
     </div>
   </section>
@@ -758,7 +776,12 @@ html[data-theme="dark"] .sb-media-lottie svg{filter:drop-shadow(0 24px 50px rgba
       <div class="cta-section reveal">
         <div class="eyebrow" style="justify-content:center;">Let's build</div>
         <h2>Not sure which discipline you need? We'll help you scope it.</h2>
-        <a href="#" class="btn btn-primary" data-nav="contact">Estimate project <span class="btn-arrow">→</span></a>
+        <a href="#" class="btn btn-primary" data-nav="contact">
+          <span>Contact Us</span>
+          <span class="btn-lottie-icon contact-btn-lottie" aria-hidden="true"><svg class="btn-arrow-diag" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
+          </svg></span>
+        </a>
       </div>
     </div>
   </section>
@@ -867,15 +890,13 @@ html[data-theme="dark"] .sb-media-lottie svg{filter:drop-shadow(0 24px 50px rgba
         <p>A digital commerce studio designing, building and scaling revenue-driving platforms.</p>
       </div>
       <div class="footer-col">
-        <h4>Keep in Touch</h4>
-        <div class="addr">PrimeLoft Tech<br>GardenTown, Multan Road<br>DGK, Pakistan<br><br>Cell: +92 335 9873132</div>
-        <div class="addr" style="margin-top:14px;">General inquiries</div>
-        <a href="mailto:contact@primeloft.tech" class="mail">contact@primeloft.tech</a>
-        <h4 style="margin-top:26px;">Certificates</h4>
-        <div class="cert-row">
-          <div class="cert-badge">B Corp</div>
-          <div class="cert-badge">TÜV Nord</div>
-        </div>
+        <h4>Our Company</h4>
+        <ul class="footer-links">
+          <li><a href="#" data-nav="home">Home</a></li>
+          <li><a href="#" data-nav="services">Services</a></li>
+          <li><a href="#" data-nav="about">About Us</a></li>
+          <li><a href="#" data-nav="contact">Contact Us</a></li>
+        </ul>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
@@ -888,6 +909,17 @@ html[data-theme="dark"] .sb-media-lottie svg{filter:drop-shadow(0 24px 50px rgba
           <li><a href="#" data-nav="services" data-anchor="s-quality">Quality, Delivery &amp; Scale</a></li>
         </ul>
       </div>
+      <div class="footer-col">
+        <h4>Keep in Touch</h4>
+        <div class="addr">PrimeLoft Tech<br>GardenTown, Multan Road<br>DGK, Pakistan<br><br>Cell: +92 335 9873132</div>
+        <div class="addr" style="margin-top:14px;">General inquiries</div>
+        <a href="mailto:contact@primeloft.tech" class="mail">contact@primeloft.tech</a>
+        <h4 style="margin-top:26px;">Certificates</h4>
+        <div class="cert-row">
+          <div class="cert-badge">B Corp</div>
+          <div class="cert-badge">TÜV Nord</div>
+        </div>
+      </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 PrimeLoft S.A. All rights reserved.</span>
@@ -899,10 +931,14 @@ html[data-theme="dark"] .sb-media-lottie svg{filter:drop-shadow(0 24px 50px rgba
 <script>
 // ---------- Theme toggle ----------
 const root = document.documentElement;
-document.getElementById('themeToggle').addEventListener('click', ()=>{
-  const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  root.setAttribute('data-theme', next);
-});
+root.setAttribute('data-theme', 'light');
+const themeToggleBtn = document.getElementById('themeToggle');
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener('click', ()=>{
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+  });
+}
 
 // ---------- Page routing ----------
 const pages = document.querySelectorAll('.page');
@@ -924,8 +960,50 @@ function goTo(name, anchor){
   }
   refreshReveal();
 }
+// Services dropdown click toggle (Click Only - no hover opening)
+const hasMega = document.querySelector('.has-mega');
+if (hasMega) {
+  const servicesTrigger = hasMega.querySelector('.navlink');
+  if (servicesTrigger) {
+    servicesTrigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = hasMega.classList.toggle('open');
+      servicesTrigger.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+
+  // Close dropdown when a service link is clicked
+  hasMega.querySelectorAll('.mega a').forEach(link => {
+    link.addEventListener('click', () => {
+      hasMega.classList.remove('open');
+      if (servicesTrigger) servicesTrigger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Close dropdown on click outside
+  document.addEventListener('click', (e) => {
+    if (!hasMega.contains(e.target)) {
+      hasMega.classList.remove('open');
+      if (servicesTrigger) servicesTrigger.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Close dropdown on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      hasMega.classList.remove('open');
+      if (servicesTrigger) servicesTrigger.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
 navlinks.forEach(l=>{
   l.addEventListener('click', (e)=>{
+    // Prevent services mega trigger from immediately navigating
+    if (l.closest('.has-mega') && l.classList.contains('navlink')) {
+      return;
+    }
     e.preventDefault();
     goTo(l.dataset.nav, l.dataset.anchor);
   });
@@ -1156,6 +1234,210 @@ refreshReveal();
   const qualityContainers = document.querySelectorAll('.quality-lottie-container');
   if (qualityContainers.length > 0) {
     initLottieAnimation(qualityContainers, 'animations/quality-light.json', 'animations/quality-dark.json');
+  }
+
+  // Hover Lottie Animations Controller (Header Icons)
+  async function initHoverLottieAnimation(containers, lightUrl, darkUrl, hoverTargetSelector) {
+    if (!containers || containers.length === 0) return;
+
+    await ensureLottieLoaded();
+
+    const isInitialDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const primaryUrl = isInitialDark ? darkUrl : lightUrl;
+    const secondaryUrl = isInitialDark ? lightUrl : darkUrl;
+
+    await fetchAnimationJson(primaryUrl);
+    fetchAnimationJson(secondaryUrl);
+
+    containers.forEach(container => {
+      let animInstance = null;
+      let isHovered = false;
+      const hoverTarget = hoverTargetSelector ? (container.closest(hoverTargetSelector) || container) : container;
+
+      hoverTarget.addEventListener('mouseenter', () => {
+        isHovered = true;
+        if (animInstance) {
+          animInstance.goToAndPlay(0, true);
+        }
+      });
+      hoverTarget.addEventListener('mouseleave', () => {
+        isHovered = false;
+        if (animInstance) {
+          animInstance.stop();
+          animInstance.goToAndStop(0, true);
+        }
+      });
+      hoverTarget.addEventListener('touchstart', () => {
+        isHovered = true;
+        if (animInstance) {
+          animInstance.goToAndPlay(0, true);
+        }
+      }, { passive: true });
+
+      function renderAnimation() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const targetUrl = isDark ? darkUrl : lightUrl;
+        const targetData = animationJsonCache.get(targetUrl);
+
+        if (animInstance) {
+          try {
+            animInstance.destroy();
+          } catch (_) {}
+          animInstance = null;
+        }
+        container.innerHTML = '';
+
+        const config = {
+          container: container,
+          renderer: 'svg',
+          loop: true,
+          autoplay: false,
+          rendererSettings: {
+            preserveAspectRatio: 'xMidYMid meet',
+            progressiveLoad: true,
+            hideOnTransparent: true
+          }
+        };
+
+        if (targetData) {
+          config.animationData = targetData;
+        } else {
+          config.path = targetUrl;
+        }
+
+        try {
+          animInstance = window.lottie.loadAnimation(config);
+          animInstance.addEventListener('DOMLoaded', () => {
+            if (isHovered) {
+              animInstance.goToAndPlay(0, true);
+            } else {
+              animInstance.goToAndStop(0, true);
+            }
+          });
+          try {
+            if (isHovered) {
+              animInstance.goToAndPlay(0, true);
+            } else {
+              animInstance.goToAndStop(0, true);
+            }
+          } catch (_) {}
+        } catch (err) {
+          console.error('Error rendering hover Lottie:', err);
+        }
+      }
+
+      renderAnimation();
+
+      const themeObserver = new MutationObserver((mutations) => {
+        for (const m of mutations) {
+          if (m.type === 'attributes' && m.attributeName === 'data-theme') {
+            renderAnimation();
+            break;
+          }
+        }
+      });
+      themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    });
+  }
+
+  // Header nav icons hover animations
+  const navHomeContainers = document.querySelectorAll('.nav-home-lottie');
+  if (navHomeContainers.length > 0) {
+    initHoverLottieAnimation(navHomeContainers, 'animations/nav-home-light.json', 'animations/nav-home-dark.json', '.navlink');
+  }
+
+  const navServicesContainers = document.querySelectorAll('.nav-services-lottie');
+  if (navServicesContainers.length > 0) {
+    initHoverLottieAnimation(navServicesContainers, 'animations/nav-services-light.json', 'animations/nav-services-dark.json', '.navlink');
+  }
+
+  const navAboutContainers = document.querySelectorAll('.nav-about-lottie');
+  if (navAboutContainers.length > 0) {
+    initHoverLottieAnimation(navAboutContainers, 'animations/nav-about-light.json', 'animations/nav-about-dark.json', '.navlink');
+  }
+
+  // Header Contact Us button hover animation (replaces arrow)
+  const contactBtnContainers = document.querySelectorAll('.contact-btn-lottie');
+  if (contactBtnContainers.length > 0) {
+    initHoverLottieAnimation(contactBtnContainers, 'animations/nav-contact-dark.json', 'animations/nav-contact-light.json', '.btn');
+  }
+
+  const navContactContainers = document.querySelectorAll('.nav-contact-lottie:not(.contact-btn-lottie)');
+  if (navContactContainers.length > 0) {
+    initHoverLottieAnimation(navContactContainers, 'animations/nav-contact-light.json', 'animations/nav-contact-dark.json', '.navlink');
+  }
+
+  // Client Carousel Controller
+  const clientTrack = document.getElementById('clientCarouselTrack');
+  const prevBtn = document.getElementById('clientsPrev');
+  const nextBtn = document.getElementById('clientsNext');
+  const dotsContainer = document.getElementById('clientCarouselDots');
+
+  if (clientTrack && prevBtn && nextBtn) {
+    const dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll('.client-dot')) : [];
+
+    const getScrollStep = () => {
+      const firstItem = clientTrack.querySelector('.client-carousel-item');
+      return firstItem ? firstItem.offsetWidth + 24 : 240;
+    };
+
+    const updateNavState = () => {
+      const maxScroll = clientTrack.scrollWidth - clientTrack.clientWidth;
+      const canScroll = maxScroll > 8;
+      prevBtn.disabled = !canScroll || clientTrack.scrollLeft <= 4;
+      nextBtn.disabled = !canScroll || clientTrack.scrollLeft >= maxScroll - 4;
+      if (dotsContainer) {
+        dotsContainer.style.display = canScroll && dots.length > 1 ? 'flex' : 'none';
+      }
+    };
+
+    const updateDots = () => {
+      if (!dots.length) return;
+      const maxScroll = clientTrack.scrollWidth - clientTrack.clientWidth;
+      if (maxScroll <= 0) {
+        dots.forEach((dot, idx) => dot.classList.toggle('active', idx === 0));
+        return;
+      }
+      const scrollRatio = clientTrack.scrollLeft / maxScroll;
+      const activeIdx = Math.min(dots.length - 1, Math.max(0, Math.round(scrollRatio * (dots.length - 1))));
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === activeIdx);
+      });
+    };
+
+    prevBtn.addEventListener('click', () => {
+      clientTrack.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      const maxScroll = clientTrack.scrollWidth - clientTrack.clientWidth;
+      if (clientTrack.scrollLeft + getScrollStep() >= maxScroll - 10) {
+        clientTrack.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        clientTrack.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+      }
+    });
+
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        const maxScroll = clientTrack.scrollWidth - clientTrack.clientWidth;
+        const targetScroll = (maxScroll / Math.max(1, dots.length - 1)) * idx;
+        clientTrack.scrollTo({ left: targetScroll, behavior: 'smooth' });
+      });
+    });
+
+    let scrollTimeout;
+    clientTrack.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        updateDots();
+        updateNavState();
+      }, 50);
+    }, { passive: true });
+
+    window.addEventListener('resize', updateNavState, { passive: true });
+    updateDots();
+    updateNavState();
   }
 })();
 </script>
