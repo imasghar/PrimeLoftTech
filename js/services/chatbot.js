@@ -16,6 +16,11 @@
  */
 
 export class ChatbotService {
+  static botAnimations = [];
+  static botJsonCache = new Map();
+  static _themeObserver = null;
+  static _lottiePromise = null;
+
   static init() {
     if (document.getElementById('plChatWidget')) return;
     this.state = {
@@ -37,6 +42,7 @@ export class ChatbotService {
     this.renderWidget();
     this.bindEvents();
     this.renderCurrentStep();
+    this.initBotAnimations();
   }
 
   static renderWidget() {
@@ -46,7 +52,16 @@ export class ChatbotService {
     root.innerHTML = `
       <!-- Prompt Callout Card -->
       <div class="pl-chat-prompt-card" id="plChatPromptCard">
-        <h4 class="pl-prompt-title">Not sure which service you need?</h4>
+        <div class="pl-prompt-header">
+          <div class="pl-prompt-bot-wrap">
+            <div class="pl-prompt-bot" id="plPromptBot" aria-hidden="true"></div>
+            <span class="pl-prompt-pulse"></span>
+          </div>
+          <div class="pl-prompt-header-text">
+            <span class="pl-prompt-kicker">PrimeLoft Guide</span>
+            <h4 class="pl-prompt-title">Not sure which service you need?</h4>
+          </div>
+        </div>
         <p class="pl-prompt-desc">Answer a few quick questions and I'll point you to the right team.</p>
         <div class="pl-prompt-actions">
           <button class="pl-prompt-btn-go" id="plPromptGo" type="button">Let's go</button>
@@ -58,8 +73,8 @@ export class ChatbotService {
       <button class="pl-chat-launcher" id="plChatLauncher" aria-label="Open PrimeLoft Project Guide">
         <span class="pl-chat-launcher-ring" aria-hidden="true">
           <span class="pl-chat-launcher-inner">
-            <span class="pl-chat-launcher-icon open-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <span class="pl-chat-launcher-icon open-icon" id="plChatLauncherBot" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="pl-bot-fallback">
                 <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
               </svg>
             </span>
@@ -78,9 +93,13 @@ export class ChatbotService {
         <!-- Header (Compact height, PrimeLoft Favicon, no subtitle line, no minimize button) -->
         <header class="pl-chat-header">
           <div class="pl-chat-header-info">
-            <img src="images/favicon-32x32.png" alt="PrimeLoft" class="pl-chat-favicon" width="22" height="22">
+            <div class="pl-chat-header-avatar">
+              <div class="pl-chat-header-bot" id="plChatHeaderBot" aria-hidden="true"></div>
+              <span class="pl-chat-avatar-status" title="Online"></span>
+            </div>
             <div class="pl-chat-title-group">
               <h3 class="pl-chat-title" id="plChatTitle">PrimeLoft Guide</h3>
+              <span class="pl-chat-subtitle"><span class="pl-status-dot"></span> Online &bull; Ready to help</span>
             </div>
           </div>
           <div class="pl-chat-header-actions">
@@ -117,6 +136,139 @@ export class ChatbotService {
     if (sessionStorage.getItem('pl-guide-prompt-dismissed') === 'true') {
       const promptCard = document.getElementById('plChatPromptCard');
       if (promptCard) promptCard.style.display = 'none';
+    }
+  }
+
+  /**
+   * Helper: Ensure Lottie library is ready
+   */
+  static async ensureLottie() {
+    if (window.lottie) return window.lottie;
+    if (this._lottiePromise) return this._lottiePromise;
+
+    this._lottiePromise = new Promise((resolve) => {
+      if (window.lottie) return resolve(window.lottie);
+
+      let script = document.querySelector('script[src*="lottie"]');
+      if (!script) {
+        script = document.createElement('script');
+        script.src = 'js/libs/lottie_light.min.js?v=2.5.0';
+        script.async = true;
+        document.head.appendChild(script);
+      }
+
+      const onDone = () => resolve(window.lottie || null);
+      script.addEventListener('load', onDone);
+      script.addEventListener('error', () => {
+        const cdnScript = document.createElement('script');
+        cdnScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie_light.min.js';
+        cdnScript.async = true;
+        cdnScript.onload = () => resolve(window.lottie || null);
+        cdnScript.onerror = () => resolve(null);
+        document.head.appendChild(cdnScript);
+      });
+    });
+
+    return this._lottiePromise;
+  }
+
+  /**
+   * Helper: Fetch and cache Lottie JSON
+   */
+  static async fetchBotJson(url) {
+    if (this.botJsonCache.has(url)) return this.botJsonCache.get(url);
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      this.botJsonCache.set(url, data);
+      return data;
+    } catch (e) {
+      console.warn('Could not fetch bot Lottie JSON from', url, e);
+      return null;
+    }
+  }
+
+  /**
+   * Initialize and manage the Support Bot Lottie animations
+   * Adapts dynamically between bot-dark.json and bot-light.json on theme change
+   */
+  static async initBotAnimations() {
+    const lottie = await this.ensureLottie();
+    if (!lottie) {
+      console.warn('Lottie library not available for chatbot animations.');
+      return;
+    }
+
+    const darkUrl = 'animations/bot-dark.json';
+    const lightUrl = 'animations/bot-light.json';
+
+    // Preload active theme first, background cache the secondary theme
+    const isDarkInitial = document.documentElement.getAttribute('data-theme') === 'dark';
+    await this.fetchBotJson(isDarkInitial ? darkUrl : lightUrl);
+    this.fetchBotJson(isDarkInitial ? lightUrl : darkUrl);
+
+    const containerIds = ['plChatLauncherBot', 'plChatHeaderBot', 'plPromptBot'];
+
+    const renderAll = () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const targetUrl = isDark ? darkUrl : lightUrl;
+      const data = this.botJsonCache.get(targetUrl);
+
+      // Clean up existing instances
+      this.botAnimations.forEach(inst => {
+        try { inst.destroy(); } catch (_) {}
+      });
+      this.botAnimations = [];
+
+      containerIds.forEach(id => {
+        const container = document.getElementById(id);
+        if (!container) return;
+        container.innerHTML = '';
+
+        const config = {
+          container,
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+          rendererSettings: {
+            preserveAspectRatio: 'xMidYMid meet',
+            progressiveLoad: true,
+            hideOnTransparent: true
+          }
+        };
+
+        if (data) {
+          config.animationData = data;
+        } else {
+          config.path = targetUrl;
+        }
+
+        try {
+          const inst = lottie.loadAnimation(config);
+          this.botAnimations.push(inst);
+        } catch (err) {
+          console.error('Failed to load bot animation for', id, err);
+        }
+      });
+    };
+
+    renderAll();
+
+    // Reactive theme observer for instantaneous switching
+    if (!this._themeObserver) {
+      this._themeObserver = new MutationObserver((mutations) => {
+        for (const m of mutations) {
+          if (m.type === 'attributes' && m.attributeName === 'data-theme') {
+            renderAll();
+            break;
+          }
+        }
+      });
+      this._themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['data-theme']
+      });
     }
   }
 
@@ -568,13 +720,24 @@ export class ChatbotService {
         <span class="pl-choice-arrow" aria-hidden="true">&rsaquo;</span>
       `;
       btn.addEventListener('click', () => {
-        container.querySelectorAll('button').forEach(b => {
+        // Smoothly hide unselected options and convert user choice into chat message
+        container.querySelectorAll('.pl-choice-btn').forEach(b => {
           b.disabled = true;
           b.style.pointerEvents = 'none';
+          if (b !== btn) {
+            b.classList.add('is-hidden');
+            b.style.opacity = '0';
+            b.style.transform = 'scale(0.96)';
+            b.style.transition = 'opacity 0.16s ease, transform 0.16s ease';
+          }
         });
         btn.classList.add('is-selected');
-        this.appendUserBubble(ch.label);
-        callback(ch.val);
+
+        setTimeout(() => {
+          container.remove();
+          this.appendUserBubble(ch.label);
+          callback(ch.val);
+        }, 160);
       });
       container.appendChild(btn);
     });
