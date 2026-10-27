@@ -3757,6 +3757,11 @@ html.dark .pl-process {
 /* ==========================================================================
    PRIMELOFT GUIDE - INTERACTIVE RULE-BASED CHATBOT
    ========================================================================== */
+.pl-chat-widget,
+.pl-chat-widget * {
+  box-sizing: border-box;
+}
+
 .pl-chat-widget {
   font-family: var(--font-body, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
   color: var(--ink);
@@ -4152,11 +4157,7 @@ html[data-theme="dark"] .pl-chat-header-avatar {
 }
 
 .pl-chat-subtitle .pl-status-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #10B981;
-  display: inline-block;
+  display: none !important;
 }
 
 .pl-chat-header-actions {
@@ -4680,32 +4681,146 @@ html[data-theme="dark"] .pl-chat-header-avatar {
   color: var(--red);
 }
 
-/* Mobile Responsive */
-@media (max-width: 520px) {
+/* Chatbot Mobile Responsive */
+@media (max-width: 600px) {
   .pl-chat-launcher {
-    bottom: 20px;
-    right: 20px;
-    width: 58px;
-    height: 58px;
+    bottom: 16px;
+    right: 16px;
+    width: 54px;
+    height: 54px;
   }
 
   .pl-chat-launcher-icon.open-icon {
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
   }
 
+  /* Compact, sleek prompt teaser card on mobile */
+  .pl-chat-prompt-card {
+    bottom: 78px;
+    right: 14px;
+    left: auto;
+    width: 250px;
+    max-width: calc(100vw - 28px);
+    padding: 11px 13px;
+    border-radius: 14px;
+    box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.35);
+  }
+
+  .pl-prompt-header {
+    gap: 9px;
+    margin-bottom: 5px;
+  }
+
+  .pl-prompt-bot-wrap {
+    width: 30px;
+    height: 30px;
+  }
+
+  .pl-prompt-bot {
+    width: 26px;
+    height: 26px;
+  }
+
+  .pl-prompt-pulse {
+    width: 7px;
+    height: 7px;
+  }
+
+  .pl-prompt-kicker {
+    font-size: 9px;
+    letter-spacing: 0.05em;
+  }
+
+  .pl-prompt-title {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  .pl-prompt-desc {
+    font-size: 11px;
+    line-height: 1.35;
+    margin: 0 0 8px 0;
+  }
+
+  .pl-prompt-actions {
+    gap: 10px;
+  }
+
+  .pl-prompt-btn-go {
+    padding: 5px 13px;
+    font-size: 11.5px;
+  }
+
+  .pl-prompt-btn-dismiss {
+    font-size: 11.5px;
+    padding: 3px 5px;
+  }
+
+  /* Chat Modal Window Responsive Bottom-Sheet on Mobile */
   .pl-chat-window {
-    right: 0;
+    position: fixed;
+    top: auto;
     left: 0;
+    right: 0;
     bottom: 0;
-    width: 100vw;
-    max-width: 100vw;
-    height: 90vh;
-    max-height: 90vh;
-    border-radius: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: calc(100dvh - 46px);
+    height: calc(100vh - 46px);
+    max-height: 88vh;
+    border-radius: 18px 18px 0 0;
+    border: 1px solid var(--line);
     border-bottom: none;
-    border-left: none;
-    border-right: none;
+    box-sizing: border-box;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4);
+    transform: translateY(100%);
+    overflow: hidden;
+  }
+
+  .pl-chat-window.is-open {
+    transform: translateY(0);
+  }
+
+  .pl-chat-body {
+    padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .pl-bubble {
+    font-size: 13px;
+  }
+
+  .pl-choice-btn {
+    font-size: 12.5px;
+    padding: 9px 13px;
+  }
+
+  .pl-input-step-field {
+    font-size: 12.5px;
+    padding: 8px 10px;
+  }
+
+  .pl-btn-step-next {
+    font-size: 12px;
+    padding: 8px 13px;
+  }
+
+  .pl-btn-submit {
+    font-size: 13px;
+    padding: 10px 16px;
+  }
+
+  .pl-btn-cta-whatsapp {
+    font-size: 13px;
+    padding: 10px 16px;
+  }
+
+  .pl-btn-cta-close {
+    font-size: 13px;
+    padding: 9px 16px;
   }
 }
 

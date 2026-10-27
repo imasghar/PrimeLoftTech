@@ -99,7 +99,7 @@ export class ChatbotService {
             </div>
             <div class="pl-chat-title-group">
               <h3 class="pl-chat-title" id="plChatTitle">PrimeLoft Guide</h3>
-              <span class="pl-chat-subtitle"><span class="pl-status-dot"></span> Online &bull; Ready to help</span>
+              <span class="pl-chat-subtitle">Online &bull; Ready to help</span>
             </div>
           </div>
           <div class="pl-chat-header-actions">
