@@ -55,6 +55,27 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => el.classList.add('visible'));
   }
 
+  // ---------- 1C. CIRCULAR TECH ORBIT REVEAL & SHIFT ----------
+  const orbitWrapper = document.getElementById('techOrbitStageWrapper');
+  if (orbitWrapper) {
+    if ('IntersectionObserver' in window) {
+      const orbitObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            orbitWrapper.classList.add('is-visible');
+            setTimeout(() => {
+              orbitWrapper.classList.add('is-shifted');
+            }, 900);
+            orbitObserver.unobserve(orbitWrapper);
+          }
+        });
+      }, { threshold: 0.15 });
+      orbitObserver.observe(orbitWrapper);
+    } else {
+      orbitWrapper.classList.add('is-visible', 'is-shifted');
+    }
+  }
+
   // ---------- 2. THEME TOGGLE ----------
   const root = document.documentElement;
   const themeToggleBtn = document.getElementById('themeToggle');
