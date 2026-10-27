@@ -582,6 +582,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initLottieAnimation(mobileContainers, 'animations/mobile-app-light.json', 'animations/mobile-app-dark.json');
   }
 
+  const seoContainers = document.querySelectorAll('.seo-lottie-container');
+  if (seoContainers.length > 0) {
+    initLottieAnimation(seoContainers, 'animations/seo-light.json', 'animations/seo-dark.json');
+  }
+
   const contactEmailContainers = document.querySelectorAll('.contact-email-lottie');
   if (contactEmailContainers.length > 0) {
     initLottieAnimation(contactEmailContainers, 'animations/contact-email-light.json', 'animations/contact-email-dark.json');

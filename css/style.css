@@ -459,39 +459,81 @@ nav.primary .navlink.active .nav-icon {
   }
 }
 
+/* Theme Switcher Button (38x38px with Moon & Sun Icon Morph) */
+.theme-btn,
 .theme-toggle {
-  width: 52px;
-  height: 30px;
-  border-radius: 100px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
   background: var(--bg-alt);
   border: 1px solid var(--line-strong);
-  position: relative;
-  padding: 0;
-}
-
-.theme-toggle .knob {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: var(--ink);
-  transition: transform .3s cubic-bezier(.65, 0, .35, 1), background .3s ease;
-  display: flex;
+  color: var(--ink);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color .2s ease, border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+  flex-shrink: 0;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-html[data-theme="dark"] .theme-toggle .knob {
-  transform: translateX(22px);
-  background: var(--red);
+.theme-btn:hover,
+.theme-toggle:hover {
+  background: var(--bg-raised);
+  border-color: var(--ink);
+  transform: scale(1.06);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
-.theme-toggle .knob svg {
-  width: 13px;
-  height: 13px;
-  stroke: var(--bg);
+html[data-theme="dark"] .theme-btn:hover,
+html[data-theme="dark"] .theme-toggle:hover {
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+}
+
+.theme-btn .theme-icon,
+.theme-toggle .theme-icon {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -9px;
+  margin-left: -9px;
+  transition: opacity .3s cubic-bezier(0.16, 1, 0.3, 1), transform .35s cubic-bezier(0.16, 1, 0.3, 1), color .2s ease;
+}
+
+/* Light Mode: Moon is visible, Sun is rotated away */
+.theme-btn .icon-moon,
+.theme-toggle .icon-moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+  color: var(--ink);
+}
+
+.theme-btn .icon-sun,
+.theme-toggle .icon-sun {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.3);
+  color: #F59E0B;
+  pointer-events: none;
+}
+
+/* Dark Mode: Sun is visible, Moon is rotated away */
+html[data-theme="dark"] .theme-btn .icon-moon,
+html[data-theme="dark"] .theme-toggle .icon-moon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.3);
+  pointer-events: none;
+}
+
+html[data-theme="dark"] .theme-btn .icon-sun,
+html[data-theme="dark"] .theme-toggle .icon-sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+  color: #FBBF24;
 }
 
 .mobile-toggle {
@@ -1522,13 +1564,15 @@ html[data-theme="dark"] #s-quality .sb-media {
 .cloud-lottie-container,
 .quality-lottie-container,
 .mobile-lottie-container,
+.seo-lottie-container,
 .sb-media-lottie .design-lottie-container,
 .sb-media-lottie .strategy-lottie-container,
 .sb-media-lottie .engineering-lottie-container,
 .sb-media-lottie .ai-lottie-container,
 .sb-media-lottie .cloud-lottie-container,
 .sb-media-lottie .quality-lottie-container,
-.sb-media-lottie .mobile-lottie-container {
+.sb-media-lottie .mobile-lottie-container,
+.sb-media-lottie .seo-lottie-container {
   width: 100%;
   height: 100%;
   min-height: 400px;
@@ -1546,6 +1590,7 @@ html[data-theme="dark"] #s-quality .sb-media {
 .cloud-lottie-container svg,
 .quality-lottie-container svg,
 .mobile-lottie-container svg,
+.seo-lottie-container svg,
 .sb-media-lottie svg {
   width: 100% !important;
   height: 100% !important;
@@ -1563,6 +1608,7 @@ html[data-theme="dark"] .ai-lottie-container svg,
 html[data-theme="dark"] .cloud-lottie-container svg,
 html[data-theme="dark"] .quality-lottie-container svg,
 html[data-theme="dark"] .mobile-lottie-container svg,
+html[data-theme="dark"] .seo-lottie-container svg,
 html[data-theme="dark"] .sb-media-lottie svg {
   filter: drop-shadow(0 24px 50px rgba(0, 0, 0, 0.6));
 }
@@ -1579,7 +1625,8 @@ html[data-theme="dark"] .sb-media-lottie svg {
   .sb-media-lottie .ai-lottie-container,
   .sb-media-lottie .cloud-lottie-container,
   .sb-media-lottie .quality-lottie-container,
-  .sb-media-lottie .mobile-lottie-container {
+  .sb-media-lottie .mobile-lottie-container,
+  .sb-media-lottie .seo-lottie-container {
     max-width: 380px;
   }
   .sb-media-lottie svg {
@@ -1599,7 +1646,8 @@ html[data-theme="dark"] .sb-media-lottie svg {
   .sb-media-lottie .ai-lottie-container,
   .sb-media-lottie .cloud-lottie-container,
   .sb-media-lottie .quality-lottie-container,
-  .sb-media-lottie .mobile-lottie-container {
+  .sb-media-lottie .mobile-lottie-container,
+  .sb-media-lottie .seo-lottie-container {
     max-width: 340px;
   }
   .sb-media-lottie svg {
@@ -4922,4 +4970,129 @@ html[data-theme="dark"] .platform-card:hover {
 .faq-item.is-open .faq-angle-icon {
   transform: rotate(90deg);
   color: var(--ink);
+}
+
+/* ============ SEO SPECIFIC STYLES ============ */
+.seo-acronym-banner {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+html[data-theme="dark"] .seo-acronym-banner {
+  box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.45);
+}
+
+.seo-acronym-graphic {
+  flex: 0 0 220px;
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.seo-acronym-letter-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.seo-lead-char {
+  font-family: 'Fraunces', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--red);
+  line-height: 1;
+}
+
+.seo-rest-chars {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.seo-acronym-text {
+  flex: 1;
+}
+
+.seo-acronym-text h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 14px;
+}
+
+.seo-acronym-text p {
+  color: var(--ink-soft);
+  line-height: 1.68;
+  margin: 0 0 14px;
+}
+
+.seo-acronym-text p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 820px) {
+  .seo-acronym-banner {
+    flex-direction: column;
+    padding: 28px 24px;
+    gap: 24px;
+  }
+  .seo-acronym-graphic {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+}
+
+/* 11 Services Grid */
+.seo-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .seo-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .seo-services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* SEO Contact Section Card */
+.seo-contact-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 56px 48px;
+  box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.08);
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+html[data-theme="dark"] .seo-contact-card {
+  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 680px) {
+  .seo-contact-card {
+    padding: 36px 20px;
+    border-radius: 20px;
+  }
 }
