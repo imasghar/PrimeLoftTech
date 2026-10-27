@@ -5759,10 +5759,11 @@ html[data-theme="dark"] .seo-contact-card {
 }
 
 
-/* ============ CIRCULAR TECH ORBIT SHOWCASE ============ */
+
+/* ============ CIRCULAR TECH ORBIT SHOWCASE (FIXED ALIGNMENT) ============ */
 .tech-orbit-section {
   position: relative;
-  padding: 90px 0 100px;
+  padding: 100px 0 110px;
   background: var(--bg);
   overflow: hidden;
   border-top: 1px solid var(--line);
@@ -5771,55 +5772,39 @@ html[data-theme="dark"] .seo-contact-card {
 
 .tech-orbit-stage-wrapper {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: 500px 1fr;
   align-items: center;
-  justify-content: space-between;
-  min-height: 540px;
+  gap: 56px;
+  min-height: 520px;
   width: 100%;
 }
 
 /* Left Column: Visual Orbit Stage */
 .tech-orbit-col-visual {
-  flex: 0 0 520px;
-  width: 520px;
+  width: 500px;
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   z-index: 2;
-  /* Centered initially across container width */
-  transform: translateX(calc((100% - 520px) / 2));
-  opacity: 0;
-  transition: transform 1.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
-}
-
-.tech-orbit-stage-wrapper.is-visible .tech-orbit-col-visual {
-  opacity: 1;
-}
-
-.tech-orbit-stage-wrapper.is-shifted .tech-orbit-col-visual {
-  transform: translateX(0);
+  will-change: transform, opacity;
 }
 
 /* Right Column: Text Content Block */
 .tech-orbit-col-content {
   flex: 1;
-  padding-left: 56px;
   opacity: 0;
-  transform: translateX(45px);
-  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: 0.25s;
+  transform: translateX(40px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 1;
-}
-
-.tech-orbit-stage-wrapper.is-shifted .tech-orbit-col-content {
-  opacity: 1;
-  transform: translateX(0);
+  will-change: transform, opacity;
 }
 
 .tech-orbit-col-content h2 {
   font-family: 'Fraunces', serif;
-  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  font-size: clamp(2.1rem, 3.2vw, 2.85rem);
   font-weight: 600;
   line-height: 1.18;
   color: var(--ink);
@@ -5878,11 +5863,11 @@ html[data-theme="dark"] .seo-contact-card {
   font-size: 0.88rem;
 }
 
-/* Orbit Widget Mechanics */
+/* Orbit Stage Dimensions */
 .tech-orbit-stage {
   position: relative;
-  width: 440px;
-  height: 440px;
+  width: 500px;
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -5890,6 +5875,9 @@ html[data-theme="dark"] .seo-contact-card {
 
 .tech-orbit-ambient-glow {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 320px;
   height: 320px;
   border-radius: 50%;
@@ -5898,30 +5886,37 @@ html[data-theme="dark"] .seo-contact-card {
   pointer-events: none;
 }
 
+/* Concentric Guide Rings */
 .tech-orbit-guide-ring {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
-  border: 1px dashed var(--line);
   pointer-events: none;
 }
 
 .tech-orbit-guide-ring.outer-ring {
-  width: 360px;
-  height: 360px;
-  border-color: color-mix(in srgb, var(--red) 35%, var(--line));
+  width: 380px;
+  height: 380px;
+  border: 1.5px dashed color-mix(in srgb, var(--red) 35%, var(--line));
 }
 
 .tech-orbit-guide-ring.inner-ring {
-  width: 220px;
-  height: 220px;
-  opacity: 0.6;
+  width: 210px;
+  height: 210px;
+  border: 1px solid var(--line);
+  opacity: 0.45;
 }
 
 /* Central Mobile Core Hub */
 .tech-orbit-center-hub {
   position: absolute;
-  width: 96px;
-  height: 96px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 86px;
+  height: 86px;
   border-radius: 50%;
   background: var(--bg-raised);
   border: 1.5px solid var(--line-strong, var(--line));
@@ -5929,7 +5924,7 @@ html[data-theme="dark"] .seo-contact-card {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 3px;
   z-index: 4;
   box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.15);
 }
@@ -5940,8 +5935,8 @@ html[data-theme="dark"] .tech-orbit-center-hub {
 }
 
 .tech-orbit-core-icon {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   color: var(--red);
   display: flex;
   align-items: center;
@@ -5949,8 +5944,8 @@ html[data-theme="dark"] .tech-orbit-center-hub {
 }
 
 .tech-orbit-core-icon svg {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
 }
 
 .tech-orbit-core-tag {
@@ -5962,13 +5957,16 @@ html[data-theme="dark"] .tech-orbit-center-hub {
   text-transform: uppercase;
 }
 
-/* Orbit Ring & Continuous Rotation */
+/* Orbit Ring & Continuous Rotation (D = 380px, R = 190px) */
 .tech-orbit-ring {
   position: absolute;
-  width: 360px;
-  height: 360px;
+  top: 50%;
+  left: 50%;
+  width: 380px;
+  height: 380px;
   border-radius: 50%;
-  animation: techOrbitSpin 26s linear infinite;
+  transform: translate(-50%, -50%);
+  animation: techOrbitSpin 28s linear infinite;
   will-change: transform;
   z-index: 3;
 }
@@ -5980,37 +5978,36 @@ html[data-theme="dark"] .tech-orbit-center-hub {
 
 @keyframes techOrbitSpin {
   from {
-    transform: rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 
 @keyframes techOrbitCounterSpin {
   from {
-    transform: rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
   }
   to {
-    transform: rotate(-360deg);
+    transform: translate(-50%, -50%) rotate(-360deg);
   }
 }
 
-/* Orbiting Nodes */
+/* Orbiting Nodes (Radius = 190px) */
 .tech-orbit-item {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 0;
   height: 0;
-  /* Orbit radius: 175px */
-  transform: translate(-50%, -50%) rotate(var(--orbit-angle, 0deg)) translate(175px) rotate(calc(-1 * var(--orbit-angle, 0deg)));
+  transform: rotate(var(--orbit-angle, 0deg)) translate(190px) rotate(calc(-1 * var(--orbit-angle, 0deg)));
 }
 
 .tech-orbit-badge {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 0;
+  left: 0;
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
@@ -6019,24 +6016,24 @@ html[data-theme="dark"] .tech-orbit-center-hub {
   border: 1px solid var(--line);
   border-radius: 100px;
   padding: 8px 14px 8px 10px;
-  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.12);
   white-space: nowrap;
-  animation: techOrbitCounterSpin 26s linear infinite;
+  animation: techOrbitCounterSpin 28s linear infinite;
   will-change: transform;
   cursor: pointer;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
   user-select: none;
 }
 
 html[data-theme="dark"] .tech-orbit-badge {
   background: #201C26;
+  border-color: rgba(255, 255, 255, 0.12);
   box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.55);
 }
 
 .tech-orbit-badge:hover {
   border-color: var(--red);
-  box-shadow: 0 12px 30px -4px rgba(193, 88, 74, 0.25);
-  transform: translate(-50%, -50%) scale(1.08);
+  box-shadow: 0 12px 30px -4px rgba(193, 88, 74, 0.28);
 }
 
 .tech-orbit-badge-icon {
@@ -6080,32 +6077,40 @@ html[data-theme="dark"] .tech-orbit-badge {
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .tech-orbit-stage-wrapper {
-    min-height: 480px;
+    grid-template-columns: 440px 1fr;
+    gap: 36px;
   }
-  .tech-orbit-col-visual {
-    flex: 0 0 440px;
+  .tech-orbit-col-visual,
+  .tech-orbit-stage {
     width: 440px;
-    transform: translateX(calc((100% - 440px) / 2));
+    height: 440px;
   }
-  .tech-orbit-col-content {
-    padding-left: 36px;
+  .tech-orbit-guide-ring.outer-ring,
+  .tech-orbit-ring {
+    width: 340px;
+    height: 340px;
+  }
+  .tech-orbit-item {
+    transform: rotate(var(--orbit-angle, 0deg)) translate(170px) rotate(calc(-1 * var(--orbit-angle, 0deg)));
   }
 }
 
 @media (max-width: 860px) {
   .tech-orbit-stage-wrapper {
+    display: flex;
     flex-direction: column;
     min-height: auto;
     gap: 40px;
   }
-  .tech-orbit-col-visual {
-    flex: none;
-    width: 100%;
+  .tech-orbit-col-visual,
+  .tech-orbit-stage {
+    width: 320px;
+    height: 320px;
+    margin: 0 auto;
     transform: none !important;
     opacity: 1 !important;
   }
   .tech-orbit-col-content {
-    flex: none;
     width: 100%;
     padding-left: 0;
     text-align: center;
@@ -6123,39 +6128,33 @@ html[data-theme="dark"] .tech-orbit-badge {
     margin: 0 auto;
     text-align: left;
   }
-  .tech-orbit-stage {
-    width: 330px;
-    height: 330px;
-  }
-  .tech-orbit-ring {
-    width: 270px;
-    height: 270px;
-  }
+  .tech-orbit-ring,
   .tech-orbit-guide-ring.outer-ring {
-    width: 270px;
-    height: 270px;
+    width: 250px;
+    height: 250px;
   }
   .tech-orbit-guide-ring.inner-ring {
-    width: 170px;
-    height: 170px;
+    width: 150px;
+    height: 150px;
   }
   .tech-orbit-item {
-    transform: translate(-50%, -50%) rotate(var(--orbit-angle, 0deg)) translate(135px) rotate(calc(-1 * var(--orbit-angle, 0deg)));
+    transform: rotate(var(--orbit-angle, 0deg)) translate(125px) rotate(calc(-1 * var(--orbit-angle, 0deg)));
   }
   .tech-orbit-badge {
-    padding: 6px 10px 6px 8px;
+    padding: 5px 9px 5px 7px;
     gap: 6px;
   }
   .tech-orbit-badge-icon {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
+    padding: 3px;
   }
   .tech-orbit-badge-icon svg {
     width: 14px;
     height: 14px;
   }
   .tech-orbit-badge-name {
-    font-size: 0.76rem;
+    font-size: 0.74rem;
   }
   .tech-orbit-badge-sub {
     display: none;

@@ -57,22 +57,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---------- 1C. CIRCULAR TECH ORBIT REVEAL & SHIFT ----------
   const orbitWrapper = document.getElementById('techOrbitStageWrapper');
-  if (orbitWrapper) {
+  const orbitVisual = document.getElementById('techOrbitVisual');
+  const orbitContent = document.getElementById('techOrbitContent');
+
+  if (orbitWrapper && orbitVisual && orbitContent) {
+    const isDesktop = () => window.innerWidth > 860;
+
+    const getCenterOffset = () => {
+      if (!isDesktop()) return 0;
+      const wrapW = orbitWrapper.offsetWidth;
+      const visW = orbitVisual.offsetWidth;
+      return Math.max(0, (wrapW - visW) / 2);
+    };
+
+    if (isDesktop()) {
+      const initialOffset = getCenterOffset();
+      orbitVisual.style.transform = `translateX(${initialOffset}px)`;
+      orbitVisual.style.opacity = '1';
+      orbitContent.style.opacity = '0';
+      orbitContent.style.transform = 'translateX(40px)';
+    }
+
     if ('IntersectionObserver' in window) {
       const orbitObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            orbitWrapper.classList.add('is-visible');
             setTimeout(() => {
-              orbitWrapper.classList.add('is-shifted');
-            }, 900);
+              if (isDesktop()) {
+                orbitVisual.style.transition = 'transform 1.25s cubic-bezier(0.16, 1, 0.3, 1)';
+                orbitVisual.style.transform = 'translateX(0)';
+                
+                setTimeout(() => {
+                  orbitContent.style.transition = 'opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1)';
+                  orbitContent.style.opacity = '1';
+                  orbitContent.style.transform = 'translateX(0)';
+                }, 300);
+              } else {
+                orbitVisual.style.transform = 'none';
+                orbitContent.style.opacity = '1';
+                orbitContent.style.transform = 'none';
+              }
+            }, 800);
             orbitObserver.unobserve(orbitWrapper);
           }
         });
       }, { threshold: 0.15 });
+
       orbitObserver.observe(orbitWrapper);
     } else {
-      orbitWrapper.classList.add('is-visible', 'is-shifted');
+      orbitVisual.style.transform = 'none';
+      orbitContent.style.opacity = '1';
+      orbitContent.style.transform = 'none';
     }
   }
 
