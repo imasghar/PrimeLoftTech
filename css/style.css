@@ -6286,3 +6286,273 @@ html[data-theme="dark"] .why-mobile-card:hover {
     font-size: 0.88rem;
   }
 }
+
+
+/* ==========================================================================
+   MOBILE PROCESS SECTION ("PROCESS WE FOLLOW" 3-COLUMN LEAF LAYOUT)
+   ========================================================================== */
+
+.mobile-process-section {
+  padding: clamp(70px, 9vw, 120px) 0;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+}
+
+.mobile-process-layout {
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, 480px) 1fr;
+  align-items: center;
+  gap: clamp(24px, 3.5vw, 44px);
+  position: relative;
+}
+
+.mobile-process-col {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+/* Leaf Card Base Styles with Organic Curves */
+.mobile-process-card {
+  position: relative;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  padding: 24px 26px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.07);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.35s ease, 
+              box-shadow 0.35s ease;
+  box-sizing: border-box;
+}
+
+html[data-theme="dark"] .mobile-process-card {
+  background: var(--bg-raised);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 14px 34px -18px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-process-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--red);
+  box-shadow: 0 18px 40px -15px rgba(193, 88, 74, 0.22);
+}
+
+html[data-theme="dark"] .mobile-process-card:hover {
+  border-color: var(--red);
+  box-shadow: 0 18px 40px -15px rgba(225, 126, 104, 0.25);
+}
+
+/* Organic Asymmetric Leaf Shapes (Contact Us Stepper Inspired) */
+.leaf-card-left-1 { border-radius: 54px 18px 54px 18px; }
+.leaf-card-left-2 { border-radius: 20px 56px 20px 56px; }
+.leaf-card-left-3 { border-radius: 54px 18px 54px 18px; }
+
+.leaf-card-right-4 { border-radius: 18px 54px 18px 54px; }
+.leaf-card-right-5 { border-radius: 56px 20px 56px 20px; }
+.leaf-card-right-6 { border-radius: 18px 54px 18px 54px; }
+
+/* Left Column Alignment (Desktop: text right-aligned, badge towards center visual) */
+.mobile-process-col-left .mobile-process-card {
+  text-align: right;
+  justify-content: flex-end;
+}
+.mobile-process-col-left .mobile-process-card-content {
+  order: 1;
+}
+.mobile-process-col-left .mobile-process-badge-wrap {
+  order: 2;
+}
+
+/* Right Column Alignment (Desktop: text left-aligned, badge towards center visual) */
+.mobile-process-col-right .mobile-process-card {
+  text-align: left;
+  justify-content: flex-start;
+}
+.mobile-process-col-right .mobile-process-badge-wrap {
+  order: 1;
+}
+.mobile-process-col-right .mobile-process-card-content {
+  order: 2;
+}
+
+/* Badge Outer Ring & Number Badge */
+.mobile-process-badge-wrap {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mobile-process-badge-ring {
+  position: absolute;
+  inset: 0;
+  border: 1.8px dashed var(--red);
+  border-radius: 50%;
+  animation: processBadgeSpin 24s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes processBadgeSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.mobile-process-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1E3A8A 0%, #1D4ED8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.35);
+  position: relative;
+  z-index: 2;
+}
+
+.mobile-process-badge-num {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 15px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+/* Typography Inside Leaf Cards */
+.mobile-process-card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.mobile-process-step-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+.mobile-process-step-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.62;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* Center Column SVG Visual */
+.mobile-process-center-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.mobile-process-svg-wrapper {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.mobile-process-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.1));
+}
+
+html[data-theme="dark"] .mobile-process-svg {
+  filter: drop-shadow(0 20px 36px rgba(0, 0, 0, 0.45));
+}
+
+/* Floating badge animation */
+@keyframes processFloatBadge {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.floating-code-tag {
+  animation: processFloatBadge 3.6s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1080px) {
+  .mobile-process-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .mobile-process-center-visual {
+    order: -1;
+    margin-bottom: 8px;
+  }
+
+  .mobile-process-svg-wrapper {
+    max-width: 380px;
+  }
+
+  /* Reset alignment for tablet/mobile: badge on left, text left-aligned */
+  .mobile-process-col-left .mobile-process-card {
+    text-align: left;
+    justify-content: flex-start;
+  }
+  .mobile-process-col-left .mobile-process-card-content {
+    order: 2;
+  }
+  .mobile-process-col-left .mobile-process-badge-wrap {
+    order: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .mobile-process-section {
+    padding: 60px 0;
+  }
+  .mobile-process-card {
+    padding: 20px 18px;
+    gap: 14px;
+    border-radius: 28px 12px 28px 12px !important;
+  }
+  .mobile-process-step-title {
+    font-size: 14.5px;
+  }
+  .mobile-process-step-desc {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  .mobile-process-badge-wrap {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    min-height: 42px;
+  }
+  .mobile-process-badge {
+    width: 32px;
+    height: 32px;
+  }
+  .mobile-process-badge-num {
+    font-size: 13px;
+  }
+}
