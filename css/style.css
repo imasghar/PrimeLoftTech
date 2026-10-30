@@ -1554,7 +1554,7 @@ html[data-theme="dark"] #s-quality .sb-media {
   align-items: center !important;
   justify-content: center !important;
   padding: 0;
-  overflow: hidden !important;
+  overflow: visible !important;
   position: relative;
   opacity: 1 !important;
 }
@@ -1617,12 +1617,16 @@ html[data-theme="dark"] .sb-media-lottie svg {
 
 @media (max-width: 900px) {
   .sb-media-lottie {
-    min-height: 360px;
-    height: auto;
-    max-height: 460px;
-    margin: 15px auto 0;
-    max-width: 100%;
-    overflow: hidden !important;
+    width: 100% !important;
+    max-width: 330px;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 24px auto 0;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: visible !important;
     opacity: 1 !important;
   }
   .sb-media-lottie .design-lottie-container,
@@ -1633,32 +1637,63 @@ html[data-theme="dark"] .sb-media-lottie svg {
   .sb-media-lottie .quality-lottie-container,
   .sb-media-lottie .mobile-lottie-container,
   .sb-media-lottie .seo-lottie-container {
-    max-width: 100%;
-    min-height: 320px;
-    height: auto;
-    overflow: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: visible !important;
   }
   .sb-media-lottie svg {
-    transform: none !important;
-    max-width: 100% !important;
+    width: 100% !important;
     height: auto !important;
-    overflow: hidden !important;
+    max-height: none !important;
+    transform: none !important;
+    overflow: visible !important;
+    display: block !important;
   }
 }
 
 @media (max-width: 480px) {
   .sb-media-lottie {
-    min-height: 280px;
-    height: auto;
-    max-height: 360px;
-    margin: 10px auto 0;
+    max-width: 290px;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 16px auto 0;
+    overflow: visible !important;
   }
+  .sb-media-lottie .design-lottie-container,
+  .sb-media-lottie .strategy-lottie-container,
+  .sb-media-lottie .engineering-lottie-container,
+  .sb-media-lottie .ai-lottie-container,
+  .sb-media-lottie .cloud-lottie-container,
+  .sb-media-lottie .quality-lottie-container,
+  .sb-media-lottie .mobile-lottie-container,
   .sb-media-lottie .seo-lottie-container {
-    max-width: 100%;
-    min-height: 260px;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
   }
   .sb-media-lottie svg {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
     transform: none !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .sb-media-lottie {
+    max-width: 250px;
+    margin: 12px auto 0;
   }
 }
 
