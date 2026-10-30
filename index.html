@@ -25,14 +25,23 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap">
+  <script>
+    (function () {
+      var t = null;
+      try { t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('primeloft-theme'); } catch (e) {}
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,0..100;1,9..144,300..700,0..100&family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap">
   <link rel="icon" type="image/x-icon" href="favicon.ico?v=1.0.2">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=1.0.2">
   <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png?v=1.0.2">
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png?v=1.0.2">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=1.0.2">
   <link rel="stylesheet" href="css/style.css?v=2.9.4">
+  <link rel="stylesheet" href="css/home-editorial.css?v=0.1.0">
   <script type="module" src="js/main.js?v=2.7.0" defer></script>
+  <script type="module" src="js/home-editorial.js?v=0.1.0"></script>
   <!-- Google Sitelinks & Entity Structured Data -->
   <script type="application/ld+json" id="org-schema">
   {
@@ -104,7 +113,8 @@
   }
   </script>
 </head>
-<body>
+<body class="ed-home">
+  <a class="ed-skip" href="#main-content">Skip to content</a>
 
   <!-- ================= HEADER ================= -->
   <header>
@@ -230,430 +240,563 @@
 
   <!-- ================= MAIN CONTENT ================= -->
   <main id="main-content">
-    <!-- HERO -->
-    <div class="hero">
-      <div class="hero-blob blob-1"></div>
-      <div class="hero-blob blob-2"></div>
-      <div class="wrap hero-inner">
-        <div class="eyebrow" style="justify-content:center;">IT &amp; Software Development Studio</div>
-        <h1 id="heroHeading">
-          <span class="line"><span>We design &amp; build</span></span>
-          <span class="line"><span>digital commerce that <span class="script">converts</span></span></span>
-        </h1>
-        <p class="lead">PrimeLoft partners with ambitious brands to plan, engineer and scale commerce experiences, from first sketch to nine-figure revenue.</p>
-        <div class="hero-ctas">
-          <a href="services.html" class="btn btn-primary">
-            <span>Explore services</span>
-            <svg class="btn-arrow-diag" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
-            </svg>
-          </a>
-        </div>
-        <div class="hero-scroll"><span>Scroll</span><span class="stick"></span></div>
-      </div>
-    </div>
 
-    <!-- EXPERTISE -->
-    <section>
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div class="eyebrow">What we do</div>
-          <h2>Leverage full digital commerce expertise</h2>
+    <!-- ================= HERO ================= -->
+    <section class="ed-hero" aria-labelledby="edHeroHeading">
+      <div class="ed-hero-grid" aria-hidden="true"></div>
+      <div class="ed-wrap">
+        <div class="ed-hero-top">
+          <div class="ed-eyebrow ed-fade" style="--d:.05s">IT &amp; Software Development Studio</div>
+          <div class="ed-status ed-fade" style="--d:.15s"><span class="ed-pulse" aria-hidden="true"></span>Now Accepting New Client Projects</div>
         </div>
-        <div class="expertise-grid">
-          <div class="exp-card reveal">
-            <div class="exp-num">01</div>
-            <div>
-              <div class="exp-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V13M12 19V5M20 19V9" stroke-width="1.6" stroke-linecap="round"/></svg></div>
-              <h3>Strategy &amp; Transformation</h3>
-            </div>
-          </div>
-          <div class="exp-card reveal">
-            <div class="exp-num">02</div>
-            <div>
-              <div class="exp-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke-width="1.6"/><path d="M12 3a9 9 0 010 18" stroke-width="1.6"/></svg></div>
-              <h3>Expertise &amp; Design</h3>
-            </div>
-          </div>
-          <div class="exp-card reveal">
-            <div class="exp-num">03</div>
-            <div>
-              <div class="exp-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 9h18M3 15h18M8 4v16M16 4v16" stroke-width="1.6"/></svg></div>
-              <h3>Commerce Development</h3>
-            </div>
-          </div>
-          <div class="exp-card reveal">
-            <div class="exp-num">04</div>
-            <div>
-              <div class="exp-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke-width="1.6"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke-width="1.6" stroke-linecap="round"/></svg></div>
-              <h3>AI, Data &amp; Engagement</h3>
-            </div>
-          </div>
-          <div class="exp-card reveal">
-            <div class="exp-num">05</div>
-            <div>
-              <div class="exp-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 18a4 4 0 01-1-7.87A5 5 0 0116 8a4.5 4.5 0 011 8.9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-              <h3>Ops &amp; Managed Services</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- RESULTS -->
-    <section class="results">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div class="eyebrow">Track record</div>
-          <h2>See tangible results</h2>
-          <p style="margin-top:14px; max-width:520px;">Over the years we've built a process that delivers exceptional results with blazing-fast efficiency.</p>
-        </div>
-        <div class="results-grid">
-          <div class="result-stat reveal">
-            <div class="num" data-count="40" data-suffix="%">0%</div>
-            <p>Growth in international &amp; GCC orders for a global retailer</p>
+        <div class="ed-hero-body">
+          <div class="ed-hero-copy">
+            <h1 id="edHeroHeading" class="ed-display">
+              <span class="ed-line"><span style="--i:0">We design</span></span>
+              <span class="ed-line"><span style="--i:1">&amp; build digital</span></span>
+              <span class="ed-line"><span style="--i:2">products that</span></span>
+              <span class="ed-line"><span style="--i:3"><em>perform</em><span class="ed-dot">.</span></span></span>
+            </h1>
+            <p class="ed-lead ed-fade" style="--d:.55s">PrimeLoft partners with ambitious teams to plan, design and engineer websites, mobile apps and software, from first sketch to scale.</p>
+            <div class="ed-ctas ed-fade" style="--d:.7s">
+              <a href="services.html" class="ed-btn ed-btn-solid">
+                <span>Explore services</span>
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/></svg>
+              </a>
+              <a href="contact.html" class="ed-btn ed-btn-line"><span>Book a Discovery Call</span></a>
+            </div>
           </div>
-          <div class="result-stat reveal">
-            <div class="num" data-count="5.0" data-decimal="true">0</div>
-            <p>App rating on App Store for a major sports ecommerce platform</p>
-          </div>
-          <div class="result-stat reveal">
-            <div class="num" data-count="60" data-suffix="%">0%</div>
-            <p>More user engagement with hyper-personalization for a US proptech</p>
-          </div>
-          <div class="result-stat reveal">
-            <div class="num" data-count="21" data-suffix="%">0%</div>
-            <p>Higher conversion for a top global marketplace</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- TESTIMONIALS -->
-    <section>
-      <div class="wrap">
-        <div class="section-head reveal" style="margin:0 auto 50px; text-align:center;">
-          <div class="eyebrow" style="justify-content:center;">Testimonials</div>
-          <h2>Check our clients' words</h2>
-        </div>
-        <div class="testi-board reveal">
-          <div class="testi-grid">
-            <div class="note" style="--pin-rot:-6deg"><q>"PrimeLoft rebuilt our checkout in six weeks, and conversion hasn't dipped since launch."</q><div class="who">Head of Digital, Retail Group</div></div>
-            <div class="note" style="--pin-rot:5deg"><q>"They think like founders, not vendors. Every recommendation tied back to revenue."</q><div class="who">VP Product, Proptech Platform</div></div>
-            <div class="note" style="--pin-rot:-3deg"><q>"The AI personalization engine paid for itself in the first quarter."</q><div class="who">CMO, Sports Ecommerce</div></div>
-            <div class="note" style="--pin-rot:4deg"><q>"Fastest, calmest engineering team we've worked with. Zero drama launches."</q><div class="who">CTO, Global Marketplace</div></div>
-            <div class="note" style="--pin-rot:-4deg"><q>"They rebuilt our design system and our whole brand felt sharper overnight."</q><div class="who">Design Director, DTC Brand</div></div>
-            <div class="note" style="--pin-rot:3deg"><q>"Managed services team quietly keeps everything running. Best kind of partner."</q><div class="who">Ops Lead, GCC Retailer</div></div>
+          <!-- Layered 3D composition (illustrative concept UI) -->
+          <div class="ed-comp" id="edHeroComp" aria-hidden="true">
+            <div class="ed-comp-glow"></div>
+            <div class="ed-comp-stage">
+              <!-- Browser -->
+              <div class="ed-layer ed-l-browser" data-depth="0.4">
+                <div class="mk-browser">
+                  <div class="mk-bar"><i></i><i></i><i></i><span class="mk-url">yourbrand.com</span></div>
+                  <div class="mk-site">
+                    <div class="mk-nav"><b>Your Brand</b><span></span><span></span><span></span><em></em></div>
+                    <div class="mk-feature">
+                      <div class="mk-feature-copy">
+                        <small>New season</small>
+                        <strong>Made to<br>be <i>moved.</i></strong>
+                        <span class="mk-pill">Shop the edit</span>
+                      </div>
+                      <div class="mk-product">
+                        <div class="mk-orb"></div>
+                        <div class="mk-vessel"></div>
+                        <div class="mk-shadow"></div>
+                      </div>
+                    </div>
+                    <div class="mk-tiles">
+                      <div class="mk-tile t1"><span></span><b></b></div>
+                      <div class="mk-tile t2"><span></span><b></b></div>
+                      <div class="mk-tile t3"><span></span><b></b></div>
+                      <div class="mk-tile t4"><span></span><b></b></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Phone: checkout -->
+              <div class="ed-layer ed-l-phone" data-depth="1">
+                <div class="mk-phone">
+                  <div class="mk-screen">
+                    <div class="mk-island"></div>
+                    <div class="mk-app">
+                      <div class="mk-app-head"><span>‹</span><b>Checkout</b><span></span></div>
+                      <div class="mk-steps"><i class="on"></i><i class="on"></i><i></i></div>
+                      <div class="mk-line-item"><span class="sw sw-a"></span><div><b></b><em></em></div><strong></strong></div>
+                      <div class="mk-line-item"><span class="sw sw-b"></span><div><b></b><em></em></div><strong></strong></div>
+                      <div class="mk-row"><span>Delivery</span><i class="mk-toggle"></i></div>
+                      <div class="mk-row"><span>Promo code</span><em>Apply</em></div>
+                      <div class="mk-total"><span>Total</span><b></b></div>
+                      <div class="mk-pay">Pay now</div>
+                      <div class="mk-secure">Secure checkout</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating: sprint chip -->
+              <div class="ed-layer ed-l-chip" data-depth="1.4">
+                <div class="mk-chip"><span class="mk-ok">✓</span><div><b>Sprint deployed</b><small>staging · preview ready</small></div></div>
+              </div>
+
+              <!-- Floating: design tokens -->
+              <div class="ed-layer ed-l-tokens" data-depth="1.2">
+                <div class="mk-tokens">
+                  <div class="mk-aa">Aa</div>
+                  <div class="mk-swatches"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i></div>
+                </div>
+              </div>
+
+              <!-- Floating: code -->
+              <div class="ed-layer ed-l-code" data-depth="0.8">
+                <div class="mk-code">
+                  <span><i class="k">export</i> <i class="k">function</i> <i class="f">Checkout</i>() {</span>
+                  <span>&nbsp;&nbsp;<i class="k">return</i> &lt;<i class="t">Cart</i> <i class="a">fast</i> /&gt;</span>
+                  <span>}</span>
+                </div>
+              </div>
+            </div>
+            <span class="ed-comp-note">Concept demonstration · not client work</span>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- ================= CLIENTS CAROUSEL ================= -->
-    <section class="clients-carousel-section reveal">
-      <div class="wrap">
-        <h2 class="clients-carousel-title">Our Prestigious Customers</h2>
-
-        <div class="clients-carousel-wrapper">
-          <button class="clients-nav-arrow prev" id="clientsPrev" aria-label="Previous client" disabled>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
-          </button>
-
-          <div class="clients-carousel-track" id="clientCarouselTrack">
-            <!-- Client 1: Native Technology and Design -->
-            <div class="client-carousel-item">
-              <img src="images/client-native-tech.png" alt="Native Technology and Design" class="client-carousel-logo" width="68" height="68" loading="lazy">
-            </div>
-          </div>
-
-          <button class="clients-nav-arrow next" id="clientsNext" aria-label="Next client" disabled>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </button>
-        </div>
-
-        <!-- Pagination Dots -->
-        <div class="clients-carousel-dots" id="clientCarouselDots">
-          <button class="client-dot active" aria-label="Slide 1"></button>
+      <!-- Technology marquee -->
+      <div class="ed-marquee" aria-label="Technologies we work with">
+        <div class="ed-marquee-track">
+          <ul>
+            <li>.NET</li><li>Angular</li><li>React</li><li>Next.js</li><li>TypeScript</li><li>Node.js</li><li>React Native</li><li>Flutter</li><li>Swift</li><li>Kotlin</li><li>PostgreSQL</li><li>Docker</li>
+          </ul>
+          <ul aria-hidden="true">
+            <li>.NET</li><li>Angular</li><li>React</li><li>Next.js</li><li>TypeScript</li><li>Node.js</li><li>React Native</li><li>Flutter</li><li>Swift</li><li>Kotlin</li><li>PostgreSQL</li><li>Docker</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- WHY CHOOSE PRIMELOFT -->
-    <section class="why-choose-section" id="why-choose" aria-labelledby="whyChooseHeading">
-      <div class="wrap">
-        <div class="section-head reveal" style="text-align: center; max-width: 760px; margin: 0 auto 56px;">
-          <div class="eyebrow" style="justify-content: center;">Why Choose PrimeLoft</div>
-          <h2 id="whyChooseHeading">Engineered for outcomes, <span class="italic">not deliverables</span></h2>
-          <p style="margin-top: 16px; font-size: 17px; line-height: 1.6; color: var(--ink-soft);">
-            We combine senior software craftsmanship with commercial accountability. No junior bench learning on your dime, no black-box handoffs—just measurable engineering velocity, battle-tested architecture, and 100% code ownership.
-          </p>
+    <!-- ================= SERVICES SHOWCASE ================= -->
+    <section class="ed-services" id="services" aria-labelledby="edServicesHeading">
+      <div class="ed-wrap">
+        <div class="ed-sec-head" data-ed-reveal>
+          <div class="ed-index">01 <span>/</span> What we do</div>
+          <h2 id="edServicesHeading" class="ed-h2">Design, engineering and growth under one <em>roof</em></h2>
         </div>
 
-        <div class="why-grid">
-          <!-- Card 1: Senior Talent -->
-          <div class="why-card reveal">
-            <div class="why-card-top">
-              <div class="why-card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
+        <div class="ed-svc-layout">
+          <ol class="ed-svc-list">
+            <li class="ed-svc" data-scene="mobile">
+              <div class="ed-svc-text">
+                <span class="ed-svc-num">01</span>
+                <h3><a href="service-mobile-app-development.html">Mobile App Development</a></h3>
+                <p>High-performing mobile applications engineered for Android and iOS.</p>
+                <a class="ed-svc-link" href="service-mobile-app-development.html" aria-label="Explore service: Mobile App Development">Explore service <span aria-hidden="true">→</span></a>
               </div>
-              <span class="why-card-tag">Senior Talent</span>
-            </div>
-            <h3 class="why-card-title">Direct Senior Access</h3>
-            <p class="why-card-desc">Work exclusively with seasoned tech leads and full-stack engineers who have shipped high-traffic systems. Zero junior bench learning on your budget.</p>
-          </div>
+              <div class="ed-scene-frame" aria-hidden="true"><div class="scene sc-mobile">
+                <div class="sc-phone sc-phone-back"><div class="sc-scr">
+                  <div class="ap-top"><b>Discover</b><i></i></div>
+                  <div class="ap-hero"></div>
+                  <div class="ap-grid"><i></i><i></i><i></i><i></i></div>
+                  <div class="ap-tab"><i class="on"></i><i></i><i></i><i></i></div>
+                </div></div>
+                <div class="sc-phone sc-phone-front"><div class="sc-scr">
+                  <div class="ap-media"><div class="ap-orb"></div></div>
+                  <div class="ap-title"><b>Product</b><span></span><span class="s"></span></div>
+                  <div class="ap-sizes"><i></i><i class="on"></i><i></i><i></i></div>
+                  <div class="ap-cta">Add to bag</div>
+                </div></div>
+                <div class="sc-toast"><span class="dot"></span><div><b>iOS &amp; Android</b><small>one codebase · native feel</small></div></div>
+              </div></div>
+            </li>
 
-          <!-- Card 2: 100% Ownership -->
-          <div class="why-card reveal">
-            <div class="why-card-top">
-              <div class="why-card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                </svg>
+            <li class="ed-svc" data-scene="seo">
+              <div class="ed-svc-text">
+                <span class="ed-svc-num">02</span>
+                <h3><a href="service-seo.html">Search Engine Optimization (SEO)</a></h3>
+                <p>Search architectures that capture high-intent buyers at the exact moment of commercial consideration.</p>
+                <a class="ed-svc-link" href="service-seo.html" aria-label="Explore service: Search Engine Optimization (SEO)">Explore service <span aria-hidden="true">→</span></a>
               </div>
-              <span class="why-card-tag">Freedom</span>
-            </div>
-            <h3 class="why-card-title">100% Code &amp; IP Ownership</h3>
-            <p class="why-card-desc">All Figma files, Git repositories, database architectures, and cloud setups belong entirely to you from day one. Zero proprietary vendor lock-in, ever.</p>
-          </div>
+              <div class="ed-scene-frame" aria-hidden="true"><div class="scene sc-seo">
+                <div class="sc-win">
+                  <div class="sc-search"><span class="mag"></span><b>handmade ceramic vases</b></div>
+                  <div class="serp top"><small>yourbrand.com › vases</small><b>Handmade Ceramic Vases | Your Brand</b><span></span><span class="s"></span></div>
+                  <div class="serp"><small></small><b></b><span></span></div>
+                  <div class="serp"><small></small><b></b><span></span></div>
+                </div>
+                <div class="sc-chart">
+                  <small>Organic visibility</small>
+                  <svg viewBox="0 0 200 90" preserveAspectRatio="none"><path class="area" d="M0 82 C30 80 45 70 70 66 S110 52 130 40 165 22 200 10 L200 90 L0 90Z"/><path class="ln" d="M0 82 C30 80 45 70 70 66 S110 52 130 40 165 22 200 10"/></svg>
+                </div>
+                <div class="sc-badge">Core Web Vitals <b>Pass</b></div>
+              </div></div>
+            </li>
 
-          <!-- Card 3: Agile Sprints -->
-          <div class="why-card reveal">
-            <div class="why-card-top">
-              <div class="why-card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                </svg>
+            <li class="ed-svc" data-scene="design">
+              <div class="ed-svc-text">
+                <span class="ed-svc-num">03</span>
+                <h3><a href="service-design.html">Product &amp; Experience Design</a></h3>
+                <p>Research-led design that reduces friction across the whole journey, from first ad click to repeat purchase.</p>
+                <a class="ed-svc-link" href="service-design.html" aria-label="Explore service: Product &amp; Experience Design">Explore service <span aria-hidden="true">→</span></a>
               </div>
-              <span class="why-card-tag">Velocity</span>
-            </div>
-            <h3 class="why-card-title">Rapid 2-Week Agile Sprints</h3>
-            <p class="why-card-desc">Continuous deployment rhythm with functional staging builds deployed every 14 days. Tight feedback loops ensure velocity with complete predictability.</p>
-          </div>
+              <div class="ed-scene-frame" aria-hidden="true"><div class="scene sc-design">
+                <div class="sc-canvas">
+                  <div class="cv-toolbar"><i></i><i class="on"></i><i></i><i></i><span>Checkout — v3</span></div>
+                  <div class="cv-frame f1"><label>Mobile / Cart</label><div><b></b><span></span><span></span><em></em></div></div>
+                  <div class="cv-frame f2"><label>Card / Product</label><div><i></i><b></b><span></span></div></div>
+                  <svg class="cv-pen" viewBox="0 0 200 120"><path d="M10 100 C60 10 120 130 190 30"/><line x1="10" y1="100" x2="45" y2="40"/><line x1="190" y1="30" x2="150" y2="95"/><circle cx="10" cy="100" r="4"/><circle cx="190" cy="30" r="4"/><rect x="41" y="36" width="8" height="8"/><rect x="146" y="91" width="8" height="8"/></svg>
+                  <div class="cv-cursor"><svg viewBox="0 0 16 16"><path d="M2 1l11 6-5 1.5L6 14z"/></svg><span>Design</span></div>
+                </div>
+                <div class="sc-type"><b>Aa</b><small>Display · Fraunces</small></div>
+                <div class="sc-palette"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i><i class="c5"></i></div>
+              </div></div>
+            </li>
 
-          <!-- Card 4: Milestones & Retainers -->
-          <div class="why-card reveal">
-            <div class="why-card-top">
-              <div class="why-card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <polyline points="12 6 12 12 14 14"/>
-                </svg>
+            <li class="ed-svc" data-scene="strategy">
+              <div class="ed-svc-text">
+                <span class="ed-svc-num">04</span>
+                <h3><a href="service-strategy.html">Strategy &amp; Innovation</a></h3>
+                <p>We turn ambiguous ambition into a sequenced roadmap covering market position, platform choice, and a build plan your board can sign off on.</p>
+                <a class="ed-svc-link" href="service-strategy.html" aria-label="Explore service: Strategy &amp; Innovation">Explore service <span aria-hidden="true">→</span></a>
               </div>
-              <span class="why-card-tag">Transparency</span>
-            </div>
-            <h3 class="why-card-title">Milestones &amp; Retainers</h3>
-            <p class="why-card-desc">No surprise hourly creep. Clear scope breakdowns with fixed milestone payments or dedicated sprint retainer capacity aligned to your product roadmap.</p>
-          </div>
+              <div class="ed-scene-frame" aria-hidden="true"><div class="scene sc-strategy">
+                <div class="sc-board">
+                  <div class="rm-head"><b>Roadmap</b><span>Discovery → Launch</span></div>
+                  <div class="rm-time"><i class="on"></i><span></span><i class="on"></i><span></span><i></i><span></span><i></i></div>
+                  <div class="rm-cols">
+                    <div><label>Now</label><p class="k1"></p><p class="k2"></p><p class="k3"></p></div>
+                    <div><label>Next</label><p class="k2"></p><p class="k4"></p></div>
+                    <div><label>Later</label><p class="k3"></p><p class="k1"></p></div>
+                  </div>
+                </div>
+                <div class="sc-target"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="30"/><circle cx="50" cy="50" r="15"/><circle class="bull" cx="50" cy="50" r="5"/></svg></div>
+              </div></div>
+            </li>
 
-          <!-- Card 5: Performance & Speed -->
-          <div class="why-card reveal">
-            <div class="why-card-top">
-              <div class="why-card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                </svg>
+            <li class="ed-svc" data-scene="engineering">
+              <div class="ed-svc-text">
+                <span class="ed-svc-num">05</span>
+                <h3><a href="service-engineering.html">Software Engineering</a></h3>
+                <p>Full-stack teams building commerce platforms, storefronts and internal tools that hold up under real traffic and change gracefully.</p>
+                <a class="ed-svc-link" href="service-engineering.html" aria-label="Explore service: Software Engineering">Explore service <span aria-hidden="true">→</span></a>
               </div>
-              <span class="why-card-tag">Performance</span>
-            </div>
-            <h3 class="why-card-title">Conversion &amp; Speed Native</h3>
-            <p class="why-card-desc">We build for sub-second page speeds, Core Web Vitals excellence, semantic on-page SEO, and smooth conversion flows that directly drive business ROI.</p>
-          </div>
+              <div class="ed-scene-frame" aria-hidden="true"><div class="scene sc-eng">
+                <div class="sc-editor">
+                  <div class="ed-tabs"><span class="on">cart.service.ts</span><span>api.ts</span></div>
+                  <pre><span class="ln">1</span><i class="k">export class</i> <i class="t">CartService</i> {
+<span class="ln">2</span>  <i class="k">async</i> <i class="f">checkout</i>(cart: <i class="t">Cart</i>) {
+<span class="ln">3</span>    <i class="k">const</i> order = <i class="k">await</i> <i class="v">this</i>.api
+<span class="ln">4</span>      .<i class="f">post</i>(<i class="s">'/orders'</i>, cart);
+<span class="ln">5</span>    <i class="k">return</i> order.<i class="f">confirm</i>();
+<span class="ln">6</span>  }
+<span class="ln">7</span>}</pre>
+                </div>
+                <div class="sc-term"><span>$ npm run build</span><span class="ok">✓ compiled successfully</span><span>$ git push origin main<i class="caret"></i></span></div>
+                <svg class="sc-git" viewBox="0 0 120 60"><path d="M10 45 H110"/><path d="M30 45 C45 45 45 15 60 15 H80 C95 15 95 45 105 45"/><circle cx="10" cy="45" r="5"/><circle cx="30" cy="45" r="5"/><circle cx="60" cy="15" r="5"/><circle cx="80" cy="15" r="5"/><circle cx="110" cy="45" r="5"/></svg>
+              </div></div>
+            </li>
 
-          <!-- Card 6: Warranty & SLAs -->
-          <div class="why-card reveal">
-            <div class="why-card-top">
-              <div class="why-card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
+            <li class="ed-svc" data-scene="ai">
+              <div class="ed-svc-text">
+                <span class="ed-svc-num">06</span>
+                <h3><a href="service-ai.html">AI &amp; Data</a></h3>
+                <p>Personalization, forecasting and recommendation engines built on data foundations your team can trust and extend.</p>
+                <a class="ed-svc-link" href="service-ai.html" aria-label="Explore service: AI &amp; Data">Explore service <span aria-hidden="true">→</span></a>
               </div>
-              <span class="why-card-tag">Reliability</span>
+              <div class="ed-scene-frame" aria-hidden="true"><div class="scene sc-ai">
+                <div class="sc-chat">
+                  <div class="ch-head"><span class="av"></span><b>Shopping assistant</b></div>
+                  <div class="ch-msg me">Something for a gift, under $80?</div>
+                  <div class="ch-msg bot">Here are three picks based on what you viewed:</div>
+                  <div class="ch-cards"><i class="p1"></i><i class="p2"></i><i class="p3"></i></div>
+                  <div class="ch-typing"><i></i><i></i><i></i></div>
+                </div>
+                <div class="sc-scatter">
+                  <small>Customer segments</small>
+                  <svg viewBox="0 0 120 90"><g class="g1"><circle cx="22" cy="24" r="3"/><circle cx="30" cy="18" r="3"/><circle cx="28" cy="30" r="3"/><circle cx="18" cy="32" r="3"/><circle cx="36" cy="26" r="3"/></g><g class="g2"><circle cx="78" cy="22" r="3"/><circle cx="86" cy="30" r="3"/><circle cx="92" cy="20" r="3"/><circle cx="82" cy="14" r="3"/></g><g class="g3"><circle cx="52" cy="66" r="3"/><circle cx="60" cy="72" r="3"/><circle cx="66" cy="62" r="3"/><circle cx="56" cy="58" r="3"/><circle cx="70" cy="70" r="3"/></g></svg>
+                </div>
+              </div></div>
+            </li>
+
+            <li class="ed-svc" data-scene="cloud">
+              <div class="ed-svc-text">
+                <span class="ed-svc-num">07</span>
+                <h3><a href="service-cloud.html">Cloud &amp; Platform Engineering</a></h3>
+                <p>Infrastructure, CI/CD and observability that scale quietly under peak sale traffic: built once, trusted forever.</p>
+                <a class="ed-svc-link" href="service-cloud.html" aria-label="Explore service: Cloud &amp; Platform Engineering">Explore service <span aria-hidden="true">→</span></a>
+              </div>
+              <div class="ed-scene-frame" aria-hidden="true"><div class="scene sc-cloud">
+                <svg class="arch-lines" viewBox="0 0 100 80" preserveAspectRatio="none"><path d="M18 40 H38"/><path d="M50 40 C58 40 58 20 66 20 H72"/><path d="M50 40 C58 40 58 60 66 60 H72"/><path d="M84 20 V60"/></svg>
+                <div class="arch-node n-cdn"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><b>CDN</b><small>edge</small></div>
+                <div class="arch-node n-api"><svg viewBox="0 0 24 24"><path d="M7 7h12l-3-3M17 17H5l3 3"/></svg><b>API</b><small>autoscale</small></div>
+                <div class="arch-node n-cache"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><b>Cache</b><small>redis</small></div>
+                <div class="arch-node n-db"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><b>Database</b><small>postgres</small></div>
+                <div class="sc-health"><span class="dot"></span>All services healthy</div>
+                <div class="sc-meter"><small>Load</small><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+              </div></div>
+            </li>
+
+            <li class="ed-svc" data-scene="quality">
+              <div class="ed-svc-text">
+                <span class="ed-svc-num">08</span>
+                <h3><a href="service-quality.html">Quality, Delivery &amp; Scale</a></h3>
+                <p>QA, release management and performance engineering so your team can ship often without ever holding its breath.</p>
+                <a class="ed-svc-link" href="service-quality.html" aria-label="Explore service: Quality, Delivery &amp; Scale">Explore service <span aria-hidden="true">→</span></a>
+              </div>
+              <div class="ed-scene-frame" aria-hidden="true"><div class="scene sc-quality">
+                <div class="sc-pipe">
+                  <div class="pp on"><i>✓</i>Build</div><span></span>
+                  <div class="pp on"><i>✓</i>Test</div><span></span>
+                  <div class="pp on"><i>✓</i>Stage</div><span></span>
+                  <div class="pp run"><i></i>Release</div>
+                </div>
+                <div class="sc-tests">
+                  <div class="tr-head"><b>Test run</b><span class="prog"><i></i></span></div>
+                  <div class="tr"><i>✓</i>checkout.spec.ts</div>
+                  <div class="tr"><i>✓</i>cart.spec.ts</div>
+                  <div class="tr"><i>✓</i>payments.spec.ts</div>
+                  <div class="tr"><i>✓</i>accessibility.spec.ts</div>
+                  <div class="tr pend"><i></i>performance.spec.ts</div>
+                </div>
+              </div></div>
+            </li>
+          </ol>
+
+          <div class="ed-svc-stage" aria-hidden="true">
+            <div class="ed-stage-inner">
+              <div class="ed-stage-host" id="edStageHost"></div>
+              <div class="ed-stage-count"><b id="edStageNum">01</b><span>/ 08</span><span class="ed-stage-bar"><i id="edStageBar"></i></span></div>
             </div>
-            <h3 class="why-card-title">Warranty &amp; Ongoing Support</h3>
-            <p class="why-card-desc">Every release comes with a complimentary 30-day post-launch warranty for bug fixes and tuning, followed by proactive SLA-backed maintenance.</p>
           </div>
+        </div>
+
+        <div class="ed-svc-all" data-ed-reveal>
+          <p class="ed-concept-note">Interfaces shown in this section are concept demonstrations created for illustration. They are not completed client projects or measured results.</p>
+          <a href="services.html" class="ed-btn ed-btn-line"><span>View all services</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/></svg></a>
         </div>
       </div>
     </section>
-    <!-- CTA SECTION -->
-    <section>
-      <div class="wrap">
-        <div class="cta-section reveal">
-          <div class="cta-glow-blob blob-left" aria-hidden="true"></div>
-          <div class="cta-glow-blob blob-right" aria-hidden="true"></div>
-          <div class="cta-inner">
-            <div class="cta-badge">
-              <span class="cta-pulse-dot" aria-hidden="true"></span>
-              <span>Now Accepting New Client Projects</span>
-            </div>
-            <h2>
-              Ready to design, build, and scale digital commerce that <span class="cta-heading-accent">actually converts?</span>
-            </h2>
-            <p class="cta-sub">
-              Schedule a 30-minute discovery call with our senior engineering leads. We'll audit your architecture, outline an agile sprint roadmap, and provide transparent milestone pricing.
-            </p>
-            <div class="cta-actions">
-              <a href="contact.html" class="btn btn-cta-primary">
-                <span>Book a Discovery Call</span>
-                <svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
+    <!-- ================= WHY CHOOSE PRIMELOFT ================= -->
+    <section class="ed-why" id="why-choose" aria-labelledby="whyChooseHeading">
+      <div class="ed-wrap">
+        <div class="ed-sec-head" data-ed-reveal>
+          <div class="ed-index">02 <span>/</span> Why Choose PrimeLoft</div>
+          <h2 id="whyChooseHeading" class="ed-h2">Engineered for outcomes, <em>not deliverables</em></h2>
+        </div>
+
+        <p class="ed-statement" data-ed-words>We pair careful software craftsmanship with commercial thinking: clear communication, transparent handoffs, maintainable architecture, and code that belongs to you.</p>
+
+        <ol class="ed-principles">
+          <li class="ed-pr" data-ed-reveal>
+            <span class="ed-pr-num">01</span>
+            <span class="ed-pr-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <h3>Direct Access to the Builders</h3>
+            <p>You work directly with the people designing and building your product, without account-manager layers between you and the work.</p>
+            <span class="ed-pr-tag">Direct Access</span>
+          </li>
+          <li class="ed-pr" data-ed-reveal>
+            <span class="ed-pr-num">02</span>
+            <span class="ed-pr-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+            <h3>100% Code &amp; IP Ownership</h3>
+            <p>Source code, design files, databases and cloud setups are handed over to your own repositories and accounts as milestones are settled, so you are never locked in.</p>
+            <span class="ed-pr-tag">Freedom</span>
+          </li>
+          <li class="ed-pr" data-ed-reveal>
+            <span class="ed-pr-num">03</span>
+            <span class="ed-pr-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+            <h3>Iterative Agile Delivery</h3>
+            <p>Work is planned in short sprints with regular staging builds and demos, so you can review progress and steer priorities early.</p>
+            <span class="ed-pr-tag">Velocity</span>
+          </li>
+          <li class="ed-pr" data-ed-reveal>
+            <span class="ed-pr-num">04</span>
+            <span class="ed-pr-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg></span>
+            <h3>Milestones &amp; Retainers</h3>
+            <p>No surprise hourly creep. Clear scope breakdowns with fixed milestone payments or dedicated sprint retainer capacity aligned to your product roadmap.</p>
+            <span class="ed-pr-tag">Transparency</span>
+          </li>
+          <li class="ed-pr" data-ed-reveal>
+            <span class="ed-pr-num">05</span>
+            <span class="ed-pr-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+            <h3>Built for Speed &amp; Search</h3>
+            <p>Performance, Core Web Vitals, semantic on-page SEO and clear conversion flows are considered from the first design decision, not bolted on at the end.</p>
+            <span class="ed-pr-tag">Performance</span>
+          </li>
+          <li class="ed-pr" data-ed-reveal>
+            <span class="ed-pr-num">06</span>
+            <span class="ed-pr-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+            <h3>Post-Launch Support</h3>
+            <p>After launch we can stay on for fixes, tuning and ongoing maintenance, with the level of support agreed to suit your product.</p>
+            <span class="ed-pr-tag">Reliability</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= STUDIO / PEOPLE BAND ================= -->
+    <section class="ed-studio" aria-labelledby="edStudioHeading">
+      <div class="ed-wrap">
+        <div class="ed-studio-grid">
+          <div class="ed-studio-copy" data-ed-reveal>
+            <div class="ed-index ed-index-inv">03 <span>/</span> About PrimeLoft</div>
+            <h2 id="edStudioHeading" class="ed-h2">A small studio of <em>hands-on</em> builders</h2>
+            <p>PrimeLoft started as a two-person practice and still works that way: small, hands-on and close to the outcome. The people you talk to are the people designing and building your product.</p>
+            <a href="about.html" class="ed-btn ed-btn-inv"><span>About Us</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/></svg></a>
+          </div>
+          <div class="ed-portraits" data-ed-reveal>
+            <figure class="ed-portrait p1">
+              <picture>
+                <source srcset="images/team-1.webp" type="image/webp">
+                <img src="images/team-1.jpg" alt="Ghulam Asghar | Fullstack .NET Angular" width="400" height="500" loading="lazy">
+              </picture>
+              <figcaption><b>Ghulam Asghar</b><span>Fullstack .Net Angular</span></figcaption>
+            </figure>
+            <figure class="ed-portrait p2">
+              <picture>
+                <source srcset="images/team-2.webp" type="image/webp">
+                <img src="images/team-2.jpg" alt="Ajmal Riaz | React Native Specialist" width="400" height="500" loading="lazy">
+              </picture>
+              <figcaption><b>Ajmal Riaz</b><span>React Native Specialist</span></figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="ed-clients" data-ed-reveal>
+          <h2 class="ed-clients-title">Selected Clients</h2>
+          <ul class="ed-client-row">
+            <li><img src="images/client-native-tech.png" alt="Native Technology and Design" width="68" height="68" loading="lazy"><span>Native Technology and Design</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQS SECTION ================= -->
+    <section class="faq-section ed-faq" id="faqs" aria-labelledby="faqHeading">
+      <div class="ed-wrap">
+        <div class="faq-grid">
+          <div class="faq-intro" data-ed-reveal>
+            <div class="ed-index">04 <span>/</span> FAQs</div>
+            <h2 id="faqHeading" class="faq-title">Frequently asked <em>questions</em></h2>
+            <p class="faq-desc">Everything you need to know about our services, delivery timelines, engineering standards, and post-launch support.</p>
+            <div class="faq-support-box">
+              <span class="faq-support-title">Still have questions?</span>
+              <p class="faq-support-text">Can't find the answer you're looking for? Our team is always ready to discuss your specific requirements.</p>
+              <a href="contact.html" class="faq-support-btn">
+                <span>Talk to our team</span>
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
                 </svg>
               </a>
-              <a href="https://wa.me/923359873132?text=Hi%20PrimeLoft%20team!%20I'd%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" class="btn btn-cta-secondary">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                </svg>
-                <span>Chat on WhatsApp</span>
-              </a>
             </div>
-            <div class="cta-perks">
-              <div class="cta-perk">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg>
-                <span>Free 30-Min Discovery</span>
+          </div>
+
+          <div class="faq-accordion-list" data-ed-reveal>
+            <!-- FAQ 1 -->
+            <div class="faq-item is-open">
+              <button class="faq-question" type="button" aria-expanded="true" aria-controls="faq-ans-1" id="faq-q-1">
+                <span class="faq-question-text">What services does PrimeLoft specialize in?</span>
+                <span class="faq-toggle-icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+                </span>
+              </button>
+              <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
+                <div class="faq-answer-inner">
+                  <p>We deliver full-spectrum digital engineering and design services, including custom software development, mobile applications (iOS & Android), UI/UX design & design systems, high-performance custom websites, SEO (On-Page & Off-Page), and CMS builds (WordPress & Squarespace).</p>
+                </div>
               </div>
-              <div class="cta-perk-sep" aria-hidden="true">•</div>
-              <div class="cta-perk">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg>
-                <span>Senior Engineers Only</span>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
+                <span class="faq-question-text">How does your pricing and engagement model work?</span>
+                <span class="faq-toggle-icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+                </span>
+              </button>
+              <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-q-2">
+                <div class="faq-answer-inner">
+                  <p>We provide two flexible engagement models: Fixed-Price Milestones for defined project scopes with concrete deliverables, and Dedicated Monthly Retainers for fast-moving teams that require ongoing engineering and design capacity. You receive clear scope breakdowns and transparent cost estimates upfront.</p>
+                </div>
               </div>
-              <div class="cta-perk-sep" aria-hidden="true">•</div>
-              <div class="cta-perk">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg>
-                <span>Fast 24h Response</span>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
+                <span class="faq-question-text">What is the typical project turnaround time?</span>
+                <span class="faq-toggle-icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+                </span>
+              </button>
+              <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-q-3">
+                <div class="faq-answer-inner">
+                  <p>Timelines depend on technical depth. Custom marketing sites, WordPress builds, and Squarespace launches typically take 2 to 4 weeks. Full-scale SaaS platforms, custom software, and native mobile apps generally span 6 to 12 weeks. We work in short agile sprints with working demos at regular reviews, and confirm timelines once scope is agreed.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-4" id="faq-q-4">
+                <span class="faq-question-text">Who owns the intellectual property and code?</span>
+                <span class="faq-toggle-icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+                </span>
+              </button>
+              <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-q-4">
+                <div class="faq-answer-inner">
+                  <p>You do, 100%. Upon project milestone settlement, all source code, design systems, Figma artboards, databases, and architectural assets are transferred directly to your team's Git repositories and cloud accounts. Zero vendor lock-in, ever.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-5" id="faq-q-5">
+                <span class="faq-question-text">How do you approach SEO and Core Web Vitals?</span>
+                <span class="faq-toggle-icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+                </span>
+              </button>
+              <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-q-5">
+                <div class="faq-answer-inner">
+                  <p>We build with speed and search discoverability in mind. Our work can include semantic HTML5, clean structured data (JSON-LD), on-page keyword architecture, technical SEO auditing, Core Web Vitals optimization, and targeted off-page link building strategies.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-6" id="faq-q-6">
+                <span class="faq-question-text">Do you provide post-launch support and maintenance?</span>
+                <span class="faq-toggle-icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+                </span>
+              </button>
+              <div class="faq-answer" id="faq-ans-6" role="region" aria-labelledby="faq-q-6">
+                <div class="faq-answer-inner">
+                  <p>Yes. Post-launch support for bug fixes and performance tuning can be included in your project scope, and we offer ongoing maintenance arrangements covering security updates, infrastructure monitoring, backups and feature iterations, agreed case by case.</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  </main>
 
-    <!-- ================= FAQS SECTION ================= -->
-  <section class="faq-section" id="faqs" aria-labelledby="faqHeading">
-    <div class="wrap">
-      <div class="faq-grid">
-        <!-- Left Column: Title, Sub-description, Direct Contact -->
-        <div class="faq-intro reveal">
-          <div class="eyebrow">FAQs</div>
-          <h2 id="faqHeading" class="faq-title">Frequently asked <span class="italic">questions</span></h2>
-          <p class="faq-desc">Everything you need to know about our services, delivery timelines, engineering standards, and post-launch support.</p>
-          <div class="faq-support-box">
-            <span class="faq-support-title">Still have questions?</span>
-            <p class="faq-support-text">Can't find the answer you're looking for? Our team is always ready to discuss your specific requirements.</p>
-            <a href="contact.html" class="faq-support-btn">
-              <span>Talk to our team</span>
-              <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
-              </svg>
+    <!-- ================= CLOSING CTA ================= -->
+    <section class="ed-cta" aria-labelledby="edCtaHeading">
+      <div class="ed-wrap">
+        <div class="ed-status" data-ed-reveal><span class="ed-pulse" aria-hidden="true"></span>Now Accepting New Client Projects</div>
+        <h2 id="edCtaHeading" class="ed-cta-title" data-ed-reveal>Ready to design, build and scale your next <em>digital product?</em></h2>
+        <div class="ed-cta-grid">
+          <p class="ed-cta-sub" data-ed-reveal>Book a 30-minute discovery call. We'll talk through your goals, review what you have today, and outline a practical plan with transparent milestone pricing.</p>
+          <div class="ed-cta-actions" data-ed-reveal>
+            <a href="contact.html" class="ed-btn ed-btn-accent">
+              <span>Book a Discovery Call</span>
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/></svg>
+            </a>
+            <a href="https://wa.me/923359873132?text=Hi%20PrimeLoft%20team!%20I'd%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" class="ed-btn ed-btn-line">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Chat on WhatsApp</span>
             </a>
           </div>
         </div>
-
-        <!-- Right Column: Accordion (Single-open) -->
-        <div class="faq-accordion-list reveal">
-          <!-- FAQ 1 -->
-          <div class="faq-item is-open">
-            <button class="faq-question" type="button" aria-expanded="true" aria-controls="faq-ans-1" id="faq-q-1">
-              <span class="faq-question-text">What services does PrimeLoft specialize in?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
-              <div class="faq-answer-inner">
-                <p>We deliver full-spectrum digital engineering and design services, including custom software development, mobile applications (iOS & Android), UI/UX design & design systems, high-performance custom websites, SEO (On-Page & Off-Page), and CMS builds (WordPress & Squarespace).</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- FAQ 2 -->
-          <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
-              <span class="faq-question-text">How does your pricing and engagement model work?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-q-2">
-              <div class="faq-answer-inner">
-                <p>We provide two flexible engagement models: Fixed-Price Milestones for defined project scopes with concrete deliverables, and Dedicated Monthly Retainers for fast-moving teams that require ongoing engineering and design capacity. You receive clear scope breakdowns and transparent cost estimates upfront.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- FAQ 3 -->
-          <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
-              <span class="faq-question-text">What is the typical project turnaround time?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-q-3">
-              <div class="faq-answer-inner">
-                <p>Timelines depend on technical depth. Custom marketing sites, WordPress builds, and Squarespace launches typically take 2 to 4 weeks. Full-scale SaaS platforms, custom software, and native mobile apps generally span 6 to 12 weeks. We work in two-week agile sprints with working demos at every review.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- FAQ 4 -->
-          <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-4" id="faq-q-4">
-              <span class="faq-question-text">Who owns the intellectual property and code?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-q-4">
-              <div class="faq-answer-inner">
-                <p>You do, 100%. Upon project milestone settlement, all source code, design systems, Figma artboards, databases, and architectural assets are transferred directly to your team's Git repositories and cloud accounts. Zero vendor lock-in, ever.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- FAQ 5 -->
-          <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-5" id="faq-q-5">
-              <span class="faq-question-text">How do you approach SEO and Core Web Vitals?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-q-5">
-              <div class="faq-answer-inner">
-                <p>Every platform we develop is engineered for top-tier speed and search discoverability. We implement semantic HTML5, clean structured data (JSON-LD), on-page keyword architecture, technical SEO auditing, Core Web Vitals optimization, and targeted off-page link building strategies.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- FAQ 6 -->
-          <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-6" id="faq-q-6">
-              <span class="faq-question-text">Do you provide post-launch support and maintenance?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" id="faq-ans-6" role="region" aria-labelledby="faq-q-6">
-              <div class="faq-answer-inner">
-                <p>Yes. Every project includes a 30-day post-launch warranty period for performance tuning and bug fixes. Thereafter, we offer SLA-backed maintenance plans covering proactive security updates, cloud infrastructure monitoring, database backups, and ongoing feature iterations.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <a class="ed-mail" href="mailto:contact@primeloft.tech" data-ed-reveal>contact@primeloft.tech</a>
+        <ul class="ed-perks" data-ed-reveal>
+          <li>30-Min Discovery Call</li>
+          <li>Work Directly With the Builders</li>
+          <li>Transparent Milestone Pricing</li>
+        </ul>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
 
   <!-- ================= FOOTER ================= -->
