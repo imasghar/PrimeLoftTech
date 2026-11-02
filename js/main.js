@@ -340,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
           status.style.background = 'rgba(37, 211, 102, 0.15)';
           status.style.color = '#25D366';
           status.style.border = '1px solid rgba(37, 211, 102, 0.3)';
-          status.textContent = 'Thank you! Your message has been sent successfully. We will reply within 1 business day.';
+          status.textContent = 'Thank you! Your message has been sent successfully. We will get back to you as soon as we can.';
         }
         contactForm.reset();
         return;
@@ -375,7 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
             status.style.background = 'rgba(37, 211, 102, 0.15)';
             status.style.color = '#25D366';
             status.style.border = '1px solid rgba(37, 211, 102, 0.3)';
-            status.textContent = 'Thank you! Your message has been sent successfully. We will reply within 1 business day.';
+            status.textContent = 'Thank you! Your message has been sent successfully. We will get back to you as soon as we can.';
           }
           contactForm.reset();
           analyticsService.trackFormSubmission('contactForm');

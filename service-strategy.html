@@ -22,15 +22,23 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap">
+  <script>
+    (function () {
+      var t = null;
+      try { t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('primeloft-theme'); } catch (e) {}
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&family=Inter:wght@400..700&display=swap">
   <link rel="icon" type="image/x-icon" href="favicon.ico?v=1.0.2">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=1.0.2">
   <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png?v=1.0.2">
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png?v=1.0.2">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=1.0.2">
   <link rel="stylesheet" href="css/style.css?v=2.9.4">
-  <script src="js/libs/lottie_light.min.js?v=2.6.0" defer></script>
+  <link rel="stylesheet" href="css/theme.css?v=1.0.0">
   <script type="module" src="js/main.js?v=2.7.0" defer></script>
+  <script type="module" src="js/theme.js?v=1.0.0"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -43,10 +51,11 @@
   }
   </script>
 </head>
-<body>
+<body class="pl pl-page-service-strategy">
+  <a class="pl-skip" href="#main-content">Skip to content</a>
 
   <!-- ================= HEADER ================= -->
-  <header>
+  <header class="pl-header">
     <div class="nav-row">
       <a href="index.html" class="logo-brand" aria-label="PrimeLoft Software Solutions">
         <picture class="logo-img logo-img-light">
@@ -58,66 +67,30 @@
           <img src="images/logo-dark.png" class="logo-img" alt="PrimeLoft Software Solutions" width="200" height="66">
         </picture>
       </a>
-      <nav class="primary">
-        <a href="index.html" class="navlink">
-          <span class="nav-lottie-icon nav-home-lottie" aria-hidden="true"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-          </svg></span>
-          <span>Home</span>
-        </a>
-        <div class="has-mega" style="position:relative;">
-          <a href="services.html" class="navlink active" aria-expanded="false" aria-haspopup="true">
-            <span class="nav-lottie-icon nav-services-lottie" aria-hidden="true"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="7" height="7"></rect>
-              <rect x="14" y="3" width="7" height="7"></rect>
-              <rect x="14" y="14" width="7" height="7"></rect>
-              <rect x="3" y="14" width="7" height="7"></rect>
-            </svg></span>
+      <nav class="primary" aria-label="Primary">
+        <a href="index.html" class="navlink">Home</a>
+        <div class="has-mega">
+          <a href="services.html" class="navlink" aria-expanded="false" aria-haspopup="true">
             <span>Services</span>
-            <svg class="caret" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            <svg class="caret" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
           </a>
           <div class="mega dropdown-card" id="servicesDropdown" role="menu" aria-label="Services dropdown">
             <div class="mega-list">
-              <a href="service-mobile-app-development.html" class="mega-item" role="menuitem">
-                <span class="mtitle">Mobile App Development</span>
-              </a>
-              <a href="service-seo.html" class="mega-item" role="menuitem">
-                <span class="mtitle">Search Engine Optimization (SEO)</span>
-              </a>
-              <a href="service-strategy.html" class="mega-item" role="menuitem">
-                <span class="mtitle">Strategy &amp; Innovation</span>
-              </a>
-              <a href="service-engineering.html" class="mega-item" role="menuitem">
-                <span class="mtitle">Software Engineering</span>
-              </a>
-              <a href="service-ai.html" class="mega-item" role="menuitem">
-                <span class="mtitle">AI &amp; Data</span>
-              </a>
-              <a href="service-cloud.html" class="mega-item" role="menuitem">
-                <span class="mtitle">Cloud &amp; Platform Engineering</span>
-              </a>
-              <a href="service-quality.html" class="mega-item" role="menuitem">
-                <span class="mtitle">Quality, Delivery &amp; Scale</span>
-              </a>
+              <a href="service-mobile-app-development.html" class="mega-item" role="menuitem"><span class="mtitle">Mobile App Development</span></a>
+              <a href="service-seo.html" class="mega-item" role="menuitem"><span class="mtitle">Search Engine Optimization (SEO)</span></a>
+              <a href="service-design.html" class="mega-item" role="menuitem"><span class="mtitle">Product &amp; Experience Design</span></a>
+              <a href="service-strategy.html" class="mega-item" role="menuitem"><span class="mtitle">Strategy &amp; Innovation</span></a>
+              <a href="service-engineering.html" class="mega-item" role="menuitem"><span class="mtitle">Software Engineering</span></a>
+              <a href="service-ai.html" class="mega-item" role="menuitem"><span class="mtitle">AI &amp; Data</span></a>
+              <a href="service-cloud.html" class="mega-item" role="menuitem"><span class="mtitle">Cloud &amp; Platform Engineering</span></a>
+              <a href="service-quality.html" class="mega-item" role="menuitem"><span class="mtitle">Quality, Delivery &amp; Scale</span></a>
             </div>
             <div class="mega-footer">
-              <a href="services.html" class="btn btn-primary">
-                <span>View all services</span>
-                <svg class="btn-arrow-diag" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
-                </svg>
-              </a>
+              <a href="services.html" class="pl-btn pl-btn--dark pl-btn--sm" style="width:100%;">View all services</a>
             </div>
           </div>
         </div>
-        <a href="about.html" class="navlink">
-          <span class="nav-lottie-icon nav-about-lottie" aria-hidden="true"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg></span>
-          <span>About Us</span>
-        </a>
+        <a href="about.html" class="navlink">About Us</a>
       </nav>
       <div class="header-right">
         <button class="theme-btn" id="themeToggle" aria-label="Toggle light and dark theme" title="Toggle theme">
@@ -136,333 +109,292 @@
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
         </button>
-        <div class="header-contact-block">
-          <a href="mailto:contact@primeloft.tech" class="header-email-link">
-            <svg class="header-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-            </svg>
-            <span>contact@primeloft.tech</span>
-          </a>
-          <a href="tel:+923359873132" class="header-phone-link">
-            <svg class="header-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            <span>+92 335 9873132</span>
-          </a>
-        </div>
-        <a href="contact.html" class="btn btn-primary">
-          <span>Contact Us</span>
-          <span class="btn-lottie-icon contact-btn-lottie" aria-hidden="true"><svg class="btn-arrow-diag" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
-          </svg></span>
-        </a>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <path d="M4 6h16M4 12h16M4 18h16"/>
+        <a href="contact.html" class="pl-btn pl-btn--dark">Contact Us</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
           </svg>
         </button>
       </div>
     </div>
   </header>
+  <div class="pl-top-space" aria-hidden="true"></div>
 
   <!-- ================= MAIN CONTENT ================= -->
   <main id="main-content">
 
-    <!-- HERO SECTION -->
-    <section class="service-detail-hero">
-      <div class="wrap">
-        <div class="service-hero-grid">
-          <div class="service-hero-content reveal">
-            <div class="eyebrow">Discipline 02 · Strategy &amp; Innovation</div>
-            <h1>Commerce <span class="script">Strategy</span> &amp; Innovation</h1>
-            <p class="lead">We turn ambiguous commercial goals into a prioritized architectural roadmap covering market positioning, platform selection, and an execution plan your executive board can sign off on.</p>
-            <div class="service-hero-actions">
-              <a href="contact.html" class="btn btn-primary">Schedule a strategy session <span class="btn-arrow">→</span></a>
-              <a href="#capabilities" class="btn btn-ghost">Explore capabilities</a>
-            </div>
-            <div class="sb-tags" style="margin-top:32px;">
-              <span>Discovery</span>
-              <span>Platform Selection</span>
-              <span>TCO &amp; ROI Modeling</span>
-              <span>Headless Architecture</span>
-              <span>Innovation Labs</span>
-            </div>
-          </div>
-
-          <div class="sb-media sb-media-lottie reveal">
-            <div id="strategyLottieContainer" class="strategy-lottie-container" aria-label="Strategy &amp; Innovation Target and Roadmap Animation"></div>
-          </div>
+    <!-- HERO -->
+    <section class="pl-hero pl-hero--page" aria-labelledby="pageTitle">
+      <div class="pl-wrap pl-hero__inner">
+        <span class="pl-badge">Discipline 02 · Strategy &amp; Innovation</span>
+        <h1 id="pageTitle" class="pl-h1">Commerce <span class="pl-accent-text">Strategy</span> &amp; Innovation</h1>
+        <p class="pl-lead">We turn ambiguous commercial goals into a prioritized architectural roadmap covering market positioning, platform selection, and an execution plan your executive board can sign off on.</p>
+        <div class="pl-ctas">
+          <a href="contact.html" class="pl-btn pl-btn--primary">Schedule a strategy session
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/></svg>
+          </a>
+          <a href="#capabilities" class="pl-btn pl-btn--ghost">Explore capabilities</a>
+        </div>
+        <div class="pl-tags pl-tags--center">
+          <span class="pl-tag">Discovery</span>
+          <span class="pl-tag">Platform Selection</span>
+          <span class="pl-tag">TCO &amp; ROI Modeling</span>
+          <span class="pl-tag">Headless Architecture</span>
+          <span class="pl-tag">Innovation Labs</span>
+        </div>
+        <p class="pl-concept-note">Interfaces shown are concept demonstrations, not client projects or measured results.</p>
+      </div>
+      <div class="pl-showcase pl-stripes">
+        <div class="pl-showcase__frame pl-showcase__frame--scene">
+<div class="pl-scene-frame" aria-hidden="true"><div class="scene sc-strategy">
+                <div class="sc-board">
+                  <div class="rm-head"><b>Roadmap</b><span>Discovery → Launch</span></div>
+                  <div class="rm-time"><i class="on"></i><span></span><i class="on"></i><span></span><i></i><span></span><i></i></div>
+                  <div class="rm-cols">
+                    <div><label>Now</label><p class="k1"></p><p class="k2"></p><p class="k3"></p></div>
+                    <div><label>Next</label><p class="k2"></p><p class="k4"></p></div>
+                    <div><label>Later</label><p class="k3"></p><p class="k1"></p></div>
+                  </div>
+                </div>
+                <div class="sc-target"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="30"/><circle cx="50" cy="50" r="15"/><circle class="bull" cx="50" cy="50" r="5"/></svg></div>
+              </div></div>
         </div>
       </div>
     </section>
 
-    <!-- STATS STRIP -->
-    <section>
-      <div class="wrap">
-        <div class="service-stats-strip reveal">
-          <div class="service-stat-box">
-            <div class="num">100%</div>
-            <div class="label">Roadmaps delivered on time within projected executive budgets</div>
+    <!-- CAPABILITIES: bento with a prototype scene -->
+    <section class="pl-section" id="capabilities" aria-labelledby="capabilitiesTitle">
+      <div class="pl-wrap">
+        <div class="pl-head pl-head--split" data-reveal>
+          <div>
+            <span class="pl-badge">Capabilities &amp; Scope</span>
+            <h2 id="capabilitiesTitle" class="pl-h2">Clarity before capital: de-risking your digital investments</h2>
           </div>
-          <div class="service-stat-box">
-            <div class="num">3.2×</div>
-            <div class="label">Average ROI measured across client platform modernizations</div>
-          </div>
-          <div class="service-stat-box">
-            <div class="num">-40%</div>
-            <div class="label">Reduction in annual maintenance overhead via composable stacks</div>
-          </div>
+          <p class="pl-sub">We combine technical rigor with commercial pragmatism to help you avoid overspending on software you do not need.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- CAPABILITIES SECTION -->
-    <section id="capabilities" style="padding: 50px 0 80px;">
-      <div class="wrap">
-        <div class="service-section-header reveal">
-          <div class="eyebrow" style="justify-content:center;">Capabilities &amp; Scope</div>
-          <h2>Clarity before capital: de-risking your digital investments</h2>
-          <p style="color:var(--ink-soft); margin-top:14px;">We combine technical rigor with commercial pragmatism to ensure you never overspend on software you do not need.</p>
-        </div>
-
-        <div class="capabilities-grid">
-          <div class="capability-card reveal">
-            <div class="cap-icon">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 19V13M12 19V5M20 19V9" stroke-width="1.8" stroke-linecap="round"/></svg>
-            </div>
+        <div class="pl-bento">
+          <article class="pl-card" data-reveal>
+            <span class="pl-num">01</span>
             <h3>Platform Selection &amp; Vendor Due Diligence</h3>
             <p>Monolith vs. headless vs. composable: we audit your catalog complexity, operational maturity, and transaction volume to select the right platform.</p>
-            <ul class="cap-deliverables">
+            <ul class="pl-checks pl-checks--muted">
               <li>Comprehensive vendor scoring (Shopify Plus, commercetools, BigCommerce)</li>
               <li>5-year Total Cost of Ownership (TCO) financial modeling</li>
               <li>Contract negotiation support &amp; SLA risk analysis</li>
             </ul>
-          </div>
-
-          <div class="capability-card reveal">
-            <div class="cap-icon">
-              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke-width="1.8"/><polygon points="12 8 8 12 12 16 12 8" stroke-width="1.8"/></svg>
+          </article>
+          <article class="pl-card pl-card--wide pl-span-2" data-reveal>
+            <div class="pl-card__body">
+              <span class="pl-num">02</span>
+              <h3>Innovation Labs &amp; Rapid PoC Validation</h3>
+              <p>Test ambitious commerce experiments—such as conversational checkout or 3D product customization—before committing enterprise budgets.</p>
+              <ul class="pl-checks pl-checks--muted">
+                <li>Short, time-boxed working proof-of-concept builds</li>
+                <li>Technical feasibility &amp; API throughput testing</li>
+                <li>Executive prototype presentations with empirical user validation</li>
+              </ul>
             </div>
-            <h3>Enterprise Architecture &amp; Integration Blueprinting</h3>
-            <p>We map the flow of master data across ERP, PIM, CRM, OMS, and checkout to ensure seamless connectivity and zero data bottlenecks.</p>
-            <ul class="cap-deliverables">
+            <div class="pl-card__visual">
+<div class="pl-scene-frame" aria-hidden="true"><div class="scene sc-ai">
+                <div class="sc-chat">
+                  <div class="ch-head"><span class="av"></span><b>Shopping assistant</b></div>
+                  <div class="ch-msg me">Something for a gift, under $80?</div>
+                  <div class="ch-msg bot">Here are three picks based on what you viewed:</div>
+                  <div class="ch-cards"><i class="p1"></i><i class="p2"></i><i class="p3"></i></div>
+                  <div class="ch-typing"><i></i><i></i><i></i></div>
+                </div>
+                <div class="sc-scatter">
+                  <small>Customer segments</small>
+                  <svg viewBox="0 0 120 90"><g class="g1"><circle cx="22" cy="24" r="3"/><circle cx="30" cy="18" r="3"/><circle cx="28" cy="30" r="3"/><circle cx="18" cy="32" r="3"/><circle cx="36" cy="26" r="3"/></g><g class="g2"><circle cx="78" cy="22" r="3"/><circle cx="86" cy="30" r="3"/><circle cx="92" cy="20" r="3"/><circle cx="82" cy="14" r="3"/></g><g class="g3"><circle cx="52" cy="66" r="3"/><circle cx="60" cy="72" r="3"/><circle cx="66" cy="62" r="3"/><circle cx="56" cy="58" r="3"/><circle cx="70" cy="70" r="3"/></g></svg>
+                </div>
+              </div></div>
+            </div>
+          </article>
+          <article class="pl-card pl-card--wide pl-span-2" data-reveal>
+            <div class="pl-card__body">
+              <span class="pl-num">03</span>
+              <h3>Enterprise Architecture &amp; Integration Blueprinting</h3>
+              <p>We map the flow of master data across ERP, PIM, CRM, OMS, and checkout to support seamless connectivity and minimize data bottlenecks.</p>
+            </div>
+            <ul class="pl-checks pl-checks--lined">
               <li>End-to-end MACH architecture blueprints</li>
               <li>Event-driven integration topologies &amp; API governance</li>
               <li>Legacy system deprecation &amp; migration risk registers</li>
             </ul>
-          </div>
-
-          <div class="capability-card reveal">
-            <div class="cap-icon">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3>Innovation Labs &amp; Rapid PoC Validation</h3>
-            <p>Test ambitious commerce experiments—such as conversational checkout or 3D product customization—before committing enterprise budgets.</p>
-            <ul class="cap-deliverables">
-              <li>2-week working proof-of-concept builds</li>
-              <li>Technical feasibility &amp; API throughput testing</li>
-              <li>Executive prototype presentations with empirical user validation</li>
-            </ul>
-          </div>
-
-          <div class="capability-card reveal">
-            <div class="cap-icon">
-              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="1.8"/><line x1="16" y1="2" x2="16" y2="6" stroke-width="1.8"/><line x1="8" y1="2" x2="8" y2="6" stroke-width="1.8"/><line x1="3" y1="10" x2="21" y2="10" stroke-width="1.8"/></svg>
-            </div>
+          </article>
+          <article class="pl-card" data-reveal>
+            <span class="pl-num">04</span>
             <h3>Sequenced Executive Roadmapping</h3>
             <p>Phase your digital transformation into manageable, value-generating delivery sprints that satisfy finance, marketing, and IT stakeholders.</p>
-            <ul class="cap-deliverables">
+            <ul class="pl-checks pl-checks--muted">
               <li>Phased 12 to 24-month program schedule</li>
               <li>Resource allocation &amp; internal team upskilling roadmaps</li>
               <li>Board-ready investment business case decks</li>
             </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHODOLOGY: dark numbered grid -->
+    <section class="pl-section pl-section--flush-top" aria-labelledby="methodTitle">
+      <div class="pl-wrap">
+        <div class="pl-dark">
+          <div class="pl-head" data-reveal>
+            <span class="pl-badge">Methodology</span>
+            <h2 id="methodTitle" class="pl-h2">A disciplined process that turns vision into execution</h2>
+            <p class="pl-sub">Our strategy advisory engagements are designed to give your leadership team clarity, reducing guesswork and vendor bias.</p>
+          </div>
+          <ol class="pl-grid-4" style="list-style:none;margin:0;padding:0;">
+            <li class="pl-dark-cell" data-reveal><span class="pl-num">01</span><h3>Ecosystem Discovery</h3><p>We analyze current systems, interview department leaders, and identify high-cost operational inefficiencies.</p></li>
+            <li class="pl-dark-cell" data-reveal><span class="pl-num">02</span><h3>Market &amp; Tech Evaluation</h3><p>We evaluate leading platform stacks against your business model and model projected 5-year operating costs.</p></li>
+            <li class="pl-dark-cell" data-reveal><span class="pl-num">03</span><h3>Target Architecture</h3><p>We engineer target state diagrams, define API boundaries, and design the future data synchronization pipeline.</p></li>
+            <li class="pl-dark-cell" data-reveal><span class="pl-num">04</span><h3>Board-Ready Plan</h3><p>We package the findings into a sequenced execution schedule, staffing plan, and risk mitigation roadmap.</p></li>
+          </ol>
+          <div class="pl-techrow" style="margin-top:48px;" data-reveal>
+            <span class="pl-badge pl-badge--plain" style="margin-bottom:20px;">Platforms &amp; Ecosystem Partners</span>
+            <div class="pl-tags pl-tags--center">
+              <span class="pl-tag">Shopify Plus</span>
+              <span class="pl-tag">commercetools</span>
+              <span class="pl-tag">BigCommerce</span>
+              <span class="pl-tag">MACH Alliance</span>
+              <span class="pl-tag">Algolia</span>
+              <span class="pl-tag">Sanity.io</span>
+              <span class="pl-tag">Contentful</span>
+              <span class="pl-tag">Stripe</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- METHODOLOGY SECTION -->
-    <section style="padding: 60px 0 90px; background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
-      <div class="wrap">
-        <div class="service-section-header reveal">
-          <div class="eyebrow" style="justify-content:center;">Methodology</div>
-          <h2>A disciplined process that turns vision into execution</h2>
-          <p style="color:var(--ink-soft); margin-top:14px;">Our strategy advisory engagements give your leadership team complete clarity, eliminating guesswork and vendor bias.</p>
-        </div>
+    <!-- FAQ -->
+    <section class="faq-section" id="faqs" aria-labelledby="faqHeading">
+      <div class="pl-wrap">
+        <div class="faq-grid">
+          <div class="faq-intro" data-reveal>
+            <span class="pl-badge" style="align-self:flex-start;">FAQs</span>
+            <h2 id="faqHeading" class="faq-title">Frequently asked <em>strategy questions</em></h2>
+            <p class="faq-desc">Insights on technical advisory, modernization roadmaps, tech stack selection, and digital transformation.</p>
+            <div class="faq-support-box">
+              <img class="pl-faq-photo" src="images/team-1.webp" alt="" width="400" height="500" loading="lazy">
+              <span class="faq-support-title">Need strategic direction for your tech stack?</span>
+              <p class="faq-support-text">Book a strategy session with us to align your engineering investments with business growth.</p>
+              <a href="contact.html" class="faq-support-btn">
+                <span>Book a strategy session</span>
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="faq-accordion-list" data-reveal>
+<div class="faq-item is-open">
+  <button class="faq-question" type="button" aria-expanded="true" aria-controls="faq-ans-1" id="faq-q-1">
+    <span class="faq-question-text">What does a Strategy & Innovation engagement look like?</span>
+    <span class="faq-toggle-icon" aria-hidden="true">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+    </span>
+  </button>
+  <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
+    <div class="faq-answer-inner">
+      <p>We collaborate with your executive and engineering stakeholders to audit current architecture, evaluate business goals, identify technical bottlenecks, and formulate actionable 6-to-18-month execution roadmaps.</p>
+    </div>
+  </div>
+</div>
 
-        <div class="process-grid">
-          <div class="process-card reveal">
-            <div class="process-step-num">01</div>
-            <h4>Ecosystem Discovery</h4>
-            <p>We analyze current systems, interview department leaders, and identify high-cost operational inefficiencies.</p>
-          </div>
-          <div class="process-card reveal">
-            <div class="process-step-num">02</div>
-            <h4>Market &amp; Tech Evaluation</h4>
-            <p>We evaluate leading platform stacks against your business model and model projected 5-year operating costs.</p>
-          </div>
-          <div class="process-card reveal">
-            <div class="process-step-num">03</div>
-            <h4>Target Architecture</h4>
-            <p>We engineer target state diagrams, define API boundaries, and design the future data synchronization pipeline.</p>
-          </div>
-          <div class="process-card reveal">
-            <div class="process-step-num">04</div>
-            <h4>Board-Ready Plan</h4>
-            <p>We package the findings into a sequenced execution schedule, staffing plan, and risk mitigation roadmap.</p>
-          </div>
-        </div>
+<div class="faq-item">
+  <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
+    <span class="faq-question-text">Can you help us choose between microservices and a modular monolith?</span>
+    <span class="faq-toggle-icon" aria-hidden="true">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+    </span>
+  </button>
+  <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-q-2">
+    <div class="faq-answer-inner">
+      <p>Yes. We evaluate team size, deployment frequency, organizational maturity, and scalability needs to recommend the most cost-effective and maintainable architecture for your specific stage.</p>
+    </div>
+  </div>
+</div>
 
-        <!-- TOOLING ROW -->
-        <div style="text-align:center; margin-top:60px;" class="reveal">
-          <div class="eyebrow" style="justify-content:center;">Platforms &amp; Ecosystem Partners</div>
-          <div class="tech-stack-row">
-            <span class="tech-tag">Shopify Plus</span>
-            <span class="tech-tag">commercetools</span>
-            <span class="tech-tag">BigCommerce</span>
-            <span class="tech-tag">MACH Alliance</span>
-            <span class="tech-tag">Algolia</span>
-            <span class="tech-tag">Sanity.io</span>
-            <span class="tech-tag">Contentful</span>
-            <span class="tech-tag">Stripe</span>
+<div class="faq-item">
+  <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
+    <span class="faq-question-text">What is your Fractional CTO / Advisory service?</span>
+    <span class="faq-toggle-icon" aria-hidden="true">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+    </span>
+  </button>
+  <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-q-3">
+    <div class="faq-answer-inner">
+      <p>Our senior technology leaders act as embedded advisors to your executive team, guiding high-stakes architecture choices, vendor negotiations, engineering hiring, and investor technical due diligence.</p>
+    </div>
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-4" id="faq-q-4">
+    <span class="faq-question-text">How do you approach legacy modernization without disrupting operations?</span>
+    <span class="faq-toggle-icon" aria-hidden="true">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+    </span>
+  </button>
+  <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-q-4">
+    <div class="faq-answer-inner">
+      <p>We employ the Strangler Fig pattern to progressively migrate critical workflows to modern microservices or modular components while keeping the core business operational throughout.</p>
+    </div>
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-5" id="faq-q-5">
+    <span class="faq-question-text">How do you evaluate third-party tools vs. custom development?</span>
+    <span class="faq-toggle-icon" aria-hidden="true">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+    </span>
+  </button>
+  <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-q-5">
+    <div class="faq-answer-inner">
+      <p>We perform build-versus-buy analyses comparing total cost of ownership (TCO), vendor lock-in risk, feature fit, and maintenance overhead to ensure your engineering budget is invested where it provides competitive advantage.</p>
+    </div>
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-6" id="faq-q-6">
+    <span class="faq-question-text">What deliverables do we receive at the end of a strategic audit?</span>
+    <span class="faq-toggle-icon" aria-hidden="true">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+    </span>
+  </button>
+  <div class="faq-answer" id="faq-ans-6" role="region" aria-labelledby="faq-q-6">
+    <div class="faq-answer-inner">
+      <p>An executive summary, prioritized technical debt matrix, target architecture diagrams, cloud cost projections, and a phased execution roadmap ready for engineering implementation.</p>
+    </div>
+  </div>
+</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA BANNER -->
-    <section>
-      <div class="wrap">
-        <div class="service-cta-banner reveal">
-          <div class="eyebrow" style="justify-content:center; color:var(--red);">Planning your next digital transformation?</div>
-          <h2>Let's build a strategy that delivers measurable ROI</h2>
-          <p>Talk with our Practice Director. We will review your current architecture and outline a practical modernization roadmap tailored to your growth goals.</p>
-          <a href="contact.html" class="btn btn-primary" style="background:var(--red); border-color:var(--red); color:#fff;">Request a strategic discovery call <span class="btn-arrow">→</span></a>
+    <!-- CTA -->
+    <section class="pl-section pl-section--flush-top" aria-labelledby="ctaTitle">
+      <div class="pl-wrap">
+        <div class="pl-cta pl-stripes pl-stripes--solid" data-reveal>
+          <span class="pl-badge pl-badge--plain">Planning your next digital transformation?</span>
+          <h2 id="ctaTitle" class="pl-h2">Let's build a strategy focused on measurable ROI</h2>
+          <p>Talk with the people who would lead your engagement. We will review your current architecture and outline a practical modernization roadmap tailored to your growth goals.</p>
+          <div class="pl-ctas">
+            <a href="contact.html" class="pl-btn pl-btn--light">Request a strategic discovery call</a>
+          </div>
         </div>
       </div>
     </section>
-
   </main>
 
-    <!-- ================= FAQS SECTION ================= -->
-  <section class="faq-section" id="faqs" aria-labelledby="faqHeading">
-    <div class="wrap">
-      <div class="faq-grid">
-        <!-- Left Column: Title, Sub-description, Direct Contact -->
-        <div class="faq-intro reveal">
-          <div class="eyebrow">Strategy FAQs</div>
-          <h2 id="faqHeading" class="faq-title">Frequently asked <span class="italic">strategy questions</span></h2>
-          <p class="faq-desc">Insights on technical advisory, modernization roadmaps, tech stack selection, and digital transformation.</p>
-          <div class="faq-support-box">
-            <span class="faq-support-title">Need strategic direction for your tech stack?</span>
-            <p class="faq-support-text">Book a strategy session with our fractional CTOs to align your engineering investments with business growth.</p>
-            <a href="contact.html" class="faq-support-btn">
-              <span>Book a strategy session</span>
-              <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Right Column: Accordion (Single-open) -->
-        <div class="faq-accordion-list reveal">
-          <!-- FAQ 1 -->
-          <div class="faq-item is-open">
-            <button class="faq-question" type="button" aria-expanded="true" aria-controls="faq-ans-1" id="faq-q-1">
-              <span class="faq-question-text">What does a Strategy & Innovation engagement look like?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
-              <div class="faq-answer-inner">
-                <p>We collaborate with your executive and engineering stakeholders to audit current architecture, evaluate business goals, identify technical bottlenecks, and formulate actionable 6-to-18-month execution roadmaps.</p>
-              </div>
-            </div>
-          </div>
-          <!-- FAQ 2 -->
-          <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
-              <span class="faq-question-text">Can you help us choose between microservices and a modular monolith?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-q-2">
-              <div class="faq-answer-inner">
-                <p>Yes. We evaluate team size, deployment frequency, organizational maturity, and scalability needs to recommend the most cost-effective and maintainable architecture for your specific stage.</p>
-              </div>
-            </div>
-          </div>
-          <!-- FAQ 3 -->
-          <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
-              <span class="faq-question-text">What is your Fractional CTO / Advisory service?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-q-3">
-              <div class="faq-answer-inner">
-                <p>Our senior technology leaders act as embedded advisors to your executive team, guiding high-stakes architecture choices, vendor negotiations, engineering hiring, and investor technical due diligence.</p>
-              </div>
-            </div>
-          </div>
-          <!-- FAQ 4 -->
-          <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-4" id="faq-q-4">
-              <span class="faq-question-text">How do you approach legacy modernization without disrupting operations?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-q-4">
-              <div class="faq-answer-inner">
-                <p>We employ the Strangler Fig pattern to progressively migrate critical workflows to modern microservices or modular components while keeping the core business operational throughout.</p>
-              </div>
-            </div>
-          </div>
-          <!-- FAQ 5 -->
-          <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-5" id="faq-q-5">
-              <span class="faq-question-text">How do you evaluate third-party tools vs. custom development?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-q-5">
-              <div class="faq-answer-inner">
-                <p>We perform build-versus-buy analyses comparing total cost of ownership (TCO), vendor lock-in risk, feature fit, and maintenance overhead to ensure your engineering budget is invested where it provides competitive advantage.</p>
-              </div>
-            </div>
-          </div>
-          <!-- FAQ 6 -->
-          <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-6" id="faq-q-6">
-              <span class="faq-question-text">What deliverables do we receive at the end of a strategic audit?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" id="faq-ans-6" role="region" aria-labelledby="faq-q-6">
-              <div class="faq-answer-inner">
-                <p>An executive summary, prioritized technical debt matrix, target architecture diagrams, cloud cost projections, and a phased execution roadmap ready for engineering implementation.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
   <!-- ================= FOOTER ================= -->
-  <footer>
-    <div class="wrap">
-      <div class="footer-top">
-        <div class="footer-brand">
+  <footer class="pl-footer">
+    <div class="pl-wrap">
+      <div class="pl-footer__top">
+        <div class="pl-footer__brand">
           <a href="index.html" class="logo-brand" aria-label="PrimeLoft Software Solutions">
             <picture class="logo-img logo-img-light">
               <source srcset="images/logo-light.webp" type="image/webp">
@@ -473,7 +405,7 @@
               <img src="images/logo-dark.png" class="logo-img" alt="PrimeLoft Software Solutions" width="200" height="66" loading="lazy">
             </picture>
           </a>
-          <p>A digital commerce studio designing, engineering and scaling high-converting platforms for ambitious modern brands.</p>
+          <p>A digital commerce studio designing, building and scaling revenue-driving platforms.</p>
           <div class="social-links-row">
             <a href="https://wa.me/923359873132" target="_blank" rel="noopener noreferrer" class="social-btn wa" aria-label="Chat on WhatsApp">
               <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662a11.87 11.87 0 005.707 1.456h.005c6.554 0 11.89-5.335 11.893-11.893 0-3.177-1.238-6.164-3.486-8.413z"/></svg>
@@ -486,18 +418,18 @@
             </a>
           </div>
         </div>
-        <div class="footer-col">
-          <h3 class="footer-title">Our Company</h3>
-          <ul class="footer-links">
+        <div>
+          <h3>Our Company</h3>
+          <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h3 class="footer-title">Services</h3>
-          <ul class="footer-links">
+        <div>
+          <h3>Services</h3>
+          <ul>
             <li><a href="service-mobile-app-development.html">Mobile App Development</a></li>
             <li><a href="service-seo.html">Search Engine Optimization (SEO)</a></li>
             <li><a href="service-design.html">Product &amp; Experience Design</a></li>
@@ -508,28 +440,19 @@
             <li><a href="service-quality.html">Quality, Delivery &amp; Scale</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h3 class="footer-title">Keep in Touch</h3>
-          <div class="addr-icon-row">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            <div class="addr">PrimeLoft Tech<br>GardenTown, Multan Road<br>DGK, Pakistan</div>
-          </div>
-          <div class="addr-icon-row">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            <div class="addr"><a href="tel:+923359873132" style="color:inherit; text-decoration:none;">+92 335 9873132</a></div>
-          </div>
-          <div class="addr-icon-row">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            <div>
-              <div class="addr">General inquiries</div>
-              <a href="mailto:contact@primeloft.tech" class="mail" style="margin-top:2px;">contact@primeloft.tech</a>
-            </div>
-          </div>
+        <div>
+          <h3>Keep in Touch</h3>
+          <address>
+            <span>PrimeLoft Tech<br>GardenTown, Multan Road<br>DGK, Pakistan</span>
+            <a href="tel:+923359873132">+92 335 9873132</a>
+            <a href="mailto:contact@primeloft.tech">contact@primeloft.tech</a>
+          </address>
         </div>
       </div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 PrimeLoft Tech. All rights reserved.</span>
-        <span>Poznań &middot; Amsterdam &middot; Dubai &middot; Pakistan</span>
+      <div class="pl-footer__mark" aria-hidden="true">PrimeLoft</div>
+      <div class="pl-footer__bottom">
+        <span>© 2026 PrimeLoft Tech. All rights reserved.</span>
+        <span class="pl-footer__legal"><a href="privacy.html">Privacy Policy</a><a href="cookies.html">Cookie Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a><a href="#" class="open-cookie-settings">Manage Cookie Preferences</a></span>
       </div>
     </div>
   </footer>

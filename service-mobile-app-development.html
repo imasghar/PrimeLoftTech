@@ -22,15 +22,23 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap">
+  <script>
+    (function () {
+      var t = null;
+      try { t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('primeloft-theme'); } catch (e) {}
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&family=Inter:wght@400..700&display=swap">
   <link rel="icon" type="image/x-icon" href="favicon.ico?v=1.0.2">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=1.0.2">
   <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png?v=1.0.2">
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png?v=1.0.2">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=1.0.2">
   <link rel="stylesheet" href="css/style.css?v=2.9.4">
-  <script src="js/libs/lottie_light.min.js?v=2.6.0" defer></script>
+  <link rel="stylesheet" href="css/theme.css?v=1.0.0">
   <script type="module" src="js/main.js?v=2.7.0" defer></script>
+  <script type="module" src="js/theme.js?v=1.0.0"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -88,10 +96,11 @@
   }
   </script>
 </head>
-<body>
+<body class="pl pl-page-service-mobile-app-development">
+  <a class="pl-skip" href="#main-content">Skip to content</a>
 
   <!-- ================= HEADER ================= -->
-  <header>
+  <header class="pl-header">
     <div class="nav-row">
       <a href="index.html" class="logo-brand" aria-label="PrimeLoft Software Solutions">
         <picture class="logo-img logo-img-light">
@@ -103,69 +112,30 @@
           <img src="images/logo-dark.png" class="logo-img" alt="PrimeLoft Software Solutions" width="200" height="66">
         </picture>
       </a>
-      <nav class="primary">
-        <a href="index.html" class="navlink">
-          <span class="nav-lottie-icon nav-home-lottie" aria-hidden="true"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-          </svg></span>
-          <span>Home</span>
-        </a>
-        <div class="has-mega" style="position:relative;">
-          <a href="services.html" class="navlink active" aria-expanded="false" aria-haspopup="true">
-            <span class="nav-lottie-icon nav-services-lottie" aria-hidden="true"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="7" height="7"></rect>
-              <rect x="14" y="3" width="7" height="7"></rect>
-              <rect x="14" y="14" width="7" height="7"></rect>
-              <rect x="3" y="14" width="7" height="7"></rect>
-            </svg></span>
+      <nav class="primary" aria-label="Primary">
+        <a href="index.html" class="navlink">Home</a>
+        <div class="has-mega">
+          <a href="services.html" class="navlink" aria-expanded="false" aria-haspopup="true">
             <span>Services</span>
-            <svg class="caret" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            <svg class="caret" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
           </a>
           <div class="mega dropdown-card" id="servicesDropdown" role="menu" aria-label="Services dropdown">
             <div class="mega-list">
-              <a href="service-mobile-app-development.html" class="mega-item active" role="menuitem">
-                <span class="mtitle">Mobile App Development</span>
-              </a>
-              <a href="service-seo.html" class="mega-item" role="menuitem">
-                <span class="mtitle">Search Engine Optimization (SEO)</span>
-              </a>
-              <a href="service-design.html" class="mega-item" role="menuitem">
-                <span class="mtitle">Product &amp; Experience Design</span>
-              </a>
-              <a href="service-strategy.html" class="mega-item" role="menuitem">
-                <span class="mtitle">Strategy &amp; Innovation</span>
-              </a>
-              <a href="service-engineering.html" class="mega-item" role="menuitem">
-                <span class="mtitle">Software Engineering</span>
-              </a>
-              <a href="service-ai.html" class="mega-item" role="menuitem">
-                <span class="mtitle">AI &amp; Data</span>
-              </a>
-              <a href="service-cloud.html" class="mega-item" role="menuitem">
-                <span class="mtitle">Cloud &amp; Platform Engineering</span>
-              </a>
-              <a href="service-quality.html" class="mega-item" role="menuitem">
-                <span class="mtitle">Quality, Delivery &amp; Scale</span>
-              </a>
+              <a href="service-mobile-app-development.html" class="mega-item" role="menuitem"><span class="mtitle">Mobile App Development</span></a>
+              <a href="service-seo.html" class="mega-item" role="menuitem"><span class="mtitle">Search Engine Optimization (SEO)</span></a>
+              <a href="service-design.html" class="mega-item" role="menuitem"><span class="mtitle">Product &amp; Experience Design</span></a>
+              <a href="service-strategy.html" class="mega-item" role="menuitem"><span class="mtitle">Strategy &amp; Innovation</span></a>
+              <a href="service-engineering.html" class="mega-item" role="menuitem"><span class="mtitle">Software Engineering</span></a>
+              <a href="service-ai.html" class="mega-item" role="menuitem"><span class="mtitle">AI &amp; Data</span></a>
+              <a href="service-cloud.html" class="mega-item" role="menuitem"><span class="mtitle">Cloud &amp; Platform Engineering</span></a>
+              <a href="service-quality.html" class="mega-item" role="menuitem"><span class="mtitle">Quality, Delivery &amp; Scale</span></a>
             </div>
             <div class="mega-footer">
-              <a href="services.html" class="btn btn-primary">
-                <span>View all services</span>
-                <svg class="btn-arrow-diag" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
-                </svg>
-              </a>
+              <a href="services.html" class="pl-btn pl-btn--dark pl-btn--sm" style="width:100%;">View all services</a>
             </div>
           </div>
         </div>
-        <a href="about.html" class="navlink">
-          <span class="nav-lottie-icon nav-about-lottie" aria-hidden="true"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg></span>
-          <span>About Us</span>
-        </a>
+        <a href="about.html" class="navlink">About Us</a>
       </nav>
       <div class="header-right">
         <button class="theme-btn" id="themeToggle" aria-label="Toggle light and dark theme" title="Toggle theme">
@@ -184,726 +154,265 @@
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
         </button>
-        <div class="header-contact-block">
-          <a href="mailto:contact@primeloft.tech" class="header-email-link">
-            <svg class="header-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-            </svg>
-            <span>contact@primeloft.tech</span>
-          </a>
-          <a href="tel:+923359873132" class="header-phone-link">
-            <svg class="header-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            <span>+92 335 9873132</span>
-          </a>
-        </div>
-        <a href="contact.html" class="btn btn-primary">
-          <span>Contact Us</span>
-          <span class="btn-lottie-icon contact-btn-lottie" aria-hidden="true"><svg class="btn-arrow-diag" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
-          </svg></span>
-        </a>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <path d="M4 6h16M4 12h16M4 18h16"/>
+        <a href="contact.html" class="pl-btn pl-btn--dark">Contact Us</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
           </svg>
         </button>
       </div>
     </div>
   </header>
+  <div class="pl-top-space" aria-hidden="true"></div>
 
   <!-- ================= MAIN CONTENT ================= -->
   <main id="main-content">
 
-    <!-- HERO SECTION -->
-    <section class="service-detail-hero">
-      <div class="wrap">
-        <div class="service-hero-grid">
-          <div class="service-hero-content reveal">
-            <div class="eyebrow">Discipline 01 · Mobile Engineering</div>
-            <h1>Native &amp; Cross-Platform <span class="script">Mobile Apps</span></h1>
-            <p class="lead">High-performing mobile applications engineered for Android and iOS. From custom Kotlin and Swift native codebases to unified Flutter and React Native architectures, PrimeLoft designs and ships top-charting pocket experiences that expand customer reach and drive retention.</p>
-            <div class="service-hero-actions">
-              <a href="contact.html" class="btn btn-primary">Schedule a mobile discovery <span class="btn-arrow">→</span></a>
-              <a href="#technologies" class="btn btn-ghost">Explore technologies</a>
-            </div>
-          </div>
-          <div class="sb-media sb-media-lottie">
-            <div id="mobileLottieContainer" class="mobile-lottie-container" aria-label="Mobile App Development Interactive Preview"></div>
-          </div>
+    <!-- HERO -->
+    <section class="pl-hero pl-hero--page" aria-labelledby="pageTitle">
+      <div class="pl-wrap pl-hero__inner">
+        <span class="pl-badge">Discipline 01 · Mobile Engineering</span>
+        <h1 id="pageTitle" class="pl-h1">Native &amp; Cross-Platform <span class="pl-accent-text">Mobile Apps</span></h1>
+        <p class="pl-lead">High-performing mobile applications engineered for Android and iOS. From custom Kotlin and Swift native codebases to unified Flutter and React Native architectures, PrimeLoft designs and ships polished pocket experiences built to expand customer reach and support retention.</p>
+        <div class="pl-ctas">
+          <a href="contact.html" class="pl-btn pl-btn--primary">Schedule a mobile discovery <span aria-hidden="true">→</span></a>
+          <a href="#technologies" class="pl-btn pl-btn--ghost">Explore technologies</a>
+        </div>
+      </div>
+      <div class="pl-showcase pl-stripes">
+        <div class="pl-showcase__frame pl-showcase__frame--scene">
+<div class="pl-scene-frame" aria-hidden="true"><div class="scene sc-mobile">
+                <div class="sc-phone sc-phone-back"><div class="sc-scr">
+                  <div class="ap-top"><b>Discover</b><i></i></div>
+                  <div class="ap-hero"></div>
+                  <div class="ap-grid"><i></i><i></i><i></i><i></i></div>
+                  <div class="ap-tab"><i class="on"></i><i></i><i></i><i></i></div>
+                </div></div>
+                <div class="sc-phone sc-phone-front"><div class="sc-scr">
+                  <div class="ap-media"><div class="ap-orb"></div></div>
+                  <div class="ap-title"><b>Product</b><span></span><span class="s"></span></div>
+                  <div class="ap-sizes"><i></i><i class="on"></i><i></i><i></i></div>
+                  <div class="ap-cta">Add to bag</div>
+                </div></div>
+                <div class="sc-toast"><span class="dot"></span><div><b>iOS &amp; Android</b><small>one codebase · native feel</small></div></div>
+              </div></div>
+        </div>
+      </div>
+      <div class="pl-wrap">
+        <p class="pl-concept-note">Interfaces shown are concept demonstrations, not client projects or measured results.</p>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGIES -->
+    <section class="pl-section pl-section--soft" id="technologies" aria-labelledby="techTitle">
+      <div class="pl-wrap pl-split">
+        <div class="pl-split__text" data-reveal>
+          <span class="pl-badge">Modern Mobile Ecosystem</span>
+          <h2 id="techTitle" class="pl-h2">Technologies We Work On</h2>
+          <p class="pl-sub">Modern cross-platform and native mobile frameworks engineered to deliver seamless experiences across multiple devices.</p>
+          <ul class="pl-checks pl-checks--lined" style="width:100%;">
+            <li><b>Native iOS &amp; Android</b><br>Direct GPU access, biometric security, lockscreen widgets, and performance-focused execution.</li>
+            <li><b>High-Velocity Cross-Platform Codebases</b><br>Maintain a unified Flutter or React Native architecture that can reduce maintenance overhead.</li>
+            <li><b>Fluid, Performance-Focused UI</b><br>Smooth animations, battery-conscious state trees, and micro-interactions designed to delight.</li>
+          </ul>
+        </div>
+        <div class="pl-grid-2" data-reveal>
+          <article class="pl-card">
+            <span class="pl-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
+            <h3>Android</h3>
+            <p>Kotlin · Compose</p>
+          </article>
+          <article class="pl-card">
+            <span class="pl-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
+            <h3>iOS</h3>
+            <p>Swift · SwiftUI</p>
+          </article>
+          <article class="pl-card">
+            <span class="pl-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
+            <h3>Flutter</h3>
+            <p>Dart · Multiplatform</p>
+          </article>
+          <article class="pl-card">
+            <span class="pl-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
+            <h3>React Native</h3>
+            <p>TypeScript · Expo</p>
+          </article>
+          <article class="pl-card">
+            <span class="pl-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+            <h3>Kotlin</h3>
+            <p>KMP · Coroutines</p>
+          </article>
+          <article class="pl-card">
+            <span class="pl-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+            <h3>Swift</h3>
+            <p>Native Performance</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ================= TECHNOLOGIES WE WORK ON: REVOLVING CIRCULAR ORBIT ================= -->
-    <section id="technologies" class="tech-orbit-section" aria-label="Technologies We Work On">
-      <div class="wrap">
-        <div class="tech-orbit-stage-wrapper" id="techOrbitStageWrapper">
-          <!-- Left Column: Circular Rotating Stacks -->
-          <div class="tech-orbit-col-visual" id="techOrbitVisual">
-            <div class="tech-orbit-stage" aria-label="Revolving Mobile Frameworks Orbit">
-              <!-- Concentric Orbit Rings & Ambient Glow -->
-              <div class="tech-orbit-ambient-glow" aria-hidden="true"></div>
-              <div class="tech-orbit-guide-ring outer-ring" aria-hidden="true"></div>
-              <div class="tech-orbit-guide-ring inner-ring" aria-hidden="true"></div>
-
-              <!-- Central Mobile Core Hub -->
-              <div class="tech-orbit-center-hub" aria-hidden="true">
-                <div class="tech-orbit-core-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                  </svg>
-                </div>
-                <span class="tech-orbit-core-tag">MOBILE CORE</span>
-              </div>
-
-              <!-- Rotating Tech Orbit Ring -->
-              <div class="tech-orbit-ring" role="region" aria-label="Moving technology stacks orbit">
-                <!-- 1. Android -->
-                <div class="tech-orbit-item" style="--orbit-angle: 0deg;">
-                  <div class="tech-orbit-badge">
-                    <div class="tech-orbit-badge-icon">
-                      <svg viewBox="0 0 24 24" fill="none" aria-label="Android Logo">
-                        <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.996-3.4572c.1082-.1875.0441-.4282-.1434-.5364-.1876-.1083-.4283-.0442-.5365.1433l-2.0223 3.5026C15.547 8.2144 13.8344 7.822 12 7.822c-1.8344 0-3.547.3924-5.1747 1.1517L4.803 5.4711c-.1082-.1875-.3489-.2516-.5365-.1433-.1875.1082-.2516.3489-.1434.5364l1.996 3.4572C2.6845 11.238 0 14.887 0 19.167h24c0-4.28-2.6845-7.929-6.1185-9.8456" fill="#3DDC84"/>
-                      </svg>
-                    </div>
-                    <div class="tech-orbit-badge-text">
-                      <div class="tech-orbit-badge-name">Android</div>
-                      <div class="tech-orbit-badge-sub">Kotlin · Compose</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 2. iOS -->
-                <div class="tech-orbit-item" style="--orbit-angle: 60deg;">
-                  <div class="tech-orbit-badge">
-                    <div class="tech-orbit-badge-icon">
-                      <svg viewBox="0 0 24 24" fill="currentColor" aria-label="Apple iOS Logo" style="color:var(--ink);">
-                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.38c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.99.6-2.63 1.35-.57.65-1.07 1.71-.93 2.73 1 .08 2.02-.48 2.63-1.23z"/>
-                      </svg>
-                    </div>
-                    <div class="tech-orbit-badge-text">
-                      <div class="tech-orbit-badge-name">iOS</div>
-                      <div class="tech-orbit-badge-sub">Swift · SwiftUI</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 3. Flutter -->
-                <div class="tech-orbit-item" style="--orbit-angle: 120deg;">
-                  <div class="tech-orbit-badge">
-                    <div class="tech-orbit-badge-icon">
-                      <svg viewBox="0 0 24 24" fill="none" aria-label="Flutter Logo">
-                        <path d="M14.314 0L2.3 12 6 15.7 21.684 0h-7.37z" fill="#02569B"/>
-                        <path d="M14.32 11.088L7.857 17.55l3.693 3.694 6.457-6.456 3.694-3.7h-7.381z" fill="#0175C2"/>
-                        <path d="M14.326 19.444l-2.775 2.778L14.326 25l2.775-2.778 3.694 3.694h7.381L18.02 15.75l-3.694 3.694z" fill="#29B6F6"/>
-                      </svg>
-                    </div>
-                    <div class="tech-orbit-badge-text">
-                      <div class="tech-orbit-badge-name">Flutter</div>
-                      <div class="tech-orbit-badge-sub">Dart · Multiplatform</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 4. React Native -->
-                <div class="tech-orbit-item" style="--orbit-angle: 180deg;">
-                  <div class="tech-orbit-badge">
-                    <div class="tech-orbit-badge-icon">
-                      <svg viewBox="0 0 24 24" fill="none" aria-label="React Native Logo">
-                        <circle cx="12" cy="12" r="2.2" fill="#61DAFB"/>
-                        <g fill="none" stroke="#61DAFB" stroke-width="1.3">
-                          <ellipse cx="12" cy="12" rx="10.5" ry="4.2"/>
-                          <ellipse cx="12" cy="12" rx="10.5" ry="4.2" transform="rotate(60 12 12)"/>
-                          <ellipse cx="12" cy="12" rx="10.5" ry="4.2" transform="rotate(120 12 12)"/>
-                        </g>
-                      </svg>
-                    </div>
-                    <div class="tech-orbit-badge-text">
-                      <div class="tech-orbit-badge-name">React Native</div>
-                      <div class="tech-orbit-badge-sub">TypeScript · Expo</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 5. Kotlin -->
-                <div class="tech-orbit-item" style="--orbit-angle: 240deg;">
-                  <div class="tech-orbit-badge">
-                    <div class="tech-orbit-badge-icon">
-                      <svg viewBox="0 0 24 24" fill="none" aria-label="Kotlin Logo">
-                        <defs>
-                          <linearGradient id="kotlinGradOrbit" x1="0%" y1="100%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#0095D5"/>
-                            <stop offset="50%" stop-color="#C757BC"/>
-                            <stop offset="100%" stop-color="#F18E33"/>
-                          </linearGradient>
-                        </defs>
-                        <path d="M24 24H0V0h24L12 12Z" fill="url(#kotlinGradOrbit)"/>
-                      </svg>
-                    </div>
-                    <div class="tech-orbit-badge-text">
-                      <div class="tech-orbit-badge-name">Kotlin</div>
-                      <div class="tech-orbit-badge-sub">KMP · Coroutines</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 6. Swift -->
-                <div class="tech-orbit-item" style="--orbit-angle: 300deg;">
-                  <div class="tech-orbit-badge">
-                    <div class="tech-orbit-badge-icon">
-                      <svg viewBox="0 0 24 24" fill="none" aria-label="Swift Logo">
-                        <path d="M20.67 15.65c-.21.36-.6.67-.93.89-2.28 1.54-5.32 1.95-7.96 1.07 3.39-1.39 5.86-4.52 6.55-8.08.06-.31.09-.64.09-.96 0-.32-.23-.6-.54-.64-.26-.03-.5.1-.64.31-.96 1.46-2.28 2.67-3.83 3.51-2.19 1.19-4.73 1.5-7.14.86-.41-.11-.83-.24-1.22-.4-.2-.08-.44-.06-.61.08-.17.13-.24.36-.18.57.87 2.91 2.89 5.34 5.56 6.74 2.82 1.48 6.18 1.77 9.29.83.61-.18 1.2-.42 1.76-.73.2-.11.31-.33.27-.55-.04-.23-.22-.41-.46-.46-.15-.03-.31-.03-.45-.04z" fill="#F05138"/>
-                      </svg>
-                    </div>
-                    <div class="tech-orbit-badge-text">
-                      <div class="tech-orbit-badge-name">Swift</div>
-                      <div class="tech-orbit-badge-sub">Native Performance</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <!-- WHY PRIMELOFT (DARK) -->
+    <section class="pl-section" aria-labelledby="whyMobileTitle">
+      <div class="pl-wrap">
+        <div class="pl-dark">
+          <div class="pl-head" data-reveal>
+            <span class="pl-badge">Mobile Partner</span>
+            <h2 id="whyMobileTitle" class="pl-h2">Why PrimeLoft For Mobile App Development?</h2>
+            <p class="pl-sub">Our company specializes in delivering comprehensive custom mobile application development services, encompassing design, integration, and management solutions. Whether your project involves a consumer-facing app or a game-changing enterprise-level solution, we take charge of the entire native mobile app development journey, from initial design to final delivery and ongoing maintenance. As hands-on mobile app developers, we craft solutions that not only meet market demands but also enhance your brand identity, fostering growth and expansion.</p>
           </div>
-
-          <!-- Right Column: Text Block -->
-          <div class="tech-orbit-col-content" id="techOrbitContent">
-            <div class="eyebrow">Modern Mobile Ecosystem</div>
-            <h2>Technologies We <span class="italic">Work On</span></h2>
-            <p class="lead">Modern cross-platform and native mobile frameworks engineered to deliver seamless experiences across multiple devices.</p>
-            
-            <div class="tech-orbit-features">
-              <div class="tech-orbit-feat-item">
-                <span class="tech-orbit-feat-check">✓</span>
-                <div>
-                  <strong>Native iOS &amp; Android Supremacy</strong>
-                  <span>Direct GPU access, biometric security, lockscreen widgets, and sub-second execution.</span>
-                </div>
-              </div>
-              <div class="tech-orbit-feat-item">
-                <span class="tech-orbit-feat-check">✓</span>
-                <div>
-                  <strong>High-Velocity Cross-Platform Codebases</strong>
-                  <span>Maintain a unified Flutter or React Native architecture saving up to 40% maintenance overhead.</span>
-                </div>
-              </div>
-              <div class="tech-orbit-feat-item">
-                <span class="tech-orbit-feat-check">✓</span>
-                <div>
-                  <strong>Sub-Second Fluid 120fps UI</strong>
-                  <span>Zero dropped frames, battery-conscious state trees, and micro-interactions designed to delight.</span>
-                </div>
-              </div>
+          <div class="pl-dark-grid">
+            <div class="pl-dark-cell" data-reveal>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <h3>Skilled Team</h3>
             </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= WHY PRIMELOFT FOR MOBILE APP DEVELOPMENT (Replaces Image 2) ================= -->
-    <section class="why-mobile-section" style="padding: 85px 0 95px; background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
-      <div class="wrap">
-        <div class="why-mobile-header reveal">
-          <div class="eyebrow" style="justify-content:center;">Proven Mobile Partner</div>
-          <h2 class="why-mobile-title">Why PrimeLoft For <span class="italic">Mobile App Development?</span></h2>
-          <p class="why-mobile-desc">Our company specializes in delivering comprehensive custom mobile application development services, encompassing design, integration, and management solutions. Whether your project involves a consumer-facing app or a game-changing enterprise-level solution, we take charge of the entire native mobile app development journey, from initial design to final delivery and ongoing maintenance. With a team of skilled mobile app developers, we craft solutions that not only meet market demands but also enhance your brand identity, fostering growth and expansion. Consider hiring our dedicated mobile app developers today to bring your vision to life!</p>
-        </div>
-
-        <!-- 6 Pillars Row -->
-        <div class="why-mobile-grid reveal">
-          <!-- 1. Skilled Team -->
-          <div class="why-mobile-card">
-            <div class="why-mobile-icon-box">
-              <svg viewBox="0 0 64 64" fill="none" class="why-mobile-icon" aria-label="Skilled Team Icon">
-                <!-- Connected Team Nodes in background -->
-                <circle cx="16" cy="20" r="3.5" fill="#E5A83B" stroke="currentColor" stroke-width="1.8"/>
-                <circle cx="48" cy="20" r="3.5" fill="#E5A83B" stroke="currentColor" stroke-width="1.8"/>
-                <circle cx="32" cy="11" r="3" fill="#E5A83B" stroke="currentColor" stroke-width="1.8"/>
-                <path d="M19.5 20h9M35.5 20h9M29 13.5l-10 4.5M35 13.5l10 4.5" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2.5 2"/>
-                <!-- Central Lead Person -->
-                <circle cx="32" cy="28" r="7.5" fill="#E5A83B" stroke="currentColor" stroke-width="2"/>
-                <!-- Shoulders & Torso -->
-                <path d="M20 48c0-6.627 5.373-12 12-12s12 5.373 12 12v3H20v-3z" fill="#E5A83B" fill-opacity="0.25" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                <!-- Crossed Arms / Collaboration -->
-                <path d="M24 45l8-4 8 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <!-- Outer decorative gear ring / skill nodes -->
-                <circle cx="11" cy="35" r="2.5" fill="#E5A83B"/>
-                <circle cx="53" cy="35" r="2.5" fill="#E5A83B"/>
-              </svg>
+            <div class="pl-dark-cell" data-reveal>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              <h3>ROI-Focused</h3>
             </div>
-            <h4 class="why-mobile-card-title">Skilled Team</h4>
-          </div>
-
-          <!-- 2. Increased ROI -->
-          <div class="why-mobile-card">
-            <div class="why-mobile-icon-box">
-              <svg viewBox="0 0 64 64" fill="none" class="why-mobile-icon" aria-label="Increased ROI Icon">
-                <!-- Stacks of Coins -->
-                <ellipse cx="18" cy="46" rx="9" ry="3.5" fill="#E5A83B" stroke="currentColor" stroke-width="2"/>
-                <path d="M9 46v5c0 1.933 4.03 3.5 9 3.5s9-1.567 9-3.5v-5" fill="#E5A83B" fill-opacity="0.3" stroke="currentColor" stroke-width="2"/>
-                <path d="M9 41v5c0 1.933 4.03 3.5 9 3.5s9-1.567 9-3.5v-5" fill="#E5A83B" fill-opacity="0.3" stroke="currentColor" stroke-width="2"/>
-                <!-- Ascending Stack 2 -->
-                <ellipse cx="32" cy="38" rx="8" ry="3.2" fill="#E5A83B" stroke="currentColor" stroke-width="2"/>
-                <path d="M24 38v14c0 1.767 3.582 3.2 8 3.2s8-1.433 8-3.2V38" fill="#E5A83B" fill-opacity="0.25" stroke="currentColor" stroke-width="2"/>
-                <path d="M24 43c0 1.767 3.582 3.2 8 3.2s8-1.433 8-3.2" stroke="currentColor" stroke-width="2"/>
-                <path d="M24 48c0 1.767 3.582 3.2 8 3.2s8-1.433 8-3.2" stroke="currentColor" stroke-width="2"/>
-                <!-- Ascending Stack 3 / Bar -->
-                <ellipse cx="46" cy="30" rx="7.5" ry="3" fill="#E5A83B" stroke="currentColor" stroke-width="2"/>
-                <path d="M38.5 30v22c0 1.657 3.358 3 7.5 3s7.5-1.343 7.5-3V30" fill="#E5A83B" fill-opacity="0.25" stroke="currentColor" stroke-width="2"/>
-                <path d="M38.5 35.5c0 1.657 3.358 3 7.5 3s7.5-1.343 7.5-3" stroke="currentColor" stroke-width="2"/>
-                <path d="M38.5 41c0 1.657 3.358 3 7.5 3s7.5-1.343 7.5-3" stroke="currentColor" stroke-width="2"/>
-                <path d="M38.5 46.5c0 1.657 3.358 3 7.5 3s7.5-1.343 7.5-3" stroke="currentColor" stroke-width="2"/>
-                <!-- Growth Arrow Upward -->
-                <path d="M28 22l18-12m0 0h-9m9 0v9" stroke="#E5A83B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+            <div class="pl-dark-cell" data-reveal>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <h3>Customer Loyalty</h3>
             </div>
-            <h4 class="why-mobile-card-title">Increased ROI</h4>
-          </div>
-
-          <!-- 3. Customer Loyalty -->
-          <div class="why-mobile-card">
-            <div class="why-mobile-icon-box">
-              <svg viewBox="0 0 64 64" fill="none" class="why-mobile-icon" aria-label="Customer Loyalty Icon">
-                <!-- 3 Stars in Gold -->
-                <!-- Center Top Star -->
-                <polygon points="32,12 34.5,17.5 40.5,18.2 36,22.2 37.2,28.2 32,25.2 26.8,28.2 28,22.2 23.5,18.2 29.5,17.5" fill="#E5A83B" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-                <!-- Left Star -->
-                <polygon points="18,18 19.8,22 24.2,22.5 21,25.5 21.8,29.8 18,27.5 14.2,29.8 15,25.5 11.8,22.5 16.2,22" fill="#E5A83B" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-                <!-- Right Star -->
-                <polygon points="46,18 47.8,22 52.2,22.5 49,25.5 49.8,29.8 46,27.5 42.2,29.8 43,25.5 39.8,22.5 44.2,22" fill="#E5A83B" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-                <!-- Caring Cupped Hands -->
-                <path d="M12 44c4-3 9-4 13-2l7 3.5c2 1 4 0 5-1l7-6c2-1.5 5-.5 5.5 2s-1 5-3 6.5l-8 6c-3 2.5-7 3-10.5 1.5L16 52l-5-4 1-4z" fill="#E5A83B" fill-opacity="0.15" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                <path d="M52 44c-4-3-9-4-13-2l-7 3.5c-2 1-4 0-5-1l-7-6c-2-1.5-5-.5-5.5 2s1 5 3 6.5l8 6c3 2.5 7 3 10.5 1.5L48 52l5-4-1-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              </svg>
+            <div class="pl-dark-cell" data-reveal>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+              <h3>Agile Methodology</h3>
             </div>
-            <h4 class="why-mobile-card-title">Customer Loyalty</h4>
-          </div>
-
-          <!-- 4. Agile Methodology -->
-          <div class="why-mobile-card">
-            <div class="why-mobile-icon-box">
-              <svg viewBox="0 0 64 64" fill="none" class="why-mobile-icon" aria-label="Agile Methodology Icon">
-                <!-- Circular Agile Cycle with Satellite Arrows -->
-                <circle cx="32" cy="32" r="19" stroke="currentColor" stroke-width="1.8" stroke-dasharray="4 3"/>
-                <!-- Orbiting Nodes with Directional Indicators -->
-                <circle cx="32" cy="13" r="3.5" fill="#E5A83B" stroke="currentColor" stroke-width="1.8"/>
-                <path d="M35 13l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <circle cx="51" cy="32" r="3.5" fill="#E5A83B" stroke="currentColor" stroke-width="1.8"/>
-                <path d="M51 35l3-3m-3 3l-3-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <circle cx="32" cy="51" r="3.5" fill="#E5A83B" stroke="currentColor" stroke-width="1.8"/>
-                <path d="M29 51l3 3m-3-3l3-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <circle cx="13" cy="32" r="3.5" fill="#E5A83B" stroke="currentColor" stroke-width="1.8"/>
-                <path d="M13 29l-3 3m3-3l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <!-- Central Innovation Lightbulb -->
-                <path d="M27 34c-1.5-1.5-2.5-3.5-2.5-6 0-4.142 3.358-7.5 7.5-7.5s7.5 3.358 7.5 7.5c0 2.5-1 4.5-2.5 6l-1 4h-8l-1-4z" fill="#E5A83B" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                <path d="M28 38h8M29 41h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
+            <div class="pl-dark-cell" data-reveal>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+              <h3>Engaging UX Design</h3>
             </div>
-            <h4 class="why-mobile-card-title">Agile Methodology</h4>
-          </div>
-
-          <!-- 5. Engaging UX Design -->
-          <div class="why-mobile-card">
-            <div class="why-mobile-icon-box">
-              <svg viewBox="0 0 64 64" fill="none" class="why-mobile-icon" aria-label="Engaging UX Design Icon">
-                <!-- Desktop Monitor (Left Top) -->
-                <rect x="10" y="12" width="28" height="20" rx="3" fill="#E5A83B" fill-opacity="0.15" stroke="currentColor" stroke-width="2"/>
-                <line x1="10" y1="26" x2="38" y2="26" stroke="currentColor" stroke-width="1.6"/>
-                <circle cx="14" cy="16" r="1.2" fill="currentColor"/>
-                <circle cx="18" cy="16" r="1.2" fill="currentColor"/>
-                <path d="M20 32v5m-5 0h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <!-- Mobile Smartphone (Right Bottom) -->
-                <rect x="36" y="24" width="18" height="30" rx="3" fill="#E5A83B" stroke="currentColor" stroke-width="2"/>
-                <rect x="39" y="28" width="12" height="20" rx="1.5" fill="var(--bg-raised)" stroke="currentColor" stroke-width="1.4"/>
-                <circle cx="45" cy="51" r="1" fill="currentColor"/>
-                <!-- Cross-Device Sync Arrows -->
-                <path d="M14 42h14m0 0l-4-4m4 4l-4 4" stroke="#E5A83B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M42 16h-4m0 0l3-3m-3 3l3 3" stroke="#E5A83B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <h4 class="why-mobile-card-title">Engaging UX Design</h4>
-          </div>
-
-          <!-- 6. 100% Secure -->
-          <div class="why-mobile-card">
-            <div class="why-mobile-icon-box">
-              <svg viewBox="0 0 64 64" fill="none" class="why-mobile-icon" aria-label="100% Secure Icon">
-                <!-- Security Armor Shield -->
-                <path d="M32 9L15 16v15c0 13 8 20 17 24 9-4 17-11 17-24V16L32 9z" fill="#E5A83B" fill-opacity="0.15" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
-                <!-- Inner Guard Line -->
-                <path d="M32 14L19 19.5v12c0 9.5 6 15 13 18.5 7-3.5 13-9 13-18.5v-12L32 14z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" opacity="0.6"/>
-                <!-- Centered Padlock / Keyhole in Gold -->
-                <circle cx="32" cy="28" r="4.5" fill="#E5A83B" stroke="currentColor" stroke-width="2"/>
-                <path d="M30 31.5l-1.5 8.5h7l-1.5-8.5" fill="#E5A83B" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <h4 class="why-mobile-card-title">100% Secure</h4>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================= PROCESS WE FOLLOW SECTION ================= -->
-    <section class="mobile-process-section" id="process" aria-labelledby="mobileProcessTitle">
-      <div class="wrap">
-        <div class="service-section-header reveal" style="text-align: center; max-width: 820px; margin: 0 auto clamp(36px, 5vw, 60px);">
-          <div class="eyebrow" style="justify-content:center;">Lifecycle &amp; Delivery</div>
-          <h2 id="mobileProcessTitle">Process We <span class="italic">Follow</span></h2>
-          <p style="color:var(--ink-soft); margin-top:14px; font-size: 16.5px; line-height: 1.65;">
-            We start by conducting a thorough analysis of your project requirements and goals. Once the scope is defined, we move on to design, creating mockups and wireframes to visualize the final product.
-          </p>
-        </div>
-
-        <div class="mobile-process-layout reveal">
-          <!-- LEFT COLUMN (Steps 01, 02, 03) -->
-          <div class="mobile-process-col mobile-process-col-left">
-            <!-- Step 1: Requirement Gathering -->
-            <div class="mobile-process-card leaf-card-left-1">
-              <div class="mobile-process-badge-wrap">
-                <div class="mobile-process-badge-ring"></div>
-                <div class="mobile-process-badge">
-                  <span class="mobile-process-badge-num">1</span>
-                </div>
-              </div>
-              <div class="mobile-process-card-content">
-                <h3 class="mobile-process-step-title">REQUIREMENT GATHERING</h3>
-                <p class="mobile-process-step-desc">
-                  Our primary and most critical step is to prioritize the gathering of requirements, resources, and essential information as we embark on our projects.
-                </p>
-              </div>
-            </div>
-
-            <!-- Step 2: UI/UX Design -->
-            <div class="mobile-process-card leaf-card-left-2">
-              <div class="mobile-process-badge-wrap">
-                <div class="mobile-process-badge-ring"></div>
-                <div class="mobile-process-badge">
-                  <span class="mobile-process-badge-num">2</span>
-                </div>
-              </div>
-              <div class="mobile-process-card-content">
-                <h3 class="mobile-process-step-title">UI/UX Design</h3>
-                <p class="mobile-process-step-desc">
-                  The UX/UI design phase in our mobile app development process is the cornerstone of creating exceptional user experiences. It commences with meticulous research and analysis to gain insights into user behavior and preferences, allowing us to tailor the app to your needs.
-                </p>
-              </div>
-            </div>
-
-            <!-- Step 3: Development -->
-            <div class="mobile-process-card leaf-card-left-3">
-              <div class="mobile-process-badge-wrap">
-                <div class="mobile-process-badge-ring"></div>
-                <div class="mobile-process-badge">
-                  <span class="mobile-process-badge-num">3</span>
-                </div>
-              </div>
-              <div class="mobile-process-card-content">
-                <h3 class="mobile-process-step-title">DEVELOPMENT</h3>
-                <p class="mobile-process-step-desc">
-                  Developers write the app's code according to the chosen platform and technology stack. This phase includes frontend and backend development, database integration, and implementing features.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- CENTER COLUMN (Big Vector SVG Illustration) -->
-          <div class="mobile-process-center-visual">
-            <div class="mobile-process-svg-wrapper">
-              <svg class="mobile-process-svg" viewBox="0 0 540 440" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Mobile app engineering and debugging illustration">
-                <defs>
-                  <linearGradient id="mpBlobGrad" x1="120" y1="40" x2="420" y2="400" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#E8E5F8" stop-opacity="0.8"/>
-                    <stop offset="100%" stop-color="#DCD6F7" stop-opacity="0.4"/>
-                  </linearGradient>
-                  <linearGradient id="mpLaptopBody" x1="130" y1="130" x2="410" y2="360" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#2563EB"/>
-                    <stop offset="100%" stop-color="#1D4ED8"/>
-                  </linearGradient>
-                  <linearGradient id="mpScreenBg" x1="140" y1="140" x2="400" y2="320" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#0F172A"/>
-                    <stop offset="100%" stop-color="#090D16"/>
-                  </linearGradient>
-                  <linearGradient id="mpMagRing" x1="280" y1="160" x2="380" y2="280" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#FDE047"/>
-                    <stop offset="50%" stop-color="#F59E0B"/>
-                    <stop offset="100%" stop-color="#D97706"/>
-                  </linearGradient>
-                  <linearGradient id="mpLensBg" x1="285" y1="170" x2="375" y2="260" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#1E293B" stop-opacity="0.95"/>
-                    <stop offset="100%" stop-color="#0B0F19" stop-opacity="0.98"/>
-                  </linearGradient>
-                  <linearGradient id="mpTagGrad" x1="30" y1="150" x2="110" y2="210" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#FB923C"/>
-                    <stop offset="100%" stop-color="#EA580C"/>
-                  </linearGradient>
-                  <linearGradient id="mpProgressFill" x1="170" y1="290" x2="330" y2="290" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#F59E0B"/>
-                    <stop offset="100%" stop-color="#E11D48"/>
-                  </linearGradient>
-                  <filter id="mpShadow" x="-10%" y="-10%" width="120%" height="130%" filterUnits="userSpaceOnUse">
-                    <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#000000" flood-opacity="0.16"/>
-                  </filter>
-                </defs>
-
-                <!-- Soft organic purple backdrop blob -->
-                <path d="M 270 50 C 390 50, 480 130, 480 260 C 480 370, 380 410, 270 410 C 140 410, 70 340, 70 230 C 70 120, 150 50, 270 50 Z" fill="url(#mpBlobGrad)"/>
-
-                <!-- Faint background bug watermark (top-right) -->
-                <g opacity="0.14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="bug-watermark">
-                  <ellipse cx="445" cy="180" rx="14" ry="18" fill="none"/>
-                  <circle cx="445" cy="154" r="7" fill="none"/>
-                  <path d="M 440 148 Q 436 140 430 136 M 450 148 Q 454 140 460 136"/>
-                  <path d="M 432 170 Q 420 168 414 162 M 458 170 Q 470 168 476 162"/>
-                  <path d="M 431 182 Q 418 184 412 188 M 459 182 Q 472 184 478 188"/>
-                  <path d="M 433 194 Q 420 200 416 208 M 457 194 Q 470 200 474 208"/>
-                </g>
-
-                <!-- Looping circuit track / conveyor in background -->
-                <path d="M 90 270 C 60 210, 80 140, 130 120 C 190 100, 260 110, 310 130 C 370 150, 450 200, 470 270 C 485 320, 440 370, 380 375" fill="none" stroke="#94A3B8" stroke-width="22" stroke-linecap="round" opacity="0.25"/>
-                <path d="M 90 270 C 60 210, 80 140, 130 120 C 190 100, 260 110, 310 130 C 370 150, 450 200, 470 270 C 485 320, 440 370, 380 375" fill="none" stroke="#64748B" stroke-width="22" stroke-dasharray="3 7" stroke-linecap="butt" opacity="0.45"/>
-
-                <!-- Floating Code Badge </> (upper-left) -->
-                <g class="floating-code-tag" filter="url(#mpShadow)">
-                  <rect x="36" y="152" width="74" height="46" rx="14" fill="url(#mpTagGrad)"/>
-                  <text x="73" y="182" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="20" fill="#FFFFFF" letter-spacing="1">&lt;/&gt;</text>
-                </g>
-
-                <!-- LAPTOP WORKSTATION -->
-                <!-- Laptop Screen Bezel -->
-                <rect x="130" y="132" width="280" height="194" rx="14" fill="url(#mpLaptopBody)" filter="url(#mpShadow)"/>
-                
-                <!-- Display Area -->
-                <rect x="142" y="144" width="256" height="168" rx="8" fill="url(#mpScreenBg)"/>
-
-                <!-- Display Top Bar dots -->
-                <circle cx="156" cy="157" r="3.5" fill="#EF4444"/>
-                <circle cx="168" cy="157" r="3.5" fill="#F59E0B"/>
-                <circle cx="180" cy="157" r="3.5" fill="#10B981"/>
-
-                <!-- Code Lines inside editor -->
-                <g opacity="0.85">
-                  <rect x="156" y="174" width="34" height="5" rx="2.5" fill="#38BDF8"/>
-                  <rect x="195" y="174" width="46" height="5" rx="2.5" fill="#A855F7"/>
-                  <rect x="166" y="186" width="58" height="5" rx="2.5" fill="#FBBF24"/>
-                  <rect x="229" y="186" width="36" height="5" rx="2.5" fill="#38BDF8"/>
-                  <rect x="166" y="198" width="85" height="5" rx="2.5" fill="#94A3B8"/>
-                  <rect x="156" y="210" width="42" height="5" rx="2.5" fill="#F43F5E"/>
-                  <rect x="166" y="222" width="60" height="5" rx="2.5" fill="#38BDF8"/>
-                  <rect x="176" y="234" width="45" height="5" rx="2.5" fill="#FBBF24"/>
-                  <rect x="166" y="246" width="70" height="5" rx="2.5" fill="#38BDF8"/>
-                  <rect x="156" y="258" width="38" height="5" rx="2.5" fill="#A855F7"/>
-                </g>
-
-                <!-- Laptop Lower Controls Bar -->
-                <!-- Settings Gear Icon -->
-                <g transform="translate(156, 290)" stroke="#94A3B8" stroke-width="1.8" fill="none">
-                  <circle cx="8" cy="8" r="4.5"/>
-                  <path d="M8 1v2 M8 13v2 M1 8h2 M13 8h2 M3 3l1.5 1.5 M11.5 11.5L13 13 M3 13l1.5-1.5 M11.5 4.5L13 3"/>
-                </g>
-
-                <!-- Progress Bar -->
-                <rect x="180" y="294" width="194" height="8" rx="4" fill="#1E293B"/>
-                <rect x="180" y="294" width="138" height="8" rx="4" fill="url(#mpProgressFill)"/>
-
-                <!-- Laptop Base Deck -->
-                <path d="M 96 326 L 444 326 C 452 326, 458 331, 455 338 L 443 355 C 440 360, 432 363, 424 363 L 116 363 C 108 363, 100 360, 97 355 L 85 338 C 82 331, 88 326, 96 326 Z" fill="url(#mpLaptopBody)" filter="url(#mpShadow)"/>
-                <!-- Trackpad slot -->
-                <rect x="230" y="328" width="80" height="5" rx="2.5" fill="#172554" opacity="0.65"/>
-
-                <!-- MAGNIFYING GLASS & BUG INSPECTION (Targeting Bug) -->
-                <!-- Glass Lens Background -->
-                <circle cx="338" cy="222" r="44" fill="url(#mpLensBg)" filter="url(#mpShadow)"/>
-
-                <!-- Bug / Beetle inside the lens -->
-                <g id="inspectedBug" transform="translate(338, 222)">
-                  <!-- Antennae -->
-                  <path d="M -4 -16 Q -8 -24 -14 -28 M 4 -16 Q 8 -24 14 -28" fill="none" stroke="#FBBF24" stroke-width="2.2" stroke-linecap="round"/>
-                  <!-- Bug Head -->
-                  <ellipse cx="0" cy="-14" rx="6" ry="5" fill="#FBBF24"/>
-                  <!-- Bug Body / Thorax & Abdomen -->
-                  <rect x="-10" y="-8" width="20" height="24" rx="8" fill="#F97316"/>
-                  <!-- Abdomen central division line -->
-                  <line x1="0" y1="-8" x2="0" y2="16" stroke="#0F172A" stroke-width="1.8"/>
-                  <line x1="-9" y1="2" x2="9" y2="2" stroke="#0F172A" stroke-width="1.2" opacity="0.6"/>
-                  <!-- 6 Legs -->
-                  <!-- Top pair -->
-                  <path d="M -9 -4 Q -18 -8 -22 -14 M 9 -4 Q 18 -8 22 -14" fill="none" stroke="#FBBF24" stroke-width="2.4" stroke-linecap="round"/>
-                  <!-- Middle pair -->
-                  <path d="M -10 3 Q -21 4 -24 7 M 10 3 Q 21 4 24 7" fill="none" stroke="#FBBF24" stroke-width="2.4" stroke-linecap="round"/>
-                  <!-- Bottom pair -->
-                  <path d="M -9 10 Q -18 16 -21 23 M 9 10 Q 18 16 21 23" fill="none" stroke="#FBBF24" stroke-width="2.4" stroke-linecap="round"/>
-                </g>
-
-                <!-- Lens Glare Reflection -->
-                <path d="M 306 190 A 42 42 0 0 1 364 190 A 42 42 0 0 0 306 190 Z" fill="#FFFFFF" opacity="0.18"/>
-
-                <!-- Golden Metallic Magnifier Rim -->
-                <circle cx="338" cy="222" r="44" fill="none" stroke="url(#mpMagRing)" stroke-width="8"/>
-
-                <!-- Magnifier Handle -->
-                <line x1="370" y1="254" x2="416" y2="300" stroke="url(#mpMagRing)" stroke-width="12" stroke-linecap="round"/>
-                <line x1="382" y1="266" x2="412" y2="296" stroke="#FDE047" stroke-width="4" stroke-linecap="round" opacity="0.75"/>
-              </svg>
-            </div>
-          </div>
-
-          <!-- RIGHT COLUMN (Steps 04, 05, 06) -->
-          <div class="mobile-process-col mobile-process-col-right">
-            <!-- Step 4: Testing & Q/A -->
-            <div class="mobile-process-card leaf-card-right-4">
-              <div class="mobile-process-badge-wrap">
-                <div class="mobile-process-badge-ring"></div>
-                <div class="mobile-process-badge">
-                  <span class="mobile-process-badge-num">4</span>
-                </div>
-              </div>
-              <div class="mobile-process-card-content">
-                <h3 class="mobile-process-step-title">TESTING &amp; Q/A</h3>
-                <p class="mobile-process-step-desc">
-                  We perform rigorous testing to identify and fix bugs, ensure the app functions as intended, and maintain security and performance standards. Testing may involve alpha and beta testing with real users.
-                </p>
-              </div>
-            </div>
-
-            <!-- Step 5: Deployment -->
-            <div class="mobile-process-card leaf-card-right-5">
-              <div class="mobile-process-badge-wrap">
-                <div class="mobile-process-badge-ring"></div>
-                <div class="mobile-process-badge">
-                  <span class="mobile-process-badge-num">5</span>
-                </div>
-              </div>
-              <div class="mobile-process-card-content">
-                <h3 class="mobile-process-step-title">DEPLOYMENT</h3>
-                <p class="mobile-process-step-desc">
-                  The app is published on the respective app stores (Apple App Store, Google Play Store, etc.). This phase includes preparing app store listings, setting pricing or monetization strategies, and complying with platform guidelines.
-                </p>
-              </div>
-            </div>
-
-            <!-- Step 6: Monitoring -->
-            <div class="mobile-process-card leaf-card-right-6">
-              <div class="mobile-process-badge-wrap">
-                <div class="mobile-process-badge-ring"></div>
-                <div class="mobile-process-badge">
-                  <span class="mobile-process-badge-num">6</span>
-                </div>
-              </div>
-              <div class="mobile-process-card-content">
-                <h3 class="mobile-process-step-title">MONITORING</h3>
-                <p class="mobile-process-step-desc">
-                  Ongoing monitoring helps track app performance, identify issues, and provide valuable insights into user behavior.
-                </p>
-              </div>
+            <div class="pl-dark-cell" data-reveal>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <h3>Security-First</h3>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= FAQ SECTION (Image 2 & Image 3) ================= -->
+    <!-- PROCESS -->
+    <section class="pl-section pl-section--flush-top" id="process" aria-labelledby="mobileProcessTitle">
+      <div class="pl-wrap">
+        <div class="pl-head" data-reveal>
+          <span class="pl-badge">Lifecycle &amp; Delivery</span>
+          <h2 id="mobileProcessTitle" class="pl-h2">Process We Follow</h2>
+          <p class="pl-sub">We start by conducting a thorough analysis of your project requirements and goals. Once the scope is defined, we move on to design, creating mockups and wireframes to visualize the final product.</p>
+        </div>
+        <ol class="pl-steps pl-steps--3">
+          <li class="pl-step" data-reveal><span class="pl-num">01</span><h3>Requirement Gathering</h3><p>Our primary and most critical step is to prioritize the gathering of requirements, resources, and essential information as we embark on our projects.</p></li>
+          <li class="pl-step" data-reveal><span class="pl-num">02</span><h3>UI/UX Design</h3><p>The UX/UI design phase in our mobile app development process is the cornerstone of creating exceptional user experiences. It commences with meticulous research and analysis to gain insights into user behavior and preferences, allowing us to tailor the app to your needs.</p></li>
+          <li class="pl-step" data-reveal><span class="pl-num">03</span><h3>Development</h3><p>Developers write the app's code according to the chosen platform and technology stack. This phase includes frontend and backend development, database integration, and implementing features.</p></li>
+          <li class="pl-step" data-reveal><span class="pl-num">04</span><h3>Testing &amp; Q/A</h3><p>We perform rigorous testing to identify and fix bugs, ensure the app functions as intended, and maintain security and performance standards. Testing may involve alpha and beta testing with real users.</p></li>
+          <li class="pl-step" data-reveal><span class="pl-num">05</span><h3>Deployment</h3><p>The app is published on the respective app stores (Apple App Store, Google Play Store, etc.). This phase includes preparing app store listings, setting pricing or monetization strategies, and complying with platform guidelines.</p></li>
+          <li class="pl-step" data-reveal><span class="pl-num">06</span><h3>Monitoring</h3><p>Ongoing monitoring helps track app performance, identify issues, and provide valuable insights into user behavior.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- FAQ -->
     <section class="faq-section" id="faqs" aria-labelledby="faqHeading">
-      <div class="wrap">
+      <div class="pl-wrap">
         <div class="faq-grid">
-          <!-- Left Column: Title, Sub-description, Direct Contact -->
-          <div class="faq-intro reveal">
-            <div class="eyebrow">Mobile FAQs</div>
-            <h2 id="faqHeading" class="faq-title">Frequently asked <span class="italic">mobile questions</span></h2>
+          <div class="faq-intro" data-reveal>
+            <span class="pl-badge" style="align-self:flex-start;">Mobile FAQs</span>
+            <h2 id="faqHeading" class="faq-title">Frequently asked <em>mobile questions</em></h2>
             <p class="faq-desc">Everything you need to know about native iOS &amp; Android engineering, cross-platform selection, project timelines, and commercial ROI.</p>
             <div class="faq-support-box">
+              <img class="pl-faq-photo" src="images/team-2.webp" alt="" width="400" height="500" loading="lazy">
               <span class="faq-support-title">Have a specific mobile challenge?</span>
-              <p class="faq-support-text">Our lead mobile engineers are available for an initial technical audit of your product roadmap and architecture.</p>
+              <p class="faq-support-text">We are available for an initial technical audit of your product roadmap and architecture.</p>
               <a href="contact.html" class="faq-support-btn">
                 <span>Start a mobile consultation</span>
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
-                </svg>
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/></svg>
               </a>
             </div>
           </div>
+          <div class="faq-accordion-list" data-reveal>
+<div class="faq-item is-open">
+  <button class="faq-question" type="button" aria-expanded="true" aria-controls="faq-ans-1" id="faq-q-1">
+    <span class="faq-question-text">What are mobile solutions?</span>
+    <span class="faq-toggle-icon" aria-hidden="true">
+      <!-- Custom Angle Chevron Icon (Image 3) with existing brand color -->
+      <svg class="faq-angle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 6 15 12 9 18"></polyline>
+      </svg>
+    </span>
+  </button>
+  <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
+    <div class="faq-answer-inner">
+      <p>Mobile solutions encompass custom native applications (iOS and Android), cross-platform mobile apps (Flutter, React Native), and Progressive Web Apps (PWAs) engineered to deliver fast, secure, and personalized experiences directly to smartphones and tablets.</p>
+      <p>Beyond front-end customer interfaces, modern mobile solutions integrate resilient backend APIs, real-time cloud synchronisation, push notifications, offline data storage, and mobile commerce checkout flows that keep users connected to your brand anywhere, anytime.</p>
+    </div>
+  </div>
+</div>
 
-          <!-- Right Column: Accordion with Uploaded Questions & Angle Icon -->
-          <div class="faq-accordion-list reveal">
-            <!-- FAQ 1: What are mobile solutions? -->
-            <div class="faq-item is-open">
-              <button class="faq-question" type="button" aria-expanded="true" aria-controls="faq-ans-1" id="faq-q-1">
-                <span class="faq-question-text">What are mobile solutions?</span>
-                <span class="faq-toggle-icon" aria-hidden="true">
-                  <!-- Custom Angle Chevron Icon (Image 3) with existing brand color -->
-                  <svg class="faq-angle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="9 6 15 12 9 18"></polyline>
-                  </svg>
-                </span>
-              </button>
-              <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
-                <div class="faq-answer-inner">
-                  <p>Mobile solutions encompass custom native applications (iOS and Android), cross-platform mobile apps (Flutter, React Native), and Progressive Web Apps (PWAs) engineered to deliver fast, secure, and personalized experiences directly to smartphones and tablets.</p>
-                  <p>Beyond front-end customer interfaces, modern mobile solutions integrate resilient backend APIs, real-time cloud synchronisation, push notifications, offline data storage, and mobile commerce checkout flows that keep users connected to your brand anywhere, anytime.</p>
-                </div>
-              </div>
-            </div>
+<div class="faq-item">
+  <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
+    <span class="faq-question-text">Which type is best for my business?</span>
+    <span class="faq-toggle-icon" aria-hidden="true">
+      <svg class="faq-angle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 6 15 12 9 18"></polyline>
+      </svg>
+    </span>
+  </button>
+  <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-q-2">
+    <div class="faq-answer-inner">
+      <p>The ideal mobile architecture depends on your product roadmap, performance requirements, and timeline:</p>
+      <ul style="margin: 12px 0 12px 20px; line-height: 1.6; color: var(--ink-soft);">
+        <li><strong>Native Apps (Swift for iOS / Kotlin for Android):</strong> Ideal for computationally demanding applications, heavy camera/sensor hardware integration, 120Hz gaming/AR/VR, or when uncompromised platform fidelity is paramount.</li>
+        <li><strong>Cross-Platform Apps (React Native / Flutter):</strong> Best for startups and growth-stage brands seeking fast time-to-market, unified feature parity, and cost efficiency by maintaining a single high-performance codebase for both iOS and Google Play stores.</li>
+      </ul>
+      <p>During our initial technical discovery, PrimeLoft assesses your feature requirements, budget, and release timelines to recommend the optimal tech stack with zero guesswork.</p>
+    </div>
+  </div>
+</div>
 
-            <!-- FAQ 2: Which type is best for my business? -->
-            <div class="faq-item">
-              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
-                <span class="faq-question-text">Which type is best for my business?</span>
-                <span class="faq-toggle-icon" aria-hidden="true">
-                  <svg class="faq-angle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="9 6 15 12 9 18"></polyline>
-                  </svg>
-                </span>
-              </button>
-              <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-q-2">
-                <div class="faq-answer-inner">
-                  <p>The ideal mobile architecture depends on your product roadmap, performance requirements, and timeline:</p>
-                  <ul style="margin: 12px 0 12px 20px; line-height: 1.6; color: var(--ink-soft);">
-                    <li><strong>Native Apps (Swift for iOS / Kotlin for Android):</strong> Ideal for computationally demanding applications, heavy camera/sensor hardware integration, 120Hz gaming/AR/VR, or when uncompromised platform fidelity is paramount.</li>
-                    <li><strong>Cross-Platform Apps (React Native / Flutter):</strong> Best for startups and growth-stage brands seeking fast time-to-market, unified feature parity, and cost efficiency by maintaining a single high-performance codebase for both iOS and Google Play stores.</li>
-                  </ul>
-                  <p>During our initial technical discovery, PrimeLoft assesses your feature requirements, budget, and release timelines to recommend the optimal tech stack with zero guesswork.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- FAQ 3: How can i use web solutions for my business? -->
-            <div class="faq-item">
-              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
-                <span class="faq-question-text">How can i use web solutions for my business?</span>
-                <span class="faq-toggle-icon" aria-hidden="true">
-                  <svg class="faq-angle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="9 6 15 12 9 18"></polyline>
-                  </svg>
-                </span>
-              </button>
-              <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-q-3">
-                <div class="faq-answer-inner">
-                  <p>Combining mobile and modern web solutions unlocks powerful revenue channels and operational efficiencies:</p>
-                  <ul style="margin: 12px 0 12px 20px; line-height: 1.6; color: var(--ink-soft);">
-                    <li><strong>Direct-to-Consumer Monetization:</strong> Deliver friction-free one-tap checkouts with Apple Pay and Google Pay, driving higher conversion rates and customer retention compared to standard mobile browsers.</li>
-                    <li><strong>Customer Engagement &amp; Retention:</strong> Leverage timely, targeted push notifications, VIP loyalty rewards, and personalized feeds to increase lifetime value (LTV) and app return rates.</li>
-                    <li><strong>Enterprise Field &amp; Operational Tools:</strong> Empower your distributed workforce, sales reps, or operations teams with internal mobile tools featuring offline capabilities, camera scanning, and instant ERP/CRM synchronization.</li>
-                  </ul>
-                  <p>PrimeLoft bridges web platforms and mobile apps into a cohesive omnichannel ecosystem so your customers experience uninterrupted continuity across every screen.</p>
-                </div>
-              </div>
-            </div>
+<div class="faq-item">
+  <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
+    <span class="faq-question-text">How can i use web solutions for my business?</span>
+    <span class="faq-toggle-icon" aria-hidden="true">
+      <svg class="faq-angle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 6 15 12 9 18"></polyline>
+      </svg>
+    </span>
+  </button>
+  <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-q-3">
+    <div class="faq-answer-inner">
+      <p>Combining mobile and modern web solutions unlocks powerful revenue channels and operational efficiencies:</p>
+      <ul style="margin: 12px 0 12px 20px; line-height: 1.6; color: var(--ink-soft);">
+        <li><strong>Direct-to-Consumer Monetization:</strong> Deliver friction-free one-tap checkouts with Apple Pay and Google Pay, driving higher conversion rates and customer retention compared to standard mobile browsers.</li>
+        <li><strong>Customer Engagement &amp; Retention:</strong> Leverage timely, targeted push notifications, VIP loyalty rewards, and personalized feeds to increase lifetime value (LTV) and app return rates.</li>
+        <li><strong>Enterprise Field &amp; Operational Tools:</strong> Empower your distributed workforce, sales reps, or operations teams with internal mobile tools featuring offline capabilities, camera scanning, and instant ERP/CRM synchronization.</li>
+      </ul>
+      <p>PrimeLoft bridges web platforms and mobile apps into a cohesive omnichannel ecosystem so your customers experience uninterrupted continuity across every screen.</p>
+    </div>
+  </div>
+</div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- CTA -->
+    <section class="pl-section pl-section--flush-top" aria-labelledby="ctaTitle">
+      <div class="pl-wrap">
+        <div class="pl-cta pl-stripes pl-stripes--solid" data-reveal>
+          <span class="pl-badge pl-badge--plain">Mobile Engineering</span>
+          <h2 id="ctaTitle" class="pl-h2">Schedule a mobile discovery</h2>
+          <p>Consider hiring our dedicated mobile app developers today to bring your vision to life!</p>
+          <div class="pl-ctas">
+            <a href="contact.html" class="pl-btn pl-btn--light">Start a mobile consultation</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- ================= FOOTER ================= -->
-  <footer>
-    <div class="wrap">
-      <div class="footer-top">
-        <div class="footer-brand">
+  <footer class="pl-footer">
+    <div class="pl-wrap">
+      <div class="pl-footer__top">
+        <div class="pl-footer__brand">
           <a href="index.html" class="logo-brand" aria-label="PrimeLoft Software Solutions">
             <picture class="logo-img logo-img-light">
               <source srcset="images/logo-light.webp" type="image/webp">
@@ -914,7 +423,7 @@
               <img src="images/logo-dark.png" class="logo-img" alt="PrimeLoft Software Solutions" width="200" height="66" loading="lazy">
             </picture>
           </a>
-          <p>A digital commerce studio designing, engineering and scaling high-converting platforms for ambitious modern brands.</p>
+          <p>A digital commerce studio designing, building and scaling revenue-driving platforms.</p>
           <div class="social-links-row">
             <a href="https://wa.me/923359873132" target="_blank" rel="noopener noreferrer" class="social-btn wa" aria-label="Chat on WhatsApp">
               <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662a11.87 11.87 0 005.707 1.456h.005c6.554 0 11.89-5.335 11.893-11.893 0-3.177-1.238-6.164-3.486-8.413z"/></svg>
@@ -927,18 +436,18 @@
             </a>
           </div>
         </div>
-        <div class="footer-col">
-          <h3 class="footer-title">Our Company</h3>
-          <ul class="footer-links">
+        <div>
+          <h3>Our Company</h3>
+          <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h3 class="footer-title">Services</h3>
-          <ul class="footer-links">
+        <div>
+          <h3>Services</h3>
+          <ul>
             <li><a href="service-mobile-app-development.html">Mobile App Development</a></li>
             <li><a href="service-seo.html">Search Engine Optimization (SEO)</a></li>
             <li><a href="service-design.html">Product &amp; Experience Design</a></li>
@@ -949,29 +458,19 @@
             <li><a href="service-quality.html">Quality, Delivery &amp; Scale</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h3 class="footer-title">Keep in Touch</h3>
-          <div class="addr-icon-row">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            <div class="addr">PrimeLoft Tech<br>GardenTown, Multan Road<br>DGK, Pakistan</div>
-          </div>
-          <div class="addr-icon-row">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            <div class="addr">+92 335 9873132</div>
-          </div>
-          <div class="addr-icon-row">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
-            <div class="addr">contact@primeloft.tech</div>
-          </div>
+        <div>
+          <h3>Keep in Touch</h3>
+          <address>
+            <span>PrimeLoft Tech<br>GardenTown, Multan Road<br>DGK, Pakistan</span>
+            <a href="tel:+923359873132">+92 335 9873132</a>
+            <a href="mailto:contact@primeloft.tech">contact@primeloft.tech</a>
+          </address>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 PrimeLoft Tech. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms of Service</a>
-          <a href="cookies.html">Cookie Policy</a>
-        </div>
+      <div class="pl-footer__mark" aria-hidden="true">PrimeLoft</div>
+      <div class="pl-footer__bottom">
+        <span>© 2026 PrimeLoft Tech. All rights reserved.</span>
+        <span class="pl-footer__legal"><a href="privacy.html">Privacy Policy</a><a href="cookies.html">Cookie Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a><a href="#" class="open-cookie-settings">Manage Cookie Preferences</a></span>
       </div>
     </div>
   </footer>

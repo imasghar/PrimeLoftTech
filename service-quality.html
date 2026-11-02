@@ -22,15 +22,23 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap">
+  <script>
+    (function () {
+      var t = null;
+      try { t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('primeloft-theme'); } catch (e) {}
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&family=Inter:wght@400..700&display=swap">
   <link rel="icon" type="image/x-icon" href="favicon.ico?v=1.0.2">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=1.0.2">
   <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png?v=1.0.2">
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png?v=1.0.2">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=1.0.2">
   <link rel="stylesheet" href="css/style.css?v=2.9.4">
-  <script src="js/libs/lottie_light.min.js?v=2.6.0" defer></script>
+  <link rel="stylesheet" href="css/theme.css?v=1.0.0">
   <script type="module" src="js/main.js?v=2.7.0" defer></script>
+  <script type="module" src="js/theme.js?v=1.0.0"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -43,10 +51,11 @@
   }
   </script>
 </head>
-<body>
+<body class="pl pl-page-service-quality">
+  <a class="pl-skip" href="#main-content">Skip to content</a>
 
   <!-- ================= HEADER ================= -->
-  <header>
+  <header class="pl-header">
     <div class="nav-row">
       <a href="index.html" class="logo-brand" aria-label="PrimeLoft Software Solutions">
         <picture class="logo-img logo-img-light">
@@ -58,66 +67,30 @@
           <img src="images/logo-dark.png" class="logo-img" alt="PrimeLoft Software Solutions" width="200" height="66">
         </picture>
       </a>
-      <nav class="primary">
-        <a href="index.html" class="navlink">
-          <span class="nav-lottie-icon nav-home-lottie" aria-hidden="true"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-          </svg></span>
-          <span>Home</span>
-        </a>
-        <div class="has-mega" style="position:relative;">
-          <a href="services.html" class="navlink active" aria-expanded="false" aria-haspopup="true">
-            <span class="nav-lottie-icon nav-services-lottie" aria-hidden="true"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="7" height="7"></rect>
-              <rect x="14" y="3" width="7" height="7"></rect>
-              <rect x="14" y="14" width="7" height="7"></rect>
-              <rect x="3" y="14" width="7" height="7"></rect>
-            </svg></span>
+      <nav class="primary" aria-label="Primary">
+        <a href="index.html" class="navlink">Home</a>
+        <div class="has-mega">
+          <a href="services.html" class="navlink" aria-expanded="false" aria-haspopup="true">
             <span>Services</span>
-            <svg class="caret" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            <svg class="caret" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
           </a>
           <div class="mega dropdown-card" id="servicesDropdown" role="menu" aria-label="Services dropdown">
             <div class="mega-list">
-              <a href="service-mobile-app-development.html" class="mega-item" role="menuitem">
-                <span class="mtitle">Mobile App Development</span>
-              </a>
-              <a href="service-seo.html" class="mega-item" role="menuitem">
-                <span class="mtitle">Search Engine Optimization (SEO)</span>
-              </a>
-              <a href="service-strategy.html" class="mega-item" role="menuitem">
-                <span class="mtitle">Strategy &amp; Innovation</span>
-              </a>
-              <a href="service-engineering.html" class="mega-item" role="menuitem">
-                <span class="mtitle">Software Engineering</span>
-              </a>
-              <a href="service-ai.html" class="mega-item" role="menuitem">
-                <span class="mtitle">AI &amp; Data</span>
-              </a>
-              <a href="service-cloud.html" class="mega-item" role="menuitem">
-                <span class="mtitle">Cloud &amp; Platform Engineering</span>
-              </a>
-              <a href="service-quality.html" class="mega-item" role="menuitem">
-                <span class="mtitle">Quality, Delivery &amp; Scale</span>
-              </a>
+              <a href="service-mobile-app-development.html" class="mega-item" role="menuitem"><span class="mtitle">Mobile App Development</span></a>
+              <a href="service-seo.html" class="mega-item" role="menuitem"><span class="mtitle">Search Engine Optimization (SEO)</span></a>
+              <a href="service-design.html" class="mega-item" role="menuitem"><span class="mtitle">Product &amp; Experience Design</span></a>
+              <a href="service-strategy.html" class="mega-item" role="menuitem"><span class="mtitle">Strategy &amp; Innovation</span></a>
+              <a href="service-engineering.html" class="mega-item" role="menuitem"><span class="mtitle">Software Engineering</span></a>
+              <a href="service-ai.html" class="mega-item" role="menuitem"><span class="mtitle">AI &amp; Data</span></a>
+              <a href="service-cloud.html" class="mega-item" role="menuitem"><span class="mtitle">Cloud &amp; Platform Engineering</span></a>
+              <a href="service-quality.html" class="mega-item" role="menuitem"><span class="mtitle">Quality, Delivery &amp; Scale</span></a>
             </div>
             <div class="mega-footer">
-              <a href="services.html" class="btn btn-primary">
-                <span>View all services</span>
-                <svg class="btn-arrow-diag" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
-                </svg>
-              </a>
+              <a href="services.html" class="pl-btn pl-btn--dark pl-btn--sm" style="width:100%;">View all services</a>
             </div>
           </div>
         </div>
-        <a href="about.html" class="navlink">
-          <span class="nav-lottie-icon nav-about-lottie" aria-hidden="true"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg></span>
-          <span>About Us</span>
-        </a>
+        <a href="about.html" class="navlink">About Us</a>
       </nav>
       <div class="header-right">
         <button class="theme-btn" id="themeToggle" aria-label="Toggle light and dark theme" title="Toggle theme">
@@ -136,335 +109,278 @@
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
         </button>
-        <div class="header-contact-block">
-          <a href="mailto:contact@primeloft.tech" class="header-email-link">
-            <svg class="header-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-            </svg>
-            <span>contact@primeloft.tech</span>
-          </a>
-          <a href="tel:+923359873132" class="header-phone-link">
-            <svg class="header-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            <span>+92 335 9873132</span>
-          </a>
-        </div>
-        <a href="contact.html" class="btn btn-primary">
-          <span>Contact Us</span>
-          <span class="btn-lottie-icon contact-btn-lottie" aria-hidden="true"><svg class="btn-arrow-diag" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
-          </svg></span>
-        </a>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <path d="M4 6h16M4 12h16M4 18h16"/>
+        <a href="contact.html" class="pl-btn pl-btn--dark">Contact Us</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
           </svg>
         </button>
       </div>
     </div>
   </header>
+  <div class="pl-top-space" aria-hidden="true"></div>
 
   <!-- ================= MAIN CONTENT ================= -->
   <main id="main-content">
 
-    <!-- HERO SECTION -->
-    <section class="service-detail-hero">
-      <div class="wrap">
-        <div class="service-hero-grid">
-          <div class="service-hero-content reveal">
-            <div class="eyebrow">Discipline 06 · Quality, Delivery &amp; Scale</div>
-            <h1>Quality, <span class="script">Delivery</span> &amp; Scale</h1>
-            <p class="lead">From multi-browser automated regression suites to peak-load stress simulation and continuous delivery quality gates, we protect your brand reputation and transaction revenues at enterprise scale.</p>
-            <div class="service-hero-actions">
-              <a href="contact.html" class="btn btn-primary">Schedule QA assessment <span class="btn-arrow">→</span></a>
-              <a href="#capabilities" class="btn btn-ghost">Explore capabilities</a>
-            </div>
-            <div class="sb-tags" style="margin-top:32px;">
-              <span>Automated E2E Testing</span>
-              <span>k6 Stress Simulation</span>
-              <span>Playwright &amp; Cypress</span>
-              <span>CI/CD Quality Gates</span>
-              <span>Cross-Device Matrix</span>
-              <span>Zero-Defect Releases</span>
-            </div>
-          </div>
-
-          <div class="sb-media sb-media-lottie reveal">
-            <div id="qualityLottieContainer" class="quality-lottie-container" aria-label="Quality, Delivery and Scale Delivery Truck and Testing Animation"></div>
-          </div>
+    <!-- HERO -->
+    <section class="pl-hero pl-hero--page" aria-labelledby="pageTitle">
+      <div class="pl-wrap pl-hero__inner">
+        <span class="pl-badge">Discipline 06 · Quality, Delivery &amp; Scale</span>
+        <h1 id="pageTitle" class="pl-h1">Quality, <span class="pl-accent-text">Delivery</span> &amp; Scale</h1>
+        <p class="pl-lead">From multi-browser automated regression suites to peak-load stress simulation and continuous delivery quality gates, we help protect your brand reputation and transaction revenues as you scale.</p>
+        <div class="pl-ctas">
+          <a href="contact.html" class="pl-btn pl-btn--primary">Schedule QA assessment
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/></svg>
+          </a>
+          <a href="#capabilities" class="pl-btn pl-btn--ghost">Explore capabilities</a>
+        </div>
+        <div class="pl-tags pl-tags--center">
+          <span class="pl-tag">Automated E2E Testing</span>
+          <span class="pl-tag">k6 Stress Simulation</span>
+          <span class="pl-tag">Playwright &amp; Cypress</span>
+          <span class="pl-tag">CI/CD Quality Gates</span>
+          <span class="pl-tag">Cross-Device Matrix</span>
+          <span class="pl-tag">Release Confidence</span>
+        </div>
+        <p class="pl-concept-note">Interfaces shown are concept demonstrations, not client projects or measured results.</p>
+      </div>
+      <div class="pl-showcase pl-stripes">
+        <div class="pl-showcase__frame pl-showcase__frame--scene">
+<div class="pl-scene-frame" aria-hidden="true"><div class="scene sc-quality">
+                <div class="sc-pipe">
+                  <div class="pp on"><i>✓</i>Build</div><span></span>
+                  <div class="pp on"><i>✓</i>Test</div><span></span>
+                  <div class="pp on"><i>✓</i>Stage</div><span></span>
+                  <div class="pp run"><i></i>Release</div>
+                </div>
+                <div class="sc-tests">
+                  <div class="tr-head"><b>Test run</b><span class="prog"><i></i></span></div>
+                  <div class="tr"><i>✓</i>checkout.spec.ts</div>
+                  <div class="tr"><i>✓</i>cart.spec.ts</div>
+                  <div class="tr"><i>✓</i>payments.spec.ts</div>
+                  <div class="tr"><i>✓</i>accessibility.spec.ts</div>
+                  <div class="tr pend"><i></i>performance.spec.ts</div>
+                </div>
+              </div></div>
         </div>
       </div>
     </section>
 
-    <!-- STATS STRIP -->
-    <section>
-      <div class="wrap">
-        <div class="service-stats-strip reveal">
-          <div class="service-stat-box">
-            <div class="num">0</div>
-            <div class="label">Critical production checkout bugs or revenue-blocking regression leaks</div>
-          </div>
-          <div class="service-stat-box">
-            <div class="num">100K+</div>
-            <div class="label">Simulated concurrent virtual users stress-tested prior to brand flash sales</div>
-          </div>
-          <div class="service-stat-box">
-            <div class="num">4x</div>
-            <div class="label">Faster release velocity achieved via automated CI/CD shift-left test suites</div>
-          </div>
+    <!-- CAPABILITIES: split (intro left, capability stack right) -->
+    <section class="pl-section pl-section--soft" id="capabilities" aria-labelledby="capabilitiesTitle">
+      <div class="pl-wrap pl-split" style="align-items:start;">
+        <div class="pl-split__text" data-reveal>
+          <span class="pl-badge">Capabilities &amp; Scope</span>
+          <h2 id="capabilitiesTitle" class="pl-h2">Ship releases with confidence. As often as you need.</h2>
+          <p class="pl-sub">Broken checkout funnels and mobile rendering bugs cost direct revenue. We engineer automated safety nets that reduce manual testing bottlenecks.</p>
+          <a href="contact.html" class="pl-btn pl-btn--ghost">Schedule QA assessment
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/></svg>
+          </a>
         </div>
-      </div>
-    </section>
-
-    <!-- CAPABILITIES SECTION -->
-    <section id="capabilities" style="padding: 50px 0 80px;">
-      <div class="wrap">
-        <div class="service-section-header reveal">
-          <div class="eyebrow" style="justify-content:center;">Capabilities &amp; Scope</div>
-          <h2>Ship fearless releases. Every single day.</h2>
-          <p style="color:var(--ink-soft); margin-top:14px;">Broken checkout funnels and mobile rendering bugs cost direct revenue. We engineer automated safety nets that eliminate manual testing bottlenecks.</p>
-        </div>
-
-        <div class="capabilities-grid">
-          <div class="capability-card reveal">
-            <div class="cap-icon">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-width="1.8"/><polyline points="9 12 11 14 15 10" stroke-width="1.8"/></svg>
-            </div>
+        <div style="display:grid;gap:16px;">
+          <article class="pl-card" data-reveal>
+            <span class="pl-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
             <h3>Automated End-to-End &amp; Journey Testing</h3>
-            <p>Simulate real human checkout journeys, discount application, multi-currency cart updates, and account flows with lightning-fast headless Playwright and Cypress suites.</p>
-            <ul class="cap-deliverables">
+            <p>Simulate real human checkout journeys, discount application, multi-currency cart updates, and account flows with fast headless Playwright and Cypress suites.</p>
+            <ul class="pl-checks pl-checks--muted">
               <li>Comprehensive checkout, PDP, and search automated test coverage</li>
               <li>Network mocking and edge-case error state validation</li>
               <li>Self-healing locators that adapt to ongoing UI updates</li>
             </ul>
-          </div>
-
-          <div class="capability-card reveal">
-            <div class="cap-icon">
-              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke-width="1.8"/><polygon points="10 8 16 12 10 16 10 8" stroke-width="1.8"/></svg>
-            </div>
+          </article>
+          <article class="pl-card" data-reveal>
+            <span class="pl-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></span>
             <h3>Peak Load &amp; Chaos Stress Simulation</h3>
-            <p>Know exactly where your infrastructure breaks before high-stakes sales. We simulate realistic shopping spikes using distributed k6 load testing swarms.</p>
-            <ul class="cap-deliverables">
-              <li>Simulated 10K to 100K+ concurrent buyer journeys</li>
+            <p>Find where your infrastructure breaks before high-stakes sales. We simulate realistic shopping spikes using distributed k6 load testing swarms.</p>
+            <ul class="pl-checks pl-checks--muted">
+              <li>Simulated concurrent buyer journeys at your expected peak scale</li>
               <li>Payment gateway rate-limit and third-party API timeout tests</li>
               <li>Database connection pool saturation and cold-start profiling</li>
             </ul>
-          </div>
-
-          <div class="capability-card reveal">
-            <div class="cap-icon">
-              <svg viewBox="0 0 24 24" fill="none"><polyline points="16 18 22 12 16 6" stroke-width="1.8"/><polyline points="8 6 2 12 8 18" stroke-width="1.8"/><circle cx="12" cy="12" r="2" stroke-width="1.8"/></svg>
-            </div>
+          </article>
+          <article class="pl-card" data-reveal>
+            <span class="pl-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><circle cx="12" cy="12" r="2"/></svg></span>
             <h3>Continuous Delivery &amp; Shift-Left QA</h3>
-            <p>Embed automated quality gates directly into GitHub Actions and GitLab CI, delivering instant feedback to developers before code ever reaches staging.</p>
-            <ul class="cap-deliverables">
+            <p>Embed automated quality gates directly into GitHub Actions and GitLab CI, delivering fast feedback to developers before code ever reaches staging.</p>
+            <ul class="pl-checks pl-checks--muted">
               <li>Ephemeral pull-request preview environments for instant stakeholder review</li>
               <li>Automated security SAST/DAST vulnerability scanning</li>
-              <li>Zero-downtime canary deployment verification &amp; automated rollbacks</li>
+              <li>Canary deployment verification &amp; automated rollbacks</li>
             </ul>
-          </div>
-
-          <div class="capability-card reveal">
-            <div class="cap-icon">
-              <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke-width="1.8"/><line x1="8" y1="21" x2="16" y2="21" stroke-width="1.8"/><line x1="12" y1="17" x2="12" y2="21" stroke-width="1.8"/></svg>
-            </div>
+          </article>
+          <article class="pl-card" data-reveal>
+            <span class="pl-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
             <h3>Visual Regression &amp; Device Compatibility Matrix</h3>
-            <p>Prevent unexpected CSS regressions and layout shifts across hundreds of real mobile devices, browsers, and viewport combinations.</p>
-            <ul class="cap-deliverables">
+            <p>Prevent unexpected CSS regressions and layout shifts across a wide range of real mobile devices, browsers, and viewport combinations.</p>
+            <ul class="pl-checks pl-checks--muted">
               <li>Pixel-perfect visual diff testing with Percy and Applitools</li>
-              <li>Automated WCAG 2.1 AA accessibility compliance audits with Axe-core</li>
+              <li>Automated WCAG 2.1 AA accessibility checks with Axe-core</li>
               <li>Real device cloud farm verification across iOS, Android, macOS &amp; Windows</li>
             </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHODOLOGY: steps -->
+    <section class="pl-section" aria-labelledby="methodTitle">
+      <div class="pl-wrap">
+        <div class="pl-head" data-reveal>
+          <span class="pl-badge">Methodology</span>
+          <h2 id="methodTitle" class="pl-h2">Our 4-stage release confidence framework</h2>
+          <p class="pl-sub">We combine automated shift-left testing with production observability to minimize customer disruptions.</p>
+        </div>
+        <ol class="pl-steps">
+          <li class="pl-step" data-reveal><span class="pl-num">01</span><h3>Surface Mapping</h3><p>We audit core revenue flows, third-party dependencies, and historic bug patterns to define targeted test boundaries.</p></li>
+          <li class="pl-step" data-reveal><span class="pl-num">02</span><h3>Test Automation</h3><p>We build resilient Playwright and Cypress suites with clean fixtures, API mocking, and parallel execution.</p></li>
+          <li class="pl-step" data-reveal><span class="pl-num">03</span><h3>Pipeline Quality Gates</h3><p>We integrate tests into CI/CD, blocking any commit that fails regression, performance, or security benchmarks.</p></li>
+          <li class="pl-step" data-reveal><span class="pl-num">04</span><h3>Synthetic Production Probing</h3><p>Continuous synthetic health checks verify checkout flows around the clock and raise alerts so issues can be caught early.</p></li>
+        </ol>
+        <div class="pl-techrow" style="margin-top:56px;" data-reveal>
+          <div class="pl-techrow__label">Testing &amp; QA Tooling</div>
+          <div class="pl-tags pl-tags--center">
+            <span class="pl-tag">Playwright</span>
+            <span class="pl-tag">Cypress</span>
+            <span class="pl-tag">k6 Load Testing</span>
+            <span class="pl-tag">GitHub Actions</span>
+            <span class="pl-tag">Jest</span>
+            <span class="pl-tag">Postman</span>
+            <span class="pl-tag">Sentry</span>
+            <span class="pl-tag">BrowserStack</span>
+            <span class="pl-tag">Axe-core</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- METHODOLOGY SECTION -->
-    <section style="padding: 60px 0 90px; background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
-      <div class="wrap">
-        <div class="service-section-header reveal">
-          <div class="eyebrow" style="justify-content:center;">Methodology</div>
-          <h2>Our 4-stage release confidence framework</h2>
-          <p style="color:var(--ink-soft); margin-top:14px;">We combine automated shift-left testing with production observability to guarantee zero customer disruptions.</p>
-        </div>
+    <!-- FAQ -->
+    <section class="faq-section" id="faqs" aria-labelledby="faqHeading">
+      <div class="pl-wrap">
+        <div class="faq-grid">
+          <div class="faq-intro" data-reveal>
+            <span class="pl-badge" style="align-self:flex-start;">FAQs</span>
+            <h2 id="faqHeading" class="faq-title">Frequently asked <em>QA &amp; scale questions</em></h2>
+            <p class="faq-desc">Everything you need to know about automated testing pipelines, performance benchmarking, security audits, and release engineering.</p>
+            <div class="faq-support-box">
+              <img class="pl-faq-photo" src="images/team-2.webp" alt="" width="400" height="500" loading="lazy">
+              <span class="faq-support-title">Experiencing bugs or performance bottlenecks?</span>
+              <p class="faq-support-text">Request a QA and performance review from the people who would run it.</p>
+              <a href="contact.html" class="faq-support-btn">
+                <span>Request a QA audit</span>
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="faq-accordion-list" data-reveal>
+<div class="faq-item is-open">
+  <button class="faq-question" type="button" aria-expanded="true" aria-controls="faq-ans-1" id="faq-q-1">
+    <span class="faq-question-text">What types of automated testing do you build and maintain?</span>
+    <span class="faq-toggle-icon" aria-hidden="true">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+    </span>
+  </button>
+  <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
+    <div class="faq-answer-inner">
+      <p>We architect multi-tiered testing suites: unit tests, integration tests, API contract tests, end-to-end user journeys (Playwright, Cypress), performance load tests, and automated visual regression checks.</p>
+    </div>
+  </div>
+</div>
 
-        <div class="process-grid">
-          <div class="process-card reveal">
-            <div class="process-step-num">01</div>
-            <h4>Surface Mapping</h4>
-            <p>We audit core revenue flows, third-party dependencies, and historic bug patterns to define targeted test boundaries.</p>
-          </div>
-          <div class="process-card reveal">
-            <div class="process-step-num">02</div>
-            <h4>Test Automation</h4>
-            <p>We build resilient Playwright and Cypress suites with clean fixtures, API mocking, and parallel execution.</p>
-          </div>
-          <div class="process-card reveal">
-            <div class="process-step-num">03</div>
-            <h4>Pipeline Quality Gates</h4>
-            <p>We integrate tests into CI/CD, blocking any commit that fails regression, performance, or security benchmarks.</p>
-          </div>
-          <div class="process-card reveal">
-            <div class="process-step-num">04</div>
-            <h4>Synthetic Production Probing</h4>
-            <p>Continuous synthetic health checks verify checkout flows 24/7/365, alerting our team before customers notice.</p>
-          </div>
-        </div>
+<div class="faq-item">
+  <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
+    <span class="faq-question-text">How do you measure and optimize website performance and latency?</span>
+    <span class="faq-toggle-icon" aria-hidden="true">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+    </span>
+  </button>
+  <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-q-2">
+    <div class="faq-answer-inner">
+      <p>We implement synthetic and real-user monitoring (RUM) tracking page load times, 99th-percentile API response times, and Core Web Vitals across all target devices.</p>
+    </div>
+  </div>
+</div>
 
-        <!-- TOOLING ROW -->
-        <div style="text-align:center; margin-top:60px;" class="reveal">
-          <div class="eyebrow" style="justify-content:center;">Testing &amp; QA Tooling</div>
-          <div class="tech-stack-row">
-            <span class="tech-tag">Playwright</span>
-            <span class="tech-tag">Cypress</span>
-            <span class="tech-tag">k6 Load Testing</span>
-            <span class="tech-tag">GitHub Actions</span>
-            <span class="tech-tag">Jest</span>
-            <span class="tech-tag">Postman</span>
-            <span class="tech-tag">Sentry</span>
-            <span class="tech-tag">BrowserStack</span>
-            <span class="tech-tag">Axe-core</span>
+<div class="faq-item">
+  <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
+    <span class="faq-question-text">Can you audit our codebase for security vulnerabilities and technical debt?</span>
+    <span class="faq-toggle-icon" aria-hidden="true">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+    </span>
+  </button>
+  <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-q-3">
+    <div class="faq-answer-inner">
+      <p>Yes. We conduct static application security testing (SAST), software composition analysis (SCA) for third-party dependencies, and manual architecture reviews to deliver prioritized remediation roadmaps.</p>
+    </div>
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-4" id="faq-q-4">
+    <span class="faq-question-text">How do you test for high concurrency and peak traffic events?</span>
+    <span class="faq-toggle-icon" aria-hidden="true">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+    </span>
+  </button>
+  <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-q-4">
+    <div class="faq-answer-inner">
+      <p>We perform distributed load, stress, and spike testing using tools like k6 and Locust, simulating tens of thousands of simultaneous users to uncover database locks, memory leaks, and connection pool bottlenecks.</p>
+    </div>
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-5" id="faq-q-5">
+    <span class="faq-question-text">How does QA integrate into our team's existing release cycle?</span>
+    <span class="faq-toggle-icon" aria-hidden="true">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+    </span>
+  </button>
+  <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-q-5">
+    <div class="faq-answer-inner">
+      <p>We embed automated quality gates directly into your CI/CD pipelines (GitHub Actions, GitLab CI), blocking regressions before code ever reaches production.</p>
+    </div>
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-6" id="faq-q-6">
+    <span class="faq-question-text">Do you provide continuous testing retainers?</span>
+    <span class="faq-toggle-icon" aria-hidden="true">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+    </span>
+  </button>
+  <div class="faq-answer" id="faq-ans-6" role="region" aria-labelledby="faq-q-6">
+    <div class="faq-answer-inner">
+      <p>Yes. We offer dedicated QA engineering retainers that write and maintain test suites, run regression sweeps for every sprint release, and monitor production uptime SLAs.</p>
+    </div>
+  </div>
+</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA BANNER -->
-    <section>
-      <div class="wrap">
-        <div class="service-cta-banner reveal">
-          <div class="eyebrow" style="justify-content:center; color:var(--red);">Eliminate deployment anxiety forever</div>
-          <h2>Ship daily with absolute release confidence</h2>
-          <p>Schedule a 30-minute QA strategy session with our Quality Engineering Lead. We'll review your current deployment cycle and outline high-impact test automation wins.</p>
-          <a href="contact.html" class="btn btn-primary" style="background:var(--red); border-color:var(--red); color:#fff;">Request a QA assessment <span class="btn-arrow">→</span></a>
+    <!-- CTA -->
+    <section class="pl-section pl-section--flush-top" aria-labelledby="ctaTitle">
+      <div class="pl-wrap">
+        <div class="pl-cta pl-stripes pl-stripes--solid" data-reveal>
+          <span class="pl-badge pl-badge--plain">Take the anxiety out of deployments</span>
+          <h2 id="ctaTitle" class="pl-h2">Ship often with greater release confidence</h2>
+          <p>Schedule a 30-minute QA strategy session with the engineers who would do the work. We'll review your current deployment cycle and outline practical test automation wins.</p>
+          <div class="pl-ctas">
+            <a href="contact.html" class="pl-btn pl-btn--light">Request a QA assessment</a>
+          </div>
         </div>
       </div>
     </section>
-
   </main>
 
-    <!-- ================= FAQS SECTION ================= -->
-  <section class="faq-section" id="faqs" aria-labelledby="faqHeading">
-    <div class="wrap">
-      <div class="faq-grid">
-        <!-- Left Column: Title, Sub-description, Direct Contact -->
-        <div class="faq-intro reveal">
-          <div class="eyebrow">Quality & QA FAQs</div>
-          <h2 id="faqHeading" class="faq-title">Frequently asked <span class="italic">QA & scale questions</span></h2>
-          <p class="faq-desc">Everything you need to know about automated testing pipelines, performance benchmarking, security audits, and release engineering.</p>
-          <div class="faq-support-box">
-            <span class="faq-support-title">Experiencing bugs or performance bottlenecks?</span>
-            <p class="faq-support-text">Request a comprehensive QA and performance audit from our senior release engineers.</p>
-            <a href="contact.html" class="faq-support-btn">
-              <span>Request a QA audit</span>
-              <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Right Column: Accordion (Single-open) -->
-        <div class="faq-accordion-list reveal">
-          <!-- FAQ 1 -->
-          <div class="faq-item is-open">
-            <button class="faq-question" type="button" aria-expanded="true" aria-controls="faq-ans-1" id="faq-q-1">
-              <span class="faq-question-text">What types of automated testing do you build and maintain?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
-              <div class="faq-answer-inner">
-                <p>We architect multi-tiered testing suites: unit tests, integration tests, API contract tests, end-to-end user journeys (Playwright, Cypress), performance load tests, and automated visual regression checks.</p>
-              </div>
-            </div>
-          </div>
-          <!-- FAQ 2 -->
-          <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
-              <span class="faq-question-text">How do you measure and optimize website performance and latency?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-q-2">
-              <div class="faq-answer-inner">
-                <p>We implement synthetic and real-user monitoring (RUM) targeting sub-second page loads, 99th-percentile API response times, and 95+ Core Web Vitals scores across all target devices.</p>
-              </div>
-            </div>
-          </div>
-          <!-- FAQ 3 -->
-          <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
-              <span class="faq-question-text">Can you audit our codebase for security vulnerabilities and technical debt?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-q-3">
-              <div class="faq-answer-inner">
-                <p>Yes. We conduct static application security testing (SAST), software composition analysis (SCA) for third-party dependencies, and manual architecture reviews to deliver prioritized remediation roadmaps.</p>
-              </div>
-            </div>
-          </div>
-          <!-- FAQ 4 -->
-          <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-4" id="faq-q-4">
-              <span class="faq-question-text">How do you test for high concurrency and peak traffic events?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-q-4">
-              <div class="faq-answer-inner">
-                <p>We perform distributed load, stress, and spike testing using tools like k6 and Locust, simulating tens of thousands of simultaneous users to uncover database locks, memory leaks, and connection pool bottlenecks.</p>
-              </div>
-            </div>
-          </div>
-          <!-- FAQ 5 -->
-          <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-5" id="faq-q-5">
-              <span class="faq-question-text">How does QA integrate into our team's existing release cycle?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-q-5">
-              <div class="faq-answer-inner">
-                <p>We embed automated quality gates directly into your CI/CD pipelines (GitHub Actions, GitLab CI), blocking regressions before code ever reaches production.</p>
-              </div>
-            </div>
-          </div>
-          <!-- FAQ 6 -->
-          <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-6" id="faq-q-6">
-              <span class="faq-question-text">Do you provide continuous testing retainers?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" id="faq-ans-6" role="region" aria-labelledby="faq-q-6">
-              <div class="faq-answer-inner">
-                <p>Yes. We offer dedicated QA engineering retainers that write and maintain test suites, run regression sweeps for every sprint release, and monitor production uptime SLAs.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
   <!-- ================= FOOTER ================= -->
-  <footer>
-    <div class="wrap">
-      <div class="footer-top">
-        <div class="footer-brand">
+  <footer class="pl-footer">
+    <div class="pl-wrap">
+      <div class="pl-footer__top">
+        <div class="pl-footer__brand">
           <a href="index.html" class="logo-brand" aria-label="PrimeLoft Software Solutions">
             <picture class="logo-img logo-img-light">
               <source srcset="images/logo-light.webp" type="image/webp">
@@ -475,7 +391,7 @@
               <img src="images/logo-dark.png" class="logo-img" alt="PrimeLoft Software Solutions" width="200" height="66" loading="lazy">
             </picture>
           </a>
-          <p>A digital commerce studio designing, engineering and scaling high-converting platforms for ambitious modern brands.</p>
+          <p>A digital commerce studio designing, building and scaling revenue-driving platforms.</p>
           <div class="social-links-row">
             <a href="https://wa.me/923359873132" target="_blank" rel="noopener noreferrer" class="social-btn wa" aria-label="Chat on WhatsApp">
               <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662a11.87 11.87 0 005.707 1.456h.005c6.554 0 11.89-5.335 11.893-11.893 0-3.177-1.238-6.164-3.486-8.413z"/></svg>
@@ -488,18 +404,18 @@
             </a>
           </div>
         </div>
-        <div class="footer-col">
-          <h3 class="footer-title">Our Company</h3>
-          <ul class="footer-links">
+        <div>
+          <h3>Our Company</h3>
+          <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h3 class="footer-title">Services</h3>
-          <ul class="footer-links">
+        <div>
+          <h3>Services</h3>
+          <ul>
             <li><a href="service-mobile-app-development.html">Mobile App Development</a></li>
             <li><a href="service-seo.html">Search Engine Optimization (SEO)</a></li>
             <li><a href="service-design.html">Product &amp; Experience Design</a></li>
@@ -510,28 +426,19 @@
             <li><a href="service-quality.html">Quality, Delivery &amp; Scale</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h3 class="footer-title">Keep in Touch</h3>
-          <div class="addr-icon-row">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            <div class="addr">PrimeLoft Tech<br>GardenTown, Multan Road<br>DGK, Pakistan</div>
-          </div>
-          <div class="addr-icon-row">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            <div class="addr"><a href="tel:+923359873132" style="color:inherit; text-decoration:none;">+92 335 9873132</a></div>
-          </div>
-          <div class="addr-icon-row">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            <div>
-              <div class="addr">General inquiries</div>
-              <a href="mailto:contact@primeloft.tech" class="mail" style="margin-top:2px;">contact@primeloft.tech</a>
-            </div>
-          </div>
+        <div>
+          <h3>Keep in Touch</h3>
+          <address>
+            <span>PrimeLoft Tech<br>GardenTown, Multan Road<br>DGK, Pakistan</span>
+            <a href="tel:+923359873132">+92 335 9873132</a>
+            <a href="mailto:contact@primeloft.tech">contact@primeloft.tech</a>
+          </address>
         </div>
       </div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 PrimeLoft Tech. All rights reserved.</span>
-        <span>Poznań &middot; Amsterdam &middot; Dubai &middot; Pakistan</span>
+      <div class="pl-footer__mark" aria-hidden="true">PrimeLoft</div>
+      <div class="pl-footer__bottom">
+        <span>© 2026 PrimeLoft Tech. All rights reserved.</span>
+        <span class="pl-footer__legal"><a href="privacy.html">Privacy Policy</a><a href="cookies.html">Cookie Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a><a href="#" class="open-cookie-settings">Manage Cookie Preferences</a></span>
       </div>
     </div>
   </footer>
