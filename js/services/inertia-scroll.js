@@ -30,7 +30,6 @@ export class InertiaScrollService {
         syncTouch: false,
         autoResize: true,
         prevent: (node) => Boolean(
-          node?.closest?.('#cookieModal') ||
           node?.closest?.('.primary.active') ||
           node?.closest?.('.pl-chat-widget') ||
           node?.closest?.('[data-lenis-prevent]')

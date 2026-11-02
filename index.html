@@ -21,27 +21,19 @@
   <meta name="twitter:title" content="PrimeLoft | Software Solutions">
   <meta name="twitter:description" content="PrimeLoft partners with ambitious brands to plan, engineer and scale digital commerce experiences.">
   <meta name="twitter:image" content="https://primeloft.tech/images/og-cover.jpg?v=2.0">
-  <meta name="theme-color" content="#0F0E13">
+  <meta name="theme-color" content="#1554F6">
   <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <script>
-    (function () {
-      var t = null;
-      try { t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('primeloft-theme'); } catch (e) {}
-      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
-    })();
-  </script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&family=Inter:wght@400..700&display=swap">
-  <link rel="icon" type="image/x-icon" href="favicon.ico?v=1.0.2">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=1.0.2">
-  <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png?v=1.0.2">
-  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png?v=1.0.2">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=1.0.2">
-  <link rel="stylesheet" href="css/style.css?v=2.9.4">
-  <link rel="stylesheet" href="css/theme.css?v=1.0.0">
-  <script type="module" src="js/main.js?v=2.7.0" defer></script>
-  <script type="module" src="js/theme.js?v=1.0.0"></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="apple-touch-icon" href="images/Glossy%20Blue%20Comet%20App%20Icon.png">
+  <link rel="stylesheet" href="css/style.css?v=3.3.0">
+  <link rel="stylesheet" href="css/theme.css?v=1.3.1">
+  <link rel="stylesheet" href="css/chat.css?v=1.0.0">
+  <link rel="stylesheet" href="css/homepage.css?v=1.1.2">
+  <script type="module" src="js/main.js?v=3.0.0" defer></script>
+  <script type="module" src="js/theme.js?v=1.1.0"></script>
   <!-- Google Sitelinks & Entity Structured Data -->
   <script type="application/ld+json" id="org-schema">
   {
@@ -65,9 +57,9 @@
         "url": "https://primeloft.tech/",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://primeloft.tech/images/favicon-192x192.png?v=1.0.2",
-          "width": 192,
-          "height": 192
+          "url": "https://primeloft.tech/images/Glossy%20Blue%20Comet%20App%20Icon.png",
+          "width": 1254,
+          "height": 1254
         },
         "contactPoint": {
           "@type": "ContactPoint",
@@ -120,13 +112,8 @@
   <header class="pl-header">
     <div class="nav-row">
       <a href="index.html" class="logo-brand" aria-label="PrimeLoft Software Solutions">
-        <picture class="logo-img logo-img-light">
-          <source srcset="images/logo-light.webp" type="image/webp">
-          <img src="images/logo-light.png" class="logo-img" alt="PrimeLoft Software Solutions" width="200" height="66">
-        </picture>
-        <picture class="logo-img logo-img-dark">
-          <source srcset="images/logo-dark.webp" type="image/webp">
-          <img src="images/logo-dark.png" class="logo-img" alt="PrimeLoft Software Solutions" width="200" height="66">
+        <picture class="logo-img">
+          <img src="images/Primeloft%20Arc%20Logo.png" class="logo-img" alt="PrimeLoft Software Solutions" width="1254" height="1254">
         </picture>
       </a>
       <nav class="primary" aria-label="Primary">
@@ -138,40 +125,26 @@
           </a>
           <div class="mega dropdown-card" id="servicesDropdown" role="menu" aria-label="Services dropdown">
             <div class="mega-list">
-              <a href="service-mobile-app-development.html" class="mega-item" role="menuitem"><span class="mtitle">Mobile App Development</span></a>
-              <a href="service-seo.html" class="mega-item" role="menuitem"><span class="mtitle">Search Engine Optimization (SEO)</span></a>
-              <a href="service-design.html" class="mega-item" role="menuitem"><span class="mtitle">Product &amp; Experience Design</span></a>
-              <a href="service-strategy.html" class="mega-item" role="menuitem"><span class="mtitle">Strategy &amp; Innovation</span></a>
-              <a href="service-engineering.html" class="mega-item" role="menuitem"><span class="mtitle">Software Engineering</span></a>
-              <a href="service-ai.html" class="mega-item" role="menuitem"><span class="mtitle">AI &amp; Data</span></a>
-              <a href="service-cloud.html" class="mega-item" role="menuitem"><span class="mtitle">Cloud &amp; Platform Engineering</span></a>
-              <a href="service-quality.html" class="mega-item" role="menuitem"><span class="mtitle">Quality, Delivery &amp; Scale</span></a>
+              <a href="service-design.html" class="mega-item" role="menuitem"><span class="pl-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m14 4 6 6M4 20l4-1 12-12a2.8 2.8 0 0 0-4-4L4 15v5Z"/></svg></span><span class="mtitle">UX/UI</span></a>
+              <a href="service-engineering.html" class="mega-item" role="menuitem"><span class="pl-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18m-12 4-3 2 3 2m6-4 3 2-3 2"/></svg></span><span class="mtitle">Custom Website</span></a>
+              <a href="service-mobile-app-development.html" class="mega-item" role="menuitem"><span class="pl-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 18h4"/></svg></span><span class="mtitle">Mobile Application</span></a>
+              <a href="service-seo.html" class="mega-item" role="menuitem"><span class="pl-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M7 12l3-3 3 1 2-3"/></svg></span><span class="mtitle">SEO</span></a>
+              <a href="service-ai.html" class="mega-item" role="menuitem"><span class="pl-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-9 12h7l-1 8 10-13h-8l1-7Z"/></svg></span><span class="mtitle">Automation</span></a>
+              <a href="service-cloud.html" class="mega-item" role="menuitem"><span class="pl-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12C8 4 2 6 2 12s6 8 10 0c4-8 10-6 10 0s-6 8-10 0Z"/></svg></span><span class="mtitle">DevOps</span></a>
+              <a href="service-quality.html" class="mega-item" role="menuitem"><span class="pl-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 3v6c0 4-4 7-8 9-4-2-8-5-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/></svg></span><span class="mtitle">Testing &amp; QA</span></a>
+              <a href="contact.html?service=maintenance" class="mega-item" role="menuitem"><span class="pl-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6a5 5 0 0 0-6 6l-5 5a2 2 0 0 0 4 4l5-5a5 5 0 0 0 6-6l-3 3-4-4 3-3Z"/></svg></span><span class="mtitle">Maintenance</span></a>
+              <a href="contact.html?service=wordpress" class="mega-item" role="menuitem"><span class="pl-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m5 7 4 11 3-8 3 8 4-11M4 7h5m6 0h5"/></svg></span><span class="mtitle">WordPress</span></a>
+              <a href="contact.html?service=squarespace" class="mega-item" role="menuitem"><span class="pl-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 13 8-8a3 3 0 0 1 4 4l-8 8m2-2 8-8a3 3 0 0 1 4 4l-8 8a3 3 0 0 1-4-4m-6 2 4-4"/></svg></span><span class="mtitle">Squarespace</span></a>
             </div>
             <div class="mega-footer">
-              <a href="services.html" class="pl-btn pl-btn--dark pl-btn--sm" style="width:100%;">View all services</a>
+              <a href="services.html" class="pl-btn pl-btn--dark pl-btn--sm">View all services<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a>
             </div>
           </div>
         </div>
         <a href="about.html" class="navlink">About Us</a>
       </nav>
       <div class="header-right">
-        <button class="theme-btn" id="themeToggle" aria-label="Toggle light and dark theme" title="Toggle theme">
-          <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-          <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-        </button>
-        <a href="contact.html" class="pl-btn pl-btn--dark">Contact Us</a>
+        <a href="contact.html" class="pl-btn pl-btn--dark pl-header-contact"><span>Contact Us</span><span class="pl-header-contact__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu" aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
             <path d="M4 7h16M4 12h16M4 17h16"/>
@@ -184,24 +157,18 @@
 
   <!-- ================= MAIN CONTENT ================= -->
   <main id="main-content">
-
-    <!-- HERO -->
-    <section class="pl-hero" aria-labelledby="heroTitle">
+<section class="pl-hero agency-hero" aria-labelledby="heroTitle">
       <div class="pl-wrap pl-hero__inner">
-        <span class="pl-badge">IT &amp; Software Development Studio</span>
         <h1 id="heroTitle" class="pl-h1">We design &amp; build digital products that <span class="pl-accent-text">perform.</span></h1>
         <p class="pl-lead">PrimeLoft partners with ambitious teams to plan, design and engineer websites, mobile apps and software, from first sketch to scale.</p>
         <div class="pl-ctas">
-          <a href="services.html" class="pl-btn pl-btn--primary">Explore services</a>
-          <a href="contact.html" class="pl-btn pl-btn--ghost">Book a Discovery Call
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/></svg>
-          </a>
+          <a href="contact.html" class="pl-btn pl-btn--primary agency-primary">Book a Discovery Call <span aria-hidden="true">&#8599;</span></a>
+          <a href="services.html" class="agency-text-link">Explore our services <span aria-hidden="true">&#8595;</span></a>
         </div>
       </div>
 
-      <div class="pl-showcase pl-stripes">
+      <div class="pl-showcase agency-hero-art">
         <div class="pl-showcase__frame" aria-hidden="true">
-          <span class="pl-concept-tag">Concept</span>
           <div class="pl-showcase__stage">
 <div class="mk-browser">
                   <div class="mk-bar"><i></i><i></i><i></i><span class="mk-url">yourbrand.com</span></div>
@@ -266,314 +233,26 @@
       </div>
     </section>
 
-    <!-- TECHNOLOGIES -->
-    <section class="pl-section pl-section--tight" aria-label="Technologies we work with">
+<section class="agency-proof" aria-label="Our client and commitments"><div class="pl-wrap agency-proof__inner">
+  <div class="agency-client"><span class="agency-label">Selected client</span><div><img src="images/client-native-tech.png" alt="" width="36" height="36"><strong>Native Technology<br>and Design</strong></div></div>
+  <div class="agency-proof__item"><strong>02</strong><span>Founders. Direct collaboration.</span></div>
+  <div class="agency-proof__item"><strong>08</strong><span>Connected service disciplines.</span></div>
+  <div class="agency-proof__item"><strong>100%</strong><span>Your code. Your accounts.</span></div>
+</div></section>
+
+<section class="pl-section pl-section--tight agency-technologies" aria-label="Technologies we work with">
       <div class="pl-techrow">
-        <p class="pl-concept-note" style="margin:0 0 40px;">Interfaces shown on this page are concept demonstrations, not completed client projects or measured results.</p>
         <div class="pl-techrow__label">Technologies we work with</div>
         <div class="pl-marquee">
           <div class="pl-marquee__track">
-            <ul><li>.NET</li><li>Angular</li><li>React</li><li>Next.js</li><li>TypeScript</li><li>Node.js</li><li>React Native</li><li>Flutter</li><li>Swift</li><li>Kotlin</li><li>PostgreSQL</li><li>Docker</li></ul>
-            <ul aria-hidden="true"><li>.NET</li><li>Angular</li><li>React</li><li>Next.js</li><li>TypeScript</li><li>Node.js</li><li>React Native</li><li>Flutter</li><li>Swift</li><li>Kotlin</li><li>PostgreSQL</li><li>Docker</li></ul>
+            <ul><li><img class="pl-tech-icon pl-tech-icon--dotnetcore" src="images/technologies/dotnetcore.svg" alt="" width="28" height="28" loading="lazy" decoding="async">.NET</li><li><img class="pl-tech-icon pl-tech-icon--angular" src="images/technologies/angular.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Angular</li><li><img class="pl-tech-icon pl-tech-icon--react" src="images/technologies/react.svg" alt="" width="28" height="28" loading="lazy" decoding="async">React</li><li><img class="pl-tech-icon pl-tech-icon--nextjs" src="images/technologies/nextjs.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Next.js</li><li><img class="pl-tech-icon pl-tech-icon--typescript" src="images/technologies/typescript.svg" alt="" width="28" height="28" loading="lazy" decoding="async">TypeScript</li><li><img class="pl-tech-icon pl-tech-icon--nodejs" src="images/technologies/nodejs.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Node.js</li><li><img class="pl-tech-icon pl-tech-icon--react" src="images/technologies/react.svg" alt="" width="28" height="28" loading="lazy" decoding="async">React Native</li><li><img class="pl-tech-icon pl-tech-icon--flutter" src="images/technologies/flutter.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Flutter</li><li><img class="pl-tech-icon pl-tech-icon--swift" src="images/technologies/swift.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Swift</li><li><img class="pl-tech-icon pl-tech-icon--kotlin" src="images/technologies/kotlin.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Kotlin</li><li><img class="pl-tech-icon pl-tech-icon--postgresql" src="images/technologies/postgresql.svg" alt="" width="28" height="28" loading="lazy" decoding="async">PostgreSQL</li><li><img class="pl-tech-icon pl-tech-icon--docker" src="images/technologies/docker.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Docker</li><li><img class="pl-tech-icon pl-tech-icon--wordpress" src="images/technologies/wordpress.svg" alt="" width="28" height="28" loading="lazy" decoding="async">WordPress</li><li><img class="pl-tech-icon pl-tech-icon--squarespace" src="images/technologies/squarespace.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Squarespace</li><li><img class="pl-tech-icon pl-tech-icon--lovable" src="images/technologies/lovable.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Lovable</li><li><img class="pl-tech-icon pl-tech-icon--figma" src="images/technologies/figma.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Figma</li><li><img class="pl-tech-icon pl-tech-icon--framer" src="images/technologies/framer.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Framer</li><li><img class="pl-tech-icon pl-tech-icon--threejs" src="images/technologies/threejs.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Three.js</li></ul>
+            <ul aria-hidden="true"><li><img class="pl-tech-icon pl-tech-icon--dotnetcore" src="images/technologies/dotnetcore.svg" alt="" width="28" height="28" loading="lazy" decoding="async">.NET</li><li><img class="pl-tech-icon pl-tech-icon--angular" src="images/technologies/angular.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Angular</li><li><img class="pl-tech-icon pl-tech-icon--react" src="images/technologies/react.svg" alt="" width="28" height="28" loading="lazy" decoding="async">React</li><li><img class="pl-tech-icon pl-tech-icon--nextjs" src="images/technologies/nextjs.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Next.js</li><li><img class="pl-tech-icon pl-tech-icon--typescript" src="images/technologies/typescript.svg" alt="" width="28" height="28" loading="lazy" decoding="async">TypeScript</li><li><img class="pl-tech-icon pl-tech-icon--nodejs" src="images/technologies/nodejs.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Node.js</li><li><img class="pl-tech-icon pl-tech-icon--react" src="images/technologies/react.svg" alt="" width="28" height="28" loading="lazy" decoding="async">React Native</li><li><img class="pl-tech-icon pl-tech-icon--flutter" src="images/technologies/flutter.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Flutter</li><li><img class="pl-tech-icon pl-tech-icon--swift" src="images/technologies/swift.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Swift</li><li><img class="pl-tech-icon pl-tech-icon--kotlin" src="images/technologies/kotlin.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Kotlin</li><li><img class="pl-tech-icon pl-tech-icon--postgresql" src="images/technologies/postgresql.svg" alt="" width="28" height="28" loading="lazy" decoding="async">PostgreSQL</li><li><img class="pl-tech-icon pl-tech-icon--docker" src="images/technologies/docker.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Docker</li><li><img class="pl-tech-icon pl-tech-icon--wordpress" src="images/technologies/wordpress.svg" alt="" width="28" height="28" loading="lazy" decoding="async">WordPress</li><li><img class="pl-tech-icon pl-tech-icon--squarespace" src="images/technologies/squarespace.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Squarespace</li><li><img class="pl-tech-icon pl-tech-icon--lovable" src="images/technologies/lovable.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Lovable</li><li><img class="pl-tech-icon pl-tech-icon--figma" src="images/technologies/figma.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Figma</li><li><img class="pl-tech-icon pl-tech-icon--framer" src="images/technologies/framer.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Framer</li><li><img class="pl-tech-icon pl-tech-icon--threejs" src="images/technologies/threejs.svg" alt="" width="28" height="28" loading="lazy" decoding="async">Three.js</li></ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES BENTO -->
-    <section class="pl-section pl-section--soft" id="services" aria-labelledby="servicesTitle">
-      <div class="pl-wrap">
-        <div class="pl-head" data-reveal>
-          <span class="pl-badge">What we do</span>
-          <h2 id="servicesTitle" class="pl-h2">Design, engineering and growth under one roof</h2>
-          <p class="pl-sub">Full-spectrum digital engineering and design services, from mobile apps and SEO to custom software, cloud and AI.</p>
-        </div>
-
-        <div class="pl-bento">
-          <a class="pl-card pl-card--wide pl-span-2" href="service-mobile-app-development.html" data-reveal>
-            <div class="pl-card__body">
-              <span class="pl-num">01</span>
-              <h3>Mobile App Development</h3>
-              <p>High-performing mobile applications engineered for Android and iOS.</p>
-              <span class="pl-link">Explore service <span aria-hidden="true">→</span></span>
-            </div>
-            <div class="pl-card__visual">
-<div class="pl-scene-frame" aria-hidden="true"><div class="scene sc-mobile">
-                <div class="sc-phone sc-phone-back"><div class="sc-scr">
-                  <div class="ap-top"><b>Discover</b><i></i></div>
-                  <div class="ap-hero"></div>
-                  <div class="ap-grid"><i></i><i></i><i></i><i></i></div>
-                  <div class="ap-tab"><i class="on"></i><i></i><i></i><i></i></div>
-                </div></div>
-                <div class="sc-phone sc-phone-front"><div class="sc-scr">
-                  <div class="ap-media"><div class="ap-orb"></div></div>
-                  <div class="ap-title"><b>Product</b><span></span><span class="s"></span></div>
-                  <div class="ap-sizes"><i></i><i class="on"></i><i></i><i></i></div>
-                  <div class="ap-cta">Add to bag</div>
-                </div></div>
-                <div class="sc-toast"><span class="dot"></span><div><b>iOS &amp; Android</b><small>one codebase · native feel</small></div></div>
-              </div></div>
-            </div>
-          </a>
-          <a class="pl-card" href="service-seo.html" data-reveal>
-            <div class="pl-card__visual">
-<div class="pl-scene-frame" aria-hidden="true"><div class="scene sc-seo">
-                <div class="sc-win">
-                  <div class="sc-search"><span class="mag"></span><b>handmade ceramic vases</b></div>
-                  <div class="serp top"><small>yourbrand.com › vases</small><b>Handmade Ceramic Vases | Your Brand</b><span></span><span class="s"></span></div>
-                  <div class="serp"><small></small><b></b><span></span></div>
-                  <div class="serp"><small></small><b></b><span></span></div>
-                </div>
-                <div class="sc-chart">
-                  <small>Organic visibility</small>
-                  <svg viewBox="0 0 200 90" preserveAspectRatio="none"><path class="area" d="M0 82 C30 80 45 70 70 66 S110 52 130 40 165 22 200 10 L200 90 L0 90Z"/><path class="ln" d="M0 82 C30 80 45 70 70 66 S110 52 130 40 165 22 200 10"/></svg>
-                </div>
-                <div class="sc-badge">Core Web Vitals <b>Pass</b></div>
-              </div></div>
-            </div>
-            <span class="pl-num">02</span>
-            <h3>Search Engine Optimization (SEO)</h3>
-            <p>Search architectures that capture high-intent buyers at the exact moment of commercial consideration.</p>
-            <span class="pl-link pl-card__foot">Explore service <span aria-hidden="true">→</span></span>
-          </a>
-          <a class="pl-card" href="service-design.html" data-reveal>
-            <div class="pl-card__visual">
-<div class="pl-scene-frame" aria-hidden="true"><div class="scene sc-design">
-                <div class="sc-canvas">
-                  <div class="cv-toolbar"><i></i><i class="on"></i><i></i><i></i><span>Checkout — v3</span></div>
-                  <div class="cv-frame f1"><label>Mobile / Cart</label><div><b></b><span></span><span></span><em></em></div></div>
-                  <div class="cv-frame f2"><label>Card / Product</label><div><i></i><b></b><span></span></div></div>
-                  <svg class="cv-pen" viewBox="0 0 200 120"><path d="M10 100 C60 10 120 130 190 30"/><line x1="10" y1="100" x2="45" y2="40"/><line x1="190" y1="30" x2="150" y2="95"/><circle cx="10" cy="100" r="4"/><circle cx="190" cy="30" r="4"/><rect x="41" y="36" width="8" height="8"/><rect x="146" y="91" width="8" height="8"/></svg>
-                  <div class="cv-cursor"><svg viewBox="0 0 16 16"><path d="M2 1l11 6-5 1.5L6 14z"/></svg><span>Design</span></div>
-                </div>
-                <div class="sc-type"><b>Aa</b><small>Display · Fraunces</small></div>
-                <div class="sc-palette"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i><i class="c5"></i></div>
-              </div></div>
-            </div>
-            <span class="pl-num">03</span>
-            <h3>Product &amp; Experience Design</h3>
-            <p>Research-led design that reduces friction across the whole journey, from first ad click to repeat purchase.</p>
-            <span class="pl-link pl-card__foot">Explore service <span aria-hidden="true">→</span></span>
-          </a>
-          <a class="pl-card pl-card--wide pl-span-2" href="service-engineering.html" data-reveal>
-            <div class="pl-card__body">
-              <span class="pl-num">04</span>
-              <h3>Software Engineering</h3>
-              <p>Full-stack teams building commerce platforms, storefronts and internal tools that hold up under real traffic and change gracefully.</p>
-              <span class="pl-link">Explore service <span aria-hidden="true">→</span></span>
-            </div>
-            <div class="pl-card__visual">
-<div class="pl-scene-frame" aria-hidden="true"><div class="scene sc-eng">
-                <div class="sc-editor">
-                  <div class="ed-tabs"><span class="on">cart.service.ts</span><span>api.ts</span></div>
-                  <pre><span class="ln">1</span><i class="k">export class</i> <i class="t">CartService</i> {
-<span class="ln">2</span>  <i class="k">async</i> <i class="f">checkout</i>(cart: <i class="t">Cart</i>) {
-<span class="ln">3</span>    <i class="k">const</i> order = <i class="k">await</i> <i class="v">this</i>.api
-<span class="ln">4</span>      .<i class="f">post</i>(<i class="s">'/orders'</i>, cart);
-<span class="ln">5</span>    <i class="k">return</i> order.<i class="f">confirm</i>();
-<span class="ln">6</span>  }
-<span class="ln">7</span>}</pre>
-                </div>
-                <div class="sc-term"><span>$ npm run build</span><span class="ok">✓ compiled successfully</span><span>$ git push origin main<i class="caret"></i></span></div>
-                <svg class="sc-git" viewBox="0 0 120 60"><path d="M10 45 H110"/><path d="M30 45 C45 45 45 15 60 15 H80 C95 15 95 45 105 45"/><circle cx="10" cy="45" r="5"/><circle cx="30" cy="45" r="5"/><circle cx="60" cy="15" r="5"/><circle cx="80" cy="15" r="5"/><circle cx="110" cy="45" r="5"/></svg>
-              </div></div>
-            </div>
-          </a>
-          <a class="pl-card" href="service-strategy.html" data-reveal>
-            <div class="pl-card__visual">
-<div class="pl-scene-frame" aria-hidden="true"><div class="scene sc-strategy">
-                <div class="sc-board">
-                  <div class="rm-head"><b>Roadmap</b><span>Discovery → Launch</span></div>
-                  <div class="rm-time"><i class="on"></i><span></span><i class="on"></i><span></span><i></i><span></span><i></i></div>
-                  <div class="rm-cols">
-                    <div><label>Now</label><p class="k1"></p><p class="k2"></p><p class="k3"></p></div>
-                    <div><label>Next</label><p class="k2"></p><p class="k4"></p></div>
-                    <div><label>Later</label><p class="k3"></p><p class="k1"></p></div>
-                  </div>
-                </div>
-                <div class="sc-target"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="30"/><circle cx="50" cy="50" r="15"/><circle class="bull" cx="50" cy="50" r="5"/></svg></div>
-              </div></div>
-            </div>
-            <span class="pl-num">05</span>
-            <h3>Strategy &amp; Innovation</h3>
-            <p>We turn ambiguous ambition into a sequenced roadmap covering market position, platform choice, and a build plan your board can sign off on.</p>
-            <span class="pl-link pl-card__foot">Explore service <span aria-hidden="true">→</span></span>
-          </a>
-          <a class="pl-card" href="service-ai.html" data-reveal>
-            <div class="pl-card__visual">
-<div class="pl-scene-frame" aria-hidden="true"><div class="scene sc-ai">
-                <div class="sc-chat">
-                  <div class="ch-head"><span class="av"></span><b>Shopping assistant</b></div>
-                  <div class="ch-msg me">Something for a gift, under $80?</div>
-                  <div class="ch-msg bot">Here are three picks based on what you viewed:</div>
-                  <div class="ch-cards"><i class="p1"></i><i class="p2"></i><i class="p3"></i></div>
-                  <div class="ch-typing"><i></i><i></i><i></i></div>
-                </div>
-                <div class="sc-scatter">
-                  <small>Customer segments</small>
-                  <svg viewBox="0 0 120 90"><g class="g1"><circle cx="22" cy="24" r="3"/><circle cx="30" cy="18" r="3"/><circle cx="28" cy="30" r="3"/><circle cx="18" cy="32" r="3"/><circle cx="36" cy="26" r="3"/></g><g class="g2"><circle cx="78" cy="22" r="3"/><circle cx="86" cy="30" r="3"/><circle cx="92" cy="20" r="3"/><circle cx="82" cy="14" r="3"/></g><g class="g3"><circle cx="52" cy="66" r="3"/><circle cx="60" cy="72" r="3"/><circle cx="66" cy="62" r="3"/><circle cx="56" cy="58" r="3"/><circle cx="70" cy="70" r="3"/></g></svg>
-                </div>
-              </div></div>
-            </div>
-            <span class="pl-num">06</span>
-            <h3>AI &amp; Data</h3>
-            <p>Personalization, forecasting and recommendation engines built on data foundations your team can trust and extend.</p>
-            <span class="pl-link pl-card__foot">Explore service <span aria-hidden="true">→</span></span>
-          </a>
-          <a class="pl-card" href="service-cloud.html" data-reveal>
-            <div class="pl-card__visual">
-<div class="pl-scene-frame" aria-hidden="true"><div class="scene sc-cloud">
-                <svg class="arch-lines" viewBox="0 0 100 80" preserveAspectRatio="none"><path d="M18 40 H38"/><path d="M50 40 C58 40 58 20 66 20 H72"/><path d="M50 40 C58 40 58 60 66 60 H72"/><path d="M84 20 V60"/></svg>
-                <div class="arch-node n-cdn"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><b>CDN</b><small>edge</small></div>
-                <div class="arch-node n-api"><svg viewBox="0 0 24 24"><path d="M7 7h12l-3-3M17 17H5l3 3"/></svg><b>API</b><small>autoscale</small></div>
-                <div class="arch-node n-cache"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><b>Cache</b><small>redis</small></div>
-                <div class="arch-node n-db"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><b>Database</b><small>postgres</small></div>
-                <div class="sc-health"><span class="dot"></span>All services healthy</div>
-                <div class="sc-meter"><small>Load</small><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-              </div></div>
-            </div>
-            <span class="pl-num">07</span>
-            <h3>Cloud &amp; Platform Engineering</h3>
-            <p>Infrastructure, CI/CD and observability that scale quietly under peak sale traffic: built once, trusted forever.</p>
-            <span class="pl-link pl-card__foot">Explore service <span aria-hidden="true">→</span></span>
-          </a>
-          <a class="pl-card pl-card--wide pl-span-2" href="service-quality.html" data-reveal>
-            <div class="pl-card__body">
-              <span class="pl-num">08</span>
-              <h3>Quality, Delivery &amp; Scale</h3>
-              <p>QA, release management and performance engineering so your team can ship often without ever holding its breath.</p>
-              <span class="pl-link">Explore service <span aria-hidden="true">→</span></span>
-            </div>
-            <div class="pl-card__visual">
-<div class="pl-scene-frame" aria-hidden="true"><div class="scene sc-quality">
-                <div class="sc-pipe">
-                  <div class="pp on"><i>✓</i>Build</div><span></span>
-                  <div class="pp on"><i>✓</i>Test</div><span></span>
-                  <div class="pp on"><i>✓</i>Stage</div><span></span>
-                  <div class="pp run"><i></i>Release</div>
-                </div>
-                <div class="sc-tests">
-                  <div class="tr-head"><b>Test run</b><span class="prog"><i></i></span></div>
-                  <div class="tr"><i>✓</i>checkout.spec.ts</div>
-                  <div class="tr"><i>✓</i>cart.spec.ts</div>
-                  <div class="tr"><i>✓</i>payments.spec.ts</div>
-                  <div class="tr"><i>✓</i>accessibility.spec.ts</div>
-                  <div class="tr pend"><i></i>performance.spec.ts</div>
-                </div>
-              </div></div>
-            </div>
-          </a>
-          <div class="pl-card pl-card--cta pl-stripes pl-stripes--solid" data-reveal>
-            <h3>Not sure where to start?</h3>
-            <p>Tell us what you're building and we'll point you to the right mix of services.</p>
-            <a href="services.html" class="pl-btn pl-btn--light pl-btn--sm">View all services</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FACT BAND -->
-    <section class="pl-section pl-section--tight" aria-label="PrimeLoft at a glance">
-      <div class="pl-wrap">
-        <div class="pl-band pl-stripes pl-stripes--solid" data-reveal>
-          <div class="pl-band__item"><b>8</b><span>Service disciplines under one roof</span></div>
-          <div class="pl-band__item"><b>2</b><span>Founders working directly on your project</span></div>
-          <div class="pl-band__item"><b>100%</b><span>Code and design files handed over to your accounts</span></div>
-          <div class="pl-band__item"><b>1</b><span>Team from first sketch to scale</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- STUDIO SPLIT -->
-    <section class="pl-section" aria-labelledby="studioTitle">
-      <div class="pl-wrap pl-split">
-        <div class="pl-split__text" data-reveal>
-          <span class="pl-badge">About PrimeLoft</span>
-          <h2 id="studioTitle" class="pl-h2">A small studio of hands-on builders</h2>
-          <p class="pl-sub">PrimeLoft started as a two-person practice and still works that way: small, hands-on and close to the outcome. The people you talk to are the people designing and building your product.</p>
-          <ul class="pl-checks pl-checks--lined" style="width:100%;">
-            <li>Direct access to the people building your product</li>
-            <li>Source code and design files handed over to your accounts</li>
-            <li>Short sprints with regular staging builds and demos</li>
-          </ul>
-          <a href="about.html" class="pl-btn pl-btn--ghost">About Us
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/></svg>
-          </a>
-        </div>
-        <div data-reveal>
-          <div class="pl-photos">
-            <figure>
-              <picture>
-                <source srcset="images/team-1.webp" type="image/webp">
-                <img src="images/team-1.jpg" alt="Ghulam Asghar | Fullstack .NET Angular" width="400" height="500" loading="lazy">
-              </picture>
-              <figcaption><b>Ghulam Asghar</b><span>Fullstack .Net Angular</span></figcaption>
-            </figure>
-            <figure>
-              <picture>
-                <source srcset="images/team-2.webp" type="image/webp">
-                <img src="images/team-2.jpg" alt="Ajmal Riaz | React Native Specialist" width="400" height="500" loading="lazy">
-              </picture>
-              <figcaption><b>Ajmal Riaz</b><span>React Native Specialist</span></figcaption>
-            </figure>
-          </div>
-          <div class="pl-clients">
-            <h3 class="pl-clients__title">Selected Clients</h3>
-            <ul>
-              <li><img src="images/client-native-tech.png" alt="" width="40" height="40" loading="lazy"><span>Native Technology and Design</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY CHOOSE (DARK) -->
-    <section class="pl-section pl-section--flush-top" id="why-choose" aria-labelledby="whyChooseHeading">
-      <div class="pl-wrap">
-        <div class="pl-dark">
-          <div class="pl-head" data-reveal>
-            <span class="pl-badge">Why Choose PrimeLoft</span>
-            <h2 id="whyChooseHeading" class="pl-h2">Engineered for outcomes, not deliverables</h2>
-            <p class="pl-sub">We pair careful software craftsmanship with commercial thinking: clear communication, transparent handoffs, maintainable architecture, and code that belongs to you.</p>
-          </div>
-          <div class="pl-dark-grid">
-            <div class="pl-dark-cell" data-reveal>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              <h3>Direct Access to the Builders</h3>
-              <p>You work directly with the people designing and building your product, without account-manager layers between you and the work.</p>
-            </div>
-            <div class="pl-dark-cell" data-reveal>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              <h3>100% Code &amp; IP Ownership</h3>
-              <p>Source code, design files, databases and cloud setups are handed over to your own repositories and accounts as milestones are settled, so you are never locked in.</p>
-            </div>
-            <div class="pl-dark-cell" data-reveal>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              <h3>Iterative Agile Delivery</h3>
-              <p>Work is planned in short sprints with regular staging builds and demos, so you can review progress and steer priorities early.</p>
-            </div>
-            <div class="pl-dark-cell" data-reveal>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
-              <h3>Milestones &amp; Retainers</h3>
-              <p>No surprise hourly creep. Clear scope breakdowns with fixed milestone payments or dedicated sprint retainer capacity aligned to your product roadmap.</p>
-            </div>
-            <div class="pl-dark-cell" data-reveal>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-              <h3>Built for Speed &amp; Search</h3>
-              <p>Performance, Core Web Vitals, semantic on-page SEO and clear conversion flows are considered from the first design decision, not bolted on at the end.</p>
-            </div>
-            <div class="pl-dark-cell" data-reveal>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <h3>Post-Launch Support</h3>
-              <p>After launch we can stay on for fixes, tuning and ongoing maintenance, with the level of support agreed to suit your product.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="pl-section pl-section--flush-top" aria-labelledby="processTitle">
+<section class="pl-section agency-process" aria-labelledby="processTitle">
       <div class="pl-wrap">
         <div class="pl-head" data-reveal>
           <span class="pl-badge">How it works</span>
@@ -589,10 +268,9 @@
       </div>
     </section>
 
-    <!-- ENGAGEMENT MODELS -->
-    <section class="pl-section pl-section--flush-top" aria-labelledby="plansTitle">
+<section class="pl-section agency-engagement" aria-labelledby="plansTitle">
       <div class="pl-wrap">
-        <div class="pl-plans-panel pl-stripes pl-stripes--solid">
+        <div class="pl-plans-panel">
           <div class="pl-head" data-reveal>
             <span class="pl-badge">Engagement models</span>
             <h2 id="plansTitle" class="pl-h2">Two simple ways to work together</h2>
@@ -610,7 +288,7 @@
                 <li>Code and design files handed over as milestones are settled</li>
               </ul>
             </div>
-            <div class="pl-plan pl-plan--dark" data-reveal>
+            <div class="pl-plan agency-plan--accent" data-reveal>
               <span class="pl-plan__label">Ongoing capacity</span>
               <h3>Dedicated Monthly Retainers</h3>
               <p>For fast-moving teams that need ongoing engineering and design capacity.</p>
@@ -626,30 +304,20 @@
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="faq-section" id="faqs" aria-labelledby="faqHeading">
+<section class="faq-section agency-faq" id="faqs" aria-labelledby="faqHeading">
       <div class="pl-wrap">
         <div class="faq-grid">
           <div class="faq-intro" data-reveal>
             <span class="pl-badge" style="align-self:flex-start;">FAQs</span>
             <h2 id="faqHeading" class="faq-title">Frequently asked <em>questions</em></h2>
             <p class="faq-desc">Everything you need to know about our services, delivery timelines, engineering standards, and post-launch support.</p>
-            <div class="faq-support-box">
-              <img class="pl-faq-photo" src="images/team-2.webp" alt="" width="400" height="500" loading="lazy">
-              <span class="faq-support-title">Still have questions?</span>
-              <p class="faq-support-text">Can't find the answer you're looking for? Our team is always ready to discuss your specific requirements.</p>
-              <a href="contact.html" class="faq-support-btn">
-                <span>Talk to our team</span>
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5L11.5 4.5M6 4.5h5.5v5.5"/></svg>
-              </a>
-            </div>
           </div>
           <div class="faq-accordion-list" data-reveal>
-<div class="faq-item is-open">
-  <button class="faq-question" type="button" aria-expanded="true" aria-controls="faq-ans-1" id="faq-q-1">
+<div class="faq-item">
+  <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-1" id="faq-q-1">
     <span class="faq-question-text">What services does PrimeLoft specialize in?</span>
     <span class="faq-toggle-icon" aria-hidden="true">
-      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+      <svg class="faq-angle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
     </span>
   </button>
   <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
@@ -663,7 +331,7 @@
   <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
     <span class="faq-question-text">How does your pricing and engagement model work?</span>
     <span class="faq-toggle-icon" aria-hidden="true">
-      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+      <svg class="faq-angle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
     </span>
   </button>
   <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-q-2">
@@ -677,7 +345,7 @@
   <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
     <span class="faq-question-text">What is the typical project turnaround time?</span>
     <span class="faq-toggle-icon" aria-hidden="true">
-      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+      <svg class="faq-angle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
     </span>
   </button>
   <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-q-3">
@@ -691,7 +359,7 @@
   <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-4" id="faq-q-4">
     <span class="faq-question-text">Who owns the intellectual property and code?</span>
     <span class="faq-toggle-icon" aria-hidden="true">
-      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+      <svg class="faq-angle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
     </span>
   </button>
   <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-q-4">
@@ -705,7 +373,7 @@
   <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-5" id="faq-q-5">
     <span class="faq-question-text">How do you approach SEO and Core Web Vitals?</span>
     <span class="faq-toggle-icon" aria-hidden="true">
-      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+      <svg class="faq-angle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
     </span>
   </button>
   <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-q-5">
@@ -719,7 +387,7 @@
   <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-6" id="faq-q-6">
     <span class="faq-question-text">Do you provide post-launch support and maintenance?</span>
     <span class="faq-toggle-icon" aria-hidden="true">
-      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+      <svg class="faq-angle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
     </span>
   </button>
   <div class="faq-answer" id="faq-ans-6" role="region" aria-labelledby="faq-q-6">
@@ -733,26 +401,21 @@
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="pl-section pl-section--flush-top" aria-labelledby="ctaTitle">
+<section class="pl-section agency-close" aria-labelledby="ctaTitle">
       <div class="pl-wrap">
-        <div class="pl-cta pl-stripes pl-stripes--solid" data-reveal>
-          <span class="pl-badge pl-badge--plain"><span class="pl-dot" aria-hidden="true"></span>Now Accepting New Client Projects</span>
+        <div class="pl-cta agency-cta" data-reveal>
+          <div class="agency-cta__copy">
           <h2 id="ctaTitle" class="pl-h2">Ready to design, build and scale your next digital product?</h2>
           <p>Book a 30-minute discovery call. We'll talk through your goals, review what you have today, and outline a practical plan with transparent milestone pricing.</p>
+          </div>
           <div class="pl-ctas">
             <a href="contact.html" class="pl-btn pl-btn--light">Book a Discovery Call</a>
             <a href="https://wa.me/923359873132?text=Hi%20PrimeLoft%20team!%20I'd%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" class="pl-btn pl-btn--ghost">Chat on WhatsApp</a>
           </div>
-          <ul class="pl-cta__perks">
-            <li>30-Min Discovery Call</li>
-            <li>Work Directly With the Builders</li>
-            <li>Transparent Milestone Pricing</li>
-          </ul>
         </div>
       </div>
     </section>
-  </main>
+</main>
 
   <!-- ================= FOOTER ================= -->
   <footer class="pl-footer">
@@ -760,13 +423,8 @@
       <div class="pl-footer__top">
         <div class="pl-footer__brand">
           <a href="index.html" class="logo-brand" aria-label="PrimeLoft Software Solutions">
-            <picture class="logo-img logo-img-light">
-              <source srcset="images/logo-light.webp" type="image/webp">
-              <img src="images/logo-light.png" class="logo-img" alt="PrimeLoft Software Solutions" width="200" height="66" loading="lazy">
-            </picture>
-            <picture class="logo-img logo-img-dark">
-              <source srcset="images/logo-dark.webp" type="image/webp">
-              <img src="images/logo-dark.png" class="logo-img" alt="PrimeLoft Software Solutions" width="200" height="66" loading="lazy">
+            <picture class="logo-img">
+              <img src="images/Primeloft%20Arc%20Logo.png" class="logo-img" alt="PrimeLoft Software Solutions" width="1254" height="1254" loading="lazy">
             </picture>
           </a>
           <p>A digital commerce studio designing, building and scaling revenue-driving platforms.</p>
@@ -782,8 +440,8 @@
             </a>
           </div>
         </div>
-        <div>
-          <h3>Our Company</h3>
+        <div class="pl-footer__company">
+            <h3>Our Company</h3>
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
@@ -791,21 +449,23 @@
             <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
-        <div>
-          <h3>Services</h3>
+        <div class="pl-footer__services">
+            <h3>Services</h3>
           <ul>
-            <li><a href="service-mobile-app-development.html">Mobile App Development</a></li>
-            <li><a href="service-seo.html">Search Engine Optimization (SEO)</a></li>
-            <li><a href="service-design.html">Product &amp; Experience Design</a></li>
-            <li><a href="service-strategy.html">Strategy &amp; Innovation</a></li>
-            <li><a href="service-engineering.html">Software Engineering</a></li>
-            <li><a href="service-ai.html">AI &amp; Data</a></li>
-            <li><a href="service-cloud.html">Cloud &amp; Platform Engineering</a></li>
-            <li><a href="service-quality.html">Quality, Delivery &amp; Scale</a></li>
-          </ul>
+              <li><a href="service-design.html">UX/UI</a></li>
+              <li><a href="service-engineering.html">Custom Website</a></li>
+              <li><a href="service-mobile-app-development.html">Mobile Application</a></li>
+              <li><a href="service-seo.html">SEO</a></li>
+              <li><a href="service-ai.html">Automation</a></li>
+              <li><a href="service-cloud.html">DevOps</a></li>
+              <li><a href="service-quality.html">Testing &amp; QA</a></li>
+              <li><a href="contact.html?service=maintenance">Maintenance</a></li>
+              <li><a href="contact.html?service=wordpress">WordPress</a></li>
+              <li><a href="contact.html?service=squarespace">Squarespace</a></li>
+            </ul>
         </div>
-        <div>
-          <h3>Keep in Touch</h3>
+        <div class="pl-footer__contact">
+            <h3>Keep in Touch</h3>
           <address>
             <span>PrimeLoft Tech<br>GardenTown, Multan Road<br>DGK, Pakistan</span>
             <a href="tel:+923359873132">+92 335 9873132</a>
@@ -816,84 +476,16 @@
       <div class="pl-footer__mark" aria-hidden="true">PrimeLoft</div>
       <div class="pl-footer__bottom">
         <span>© 2026 PrimeLoft Tech. All rights reserved.</span>
-        <span class="pl-footer__legal"><a href="privacy.html">Privacy Policy</a><a href="cookies.html">Cookie Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a><a href="#" class="open-cookie-settings">Manage Cookie Preferences</a></span>
+        <span class="pl-footer__legal"><a href="privacy.html">Privacy Policy</a><a href="cookies.html">Cookie Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></span>
       </div>
     </div>
   </footer>
 
-  <!-- ================= COOKIE CONSENT BANNER & MODAL ================= -->
-  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie Consent Banner" style="display:none;">
-    <div class="wrap cookie-banner-inner">
-      <div class="cookie-text">
-        <div class="cookie-title">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5Z"/><circle cx="8.5" cy="8.5" r="1.5"/><circle cx="11.5" cy="15.5" r="1.5"/><circle cx="15.5" cy="11.5" r="1.5"/></svg>
-          <span>We Value Your Privacy</span>
-        </div>
-        <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. Essential cookies are required for basic site functionality.</p>
-      </div>
-      <div class="cookie-actions">
-        <button type="button" id="btnRejectCookies" class="btn btn-outline btn-sm">Reject All</button>
-        <button type="button" id="btnCookiePrefs" class="btn btn-outline btn-sm">Customize</button>
-        <button type="button" id="btnAcceptCookies" class="btn btn-primary btn-sm">Accept All</button>
-      </div>
-    </div>
-  </div>
 
-  <!-- COOKIE PREFERENCES MODAL -->
-  <div id="cookieModal" class="cookie-modal-backdrop" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitleIndex">
-    <div class="cookie-modal-card">
-      <div class="cookie-modal-header">
-        <h3 id="cookieModalTitleIndex">Cookie Preferences Center</h3>
-        <button type="button" id="btnCloseCookieModal" class="cookie-modal-close" aria-label="Close preferences">&times;</button>
-      </div>
-      <div class="cookie-modal-body">
-        <p>Manage your cookie settings below. You can enable or disable different types of cookies based on your preferences.</p>
-        
-        <div class="cookie-option-card">
-          <div class="cookie-option-header">
-            <div class="cookie-option-info">
-              <strong>Essential Cookies</strong>
-              <span>Always Active</span>
-            </div>
-            <input type="checkbox" id="chkEssentialIndex" checked disabled aria-label="Essential cookies checkbox">
-          </div>
-          <p class="cookie-option-desc">Necessary for core site features, security, page navigation, and theme persistence. Cannot be disabled.</p>
-        </div>
 
-        <div class="cookie-option-card">
-          <div class="cookie-option-header">
-            <div class="cookie-option-info">
-              <strong>Analytics &amp; Performance</strong>
-              <span>Optional</span>
-            </div>
-            <label class="switch">
-              <input type="checkbox" id="chkAnalytics" aria-label="Analytics cookies toggle">
-              <span class="slider"></span>
-            </label>
-          </div>
-          <p class="cookie-option-desc">Allows us to count visits and traffic sources so we can measure and improve the performance of our studio site.</p>
-        </div>
 
-        <div class="cookie-option-card">
-          <div class="cookie-option-header">
-            <div class="cookie-option-info">
-              <strong>Marketing &amp; Social</strong>
-              <span>Optional</span>
-            </div>
-            <label class="switch">
-              <input type="checkbox" id="chkMarketing" aria-label="Marketing cookies toggle">
-              <span class="slider"></span>
-            </label>
-          </div>
-          <p class="cookie-option-desc">Used to integrate social media platforms (WhatsApp, LinkedIn, Facebook) and deliver relevant communications.</p>
-        </div>
-      </div>
-      <div class="cookie-modal-footer">
-        <button type="button" id="btnRejectAllModal" class="btn btn-outline btn-sm">Reject All</button>
-        <button type="button" id="btnSaveCookiePrefs" class="btn btn-primary btn-sm">Save Preferences</button>
-        <button type="button" id="btnAcceptAllModal" class="btn btn-outline btn-sm">Accept All</button>
-      </div>
-    </div>
-  </div>
+
+
+<a class="pl-whatsapp-launcher" href="https://wa.me/923359873132" target="_blank" rel="noopener noreferrer" aria-label="Chat with PrimeLoft on WhatsApp" title="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662a11.87 11.87 0 005.707 1.456h.005c6.554 0 11.89-5.335 11.893-11.893 0-3.177-1.238-6.164-3.486-8.413z"/></svg></a>
 </body>
 </html>

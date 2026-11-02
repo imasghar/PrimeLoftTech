@@ -1,0 +1,318 @@
+/* UI/UX service page — bright editorial layouts and original interface explorations. */
+body.pl-page-service-design { background: #fff; }
+body.pl-page-service-design .ux-wrap { width: 100%; max-width: none; padding: 0 clamp(24px, 4vw, 72px); margin: 0 auto; }
+body.pl.pl-page-service-design section.ux-section { padding: 88px 0 !important; }
+body.pl-page-service-design .ux-kicker { display: inline-block; color: #1554F6; font-size: 11px; line-height: 1.5; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+body.pl-page-service-design h2 { font-size: clamp(32px, 3.5vw, 46px); line-height: 1.13; letter-spacing: -.045em; font-weight: 500; text-wrap: balance; }
+body.pl.pl-page-service-design section.ux-hero { padding: 30px 0 0 !important; background: linear-gradient(180deg, #fff 65%, #F8FAFF); }
+.ux-breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 11px; color: #8C97AF; }
+.ux-breadcrumb a { color: #6A7891; }
+.ux-breadcrumb a:hover { color: #1554F6; }
+.ux-breadcrumb [aria-current] { color: #1D2B4C; }
+.ux-hero__heading { display: grid; grid-template-columns: 1.55fr 1fr; gap: 70px; align-items: end; margin: 48px 0 40px; }
+body.pl-page-service-design .ux-hero h1 { font-size: clamp(44px, 4.9vw, 68px); line-height: 1.08; letter-spacing: -.055em; font-weight: 500; margin: 16px 0 0; }
+.ux-hero h1 > span { color: #1554F6; }
+body.pl-page-service-design .ux-hero__intro > p { margin: 0 0 22px; font-size: 15px; line-height: 1.85; color: #65728B; }
+.ux-button { display: inline-flex; align-items: center; justify-content: center; gap: 28px; min-height: 48px; padding: 0 20px; border: 1px solid #1554F6; border-radius: 10px; background: #1554F6; color: #fff; font-size: 13px; font-weight: 600; transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.ux-button > span { font-size: 21px; font-weight: 400; }
+.ux-button:hover { background: #1042CC; border-color: #1042CC; box-shadow: 0 6px 18px -10px #1554F6; }
+.ux-inline-link { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; color: #1554F6; }
+.ux-inline-link:hover { text-decoration: underline; text-underline-offset: 5px; }
+.ux-inline-link > span { font-size: 18px; }
+.ux-hero__intro .ux-inline-link { display: flex; margin-top: 15px; width: fit-content; }
+.ux-hero__visual { margin: 0; border: 1px solid #E5EBF9; border-radius: 20px; overflow: hidden; background: #EDF2FF; }
+.ux-hero__visual img { display: block; width: 100%; height: auto; aspect-ratio: 1.9; object-fit: cover; }
+.ux-hero__visual figcaption { display: flex; justify-content: space-between; gap: 16px; padding: 14px 20px; background: #F8FAFF; color: #697A96; font-size: 10px; letter-spacing: .015em; }
+.ux-hero__visual figcaption > span:first-child { color: #243553; }
+.ux-assurances { display: flex; justify-content: space-between; gap: 20px; padding: 26px 0; border-bottom: 1px solid #E8EDF6; }
+.ux-assurances span { display: flex; align-items: center; gap: 9px; font-size: 11px; color: #65728B; }
+.ux-assurances span::before { content: ''; width: 5px; height: 5px; flex-shrink: 0; border-radius: 50%; background: #8CA9F5; }
+.ux-section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 64px; margin-bottom: 36px; }
+.ux-section-head h2 { margin-top: 14px; }
+body.pl-page-service-design .ux-section-head > p { max-width: 350px; margin-bottom: 3px; font-size: 14px; line-height: 1.85; color: #65728B; }
+.ux-capabilities { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.ux-capability { padding: 26px; border: 1px solid #E7ECF5; border-radius: 16px; background: #fff; }
+.ux-capability__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; color: #96A2B7; font-size: 10px; }
+.ux-icon { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 11px; background: #F1F5FF; color: #1554F6; }
+.ux-icon svg { width: 21px; height: 21px; }
+body.pl-page-service-design .ux-capability h3 { font-size: 18px; font-weight: 500; line-height: 1.4; letter-spacing: -.025em; }
+body.pl-page-service-design .ux-capability > p { margin: 12px 0 20px; color: #65728B; font-size: 13px; line-height: 1.8; }
+.ux-capability ul { list-style: none; display: grid; gap: 9px; margin: 0; padding: 16px 0 0; border-top: 1px solid #EDF0F7; }
+.ux-capability li { display: flex; align-items: baseline; gap: 8px; font-size: 11px; line-height: 1.6; color: #526481; }
+.ux-capability li::before { content: '+'; color: #1554F6; }
+body.pl.pl-page-service-design section.ux-explorations { background: #F5F7FC; border-top: 1px solid #EDF0F7; border-bottom: 1px solid #EDF0F7; }
+.ux-tablist { display: inline-flex; gap: 4px; border: 1px solid #DEE6F5; border-radius: 999px; background: #EAF0FB; padding: 5px; margin-bottom: 24px; }
+.ux-tablist button { border: 0; background: transparent; border-radius: 999px; padding: 10px 20px; min-height: 40px; color: #63718B; font: 500 12px var(--font-body); cursor: pointer; }
+.ux-tablist button[aria-selected="true"] { background: #fff; color: #1554F6; box-shadow: 0 1px 4px #D7E0F2; }
+.ux-example { display: grid; grid-template-columns: .8fr 1.2fr; border: 1px solid #E4EAF5; border-radius: 20px; overflow: hidden; background: #fff; }
+.ux-example[hidden] { display: none; }
+.ux-example__copy { align-self: center; padding: 40px; }
+body.pl-page-service-design .ux-example__copy h3 { font-size: 30px; line-height: 1.2; letter-spacing: -.035em; margin: 16px 0; font-weight: 500; }
+body.pl-page-service-design .ux-example__copy > p { color: #65728B; font-size: 13px; line-height: 1.85; }
+.ux-example__copy ul { padding-left: 16px; margin: 22px 0; display: grid; gap: 10px; font-size: 12px; color: #526481; line-height: 1.6; }
+.ux-demo { position: relative; min-width: 0; min-height: 420px; display: flex; align-items: center; justify-content: center; padding: 40px 30px; overflow: hidden; font-family: var(--font-body); }
+.ux-demo--web { background: #EDEBE5; }
+.ux-demo-browser { width: 100%; border-radius: 10px; background: #FCFAF5; box-shadow: 0 20px 40px -20px #A6A49B; transform: rotate(-3deg); overflow: hidden; }
+.ux-demo-bar { display: flex; align-items: center; gap: 4px; height: 22px; padding: 0 10px; border-bottom: 1px solid #E6E2D9; }
+.ux-demo-bar i { width: 4px; height: 4px; border-radius: 50%; background: #C9C4B8; }
+.ux-demo-bar > span { flex: 1; text-align: center; font-size: 6px; color: #9B9589; }
+.ux-demo-webnav { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; font-size: 8px; color: #4B4D40; }
+.ux-demo-webnav b { font: 500 17px Georgia, serif; }
+.ux-demo-webnav > span { font-size: 6px; }
+.ux-demo-webbody { position: relative; min-height: 228px; padding: 24px 20px; background: #E6E6DA; color: #3D453A; }
+.ux-demo-webbody > span:first-child { position: relative; z-index: 1; display: block; font-size: 6px; letter-spacing: .1em; }
+.ux-demo-webbody > strong { position: relative; z-index: 1; display: block; font: 500 36px/1.03 Georgia, serif; margin: 16px 0; letter-spacing: -.03em; }
+.ux-demo-fauxbutton { position: relative; z-index: 1; display: inline-block; padding: 9px 12px; background: #344A3F; color: #fff; border-radius: 3px; font-size: 7px; }
+.ux-demo-orb { position: absolute; right: 4%; top: 40px; width: 40%; aspect-ratio: 1; border-radius: 45% 45% 20% 20%; background: radial-gradient(ellipse at 30% 25%, #C2C6A6, #667B62 50%, #3D5948); transform: rotate(14deg); box-shadow: 12px 25px 20px -18px #57684E; }
+.ux-concept { position: absolute; right: 16px; bottom: 12px; color: #6B7890; font-size: 8px; letter-spacing: .04em; }
+.ux-demo--mobile { background: #EBF1EA; }
+.ux-demo-phone { display: flex; flex-direction: column; position: relative; width: 210px; min-height: 355px; padding: 36px 18px 16px; background: #FBFCF8; border: 5px solid #2C3D35; border-radius: 30px; color: #304C3D; box-shadow: 0 22px 32px -20px #748E77; transform: rotate(5deg); }
+.ux-phone-notch { position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 50px; height: 10px; border-radius: 20px; background: #2C3D35; }
+.ux-demo-label { font-size: 6px; letter-spacing: .1em; color: #6C8375; }
+.ux-demo-phone > strong { margin-top: 10px; font: 500 29px/1.03 Georgia, serif; letter-spacing: -.03em; }
+.ux-phone-art { position: relative; height: 105px; margin: 14px 0; background: #E0EAD8; border-radius: 65px 65px 16px 16px; overflow: hidden; }
+.ux-phone-art > span { position: absolute; left: 24%; top: 20%; width: 60%; height: 120%; border-radius: 60% 60% 0 0; background: linear-gradient(120deg,#AEC4A3,#577C5B); transform: rotate(-20deg); }
+.ux-demo-phone > b { font-size: 10px; margin-bottom: 6px; }
+.ux-demo-phone > span:not(.ux-demo-label) { font-size: 7px; color: #778F7D; }
+.ux-demo-phone .ux-demo-fauxbutton { text-align: center; margin-top: 15px; border-radius: 20px; }
+.ux-phone-tabs { display: flex; justify-content: space-around; padding-top: 16px; margin-top: auto; font-size: 7px; color: #81917F; }
+.ux-demo--dashboard { background: #EAF0FC; }
+.ux-dashboard { display: grid; grid-template-columns: 90px 1fr; width: 100%; padding: 12px; border: 1px solid #E0E7F5; border-radius: 12px; background: #fff; box-shadow: 0 20px 40px -20px #8095C2; transform: rotate(-2deg); }
+.ux-dashboard aside { display: flex; flex-direction: column; gap: 8px; padding-right: 12px; border-right: 1px solid #EDF0F7; }
+.ux-dashboard aside b { font-size: 13px; margin: 7px 0 18px; }
+.ux-dashboard aside > span { font-size: 7px; color: #7E8AA2; padding: 7px; border-radius: 5px; }
+.ux-dashboard aside > .on { color: #1554F6; background: #EDF2FF; }
+.ux-dashboard > div { padding: 10px 0 6px 14px; }
+body.pl-page-service-design .ux-dashboard h4 { font-size: 14px; margin-top: 7px; letter-spacing: -.02em; }
+.ux-dashboard-stats { display: flex; gap: 10px; margin: 14px 0; }
+.ux-dashboard-stats > span { display: flex; flex-direction: column; gap: 7px; flex: 1; padding: 10px; background: #F5F7FE; border-radius: 6px; font-size: 7px; color: #7E8AA2; }
+.ux-dashboard-stats b { font-size: 20px; color: #203258; font-weight: 500; }
+.ux-dashboard-chart { display: flex; align-items: flex-end; gap: 8px; height: 95px; padding: 12px 10px 0; border-bottom: 1px solid #E7ECF6; background: repeating-linear-gradient(to top,transparent 0 29px,#F0F3FA 29px 30px); }
+.ux-dashboard-chart i { flex: 1; height: 40%; border-radius: 3px 3px 0 0; background: #A9C0FF; }
+.ux-dashboard-chart i:nth-child(2n) { height: 65%; background: #7C9FF5; }
+.ux-dashboard-chart i:nth-child(3n) { height: 80%; background: #1554F6; }
+.ux-dashboard-row { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0 6px; font-size: 7px; color: #6B7B99; }
+.ux-dashboard-row b { color: #728A7E; font-weight: 500; }
+.ux-process { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 28px; }
+.ux-process > li { border-top: 1px solid #CAD8F5; padding-top: 22px; }
+.ux-process > li > span { color: #1554F6; font-size: 11px; }
+body.pl-page-service-design .ux-process h3 { font-size: 18px; font-weight: 500; margin: 18px 0 12px; line-height: 1.35; }
+body.pl-page-service-design .ux-process p { font-size: 12px; line-height: 1.85; color: #65728B; }
+.ux-process small { display: block; margin-top: 22px; font-size: 10px; line-height: 1.6; color: #8794AB; }
+body.pl.pl-page-service-design section.ux-handoff { background: #F4F7FD; }
+.ux-handoff__grid { display: grid; grid-template-columns: 1fr 1.1fr; align-items: center; gap: 100px; }
+.ux-handoff h2 { margin: 16px 0 22px; }
+.ux-handoff h2 > span { color: #1554F6; }
+body.pl-page-service-design .ux-handoff__grid > div > p { max-width: 360px; font-size: 14px; line-height: 1.9; color: #65728B; margin-bottom: 28px; }
+.ux-deliverables { border: 1px solid #E2E9F7; border-radius: 18px; background: #fff; padding: 30px; }
+body.pl-page-service-design .ux-deliverables h3 { font-size: 19px; letter-spacing: -.03em; margin-bottom: 24px; }
+.ux-deliverables > ul { list-style: none; padding: 0; margin: 0; }
+.ux-deliverables li { display: flex; gap: 18px; padding: 18px 0; border-top: 1px solid #EDF0F7; }
+.ux-deliverables li > span { color: #A1B4D9; font-size: 11px; padding-top: 3px; }
+.ux-deliverables strong { font-size: 13px; font-weight: 500; }
+body.pl-page-service-design .ux-deliverables li p { color: #76839A; margin-top: 5px; font-size: 12px; line-height: 1.7; }
+body.pl-page-service-design .ux-deliverables .ux-scope-note { margin: 14px 0 0; font-size: 10px; line-height: 1.6; color: #8B97AD; }
+body.pl-page-service-design .ux-faq .faq-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; }
+.ux-faq h2 { margin: 16px 0 22px; }
+body.pl-page-service-design .ux-faq .faq-intro > p { font-size: 14px; line-height: 1.9; max-width: 330px; color: #65728B; margin-bottom: 24px; }
+body.pl-page-service-design .ux-faq .faq-item { border-radius: 12px; }
+body.pl-page-service-design .ux-faq .faq-question-text { font-size: 13px; }
+body.pl-page-service-design .ux-faq .faq-answer-inner p { font-size: 13px; line-height: 1.85; }
+body.pl.pl-page-service-design section.ux-close { padding-top: 0 !important; padding-bottom: 36px !important; }
+.ux-close__panel { position: relative; isolation: isolate; display: flex; justify-content: space-between; align-items: center; gap: 60px; overflow: hidden; background: #1554F6; border-radius: 22px; padding: 50px; }
+.ux-close__panel::after { content: ''; z-index: -1; width: 360px; height: 360px; border: 1px solid #FFFFFF26; box-shadow: 0 0 0 60px #FFFFFF08,0 0 0 120px #FFFFFF08; border-radius: 50%; position: absolute; right: -100px; top: -130px; }
+body.pl-page-service-design .ux-close__panel .ux-kicker { color: #BBD0FF; }
+body.pl-page-service-design .ux-close__panel h2 { color: #fff; margin: 14px 0 18px; font-size: clamp(30px,3vw,40px); }
+body.pl-page-service-design .ux-close__panel p { max-width: 460px; color: #D6E2FF; font-size: 13px; line-height: 1.85; }
+.ux-button--white { background: #fff; color: #1554F6; border-color: #fff; white-space: nowrap; flex-shrink: 0; }
+.ux-button--white:hover { background: #EDF2FF; color: #1042CC; border-color: #EDF2FF; }
+.ux-related { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: center; align-items: center; padding-top: 24px; font-size: 11px; color: #8A96AD; }
+.ux-related a { color: #5F708F; }
+.ux-related a:hover { color: #1554F6; }
+.ux-button:focus-visible,.ux-inline-link:focus-visible,.ux-tablist button:focus-visible,.ux-breadcrumb a:focus-visible,.ux-related a:focus-visible { outline: 2px solid #1554F6; outline-offset: 4px; }
+body.pl-page-service-design .pl-chat-prompt-card { display: none !important; }
+@media (max-width: 1100px) {
+  .ux-hero__heading { gap: 36px; }
+  .ux-capabilities { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .ux-handoff__grid { gap: 50px; }
+  .ux-example__copy { padding: 28px; }
+  .ux-demo { padding: 32px 24px; }
+  .ux-close__panel { padding: 40px; gap: 30px; flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 800px) {
+  body.pl-page-service-design .ux-wrap { padding: 0 24px; }
+  body.pl.pl-page-service-design section.ux-section { padding: 60px 0 !important; }
+  .ux-hero__heading { grid-template-columns: 1fr; gap: 24px; margin: 32px 0; }
+  body.pl-page-service-design .ux-hero h1 { font-size: clamp(44px,7.4vw,60px); }
+  body.pl-page-service-design .ux-hero__intro > p { max-width: 530px; font-size: 14px; margin-bottom: 18px; }
+  .ux-hero__intro .ux-inline-link { display: inline-flex; margin: 0 0 0 20px; }
+  .ux-hero__visual img { aspect-ratio: 1.5; }
+  .ux-assurances { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 24px 0; }
+  .ux-section-head { display: block; margin-bottom: 28px; }
+  body.pl-page-service-design .ux-section-head > p { max-width: 500px; margin-top: 20px; font-size: 13px; }
+  .ux-example { grid-template-columns: minmax(0,1fr); }
+  .ux-example__copy { padding: 30px; }
+  .ux-example__copy ul { margin: 18px 0; }
+  .ux-demo { min-height: 370px; }
+  .ux-demo-browser { max-width: 450px; }
+  .ux-dashboard { max-width: 460px; }
+  .ux-process { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 32px; }
+  .ux-handoff__grid { grid-template-columns: minmax(0,1fr); gap: 36px; }
+  .ux-handoff h2 br:nth-child(2) { display: none; }
+  body.pl-page-service-design .ux-handoff__grid > div > p { max-width: 500px; }
+  body.pl-page-service-design .ux-faq .faq-grid { grid-template-columns: minmax(0,1fr); gap: 30px; }
+  body.pl-page-service-design .ux-faq .faq-intro > p { max-width: 500px; }
+  body.pl.pl-page-service-design section.ux-close { padding-top: 0 !important; }
+}
+@media (max-width: 520px) {
+  body.pl-page-service-design .ux-wrap { padding: 0 20px; }
+  .ux-hero__heading { margin-top: 28px; }
+  body.pl-page-service-design .ux-hero h1 { font-size: 43px; }
+  .ux-hero__intro .ux-inline-link { display: flex; margin: 18px 0 0; }
+  .ux-hero__visual { border-radius: 14px; }
+  .ux-hero__visual figcaption { padding: 12px; flex-direction: column; gap: 6px; font-size: 9px; }
+  .ux-assurances { gap: 14px 20px; }
+  .ux-assurances span { font-size: 10px; align-items: baseline; }
+  .ux-capabilities { grid-template-columns: minmax(0,1fr); gap: 14px; }
+  .ux-capability { padding: 24px; }
+  .ux-tablist { display: flex; gap: 0; padding: 4px; }
+  .ux-tablist button { flex: 1; padding: 9px 8px; font-size: 10px; }
+  .ux-example { border-radius: 16px; }
+  .ux-example__copy { padding: 26px 22px; }
+  body.pl-page-service-design .ux-example__copy h3 { font-size: 27px; }
+  .ux-demo { min-height: 340px; padding: 30px 18px; }
+  .ux-demo-webbody > strong { font-size: 29px; }
+  .ux-demo-webbody { min-height: 200px; }
+  .ux-demo--mobile { min-height: 420px; }
+  .ux-dashboard { grid-template-columns: 68px 1fr; padding: 9px; }
+  .ux-dashboard aside { padding-right: 7px; }
+  .ux-dashboard > div { padding-left: 10px; }
+  body.pl-page-service-design .ux-dashboard h4 { font-size: 11px; }
+  .ux-dashboard-stats { gap: 6px; }
+  .ux-dashboard-chart { gap: 5px; }
+  .ux-dashboard-row { font-size: 6px; }
+  .ux-process { grid-template-columns: minmax(0,1fr); gap: 28px; }
+  .ux-process small { margin-top: 14px; }
+  .ux-deliverables { padding: 24px; }
+  body.pl-page-service-design .ux-deliverables h3 { font-size: 18px; }
+  .ux-close__panel { padding: 32px 24px; border-radius: 16px; }
+  .ux-close__panel .ux-button { white-space: normal; width: 100%; padding: 12px 16px; gap: 18px; text-align: center; }
+  .ux-related { font-size: 10px; gap: 12px 20px; }
+  .ux-related > span { width: 100%; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) { .ux-button { transition: none; } }
+
+body.pl-page-service-design .ux-section[id] { scroll-margin-top: 104px; }
+/* Editorial service accordion: generous type, compact rhythm, individual visuals. */
+body.pl.pl-page-service-design section.ux-section { padding: 64px 0 !important; }
+body.pl-page-service-design .ux-capability-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, .8fr) minmax(0, 1.7fr);
+  gap: clamp(36px, 5vw, 88px);
+  align-items: start;
+}
+body.pl-page-service-design .ux-capability-layout > .ux-section-head {
+  display: block;
+  position: sticky;
+  top: 116px;
+  margin: 0;
+}
+body.pl-page-service-design .ux-capability-layout .ux-section-head h2 { font-size: clamp(34px, 3.1vw, 48px); max-width: 12em; }
+body.pl-page-service-design .ux-capability-layout .ux-section-head > p {
+  max-width: 25em;
+  margin: 24px 0 0;
+  font-size: 18px;
+  line-height: 1.75;
+  color: #62718B;
+}
+.ux-service-accordion { min-width: 0; border-top: 1px solid #DCE5F5; }
+.ux-service-detail { border-bottom: 1px solid #DCE5F5; }
+.ux-service-detail > summary {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 25px 0;
+  cursor: pointer;
+  list-style: none;
+}
+.ux-service-detail > summary::-webkit-details-marker { display: none; }
+.ux-service-detail > summary::marker { content: ''; }
+.ux-service-detail__number { flex: 0 0 32px; font-size: 12px; color: #93A6C6; font-family: var(--font-mono); }
+body.pl-page-service-design .ux-service-detail > summary h3 {
+  flex: 1;
+  font-size: clamp(23px, 2vw, 31px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -.035em;
+  transition: color .18s ease;
+}
+.ux-service-detail__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #DEE6F5;
+  border-radius: 50%;
+  color: #657C9E;
+  transition: background-color .18s ease, color .18s ease;
+}
+.ux-service-detail__toggle svg { width: 19px; height: 19px; transition: transform .2s ease; }
+.ux-service-detail[open] > summary h3,
+.ux-service-detail > summary:hover h3 { color: #1554F6; }
+.ux-service-detail[open] .ux-service-detail__toggle { background: #1554F6; border-color: #1554F6; color: #fff; }
+.ux-service-detail[open] .ux-service-detail__toggle svg { transform: rotate(180deg); }
+.ux-service-detail > summary:focus-visible { outline: 2px solid #1554F6; outline-offset: 5px; border-radius: 5px; }
+.ux-service-detail__body { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: start; padding: 2px 0 30px 50px; }
+body.pl-page-service-design .ux-service-detail__text > p { font-size: 20px; line-height: 1.7; color: #4D6182; }
+.ux-service-detail__text > ul { display: grid; gap: 10px; list-style: none; margin: 24px 0; padding: 0; }
+.ux-service-detail__text li { position: relative; padding-left: 17px; font-size: 13px; line-height: 1.6; color: #6C7F9F; }
+.ux-service-detail__text li::before { content: ''; position: absolute; left: 0; top: .6em; width: 5px; height: 5px; border-radius: 50%; background: #90ACEC; }
+.ux-service-detail__text .ux-inline-link { font-size: 13px; }
+.ux-accordion-art { min-width: 0; padding: 12px; border-radius: 16px; background: linear-gradient(140deg, #F1F5FF, #E3ECFF); }
+.ux-accordion-art > svg { width: 100%; height: auto; font-family: var(--font-body); }
+.ux-accordion-art > span { display: block; padding: 0 8px 4px; font-size: 7px; letter-spacing: .08em; color: #8DA1C7; }
+body.pl-page-service-design .ux-section-head > p { font-size: 18px; line-height: 1.75; max-width: 440px; }
+body.pl-page-service-design .ux-hero__intro > p { font-size: 18px; line-height: 1.75; }
+body.pl-page-service-design .ux-example__copy > p { font-size: 17px; line-height: 1.75; }
+body.pl-page-service-design .ux-example__copy ul { font-size: 14px; }
+body.pl-page-service-design .ux-process p { font-size: 15px; line-height: 1.8; }
+body.pl-page-service-design .ux-process h3 { font-size: 21px; }
+body.pl-page-service-design .ux-handoff__grid > div > p { font-size: 17px; max-width: 28em; }
+body.pl-page-service-design .ux-deliverables li p { font-size: 14px; line-height: 1.7; }
+body.pl-page-service-design .ux-deliverables strong { font-size: 16px; }
+body.pl-page-service-design .ux-faq .faq-intro > p { font-size: 17px; }
+body.pl-page-service-design .ux-faq .faq-question-text { font-size: 16px; }
+body.pl-page-service-design .ux-faq .faq-answer-inner p { font-size: 16px; line-height: 1.8; }
+body.pl-page-service-design .ux-close__panel p { font-size: 17px; max-width: 34em; }
+@media (max-width: 1100px) {
+  body.pl-page-service-design .ux-capability-layout { grid-template-columns: minmax(230px,.75fr) minmax(0,1.4fr); gap: 32px; }
+  .ux-service-detail__body { grid-template-columns: minmax(0,1fr); padding-left: 0; }
+  .ux-accordion-art { max-width: 340px; }
+}
+@media (max-width: 800px) {
+  body.pl.pl-page-service-design section.ux-section { padding: 48px 0 !important; }
+  body.pl-page-service-design .ux-capability-layout { grid-template-columns: minmax(0,1fr); gap: 28px; }
+  body.pl-page-service-design .ux-capability-layout > .ux-section-head { position: static; }
+  body.pl-page-service-design .ux-capability-layout .ux-section-head > p { max-width: 34em; margin-top: 18px; font-size: 17px; }
+  .ux-service-detail__body { grid-template-columns: 1.1fr .9fr; padding-left: 0; gap: 20px; }
+  body.pl-page-service-design .ux-service-detail__text > p { font-size: 19px; }
+  .ux-service-detail > summary { padding: 22px 0; gap: 12px; }
+}
+@media (max-width: 520px) {
+  body.pl-page-service-design .ux-service-detail > summary h3 { font-size: 23px; }
+  .ux-service-detail__number { flex-basis: 23px; font-size: 10px; }
+  .ux-service-detail__toggle { flex-basis: 30px; width: 30px; height: 30px; }
+  .ux-service-detail__body { grid-template-columns: minmax(0,1fr); gap: 20px; }
+  .ux-accordion-art { max-width: none; }
+  body.pl-page-service-design .ux-service-detail__text > p { font-size: 19px; }
+  body.pl-page-service-design .ux-hero__intro > p,
+  body.pl-page-service-design .ux-section-head > p,
+  body.pl-page-service-design .ux-example__copy > p,
+  body.pl-page-service-design .ux-handoff__grid > div > p,
+  body.pl-page-service-design .ux-close__panel p { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ux-service-detail > summary h3,.ux-service-detail__toggle,.ux-service-detail__toggle svg { transition: none; }
+}

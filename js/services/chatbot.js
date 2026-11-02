@@ -4,27 +4,132 @@
  * - Floating prompt teaser card ("Not sure which service you need?")
  * - Concentric ring launcher button with speech bubble icon
  * - Multi-step interactive diagnostic questionnaire
- * - Services: UI/UX, Software Dev, Mobile, Custom Websites, SEO (On-page/Off-page), WordPress, Squarespace, Other
+ * - Services match the current header and footer catalog, with an optional custom inquiry.
  * - Custom free-text entry when 'Other' is chosen
  * - Straightforward timeline selector
  * - Step-by-step contact input stepper (Name -> Email -> Notes/Consent)
  * - Animated typing indicator before bot messages
  * - Native AJAX submission to Formspree AI endpoint
  * - Direct WhatsApp and Close actions at completion (no suggestion cards)
- * - Crisp cornered UI with zero border radius
+ * - Responsive chat panel styled to match the PrimeLoft website
  * - Isolated scrolling: does not scroll parent website
  */
 
 export class ChatbotService {
-  static botAnimations = [];
-  static botJsonCache = new Map();
-  static _themeObserver = null;
-  static _lottiePromise = null;
+  static services = [
+  {
+    "label": "UX/UI",
+    "question": "What kind of design help do you need?",
+    "options": [
+      "UX research or an audit",
+      "Website or mobile app design",
+      "Figma prototype or design system"
+    ],
+    "guidance": "We can scope research, user flows, wireframes, interactive prototypes and design systems."
+  },
+  {
+    "label": "Custom Website",
+    "question": "What would you like your website to do?",
+    "options": [
+      "Business website or landing page",
+      "E-commerce or booking website",
+      "Custom web application or portal"
+    ],
+    "guidance": "We can plan responsive pages, content structure, functionality and the development approach."
+  },
+  {
+    "label": "Mobile Application",
+    "question": "What do you need for your mobile application?",
+    "options": [
+      "New iOS and Android application",
+      "Improve an existing mobile app",
+      "Mobile MVP or prototype"
+    ],
+    "guidance": "We can review your core app journeys, target platforms and the features needed for your next release."
+  },
+  {
+    "label": "SEO",
+    "question": "Where do you need help with search visibility?",
+    "options": [
+      "Technical SEO audit",
+      "On-page SEO and content structure",
+      "Off-page SEO",
+      "A complete SEO plan"
+    ],
+    "guidance": "We can review technical issues, page content and search priorities before proposing an SEO scope."
+  },
+  {
+    "label": "Automation",
+    "question": "What would you like to automate?",
+    "options": [
+      "Repetitive business workflows",
+      "Connect apps, APIs or data",
+      "AI-assisted tasks and processes"
+    ],
+    "guidance": "We can map the current process, integrations and approval steps to identify a practical automation approach."
+  },
+  {
+    "label": "DevOps",
+    "question": "Which part of your delivery setup needs attention?",
+    "options": [
+      "CI/CD and automated deployments",
+      "Cloud infrastructure and environments",
+      "Monitoring and deployment reliability"
+    ],
+    "guidance": "We can review your deployment workflow, infrastructure and monitoring needs to define the right DevOps scope."
+  },
+  {
+    "label": "Testing & QA",
+    "question": "What would you like us to test?",
+    "options": [
+      "Website or mobile app testing",
+      "Automated regression tests",
+      "Performance or usability testing"
+    ],
+    "guidance": "We can define test coverage, priority user journeys and a reporting approach for your product."
+  },
+  {
+    "label": "Maintenance",
+    "question": "What kind of ongoing support do you need?",
+    "options": [
+      "Bug fixes and troubleshooting",
+      "Updates, backups and security maintenance",
+      "Ongoing improvements and support"
+    ],
+    "guidance": "We can review your existing product and agree the support tasks, priorities and maintenance arrangement."
+  },
+  {
+    "label": "WordPress",
+    "question": "What do you need for your WordPress website?",
+    "options": [
+      "New WordPress website",
+      "WooCommerce store",
+      "Redesign, migration or maintenance"
+    ],
+    "guidance": "We can scope your WordPress pages, theme needs, integrations and ongoing management requirements."
+  },
+  {
+    "label": "Squarespace",
+    "question": "What do you need for your Squarespace website?",
+    "options": [
+      "New Squarespace website",
+      "Redesign or custom styling",
+      "Content migration or store setup"
+    ],
+    "guidance": "We can review your content, layout and Squarespace setup to plan a website that fits your requirements."
+  }
+];
+
+  static escapeHtml(value) {
+    return String(value).replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char]));
+  }
+
 
   static init() {
     if (document.getElementById('plChatWidget')) return;
     this.state = {
       isOpen: false,
+      submitted: false,
       step: 1, // 1: service, 2: stage/custom, 3: timeline, 4: guidance, 5: contact, 6: done
       contactSubStep: 1, // 1: name, 2: email, 3: notes & consent
       totalSteps: 5,
@@ -42,10 +147,10 @@ export class ChatbotService {
     this.renderWidget();
     this.bindEvents();
     this.renderCurrentStep();
-    this.initBotAnimations();
   }
 
   static renderWidget() {
+    const guideIcon = `<svg class="pl-guide-mark" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 5H10a6 6 0 0 0-6 6v4a6 6 0 0 0 6 6h1l-1 4 6-4h2a6 6 0 0 0 6-6v-2"/><path d="m23 2 1.1 3.4L27 6.5l-2.9 1.1L23 11l-1.1-3.4L19 6.5l2.9-1.1L23 2Z"/><circle cx="10" cy="13" r=".9" fill="currentColor" stroke="none"/><circle cx="15" cy="13" r=".9" fill="currentColor" stroke="none"/></svg>`;
     const root = document.createElement('div');
     root.id = 'plChatWidget';
     root.className = 'pl-chat-widget';
@@ -54,7 +159,7 @@ export class ChatbotService {
       <div class="pl-chat-prompt-card" id="plChatPromptCard">
         <div class="pl-prompt-header">
           <div class="pl-prompt-bot-wrap">
-            <div class="pl-prompt-bot" id="plPromptBot" aria-hidden="true"></div>
+            <div class="pl-prompt-bot" id="plPromptBot" aria-hidden="true">${guideIcon}</div>
             <span class="pl-prompt-pulse"></span>
           </div>
           <div class="pl-prompt-header-text">
@@ -69,15 +174,11 @@ export class ChatbotService {
         </div>
       </div>
 
-      <!-- Floating Launcher Button with Concentric Outer Ring -->
-      <button class="pl-chat-launcher" id="plChatLauncher" aria-label="Open PrimeLoft Project Guide">
+      <!-- Floating launcher with a static brand icon -->
+      <button class="pl-chat-launcher" id="plChatLauncher" type="button" aria-label="Open PrimeLoft Project Guide" aria-controls="plChatWindow" aria-expanded="false">
         <span class="pl-chat-launcher-ring" aria-hidden="true">
           <span class="pl-chat-launcher-inner">
-            <span class="pl-chat-launcher-icon open-icon" id="plChatLauncherBot" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="pl-bot-fallback">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-              </svg>
-            </span>
+            <span class="pl-chat-launcher-icon open-icon" id="plChatLauncherBot" aria-hidden="true">${guideIcon}</span>
             <span class="pl-chat-launcher-icon close-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
                 <line x1="18" y1="6" x2="6" y2="18"/>
@@ -88,18 +189,18 @@ export class ChatbotService {
         </span>
       </button>
 
-      <!-- Chat Modal Window (Properly Cornered, Zero Border Radius) -->
-      <div class="pl-chat-window" id="plChatWindow" role="dialog" aria-modal="true" aria-labelledby="plChatTitle" data-lenis-prevent hidden>
-        <!-- Header (Compact height, PrimeLoft Favicon, no subtitle line, no minimize button) -->
-        <header class="pl-chat-header">
+      <!-- Self-contained, non-modal project guide panel -->
+      <div class="pl-chat-window" id="plChatWindow" role="dialog" aria-modal="false" aria-labelledby="plChatTitle" data-lenis-prevent hidden>
+        <!-- Project guide header -->
+        <div class="pl-chat-header">
           <div class="pl-chat-header-info">
             <div class="pl-chat-header-avatar">
-              <div class="pl-chat-header-bot" id="plChatHeaderBot" aria-hidden="true"></div>
-              <span class="pl-chat-avatar-status" title="Online"></span>
+              <div class="pl-chat-header-bot" id="plChatHeaderBot" aria-hidden="true">${guideIcon}</div>
+
             </div>
             <div class="pl-chat-title-group">
               <h3 class="pl-chat-title" id="plChatTitle">PrimeLoft Guide</h3>
-              <span class="pl-chat-subtitle">Online &bull; Ready to help</span>
+              <span class="pl-chat-subtitle">Project assistant</span>
             </div>
           </div>
           <div class="pl-chat-header-actions">
@@ -107,12 +208,12 @@ export class ChatbotService {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </button>
           </div>
-        </header>
+        </div>
 
         <!-- Stepper Progress Tracker -->
         <div class="pl-chat-stepper">
-          <div class="pl-stepper-label" id="plStepperLabel">STEP 1 OF 5</div>
-          <div class="pl-stepper-track">
+          <div class="pl-stepper-heading"><span class="pl-stepper-label" id="plStepperLabel">Step 1 of 5</span><span class="pl-stepper-stage" id="plStepperStage">Choose a service</span></div>
+          <div class="pl-stepper-track" role="progressbar" aria-label="Project inquiry progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20">
             <div class="pl-stepper-fill" id="plStepperFill" style="width: 20%;"></div>
           </div>
         </div>
@@ -123,10 +224,10 @@ export class ChatbotService {
         </div>
 
         <!-- Footer Actions Bar -->
-        <footer class="pl-chat-footer">
+        <div class="pl-chat-footer">
           <span class="pl-footer-help">Prefer a person? <a href="contact.html" id="plFooterContactLink">Talk to the team</a></span>
           <button class="pl-footer-restart" id="plChatRestart" type="button">Restart</button>
-        </footer>
+        </div>
       </div>
     `;
 
@@ -136,139 +237,6 @@ export class ChatbotService {
     if (sessionStorage.getItem('pl-guide-prompt-dismissed') === 'true') {
       const promptCard = document.getElementById('plChatPromptCard');
       if (promptCard) promptCard.style.display = 'none';
-    }
-  }
-
-  /**
-   * Helper: Ensure Lottie library is ready
-   */
-  static async ensureLottie() {
-    if (window.lottie) return window.lottie;
-    if (this._lottiePromise) return this._lottiePromise;
-
-    this._lottiePromise = new Promise((resolve) => {
-      if (window.lottie) return resolve(window.lottie);
-
-      let script = document.querySelector('script[src*="lottie"]');
-      if (!script) {
-        script = document.createElement('script');
-        script.src = 'js/libs/lottie_light.min.js?v=2.5.0';
-        script.async = true;
-        document.head.appendChild(script);
-      }
-
-      const onDone = () => resolve(window.lottie || null);
-      script.addEventListener('load', onDone);
-      script.addEventListener('error', () => {
-        const cdnScript = document.createElement('script');
-        cdnScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie_light.min.js';
-        cdnScript.async = true;
-        cdnScript.onload = () => resolve(window.lottie || null);
-        cdnScript.onerror = () => resolve(null);
-        document.head.appendChild(cdnScript);
-      });
-    });
-
-    return this._lottiePromise;
-  }
-
-  /**
-   * Helper: Fetch and cache Lottie JSON
-   */
-  static async fetchBotJson(url) {
-    if (this.botJsonCache.has(url)) return this.botJsonCache.get(url);
-    try {
-      const res = await fetch(url);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json();
-      this.botJsonCache.set(url, data);
-      return data;
-    } catch (e) {
-      console.warn('Could not fetch bot Lottie JSON from', url, e);
-      return null;
-    }
-  }
-
-  /**
-   * Initialize and manage the Support Bot Lottie animations
-   * Adapts dynamically between bot-dark.json and bot-light.json on theme change
-   */
-  static async initBotAnimations() {
-    const lottie = await this.ensureLottie();
-    if (!lottie) {
-      console.warn('Lottie library not available for chatbot animations.');
-      return;
-    }
-
-    const darkUrl = 'animations/bot-dark.json';
-    const lightUrl = 'animations/bot-light.json';
-
-    // Preload active theme first, background cache the secondary theme
-    const isDarkInitial = document.documentElement.getAttribute('data-theme') === 'dark';
-    await this.fetchBotJson(isDarkInitial ? darkUrl : lightUrl);
-    this.fetchBotJson(isDarkInitial ? lightUrl : darkUrl);
-
-    const containerIds = ['plChatLauncherBot', 'plChatHeaderBot', 'plPromptBot'];
-
-    const renderAll = () => {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      const targetUrl = isDark ? darkUrl : lightUrl;
-      const data = this.botJsonCache.get(targetUrl);
-
-      // Clean up existing instances
-      this.botAnimations.forEach(inst => {
-        try { inst.destroy(); } catch (_) {}
-      });
-      this.botAnimations = [];
-
-      containerIds.forEach(id => {
-        const container = document.getElementById(id);
-        if (!container) return;
-        container.innerHTML = '';
-
-        const config = {
-          container,
-          renderer: 'svg',
-          loop: true,
-          autoplay: true,
-          rendererSettings: {
-            preserveAspectRatio: 'xMidYMid meet',
-            progressiveLoad: true,
-            hideOnTransparent: true
-          }
-        };
-
-        if (data) {
-          config.animationData = data;
-        } else {
-          config.path = targetUrl;
-        }
-
-        try {
-          const inst = lottie.loadAnimation(config);
-          this.botAnimations.push(inst);
-        } catch (err) {
-          console.error('Failed to load bot animation for', id, err);
-        }
-      });
-    };
-
-    renderAll();
-
-    // Reactive theme observer for instantaneous switching
-    if (!this._themeObserver) {
-      this._themeObserver = new MutationObserver((mutations) => {
-        for (const m of mutations) {
-          if (m.type === 'attributes' && m.attributeName === 'data-theme') {
-            renderAll();
-            break;
-          }
-        }
-      });
-      this._themeObserver.observe(document.documentElement, {
-        attributes: true,
-        attributeFilter: ['data-theme']
-      });
     }
   }
 
@@ -371,7 +339,10 @@ export class ChatbotService {
     }
     if (launcher) {
       launcher.classList.add('is-active');
+      launcher.setAttribute('aria-expanded', 'true');
+      launcher.setAttribute('aria-label', 'Close PrimeLoft Project Guide');
     }
+    document.getElementById('plChatClose')?.focus({ preventScroll: true });
     this.scrollToBottom();
   }
 
@@ -387,11 +358,15 @@ export class ChatbotService {
     }
     if (launcher) {
       launcher.classList.remove('is-active');
+      launcher.setAttribute('aria-expanded', 'false');
+      launcher.setAttribute('aria-label', 'Open PrimeLoft Project Guide');
+      launcher.focus({ preventScroll: true });
     }
   }
 
   static restart() {
     this.state.step = 1;
+    this.state.submitted = false;
     this.state.contactSubStep = 1;
     this.state.answers = {
       service: '',
@@ -410,7 +385,11 @@ export class ChatbotService {
   static updateStepper(stepText, percent) {
     const label = document.getElementById('plStepperLabel');
     const fill = document.getElementById('plStepperFill');
-    if (label) label.textContent = stepText;
+    if (label) label.textContent = stepText.replace(/^STEP (\d) OF (\d).*$/, 'Step $1 of $2').replace('DONE', 'Complete');
+    const stages = ['Choose a service', 'Project details', 'Your timeline', 'Next steps', 'Contact details', 'Thank you'];
+    const stage = document.getElementById('plStepperStage');
+    if (stage) stage.textContent = stages[this.state.step - 1] || '';
+    document.querySelector('.pl-stepper-track')?.setAttribute('aria-valuenow', String(percent));
     if (fill) fill.style.width = `${percent}%`;
   }
 
@@ -486,16 +465,8 @@ export class ChatbotService {
       this.showTyping(() => {
         this.appendBotBubble('Which service are you looking for?');
 
-        const choices = [
-          { label: 'UI/UX', val: 'UI/UX' },
-          { label: 'Software Development', val: 'Software Development' },
-          { label: 'Mobile Applications', val: 'Mobile Applications' },
-          { label: 'Custom Websites', val: 'Custom Websites' },
-          { label: 'SEO', val: 'SEO' },
-          { label: 'WordPress Sites', val: 'WordPress Sites' },
-          { label: 'Squarespace', val: 'Squarespace' },
-          { label: 'Other', val: 'Other' }
-        ];
+        const choices = this.services.map(service => ({ label: service.label, val: service.label }));
+        choices.push({ label: 'Other / Not sure yet', val: 'Other' });
         this.renderChoiceButtons(choices, (val) => {
           this.state.answers.service = val;
           this.state.step = 2;
@@ -521,7 +492,7 @@ export class ChatbotService {
           card.innerHTML = `
             <form class="pl-input-step-form" id="plFormStepOther" novalidate>
               <div class="pl-form-group">
-                <textarea class="pl-input-step-field pl-input-step-textarea" id="plInputStepOther" rows="3" placeholder="Tell us about the project, technology, or service you need..." required></textarea>
+                <textarea class="pl-input-step-field pl-input-step-textarea" id="plInputStepOther" aria-label="Project requirements" rows="3" placeholder="Tell us about the project, technology, or service you need..." required></textarea>
               </div>
               <span class="pl-form-error" id="plErrorStepOther" aria-live="polite"></span>
               <button class="pl-btn-step-next" id="plBtnOtherNext" type="submit" style="align-self: flex-end; margin-top: 4px;">
@@ -567,64 +538,10 @@ export class ChatbotService {
         return;
       }
 
-      let question = 'What are you looking to build or achieve?';
-      let choices = [
-        { label: 'New project from scratch', val: 'New project from scratch' },
-        { label: 'Redesign or improve existing', val: 'Redesign or improve existing' },
-        { label: 'Consultation & expert audit', val: 'Consultation & expert audit' }
-      ];
-
-      if (service === 'UI/UX') {
-        question = 'What kind of UI/UX design project is this?';
-        choices = [
-          { label: 'New mobile or web app design', val: 'New mobile or web app design' },
-          { label: 'Redesign of existing website / app', val: 'Redesign of existing website / app' },
-          { label: 'Design system & interactive prototype', val: 'Design system & interactive prototype' }
-        ];
-      } else if (service === 'Software Development') {
-        question = 'What type of software do you need built?';
-        choices = [
-          { label: 'Custom SaaS / Web platform', val: 'Custom SaaS / Web platform' },
-          { label: 'Internal business portal or tool', val: 'Internal business portal or tool' },
-          { label: 'API integration & backend system', val: 'API integration & backend system' }
-        ];
-      } else if (service === 'Mobile Applications') {
-        question = 'Which platforms are you targeting?';
-        choices = [
-          { label: 'iOS & Android (Cross-platform)', val: 'iOS & Android (Cross-platform)' },
-          { label: 'Native iOS or Android app', val: 'Native iOS or Android app' },
-          { label: 'MVP prototype for launch', val: 'MVP prototype for launch' }
-        ];
-      } else if (service === 'Custom Websites') {
-        question = 'What type of custom website do you need?';
-        choices = [
-          { label: 'High-performance brand / marketing site', val: 'High-performance brand / marketing site' },
-          { label: 'Custom web portal or client app', val: 'Custom web portal or client app' },
-          { label: 'E-commerce or booking platform', val: 'E-commerce or booking platform' }
-        ];
-      } else if (service === 'SEO') {
-        question = 'What is your primary SEO focus?';
-        choices = [
-          { label: 'On-page SEO optimization', val: 'On-page SEO optimization' },
-          { label: 'Off-page SEO & link building', val: 'Off-page SEO & link building' },
-          { label: 'Technical SEO audit & speed', val: 'Technical SEO audit & speed' },
-          { label: 'Complete SEO (On-page + Off-page)', val: 'Complete SEO (On-page + Off-page)' }
-        ];
-      } else if (service === 'WordPress Sites') {
-        question = 'What do you need for WordPress?';
-        choices = [
-          { label: 'Custom WordPress website from scratch', val: 'Custom WordPress website from scratch' },
-          { label: 'WooCommerce online store setup', val: 'WooCommerce online store setup' },
-          { label: 'WordPress redesign, speed & security', val: 'WordPress redesign, speed & security' }
-        ];
-      } else if (service === 'Squarespace') {
-        question = 'What do you need for Squarespace?';
-        choices = [
-          { label: 'Brand new Squarespace website', val: 'Brand new Squarespace website' },
-          { label: 'Custom CSS & template code styling', val: 'Custom CSS & template code styling' },
-          { label: 'Squarespace redesign & content migration', val: 'Squarespace redesign & content migration' }
-        ];
-      }
+      const selectedService = this.services.find(item => item.label === service);
+      const question = selectedService?.question || 'What would you like help with?';
+      const choices = (selectedService?.options || ['New project', 'Improve an existing product', 'Advice on the right approach'])
+        .map(option => ({ label: option, val: option }));
 
       this.showTyping(() => {
         this.appendBotBubble(question);
@@ -645,7 +562,7 @@ export class ChatbotService {
 
         const choices = [
           { label: 'As soon as possible', val: 'As soon as possible' },
-          { label: 'In 1–3 months', val: 'In 1–3 months' },
+          { label: 'In 1-3 months', val: 'In 1-3 months' },
           { label: 'Just exploring / Budgeting', val: 'Just exploring / Budgeting' }
         ];
         this.renderChoiceButtons(choices, (val) => {
@@ -660,16 +577,19 @@ export class ChatbotService {
     // STEP 4: Rule-based guidance & confirmation
     if (this.state.step === 4) {
       this.updateStepper('STEP 4 OF 5', 80);
-      const serviceDisplay = this.state.answers.service === 'Other' ? 'custom project' : this.state.answers.service;
-      const stageDisplay = this.state.answers.service === 'Other' ? `"${this.state.answers.stage}"` : this.state.answers.stage;
-      const guidance = `Got it! For <strong>${serviceDisplay}</strong> (${stageDisplay}) starting <em>${this.state.answers.timeline.toLowerCase()}</em>, our team will prepare a tailored proposal.`;
-      
+      const selectedService = this.services.find(item => item.label === this.state.answers.service);
+      const serviceDisplay = this.escapeHtml(selectedService?.label || 'your project');
+      const stageDisplay = this.escapeHtml(this.state.answers.stage);
+      const timelineDisplay = this.escapeHtml(this.state.answers.timeline.toLowerCase());
+      const scope = selectedService?.guidance || 'We can review your requirements and help identify the right service.';
+      const guidance = `You are looking for <strong>${serviceDisplay}</strong>: ${stageDisplay}, starting <em>${timelineDisplay}</em>.<br><br>${scope}<br><br>Share your details so we can review the scope, timing and next steps.`;
+
       this.showTyping(() => {
         this.appendBotBubble(guidance);
 
         const choices = [
-          { label: 'Send me a project proposal plan →', val: 'proceed_contact' },
-          { label: 'Chat directly on WhatsApp →', val: 'skip_to_done' }
+          { label: 'Share project details', val: 'proceed_contact' },
+          { label: 'Chat on WhatsApp', val: 'skip_to_done' }
         ];
         this.renderChoiceButtons(choices, (val) => {
           if (val === 'proceed_contact') {
@@ -695,9 +615,11 @@ export class ChatbotService {
     if (this.state.step === 6) {
       this.updateStepper('DONE', 100);
       this.showTyping(() => {
-        const firstName = this.state.answers.name ? this.state.answers.name.split(' ')[0] : '';
+        const firstName = this.state.answers.name ? this.escapeHtml(this.state.answers.name.split(' ')[0]) : '';
         const greeting = firstName ? `Thank you, ${firstName}!` : 'Thank you!';
-        this.appendBotBubble(`${greeting} Your details have been received. Our senior team will review your project and get back to you within 1 business day.`);
+        this.appendBotBubble(this.state.submitted
+          ? `${greeting} Your project details have been sent. Our team will review your requirements and reply using the contact details you provided.`
+          : 'Continue on WhatsApp to share your project with the PrimeLoft team. Your answers will be included in the message.');
         this.renderDoneRecommendations();
       }, 500);
       return;
@@ -709,14 +631,14 @@ export class ChatbotService {
     if (!body) return;
 
     const container = document.createElement('div');
-    container.className = 'pl-choices-list';
+    container.className = this.state.step === 1 ? 'pl-choices-list pl-choices-list--services' : 'pl-choices-list';
 
     choices.forEach(ch => {
       const btn = document.createElement('button');
       btn.className = 'pl-choice-btn';
       btn.type = 'button';
       btn.innerHTML = `
-        <span class="pl-choice-text">${ch.label}</span>
+        <span class="pl-choice-text">${this.escapeHtml(ch.label)}</span>
         <span class="pl-choice-arrow" aria-hidden="true">&rsaquo;</span>
       `;
       btn.addEventListener('click', () => {
@@ -758,17 +680,17 @@ export class ChatbotService {
 
     // Sub-step 1: Name
     if (this.state.contactSubStep === 1) {
-      this.updateStepper('STEP 5 OF 5 • NAME', 85);
+      this.updateStepper('STEP 5 OF 5 â€¢ NAME', 85);
       this.showTyping(() => {
         this.appendBotBubble("Where should we send your plan? First, what is your full name?");
-        
+
         const card = document.createElement('div');
         card.className = 'pl-input-step-card';
         card.id = 'plCardStepName';
         card.innerHTML = `
           <form class="pl-input-step-form" id="plFormStepName" novalidate>
             <div class="pl-input-step-row">
-              <input class="pl-input-step-field" id="plInputStepName" type="text" placeholder="Your name" autocomplete="name" required>
+              <input class="pl-input-step-field" id="plInputStepName" aria-label="Your name" type="text" placeholder="Your name" autocomplete="name" required>
               <button class="pl-btn-step-next" id="plBtnNameNext" type="submit">
                 <span>Next</span>
                 <span aria-hidden="true">&rarr;</span>
@@ -809,9 +731,9 @@ export class ChatbotService {
 
     // Sub-step 2: Work Email
     if (this.state.contactSubStep === 2) {
-      this.updateStepper('STEP 5 OF 5 • EMAIL', 92);
+      this.updateStepper('STEP 5 OF 5 â€¢ EMAIL', 92);
       this.showTyping(() => {
-        const firstName = this.state.answers.name.split(' ')[0] || this.state.answers.name;
+        const firstName = this.escapeHtml(this.state.answers.name.split(' ')[0] || this.state.answers.name);
         this.appendBotBubble(`Great to meet you, ${firstName}! What is your work email?`);
 
         const card = document.createElement('div');
@@ -820,7 +742,7 @@ export class ChatbotService {
         card.innerHTML = `
           <form class="pl-input-step-form" id="plFormStepEmail" novalidate>
             <div class="pl-input-step-row">
-              <input class="pl-input-step-field" id="plInputStepEmail" type="email" placeholder="you@company.com" autocomplete="email" required>
+              <input class="pl-input-step-field" id="plInputStepEmail" aria-label="Email address" type="email" placeholder="you@company.com" autocomplete="email" required>
               <button class="pl-btn-step-next" id="plBtnEmailNext" type="submit">
                 <span>Next</span>
                 <span aria-hidden="true">&rarr;</span>
@@ -862,7 +784,7 @@ export class ChatbotService {
 
     // Sub-step 3: Notes (optional) + Privacy Consent + Submit Button
     if (this.state.contactSubStep === 3) {
-      this.updateStepper('STEP 5 OF 5 • DETAILS', 96);
+      this.updateStepper('STEP 5 OF 5 â€¢ DETAILS', 96);
       this.showTyping(() => {
         this.appendBotBubble("Almost done! Anything else we should know about your project?");
 
@@ -872,7 +794,7 @@ export class ChatbotService {
         card.innerHTML = `
           <form class="pl-input-step-form" id="plFormStepDetails" novalidate>
             <div class="pl-form-group">
-              <textarea class="pl-input-step-field pl-input-step-textarea" id="plInputStepNotes" rows="2" placeholder="Tell us a little about your project (optional)"></textarea>
+              <textarea class="pl-input-step-field pl-input-step-textarea" id="plInputStepNotes" aria-label="Project notes" rows="2" placeholder="Tell us a little about your project (optional)"></textarea>
             </div>
 
             <div class="pl-form-checkbox-row">
@@ -956,6 +878,7 @@ Client Notes: ${notesVal || 'None provided'}`);
             });
 
             if (response.ok) {
+              this.state.submitted = true;
               card.remove();
               if (notesVal) {
                 this.appendUserBubble(notesVal);
@@ -990,7 +913,7 @@ Client Notes: ${notesVal || 'None provided'}`);
     cardsWrapper.className = 'pl-done-actions-wrapper';
 
     const serviceText = this.state.answers.service === 'Other' ? ' a custom project' : (this.state.answers.service ? ` regarding ${this.state.answers.service}` : '');
-    const waText = encodeURIComponent(`Hi PrimeLoft team! I just completed the project questionnaire on your website${serviceText}. Can we discuss scope?`);
+    const waText = encodeURIComponent(`Hi PrimeLoft team! I would like to discuss a project${serviceText}.\nDetails: ${this.state.answers.stage}\nPreferred start: ${this.state.answers.timeline}`);
     const waUrl = `https://wa.me/923359873132?text=${waText}`;
 
     cardsWrapper.innerHTML = `

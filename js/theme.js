@@ -9,12 +9,6 @@ root.classList.add('pl-js');
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// ---------- 0. PREVIEW THEME OVERRIDE (?theme=light|dark, not persisted) ----------
-const previewTheme = new URLSearchParams(location.search).get('theme');
-if (previewTheme === 'light' || previewTheme === 'dark') {
-  root.setAttribute('data-theme', previewTheme);
-}
-
 // ---------- 1. HEADER: STRONGER SURFACE ONCE THE PAGE SCROLLS ----------
 const header = document.querySelector('header.pl-header');
 if (header) {

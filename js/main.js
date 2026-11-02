@@ -1,39 +1,19 @@
 /* ==========================================================================
    PRIME LOFT - MAIN APPLICATION CONTROLLER
-   Integrates Theme, Modular Services (Consent, Tracking, Analytics, SEO),
+   Integrates SEO, navigation, forms, the project guide,
    and Lazy Loaded Animations.
    ========================================================================== */
 
-import { trackingService } from './services/tracking-service.js';
-import { analyticsService } from './services/analytics-service.js';
 import { SeoService } from './services/seo-service.js';
-import { CookieConsentUI } from './services/cookie-consent-ui.js';
 import { InertiaScrollService } from './services/inertia-scroll.js';
-import { ChatbotService } from './services/chatbot.js';
+import { ChatbotService } from './services/chatbot.js?v=4.0.0';
 import { FAQAccordion } from './services/faq-accordion.js';
-
-// 1. Instant Theme Initialization
-(function initTheme() {
-  const savedTheme = localStorage.getItem('primeloft-theme') || 'light';
-  document.documentElement.setAttribute('data-theme', savedTheme);
-})();
-
-// BFCache (Back/Forward Cache) Restoration Handler
-window.addEventListener('pageshow', (event) => {
-  if (event.persisted) {
-    const savedTheme = localStorage.getItem('primeloft-theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-  }
-});
 
 document.addEventListener('DOMContentLoaded', () => {
 
   // ---------- 1. MODULAR SERVICES INITIALIZATION ----------
   InertiaScrollService.init();
   SeoService.init();
-  trackingService.init();
-  analyticsService.init();
-  CookieConsentUI.init();
   ChatbotService.init();
   FAQAccordion.init();
 
@@ -109,19 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
       orbitContent.style.opacity = '1';
       orbitContent.style.transform = 'none';
     }
-  }
-
-  // ---------- 2. THEME TOGGLE ----------
-  const root = document.documentElement;
-  const themeToggleBtn = document.getElementById('themeToggle');
-
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-      const currentTheme = root.getAttribute('data-theme');
-      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', nextTheme);
-      localStorage.setItem('primeloft-theme', nextTheme);
-    });
   }
 
   // ---------- 3. MOBILE MENU TOGGLE ----------
@@ -378,7 +345,6 @@ document.addEventListener('DOMContentLoaded', () => {
             status.textContent = 'Thank you! Your message has been sent successfully. We will get back to you as soon as we can.';
           }
           contactForm.reset();
-          analyticsService.trackFormSubmission('contactForm');
         } else {
           const result = await response.json();
           throw new Error(result.errors ? result.errors.map(err => err.message).join(', ') : 'Submission failed');
@@ -412,7 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (status && status.classList.contains('newsletterStatus')) {
           status.style.display = 'block';
           status.style.color = '#25D366';
-          status.textContent = '✓ Subscribed successfully!';
+          status.textContent = 'âœ“ Subscribed successfully!';
         }
         form.reset();
         return;
@@ -438,12 +404,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok) {
           if (status && status.classList.contains('newsletterStatus')) {
             status.style.color = '#25D366';
-            status.textContent = '✓ Subscribed successfully!';
+            status.textContent = 'âœ“ Subscribed successfully!';
           }
           form.reset();
-          if (analyticsService) {
-            analyticsService.pushEvent('newsletter_subscribed');
-          }
         } else {
           throw new Error('Subscription failed');
         }
@@ -518,25 +481,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  async function initLottieAnimation(containers, lightUrl, darkUrl) {
+  async function initLottieAnimation(containers, lightUrl) {
     if (!containers || containers.length === 0) return;
 
     await ensureLottieLoaded();
 
-    const isInitialDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    const primaryUrl = isInitialDark ? darkUrl : lightUrl;
-    const secondaryUrl = isInitialDark ? lightUrl : darkUrl;
-
-    // Fetch primary theme immediately, background-fetch secondary theme for smooth switching
-    await fetchAnimationJson(primaryUrl);
-    fetchAnimationJson(secondaryUrl);
+    await fetchAnimationJson(lightUrl);
 
     containers.forEach(container => {
       let animInstance = null;
 
       function renderAnimation() {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        const targetUrl = isDark ? darkUrl : lightUrl;
+        const targetUrl = lightUrl;
         const targetData = animationJsonCache.get(targetUrl);
 
         if (animInstance) {
@@ -574,16 +530,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       renderAnimation();
 
-      // Reactive theme observer on <html data-theme="...">
-      const themeObserver = new MutationObserver((mutations) => {
-        for (const m of mutations) {
-          if (m.type === 'attributes' && m.attributeName === 'data-theme') {
-            renderAnimation();
-            break;
-          }
-        }
-      });
-      themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 
       // Viewport intersection observer: keeps playing near viewport (400px margin) to conserve resources without freeze
       if ('IntersectionObserver' in window) {
@@ -605,81 +551,76 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const designContainers = document.querySelectorAll('.design-lottie-container');
   if (designContainers.length > 0) {
-    initLottieAnimation(designContainers, 'animations/design-light.json', 'animations/design-dark.json');
+    initLottieAnimation(designContainers, 'animations/design-light.json');
   }
 
   const strategyContainers = document.querySelectorAll('.strategy-lottie-container');
   if (strategyContainers.length > 0) {
-    initLottieAnimation(strategyContainers, 'animations/strategy-light.json', 'animations/strategy-dark.json');
+    initLottieAnimation(strategyContainers, 'animations/strategy-light.json');
   }
 
   const engineeringContainers = document.querySelectorAll('.engineering-lottie-container');
   if (engineeringContainers.length > 0) {
-    initLottieAnimation(engineeringContainers, 'animations/engineering-light.json', 'animations/engineering-dark.json');
+    initLottieAnimation(engineeringContainers, 'animations/engineering-light.json');
   }
 
   const aiContainers = document.querySelectorAll('.ai-lottie-container');
   if (aiContainers.length > 0) {
-    initLottieAnimation(aiContainers, 'animations/ai-light.json', 'animations/ai-dark.json');
+    initLottieAnimation(aiContainers, 'animations/ai-light.json');
   }
 
   const cloudContainers = document.querySelectorAll('.cloud-lottie-container');
   if (cloudContainers.length > 0) {
-    initLottieAnimation(cloudContainers, 'animations/cloud-light.json', 'animations/cloud-dark.json');
+    initLottieAnimation(cloudContainers, 'animations/cloud-light.json');
   }
 
   const qualityContainers = document.querySelectorAll('.quality-lottie-container');
   if (qualityContainers.length > 0) {
-    initLottieAnimation(qualityContainers, 'animations/quality-light.json', 'animations/quality-dark.json');
+    initLottieAnimation(qualityContainers, 'animations/quality-light.json');
   }
 
   const mobileContainers = document.querySelectorAll('.mobile-lottie-container');
   if (mobileContainers.length > 0) {
-    initLottieAnimation(mobileContainers, 'animations/mobile-app-light.json', 'animations/mobile-app-dark.json');
+    initLottieAnimation(mobileContainers, 'animations/mobile-app-light.json');
   }
 
   const seoContainers = document.querySelectorAll('.seo-lottie-container');
   if (seoContainers.length > 0) {
-    initLottieAnimation(seoContainers, 'animations/seo-light.json', 'animations/seo-dark.json');
+    initLottieAnimation(seoContainers, 'animations/seo-light.json');
   }
 
   const contactEmailContainers = document.querySelectorAll('.contact-email-lottie');
   if (contactEmailContainers.length > 0) {
-    initLottieAnimation(contactEmailContainers, 'animations/contact-email-light.json', 'animations/contact-email-dark.json');
+    initLottieAnimation(contactEmailContainers, 'animations/contact-email-light.json');
   }
 
   const contactPhoneContainers = document.querySelectorAll('.contact-phone-lottie');
   if (contactPhoneContainers.length > 0) {
-    initLottieAnimation(contactPhoneContainers, 'animations/contact-phone-light.json', 'animations/contact-phone-dark.json');
+    initLottieAnimation(contactPhoneContainers, 'animations/contact-phone-light.json');
   }
 
   const contactAddressContainers = document.querySelectorAll('.contact-address-lottie');
   if (contactAddressContainers.length > 0) {
-    initLottieAnimation(contactAddressContainers, 'animations/contact-address-light.json', 'animations/contact-address-dark.json');
+    initLottieAnimation(contactAddressContainers, 'animations/contact-address-light.json');
   }
 
   const contactResponseContainers = document.querySelectorAll('.contact-response-lottie');
   if (contactResponseContainers.length > 0) {
-    initLottieAnimation(contactResponseContainers, 'animations/contact-response-light.json', 'animations/contact-response-dark.json');
+    initLottieAnimation(contactResponseContainers, 'animations/contact-response-light.json');
   }
 
   const contactSendContainers = document.querySelectorAll('.contact-send-lottie');
   if (contactSendContainers.length > 0) {
-    initLottieAnimation(contactSendContainers, 'animations/contact-send-light.json', 'animations/contact-send-dark.json');
+    initLottieAnimation(contactSendContainers, 'animations/contact-send-light.json');
   }
 
   // ---------- 9. HOVER LOTTIE ANIMATIONS CONTROLLER (HEADER ICONS) ----------
-  async function initHoverLottieAnimation(containers, lightUrl, darkUrl, hoverTargetSelector) {
+  async function initHoverLottieAnimation(containers, lightUrl, hoverTargetSelector) {
     if (!containers || containers.length === 0) return;
 
     await ensureLottieLoaded();
 
-    const isInitialDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    const primaryUrl = isInitialDark ? darkUrl : lightUrl;
-    const secondaryUrl = isInitialDark ? lightUrl : darkUrl;
-
-    await fetchAnimationJson(primaryUrl);
-    fetchAnimationJson(secondaryUrl);
+    await fetchAnimationJson(lightUrl);
 
     containers.forEach(container => {
       let animInstance = null;
@@ -707,8 +648,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, { passive: true });
 
       function renderAnimation() {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        const targetUrl = isDark ? darkUrl : lightUrl;
+        const targetUrl = lightUrl;
         const targetData = animationJsonCache.get(targetUrl);
 
         if (animInstance) {
@@ -760,45 +700,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
       renderAnimation();
 
-      const themeObserver = new MutationObserver((mutations) => {
-        for (const m of mutations) {
-          if (m.type === 'attributes' && m.attributeName === 'data-theme') {
-            renderAnimation();
-            break;
-          }
-        }
-      });
-      themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
     });
   }
 
   // Header nav icons hover animations
   const navHomeContainers = document.querySelectorAll('.nav-home-lottie');
   if (navHomeContainers.length > 0) {
-    initHoverLottieAnimation(navHomeContainers, 'animations/nav-home-light.json', 'animations/nav-home-dark.json', '.navlink');
+    initHoverLottieAnimation(navHomeContainers, 'animations/nav-home-light.json', '.navlink');
   }
 
   const navServicesContainers = document.querySelectorAll('.nav-services-lottie');
   if (navServicesContainers.length > 0) {
-    initHoverLottieAnimation(navServicesContainers, 'animations/nav-services-light.json', 'animations/nav-services-dark.json', '.navlink');
+    initHoverLottieAnimation(navServicesContainers, 'animations/nav-services-light.json', '.navlink');
   }
 
   const navAboutContainers = document.querySelectorAll('.nav-about-lottie');
   if (navAboutContainers.length > 0) {
-    initHoverLottieAnimation(navAboutContainers, 'animations/nav-about-light.json', 'animations/nav-about-dark.json', '.navlink');
+    initHoverLottieAnimation(navAboutContainers, 'animations/nav-about-light.json', '.navlink');
   }
 
   // Header Contact Us button hover animation (replaces arrow)
-  // Inside .btn-primary: light theme (dark button) -> dark JSON (cream stroke)
-  // dark theme (cream button) -> light JSON (dark stroke)
+  // Contrasting contact icon for the primary button.
   const contactBtnContainers = document.querySelectorAll('.contact-btn-lottie');
   if (contactBtnContainers.length > 0) {
-    initHoverLottieAnimation(contactBtnContainers, 'animations/nav-contact-dark.json', 'animations/nav-contact-light.json', '.btn');
+    initHoverLottieAnimation(contactBtnContainers, 'animations/nav-contact-dark.json', '.btn');
   }
 
   const navContactContainers = document.querySelectorAll('.nav-contact-lottie:not(.contact-btn-lottie)');
   if (navContactContainers.length > 0) {
-    initHoverLottieAnimation(navContactContainers, 'animations/nav-contact-light.json', 'animations/nav-contact-dark.json', '.navlink');
+    initHoverLottieAnimation(navContactContainers, 'animations/nav-contact-light.json', '.navlink');
   }
 
   // ---------- 13. CLIENTS CAROUSEL CONTROLLER ----------

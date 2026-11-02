@@ -5,26 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 Page Not Found | PrimeLoft | Software Solutions</title>
   <meta name="description" content="The requested page could not be found. Return to PrimeLoft Tech digital commerce studio homepage.">
-  <link rel="icon" type="image/x-icon" href="favicon.ico?v=1.0.2">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=1.0.2">
-  <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png?v=1.0.2">
-  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png?v=1.0.2">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=1.0.2">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="apple-touch-icon" href="images/Glossy%20Blue%20Comet%20App%20Icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <script>
-    (function () {
-      var t = null;
-      try { t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('primeloft-theme'); } catch (e) {}
-      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
-    })();
-  </script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&family=Inter:wght@400..700&display=swap">
 
-  <link rel="stylesheet" href="css/style.css?v=2.9.4">
-  <link rel="stylesheet" href="css/theme.css?v=1.0.0">
-  <script type="module" src="js/main.js?v=2.7.0" defer></script>
-  <script type="module" src="js/theme.js?v=1.0.0"></script>
+  <link rel="stylesheet" href="css/style.css?v=3.3.0">
+  <link rel="stylesheet" href="css/theme.css?v=1.3.1">
+  <link rel="stylesheet" href="css/chat.css?v=1.0.0">
+  <script type="module" src="js/main.js?v=3.0.0" defer></script>
+  <script type="module" src="js/theme.js?v=1.1.0"></script>
 </head>
 <body class="pl pl-page-404">
   <a class="pl-skip" href="#main-content">Skip to content</a>
@@ -32,13 +23,8 @@
   <header class="pl-header">
     <div class="nav-row">
       <a href="index.html" class="logo-brand" aria-label="PrimeLoft Software Solutions">
-        <picture class="logo-img logo-img-light">
-          <source srcset="images/logo-light.webp" type="image/webp">
-          <img src="images/logo-light.png" class="logo-img" alt="PrimeLoft Software Solutions" width="200" height="66">
-        </picture>
-        <picture class="logo-img logo-img-dark">
-          <source srcset="images/logo-dark.webp" type="image/webp">
-          <img src="images/logo-dark.png" class="logo-img" alt="PrimeLoft Software Solutions" width="200" height="66">
+        <picture class="logo-img">
+          <img src="images/Primeloft%20Arc%20Logo.png" class="logo-img" alt="PrimeLoft Software Solutions" width="1254" height="1254">
         </picture>
       </a>
       <nav class="primary" aria-label="Primary">
@@ -50,40 +36,26 @@
           </a>
           <div class="mega dropdown-card" id="servicesDropdown" role="menu" aria-label="Services dropdown">
             <div class="mega-list">
-              <a href="service-mobile-app-development.html" class="mega-item" role="menuitem"><span class="mtitle">Mobile App Development</span></a>
-              <a href="service-seo.html" class="mega-item" role="menuitem"><span class="mtitle">Search Engine Optimization (SEO)</span></a>
-              <a href="service-design.html" class="mega-item" role="menuitem"><span class="mtitle">Product &amp; Experience Design</span></a>
-              <a href="service-strategy.html" class="mega-item" role="menuitem"><span class="mtitle">Strategy &amp; Innovation</span></a>
-              <a href="service-engineering.html" class="mega-item" role="menuitem"><span class="mtitle">Software Engineering</span></a>
-              <a href="service-ai.html" class="mega-item" role="menuitem"><span class="mtitle">AI &amp; Data</span></a>
-              <a href="service-cloud.html" class="mega-item" role="menuitem"><span class="mtitle">Cloud &amp; Platform Engineering</span></a>
-              <a href="service-quality.html" class="mega-item" role="menuitem"><span class="mtitle">Quality, Delivery &amp; Scale</span></a>
+              <a href="service-design.html" class="mega-item" role="menuitem"><span class="pl-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m14 4 6 6M4 20l4-1 12-12a2.8 2.8 0 0 0-4-4L4 15v5Z"/></svg></span><span class="mtitle">UX/UI</span></a>
+              <a href="service-engineering.html" class="mega-item" role="menuitem"><span class="pl-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18m-12 4-3 2 3 2m6-4 3 2-3 2"/></svg></span><span class="mtitle">Custom Website</span></a>
+              <a href="service-mobile-app-development.html" class="mega-item" role="menuitem"><span class="pl-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 18h4"/></svg></span><span class="mtitle">Mobile Application</span></a>
+              <a href="service-seo.html" class="mega-item" role="menuitem"><span class="pl-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M7 12l3-3 3 1 2-3"/></svg></span><span class="mtitle">SEO</span></a>
+              <a href="service-ai.html" class="mega-item" role="menuitem"><span class="pl-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-9 12h7l-1 8 10-13h-8l1-7Z"/></svg></span><span class="mtitle">Automation</span></a>
+              <a href="service-cloud.html" class="mega-item" role="menuitem"><span class="pl-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12C8 4 2 6 2 12s6 8 10 0c4-8 10-6 10 0s-6 8-10 0Z"/></svg></span><span class="mtitle">DevOps</span></a>
+              <a href="service-quality.html" class="mega-item" role="menuitem"><span class="pl-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 3v6c0 4-4 7-8 9-4-2-8-5-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/></svg></span><span class="mtitle">Testing &amp; QA</span></a>
+              <a href="contact.html?service=maintenance" class="mega-item" role="menuitem"><span class="pl-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6a5 5 0 0 0-6 6l-5 5a2 2 0 0 0 4 4l5-5a5 5 0 0 0 6-6l-3 3-4-4 3-3Z"/></svg></span><span class="mtitle">Maintenance</span></a>
+              <a href="contact.html?service=wordpress" class="mega-item" role="menuitem"><span class="pl-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m5 7 4 11 3-8 3 8 4-11M4 7h5m6 0h5"/></svg></span><span class="mtitle">WordPress</span></a>
+              <a href="contact.html?service=squarespace" class="mega-item" role="menuitem"><span class="pl-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 13 8-8a3 3 0 0 1 4 4l-8 8m2-2 8-8a3 3 0 0 1 4 4l-8 8a3 3 0 0 1-4-4m-6 2 4-4"/></svg></span><span class="mtitle">Squarespace</span></a>
             </div>
             <div class="mega-footer">
-              <a href="services.html" class="pl-btn pl-btn--dark pl-btn--sm" style="width:100%;">View all services</a>
+              <a href="services.html" class="pl-btn pl-btn--dark pl-btn--sm">View all services<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a>
             </div>
           </div>
         </div>
         <a href="about.html" class="navlink">About Us</a>
       </nav>
       <div class="header-right">
-        <button class="theme-btn" id="themeToggle" aria-label="Toggle light and dark theme" title="Toggle theme">
-          <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-          <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-        </button>
-        <a href="contact.html" class="pl-btn pl-btn--dark">Contact Us</a>
+        <a href="contact.html" class="pl-btn pl-btn--dark pl-header-contact"><span>Contact Us</span><span class="pl-header-contact__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu" aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
             <path d="M4 7h16M4 12h16M4 17h16"/>
@@ -117,13 +89,8 @@
       <div class="pl-footer__top">
         <div class="pl-footer__brand">
           <a href="index.html" class="logo-brand" aria-label="PrimeLoft Software Solutions">
-            <picture class="logo-img logo-img-light">
-              <source srcset="images/logo-light.webp" type="image/webp">
-              <img src="images/logo-light.png" class="logo-img" alt="PrimeLoft Software Solutions" width="200" height="66" loading="lazy">
-            </picture>
-            <picture class="logo-img logo-img-dark">
-              <source srcset="images/logo-dark.webp" type="image/webp">
-              <img src="images/logo-dark.png" class="logo-img" alt="PrimeLoft Software Solutions" width="200" height="66" loading="lazy">
+            <picture class="logo-img">
+              <img src="images/Primeloft%20Arc%20Logo.png" class="logo-img" alt="PrimeLoft Software Solutions" width="1254" height="1254" loading="lazy">
             </picture>
           </a>
           <p>A digital commerce studio designing, building and scaling revenue-driving platforms.</p>
@@ -139,8 +106,8 @@
             </a>
           </div>
         </div>
-        <div>
-          <h3>Our Company</h3>
+        <div class="pl-footer__company">
+            <h3>Our Company</h3>
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
@@ -148,21 +115,23 @@
             <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
-        <div>
-          <h3>Services</h3>
+        <div class="pl-footer__services">
+            <h3>Services</h3>
           <ul>
-            <li><a href="service-mobile-app-development.html">Mobile App Development</a></li>
-            <li><a href="service-seo.html">Search Engine Optimization (SEO)</a></li>
-            <li><a href="service-design.html">Product &amp; Experience Design</a></li>
-            <li><a href="service-strategy.html">Strategy &amp; Innovation</a></li>
-            <li><a href="service-engineering.html">Software Engineering</a></li>
-            <li><a href="service-ai.html">AI &amp; Data</a></li>
-            <li><a href="service-cloud.html">Cloud &amp; Platform Engineering</a></li>
-            <li><a href="service-quality.html">Quality, Delivery &amp; Scale</a></li>
-          </ul>
+              <li><a href="service-design.html">UX/UI</a></li>
+              <li><a href="service-engineering.html">Custom Website</a></li>
+              <li><a href="service-mobile-app-development.html">Mobile Application</a></li>
+              <li><a href="service-seo.html">SEO</a></li>
+              <li><a href="service-ai.html">Automation</a></li>
+              <li><a href="service-cloud.html">DevOps</a></li>
+              <li><a href="service-quality.html">Testing &amp; QA</a></li>
+              <li><a href="contact.html?service=maintenance">Maintenance</a></li>
+              <li><a href="contact.html?service=wordpress">WordPress</a></li>
+              <li><a href="contact.html?service=squarespace">Squarespace</a></li>
+            </ul>
         </div>
-        <div>
-          <h3>Keep in Touch</h3>
+        <div class="pl-footer__contact">
+            <h3>Keep in Touch</h3>
           <address>
             <span>PrimeLoft Tech<br>GardenTown, Multan Road<br>DGK, Pakistan</span>
             <a href="tel:+923359873132">+92 335 9873132</a>
@@ -173,9 +142,10 @@
       <div class="pl-footer__mark" aria-hidden="true">PrimeLoft</div>
       <div class="pl-footer__bottom">
         <span>© 2026 PrimeLoft Tech. All rights reserved.</span>
-        <span class="pl-footer__legal"><a href="privacy.html">Privacy Policy</a><a href="cookies.html">Cookie Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a><a href="#" class="open-cookie-settings">Manage Cookie Preferences</a></span>
+        <span class="pl-footer__legal"><a href="privacy.html">Privacy Policy</a><a href="cookies.html">Cookie Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></span>
       </div>
     </div>
   </footer>
+<a class="pl-whatsapp-launcher" href="https://wa.me/923359873132" target="_blank" rel="noopener noreferrer" aria-label="Chat with PrimeLoft on WhatsApp" title="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662a11.87 11.87 0 005.707 1.456h.005c6.554 0 11.89-5.335 11.893-11.893 0-3.177-1.238-6.164-3.486-8.413z"/></svg></a>
 </body>
 </html>

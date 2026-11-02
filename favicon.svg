@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<title>PrimeLoft</title>
+<defs>
+<radialGradient id="bg" cx="35%" cy="24%" r="90%"><stop stop-color="#F8FAFF"/><stop offset="1" stop-color="#ACBFFF"/></radialGradient>
+<linearGradient id="arc" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#82A5FF"/><stop offset="1" stop-color="#0750FF"/></linearGradient>
+</defs>
+<circle cx="50" cy="50" r="50" fill="url(#bg)"/>
+<path d="M14 66C33 45 56 31 76 34C73 37 72 40 72 43C53 42 33 51 17 68C14 71 11 69 14 66Z" fill="url(#arc)"/>
+<circle cx="83" cy="40" r="8" fill="#0750FF"/>
+</svg>

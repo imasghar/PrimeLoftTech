@@ -1,21 +1,10 @@
 /**
- * PrimeLoft Tech - Central Application & Tracking Configuration
- * Contains environment placeholders for GTM, GA4, Clarity, Meta Pixel, LinkedIn Insight Tag, Turnstile, and Formspree.
+ * PrimeLoft Tech - Application Configuration
+ * Contains application settings, studio metadata, and contact integration configuration.
  */
 export const CONFIG = {
   // Formspree Integration Endpoint
   FORMSPREE_ENDPOINT: 'https://formspree.io/f/xeajqqoy',
-
-  // Consent Management Configuration
-  CONSENT_KEY: 'primeloft_cookie_consent_v1',
-  CONSENT_VERSION: 1,
-
-  // Tracking & Analytics Placeholders (Replace with production IDs)
-  GTM_ID: 'GTM-XXXXXXX',
-  GA_MEASUREMENT_ID: 'G-XXXXXXXXXX',
-  CLARITY_PROJECT_ID: 'CLARITY_PROJECT_ID',
-  META_PIXEL_ID: 'PIXEL_ID',
-  LINKEDIN_PARTNER_ID: 'LINKEDIN_PARTNER_ID',
 
   // Security & Bot Protection Placeholders
   TURNSTILE_SITE_KEY: '0x4AAAAAAAX...',
