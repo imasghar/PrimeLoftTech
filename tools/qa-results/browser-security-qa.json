@@ -1,0 +1,287 @@
+[
+  {
+    "page": "404.html",
+    "desktop": {
+      "h1": 1,
+      "brokenImages": [],
+      "emptyLinks": 0
+    },
+    "widths": {
+      "320": true,
+      "390": true,
+      "768": true,
+      "1440": true
+    },
+    "errors": []
+  },
+  {
+    "page": "about.html",
+    "desktop": {
+      "h1": 1,
+      "brokenImages": [],
+      "emptyLinks": 0
+    },
+    "widths": {
+      "320": true,
+      "390": true,
+      "768": true,
+      "1440": true
+    },
+    "errors": []
+  },
+  {
+    "page": "contact.html",
+    "desktop": {
+      "h1": 1,
+      "brokenImages": [],
+      "emptyLinks": 0
+    },
+    "widths": {
+      "320": true,
+      "390": true,
+      "768": true,
+      "1440": true
+    },
+    "errors": []
+  },
+  {
+    "page": "cookies.html",
+    "desktop": {
+      "h1": 1,
+      "brokenImages": [],
+      "emptyLinks": 0
+    },
+    "widths": {
+      "320": true,
+      "390": true,
+      "768": true,
+      "1440": true
+    },
+    "errors": []
+  },
+  {
+    "page": "index.html",
+    "desktop": {
+      "h1": 1,
+      "brokenImages": [],
+      "emptyLinks": 0
+    },
+    "widths": {
+      "320": true,
+      "390": true,
+      "768": true,
+      "1440": true
+    },
+    "errors": []
+  },
+  {
+    "page": "privacy.html",
+    "desktop": {
+      "h1": 1,
+      "brokenImages": [],
+      "emptyLinks": 0
+    },
+    "widths": {
+      "320": true,
+      "390": true,
+      "768": true,
+      "1440": true
+    },
+    "errors": []
+  },
+  {
+    "page": "service-ai.html",
+    "desktop": {
+      "h1": 1,
+      "brokenImages": [],
+      "emptyLinks": 0
+    },
+    "widths": {
+      "320": true,
+      "390": true,
+      "768": true,
+      "1440": true
+    },
+    "errors": []
+  },
+  {
+    "page": "service-cloud.html",
+    "desktop": {
+      "h1": 1,
+      "brokenImages": [],
+      "emptyLinks": 0
+    },
+    "widths": {
+      "320": true,
+      "390": true,
+      "768": true,
+      "1440": true
+    },
+    "errors": []
+  },
+  {
+    "page": "service-design.html",
+    "desktop": {
+      "h1": 1,
+      "brokenImages": [],
+      "emptyLinks": 0
+    },
+    "widths": {
+      "320": true,
+      "390": true,
+      "768": true,
+      "1440": true
+    },
+    "errors": []
+  },
+  {
+    "page": "service-engineering.html",
+    "desktop": {
+      "h1": 1,
+      "brokenImages": [],
+      "emptyLinks": 0
+    },
+    "widths": {
+      "320": true,
+      "390": true,
+      "768": true,
+      "1440": true
+    },
+    "errors": []
+  },
+  {
+    "page": "service-maintenance.html",
+    "desktop": {
+      "h1": 1,
+      "brokenImages": [],
+      "emptyLinks": 0
+    },
+    "widths": {
+      "320": true,
+      "390": true,
+      "768": true,
+      "1440": true
+    },
+    "errors": []
+  },
+  {
+    "page": "service-mobile-app-development.html",
+    "desktop": {
+      "h1": 1,
+      "brokenImages": [],
+      "emptyLinks": 0
+    },
+    "widths": {
+      "320": true,
+      "390": true,
+      "768": true,
+      "1440": true
+    },
+    "errors": []
+  },
+  {
+    "page": "service-quality.html",
+    "desktop": {
+      "h1": 1,
+      "brokenImages": [],
+      "emptyLinks": 0
+    },
+    "widths": {
+      "320": true,
+      "390": true,
+      "768": true,
+      "1440": true
+    },
+    "errors": []
+  },
+  {
+    "page": "service-seo.html",
+    "desktop": {
+      "h1": 1,
+      "brokenImages": [],
+      "emptyLinks": 0
+    },
+    "widths": {
+      "320": true,
+      "390": true,
+      "768": true,
+      "1440": true
+    },
+    "errors": []
+  },
+  {
+    "page": "service-squarespace.html",
+    "desktop": {
+      "h1": 1,
+      "brokenImages": [],
+      "emptyLinks": 0
+    },
+    "widths": {
+      "320": true,
+      "390": true,
+      "768": true,
+      "1440": true
+    },
+    "errors": []
+  },
+  {
+    "page": "service-strategy.html",
+    "desktop": {
+      "h1": 1,
+      "brokenImages": [],
+      "emptyLinks": 0
+    },
+    "widths": {
+      "320": true,
+      "390": true,
+      "768": true,
+      "1440": true
+    },
+    "errors": []
+  },
+  {
+    "page": "service-wordpress.html",
+    "desktop": {
+      "h1": 1,
+      "brokenImages": [],
+      "emptyLinks": 0
+    },
+    "widths": {
+      "320": true,
+      "390": true,
+      "768": true,
+      "1440": true
+    },
+    "errors": []
+  },
+  {
+    "page": "services.html",
+    "desktop": {
+      "h1": 1,
+      "brokenImages": [],
+      "emptyLinks": 0
+    },
+    "widths": {
+      "320": true,
+      "390": true,
+      "768": true,
+      "1440": true
+    },
+    "errors": []
+  },
+  {
+    "page": "terms.html",
+    "desktop": {
+      "h1": 1,
+      "brokenImages": [],
+      "emptyLinks": 0
+    },
+    "widths": {
+      "320": true,
+      "390": true,
+      "768": true,
+      "1440": true
+    },
+    "errors": []
+  }
+]

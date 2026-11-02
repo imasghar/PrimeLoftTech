@@ -27,6 +27,55 @@ if (header) {
 }
 
 // ---------- 2. SCROLL REVEALS ----------
+// Directional entrances for the six newest service pages.
+const serviceMotionPage = /pl-page-service-(ai|cloud|quality|maintenance|wordpress|squarespace)\b/.test(document.body.className);
+if (serviceMotionPage) {
+  const cards = document.querySelectorAll(`
+    .auto-service-list > *, .auto-control__grid > *, .auto-delivery li,
+    .ops-service-grid > *, .ops-approach li, .ops-handoff article,
+    .qa-coverage-grid > *, .qa-deliverable-list > *, .qa-engagement-grid > *, .qa-process li,
+    .care-coverage-grid > *, .care-platforms article, .care-plan-grid > *, .care-start li,
+    .platform-service, .platform-process li,
+    .auto-faq details, .ops-faq details, .qa-faq details, .care-faq details, .platform-faq details
+  `);
+  cards.forEach((card, index) => {
+    // Avoid nested entrances multiplying their offsets and delays.
+    if (card.parentElement.closest('[data-reveal]')) return;
+    card.setAttribute('data-reveal', '');
+    card.dataset.revealDirection = index % 2 ? 'right' : 'left';
+    card.style.setProperty('--reveal-delay', `${index % 3 * 65}ms`);
+  });
+}
+// Extend the motion language across home, about, contact and every service page.
+const siteCards = document.querySelectorAll('main article, main .pl-step, main .pl-plan, main .pl-head, main .service-definition > .pl-wrap, main .about-capabilities__rows > *, main .agency-client-feature');
+siteCards.forEach((card, index) => {
+  if (card.hasAttribute('data-reveal-direction') || card.parentElement.closest('[data-reveal]') || card.closest('[role="tabpanel"]')) return;
+  card.setAttribute('data-reveal', '');
+  card.dataset.revealDirection = index % 2 ? 'right' : 'left';
+  card.style.setProperty('--reveal-delay', `${index % 3 * 90}ms`);
+});
+document.querySelectorAll('main [data-reveal]:not([data-reveal-direction])').forEach((block, index) => {
+  block.dataset.revealDirection = index % 2 ? 'right' : 'left';
+});
+
+// Observe a stationary wrapper so the moving text cannot miss its own trigger.
+document.querySelectorAll('.pl-footer__mark').forEach(mark => {
+  const frame = document.createElement('div');
+  frame.className = 'pl-footer__mark-frame';
+  mark.before(frame);
+  frame.append(mark);
+  mark.removeAttribute('data-reveal');
+  mark.removeAttribute('data-reveal-direction');
+  if (!('IntersectionObserver' in window) || reduceMotion) {
+    frame.classList.add('is-visible');
+    return;
+  }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => frame.classList.toggle('is-visible', entry.isIntersecting));
+  }, { threshold: 0.08 });
+  observer.observe(frame);
+});
+
 const revealEls = document.querySelectorAll('[data-reveal]');
 if ('IntersectionObserver' in window && !reduceMotion) {
   const revealObserver = new IntersectionObserver(entries => {
@@ -104,3 +153,49 @@ document.querySelectorAll('[data-tabs]').forEach(group => {
 
   select(Math.max(0, tabs.findIndex(t => t.getAttribute('aria-selected') === 'true')), false);
 });
+
+// Animate native FAQ details in both directions without changing keyboard behavior.
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+const faqStates = new Map();
+if (serviceMotionPage) document.querySelectorAll(
+  '.auto-faq details, .ops-faq details, .qa-faq details, .care-faq details, .platform-faq details'
+).forEach(details => {
+  const summary = details.querySelector('summary');
+  if (!summary || !details.animate) return;
+  const state = { animation: null, targetOpen: details.open };
+  faqStates.set(details, state);
+  const settle = () => {
+    state.animation?.cancel();
+    state.animation = null;
+    details.open = state.targetOpen;
+    details.style.removeProperty('height');
+    details.style.removeProperty('overflow');
+  };
+  state.settle = settle;
+  summary.addEventListener('click', event => {
+    if (motionPreference.matches) return;
+    event.preventDefault();
+    const start = details.getBoundingClientRect().height;
+    state.targetOpen = state.animation ? !state.targetOpen : !details.open;
+    state.animation?.cancel();
+    details.style.removeProperty('height');
+    details.open = false;
+    const collapsed = details.getBoundingClientRect().height;
+    details.open = true;
+    const expanded = details.getBoundingClientRect().height;
+    details.style.overflow = 'hidden';
+    state.animation = details.animate(
+      [{ height: `${start}px` }, { height: `${state.targetOpen ? expanded : collapsed}px` }],
+      { duration: 320, easing: 'cubic-bezier(.4,0,.2,1)' }
+    );
+    state.animation.onfinish = settle;
+  });
+});
+motionPreference.addEventListener('change', event => {
+  if (!event.matches) return;
+  faqStates.forEach(state => state.settle());
+  revealEls.forEach(el => el.classList.add('is-in', 'is-instant'));
+});
+window.addEventListener('resize', () => faqStates.forEach(state => {
+  if (state.animation) state.settle();
+}));

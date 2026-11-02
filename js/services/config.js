@@ -6,9 +6,6 @@ export const CONFIG = {
   // Formspree Integration Endpoint
   FORMSPREE_ENDPOINT: 'https://formspree.io/f/xeajqqoy',
 
-  // Security & Bot Protection Placeholders
-  TURNSTILE_SITE_KEY: '0x4AAAAAAAX...',
-
   // Studio Metadata
   SITE_URL: 'https://primeloft.tech',
   COMPANY_NAME: 'PrimeLoft Tech',

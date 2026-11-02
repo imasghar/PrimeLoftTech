@@ -23,7 +23,9 @@ export class SeoService {
       canonicalLink.rel = 'canonical';
       document.head.appendChild(canonicalLink);
     }
-    const cleanUrl = window.location.origin + window.location.pathname;
+    if (canonicalLink.getAttribute('href')) return;
+    const path = window.location.pathname === '/index.html' ? '/' : window.location.pathname;
+    const cleanUrl = CONFIG.SITE_URL + path;
     canonicalLink.href = cleanUrl;
   }
 

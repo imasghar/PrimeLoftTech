@@ -1,0 +1,10 @@
+# Preserve GitHub Pages publishing from main / (root).
+# Keep development tools and review evidence out of the public site.
+exclude:
+  - tools
+  - scratch
+  - dist
+  - PRODUCTION-QA.md
+  - _headers
+  - "images/**/*.md"
+  - "images/*.md"

@@ -837,6 +837,7 @@ export class ChatbotService {
 
         form.addEventListener('submit', async (e) => {
           e.preventDefault();
+          if (btnSubmit.disabled) return;
           errConsent.textContent = '';
           statusMsg.style.display = 'none';
 
@@ -871,6 +872,7 @@ Client Notes: ${notesVal || 'None provided'}`);
             const endpoint = 'https://formspree.io/f/xeajqqoy';
             const response = await fetch(endpoint, {
               method: 'POST',
+              signal: AbortSignal.timeout(20000),
               body: formData,
               headers: {
                 'Accept': 'application/json'

@@ -1,0 +1,6 @@
+body.pl section.service-definition { padding:36px 0 !important; background:#fff; border-block:1px solid #e3eaf7; }
+.service-definition > .pl-wrap { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.3fr); gap:clamp(28px,6vw,90px); align-items:start; }
+body.pl .service-definition h2 { font-size:clamp(26px,2.7vw,38px); line-height:1.2; letter-spacing:-.035em; font-weight:500; color:#102044; margin:0; }
+body.pl .service-definition p { font-size:18px; line-height:1.8; color:#5c7092; margin:0; max-width:76ch; }
+body.pl .service-definition p + p { margin-top:16px; font-size:16px; }
+@media(max-width:760px) { .service-definition > .pl-wrap { grid-template-columns:1fr; gap:20px; }body.pl .service-definition p { font-size:16px; } }

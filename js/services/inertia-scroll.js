@@ -46,13 +46,6 @@ export class InertiaScrollService {
       }
       requestAnimationFrame(raf);
 
-      // Connect with GSAP ScrollTrigger if present
-      lenis.on('scroll', () => {
-        if (window.ScrollTrigger) {
-          window.ScrollTrigger.update();
-        }
-      });
-
       // Smooth in-page anchor scrolling with fixed header offset
       this.bindAnchorLinks(lenis);
 
@@ -79,15 +72,7 @@ export class InertiaScrollService {
       script.async = true;
 
       script.onload = () => resolve();
-      script.onerror = () => {
-        // Fallback to CDN if local file fails
-        const cdnScript = document.createElement('script');
-        cdnScript.src = 'https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js';
-        cdnScript.async = true;
-        cdnScript.onload = () => resolve();
-        cdnScript.onerror = () => resolve();
-        document.head.appendChild(cdnScript);
-      };
+      script.onerror = () => resolve();
 
       document.head.appendChild(script);
     });
@@ -100,7 +85,8 @@ export class InertiaScrollService {
       const href = anchor.getAttribute('href');
       if (!href || href === '#' || href.length < 2) return;
 
-      const target = document.querySelector(href);
+      let target = null;
+      try { target = document.getElementById(decodeURIComponent(href.slice(1))); } catch { return; }
       if (target) {
         e.preventDefault();
         const header = document.querySelector('header');

@@ -185,6 +185,34 @@ body.pl-page-index .pl-chat-prompt-card { display: none !important; }
 }
 
 /* Compact full-width closing banner, with actions aligned to the right. */
+body.pl.pl-page-index section.agency-proof--featured { padding:40px 0 !important; border-bottom:0; }
+.agency-proof--featured .agency-proof__inner { grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:clamp(32px,6vw,96px); padding-top:0; padding-bottom:0; }
+.agency-client-feature { padding:32px; border:1px solid #dce6f9; border-radius:20px; background:linear-gradient(120deg,#f0f5ff,#fff); }
+.agency-client-feature__heading .agency-label { color:#5274ac; font-size:10px; }
+body.pl-page-index .agency-client-feature h2 { margin:12px 0 28px; font-size:clamp(25px,2.5vw,34px); letter-spacing:-.04em; font-weight:500; }
+.agency-client-feature__brand { display:flex; align-items:center; gap:24px; }
+.agency-client-feature__logo { display:grid; place-items:center; width:108px; height:108px; flex-shrink:0; background:#fff; border-radius:18px; border:1px solid #e4ebf8; }
+.agency-client-feature__logo img { width:80px; height:80px; object-fit:contain; }
+.agency-client-feature__brand strong { font-size:clamp(19px,2vw,27px); line-height:1.35; letter-spacing:-.025em; font-weight:500; color:#101c46; }
+.agency-commitments { display:grid; gap:0; }
+.agency-commitment { display:flex; align-items:center; gap:28px; padding:22px 0; border-bottom:1px solid #e3eaf7; }
+.agency-commitment:first-child { padding-top:0; }.agency-commitment:last-child { border-bottom:0; padding-bottom:0; }
+.agency-commitment > strong,.agency-ownership { flex:0 0 70px; color:#1554f6; font-size:44px; font-weight:500; letter-spacing:-.05em; line-height:1; }
+.agency-ownership svg { width:43px; height:43px; }
+body.pl-page-index .agency-commitment h3 { font-size:18px; letter-spacing:-.025em; font-weight:500; margin:0 0 6px; }
+body.pl-page-index .agency-commitment p { margin:0; color:#60718c; font-size:14px; line-height:1.6; }
+body.pl.pl-page-index section.agency-technologies--grid { padding:28px 0 40px !important; background:#fff; }
+.agency-tech-heading { display:flex; align-items:center; justify-content:space-between; gap:20px; border-top:1px solid #e3eaf7; padding-top:28px; margin-bottom:22px; }
+body.pl-page-index .agency-tech-heading h2 { font-size:22px; font-weight:500; letter-spacing:-.03em; margin:0; }
+.agency-tech-heading > span { font-size:10px; color:#6b7a94; letter-spacing:.1em; }
+.agency-tech-grid { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:10px; list-style:none; padding:0; margin:0; }
+.agency-tech-grid li { display:flex; align-items:center; gap:12px; padding:15px 18px; border:1px solid #e5ebf6; border-radius:10px; color:#344667; font-size:14px; background:#fafbff; transition:transform .2s,border-color .2s,background .2s; }
+.agency-tech-grid .pl-tech-icon { width:25px; height:25px; object-fit:contain; flex-shrink:0; }
+@media(hover:hover) and (prefers-reduced-motion:no-preference) { .agency-tech-grid li:hover { transform:translateY(-3px); border-color:#b9cdff; background:#fff; } }
+@media(max-width:1100px) { .agency-tech-grid { grid-template-columns:repeat(4,minmax(0,1fr)); } }
+@media(max-width:760px) { .agency-proof--featured .agency-proof__inner { grid-template-columns:1fr; gap:28px; }.agency-tech-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }.agency-tech-heading { align-items:flex-start; flex-direction:column; gap:10px; } }
+@media(max-width:520px) { .agency-client-feature { padding:24px; }.agency-client-feature__logo { width:76px; height:76px; }.agency-client-feature__logo img { width:58px; height:58px; }.agency-client-feature__brand { gap:16px; }.agency-tech-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }.agency-tech-grid li { padding:13px 10px; font-size:12px; gap:8px; }.agency-commitment { gap:16px; }.agency-commitment > strong,.agency-ownership { flex-basis:58px; } }
+@media(prefers-reduced-motion:reduce) { .agency-tech-grid li { transition:none; } }
 body.pl.pl-page-index section.agency-close { padding: 0 !important; }
 body.pl-page-index .agency-close > .pl-wrap { padding: 0; }
 body.pl-page-index .agency-cta {

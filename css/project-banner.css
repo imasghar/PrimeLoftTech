@@ -1,0 +1,30 @@
+/* Shared closing banner across the homepage, company and service pages. */
+body.pl section.project-close { padding:0 !important; background:#1554f6; }
+body.pl .project-banner {
+  position:relative;
+  isolation:isolate;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 240px;
+  align-items:center;
+  gap:64px;
+  width:100%;
+  min-height:250px;
+  padding:32px clamp(24px,4vw,72px);
+  border-radius:0;
+  background:#1554f6;
+  text-align:left;
+  overflow:hidden;
+}
+.project-banner::after { content:''; position:absolute; width:360px; height:360px; right:-120px; top:-170px; border:1px solid rgba(255,255,255,.18); box-shadow:0 0 0 70px rgba(255,255,255,.05),0 0 0 140px rgba(255,255,255,.04); border-radius:50%; z-index:-1; pointer-events:none; }
+.project-banner__copy { display:flex; flex-direction:column; align-items:flex-start; gap:14px; min-width:0; }
+body.pl .project-banner .pl-h2 { max-width:27em; margin:0; font-size:clamp(28px,2.5vw,36px) !important; line-height:1.15 !important; color:#fff !important; }
+body.pl .project-banner .pl-h2 span { color:inherit; }
+body.pl .project-banner .project-banner__copy > p { max-width:64ch; margin:0; font-size:14px; line-height:1.7; color:#e5edff; }
+body.pl .project-banner .pl-ctas { display:flex; flex-direction:column; gap:10px; width:100%; margin:0; }
+body.pl .project-banner .pl-btn { min-height:46px; width:100%; font-size:13px; }
+@media (max-width:760px) {
+  body.pl .project-banner { grid-template-columns:minmax(0,1fr); gap:24px; min-height:0; padding:32px 22px; }
+  body.pl .project-banner .pl-ctas { flex-direction:row; flex-wrap:wrap; }
+  body.pl .project-banner .pl-btn { flex:1 1 190px; width:auto; }
+  body.pl .project-banner .pl-h2 { font-size:29px !important; }
+}

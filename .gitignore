@@ -18,3 +18,10 @@ build/
 # Logs & Temporary Files
 *.log
 scratch/
+
+# Private local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key

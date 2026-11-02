@@ -6,7 +6,7 @@
 
 import { SeoService } from './services/seo-service.js';
 import { InertiaScrollService } from './services/inertia-scroll.js';
-import { ChatbotService } from './services/chatbot.js?v=4.0.0';
+import { ChatbotService } from './services/chatbot.js?v=4.1.0';
 import { FAQAccordion } from './services/faq-accordion.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,80 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
   ChatbotService.init();
   FAQAccordion.init();
 
-  // ---------- 1B. INSTANT NATIVE REVEAL ANIMATIONS (0ms CDN DELAY) ----------
-  document.documentElement.classList.add('js');
-  const revealElements = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.05, rootMargin: '0px 0px 60px 0px' });
-
-    revealElements.forEach(el => revealObserver.observe(el));
-  } else {
-    revealElements.forEach(el => el.classList.add('visible'));
-  }
-
-  // ---------- 1C. CIRCULAR TECH ORBIT REVEAL & SHIFT ----------
-  const orbitWrapper = document.getElementById('techOrbitStageWrapper');
-  const orbitVisual = document.getElementById('techOrbitVisual');
-  const orbitContent = document.getElementById('techOrbitContent');
-
-  if (orbitWrapper && orbitVisual && orbitContent) {
-    const isDesktop = () => window.innerWidth > 860;
-
-    const getCenterOffset = () => {
-      if (!isDesktop()) return 0;
-      const wrapW = orbitWrapper.offsetWidth;
-      const visW = orbitVisual.offsetWidth;
-      return Math.max(0, (wrapW - visW) / 2);
-    };
-
-    if (isDesktop()) {
-      const initialOffset = getCenterOffset();
-      orbitVisual.style.transform = `translateX(${initialOffset}px)`;
-      orbitVisual.style.opacity = '1';
-      orbitContent.style.opacity = '0';
-      orbitContent.style.transform = 'translateX(40px)';
-    }
-
-    if ('IntersectionObserver' in window) {
-      const orbitObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              if (isDesktop()) {
-                orbitVisual.style.transition = 'transform 1.25s cubic-bezier(0.16, 1, 0.3, 1)';
-                orbitVisual.style.transform = 'translateX(0)';
-                
-                setTimeout(() => {
-                  orbitContent.style.transition = 'opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1)';
-                  orbitContent.style.opacity = '1';
-                  orbitContent.style.transform = 'translateX(0)';
-                }, 300);
-              } else {
-                orbitVisual.style.transform = 'none';
-                orbitContent.style.opacity = '1';
-                orbitContent.style.transform = 'none';
-              }
-            }, 800);
-            orbitObserver.unobserve(orbitWrapper);
-          }
-        });
-      }, { threshold: 0.15 });
-
-      orbitObserver.observe(orbitWrapper);
-    } else {
-      orbitVisual.style.transform = 'none';
-      orbitContent.style.opacity = '1';
-      orbitContent.style.transform = 'none';
-    }
-  }
-
   // ---------- 3. MOBILE MENU TOGGLE ----------
   const mobileToggleBtn = document.getElementById('mobileToggle');
   const primaryNav = document.querySelector('nav.primary');
@@ -100,6 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
       e.stopPropagation();
       const isActive = primaryNav.classList.toggle('active');
       mobileToggleBtn.setAttribute('aria-expanded', String(isActive));
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && primaryNav.classList.contains('active')) {
+        primaryNav.classList.remove('active');
+        mobileToggleBtn.setAttribute('aria-expanded', 'false');
+        mobileToggleBtn.focus();
+      }
     });
 
     // Close menu when clicking links (except mega menu accordion parent)
@@ -166,120 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ---------- 4. DYNAMIC LAZY GSAP ANIMATIONS LOADER ----------
-  function loadGSAP() {
-    if (window._gsapLoaded) return;
-    window._gsapLoaded = true;
-
-    const scriptGsap = document.createElement('script');
-    scriptGsap.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
-    scriptGsap.crossOrigin = 'anonymous';
-    scriptGsap.onload = () => {
-      const scriptST = document.createElement('script');
-      scriptST.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
-      scriptST.crossOrigin = 'anonymous';
-      scriptST.onload = initGSAPAnimations;
-      document.head.appendChild(scriptST);
-    };
-    document.head.appendChild(scriptGsap);
-  }
-
-  function initGSAPAnimations() {
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Sync Lenis Inertia Scroll with GSAP ScrollTrigger & Ticker
-    if (window.lenis) {
-      window.lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((time) => {
-        window.lenis.raf(time * 1000);
-      });
-      gsap.ticker.lagSmoothing(0);
-    }
-
-    // Hero Text Entrance Animation
-    const heroHeading = document.getElementById('heroHeading');
-    if (heroHeading) {
-      gsap.set('.hero h1 .line span', { y: '110%', opacity: 0 });
-      gsap.to('.hero h1 .line span', {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: 'power4.out',
-        stagger: 0.14,
-        delay: 0.1
-      });
-
-      gsap.fromTo('.hero-inner .eyebrow', 
-        { opacity: 0, y: 14 }, 
-        { opacity: 1, y: 0, duration: 0.8 }
-      );
-
-      gsap.fromTo('.hero-inner p.lead, .hero-ctas, .hero-scroll', 
-        { opacity: 0, y: 16 }, 
-        { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, delay: 0.4 }
-      );
-
-      gsap.fromTo('.hero-blob', 
-        { opacity: 0, scale: 0.8 }, 
-        { opacity: 0.35, scale: 1, duration: 1.6, ease: 'power2.out' }
-      );
-    }
-
-    // Results Counter Animation
-    const statElements = document.querySelectorAll('.result-stat .num');
-    if (statElements.length > 0) {
-      statElements.forEach(el => {
-        const target = parseFloat(el.dataset.count);
-        const suffix = el.dataset.suffix || '';
-        const decimal = el.dataset.decimal === 'true';
-
-        ScrollTrigger.create({
-          trigger: el,
-          start: 'top 88%',
-          once: true,
-          onEnter: () => {
-            let obj = { v: 0 };
-            gsap.to(obj, {
-              v: target,
-              duration: 1.6,
-              ease: 'power2.out',
-              onUpdate: () => {
-                el.textContent = (decimal ? obj.v.toFixed(1) : Math.round(obj.v)) + suffix;
-              }
-            });
-          }
-        });
-      });
-    }
-
-    // Generic Scroll Reveal Animation
-    gsap.utils.toArray('.reveal').forEach(el => {
-      ScrollTrigger.create({
-        trigger: el,
-        start: 'top 90%',
-        once: true,
-        onEnter: () => {
-          gsap.to(el, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' });
-        }
-      });
-    });
-  }
-
-  // Load GSAP dynamically during browser idle time or on first scroll/touch
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(loadGSAP, { timeout: 1500 });
-  } else {
-    setTimeout(loadGSAP, 400);
-  }
-
-  ['touchstart', 'scroll', 'mousemove'].forEach(evt => {
-    window.addEventListener(evt, loadGSAP, { passive: true, once: true });
-  });
-
   // ---------- 5. ANCHOR SMOOTH SCROLL ----------
   if (window.location.hash) {
-    const targetEl = document.querySelector(window.location.hash);
+    let targetEl = null;
+    try { targetEl = document.getElementById(decodeURIComponent(window.location.hash.slice(1))); } catch { /* Invalid URL fragment: ignore it. */ }
     if (targetEl) {
       setTimeout(() => {
         if (window.lenis) {
@@ -298,6 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const btn = document.getElementById('btnSubmitContact');
       const status = document.getElementById('formStatus');
+      if (btn?.disabled || !contactForm.reportValidity()) return;
 
       // Invisible Honeypot Anti-Bot Trap: if filled, silently discard bot request
       const gotcha = contactForm.querySelector('input[name="_gotcha"]');
@@ -331,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const response = await fetch(endpoint, {
           method: 'POST',
+          signal: AbortSignal.timeout(20000),
           body: formData,
           headers: {
             'Accept': 'application/json'
@@ -397,6 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const response = await fetch(endpoint, {
           method: 'POST',
+          signal: AbortSignal.timeout(20000),
           body: formData,
           headers: { 'Accept': 'application/json' }
         });
@@ -449,18 +276,8 @@ document.addEventListener('DOMContentLoaded', () => {
         resolve(window.lottie);
       }, { once: true });
 
-      // Fallback: If local file load takes over 2s, fetch from cloudflare cdn
-      setTimeout(() => {
-        if (!window.lottie) {
-          const cdnScript = document.createElement('script');
-          cdnScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie_light.min.js';
-          cdnScript.onload = () => {
-            clearInterval(pollInterval);
-            resolve(window.lottie);
-          };
-          document.head.appendChild(cdnScript);
-        }
-      }, 2000);
+      script.addEventListener('error', () => { clearInterval(pollInterval); resolve(null); }, { once: true });
+
     });
 
     return lottieLoadedPromise;
