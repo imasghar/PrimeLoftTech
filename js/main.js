@@ -4,7 +4,7 @@
    and Lazy Loaded Animations.
    ========================================================================== */
 
-import { SeoService } from './services/seo-service.js';
+import { SeoService } from './services/seo-service.js?v=1.1.0';
 import { InertiaScrollService } from './services/inertia-scroll.js';
 import { ChatbotService } from './services/chatbot.js?v=4.1.0';
 import { FAQAccordion } from './services/faq-accordion.js';

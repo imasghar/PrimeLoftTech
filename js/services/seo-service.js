@@ -60,6 +60,8 @@ export class SeoService {
   }
 
   static injectLocalBusinessSchema() {
+    // Pages with a curated company graph can opt out of unverified local details.
+    if (document.body?.dataset.localBusinessSchema === 'off') return;
     if (document.getElementById('local-business-schema')) return;
 
     const schema = {

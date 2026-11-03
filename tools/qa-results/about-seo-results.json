@@ -1,0 +1,550 @@
+{
+  "date": "2026-11-03",
+  "scope": "Local laboratory results, not production or field Core Web Vitals",
+  "baselineAudit": {
+    "title": "About PrimeLoft | Design, Development &amp; Digital Services",
+    "description": "Meet PrimeLoft: a hands-on digital studio for websites, apps, UX/UI, SEO and ongoing support. Learn how we approach your project.",
+    "headings": [
+      [
+        "1",
+        "Good ideas deserve<br><span>thoughtful execution.</span>"
+      ],
+      [
+        "2",
+        "Close to the idea.<br>Closer to the details."
+      ],
+      [
+        "2",
+        "What working<br>with us feels like."
+      ],
+      [
+        "3",
+        "Start with the right questions"
+      ],
+      [
+        "3",
+        "Make progress visible"
+      ],
+      [
+        "3",
+        "Be clear about the scope"
+      ],
+      [
+        "3",
+        "Think beyond launch"
+      ],
+      [
+        "2",
+        "From the interface<br>to everything behind it."
+      ],
+      [
+        "3",
+        "Make the idea tangible."
+      ],
+      [
+        "3",
+        "Help the work go further."
+      ],
+      [
+        "3",
+        "Keep it moving forward."
+      ],
+      [
+        "2",
+        "Based in Dera Ghazi Khan, Pakistan."
+      ],
+      [
+        "2",
+        "Frequently asked <em>questions</em>"
+      ],
+      [
+        "2",
+        "Ready to design, build and scale your next digital product?"
+      ],
+      [
+        "3",
+        "Our Company"
+      ],
+      [
+        "3",
+        "Services"
+      ],
+      [
+        "3",
+        "Keep in Touch"
+      ]
+    ],
+    "score": 0.98,
+    "lcp": {
+      "type": "list",
+      "items": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 7.086
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 1442.546
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-H1",
+          "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,1,H1",
+          "selector": "main#main-content > section.about-hero > div.pl-wrap > h1#pageTitle",
+          "boundingRect": {
+            "top": 144,
+            "bottom": 281,
+            "left": 20,
+            "right": 392,
+            "width": 372,
+            "height": 137
+          },
+          "snippet": "<h1 id=\"pageTitle\" data-reveal=\"\" data-reveal-direction=\"right\" class=\"is-in\">",
+          "nodeLabel": "Good ideas deserve\nthoughtful execution."
+        }
+      ]
+    }
+  },
+  "performance": {
+    "before": {
+      "score": 98,
+      "first-contentful-paint": 1851.5102725948195,
+      "largest-contentful-paint": 1851.5102725948195,
+      "speed-index": 2970.777758367919,
+      "total-blocking-time": 4.5,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-H1",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,1,H1",
+        "selector": "main#main-content > section.about-hero > div.pl-wrap > h1#pageTitle",
+        "boundingRect": {
+          "top": 144,
+          "bottom": 281,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 137
+        },
+        "snippet": "<h1 id=\"pageTitle\" data-reveal=\"\" data-reveal-direction=\"right\" class=\"is-in\">",
+        "nodeLabel": "Good ideas deserve\nthoughtful execution."
+      }
+    },
+    "after": {
+      "score": 98,
+      "first-contentful-paint": 1859.1050999999998,
+      "largest-contentful-paint": 1859.1050999999998,
+      "speed-index": 2936.1922698267076,
+      "total-blocking-time": 3,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-P",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,2,DIV,0,P",
+        "selector": "section.about-hero > div.pl-wrap > div.about-hero__bottom > p",
+        "boundingRect": {
+          "top": 268,
+          "bottom": 451,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 184
+        },
+        "snippet": "<p>",
+        "nodeLabel": "PrimeLoft Tech is a digital agency for websites, software and the systems behin\u2026"
+      }
+    },
+    "repeat": {
+      "score": 85,
+      "first-contentful-paint": 2861.3875000000003,
+      "largest-contentful-paint": 3536.3875,
+      "speed-index": 3329.0797032974333,
+      "total-blocking-time": 96.38749999999936,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-P",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,2,DIV,0,P",
+        "selector": "section.about-hero > div.pl-wrap > div.about-hero__bottom > p",
+        "boundingRect": {
+          "top": 268,
+          "bottom": 451,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 184
+        },
+        "snippet": "<p>",
+        "nodeLabel": "PrimeLoft Tech is a digital agency for websites, software and the systems behin\u2026"
+      }
+    },
+    "confirm": {
+      "score": 98,
+      "first-contentful-paint": 1831.0573182469204,
+      "largest-contentful-paint": 1831.0573182469204,
+      "speed-index": 2921.137712310491,
+      "total-blocking-time": 5,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-P",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,2,DIV,0,P",
+        "selector": "section.about-hero > div.pl-wrap > div.about-hero__bottom > p",
+        "boundingRect": {
+          "top": 268,
+          "bottom": 451,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 184
+        },
+        "snippet": "<p>",
+        "nodeLabel": "PrimeLoft Tech is a digital agency for websites, software and the systems behin\u2026"
+      }
+    }
+  },
+  "browser": {
+    "widths": {
+      "320": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true,
+        "mapFits": true
+      },
+      "390": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true,
+        "mapFits": true
+      },
+      "768": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true,
+        "mapFits": true
+      },
+      "1024": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true,
+        "mapFits": true
+      },
+      "1440": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true,
+        "mapFits": true
+      }
+    },
+    "ctaUnblocked": {
+      "320": [
+        true,
+        true
+      ],
+      "390": [
+        true,
+        true
+      ],
+      "768": [
+        true,
+        true
+      ],
+      "1024": [
+        true,
+        true
+      ],
+      "1440": [
+        true,
+        true
+      ]
+    },
+    "rendered": {
+      "title": "About PrimeLoft Tech | Digital Agency & Our Story",
+      "titleCount": 1,
+      "description": "Learn about PrimeLoft Tech, our approach to website development, software engineering, design, SEO and digital solutions for growing businesses.",
+      "descriptionCount": 1,
+      "h1": "About PrimeLoft Tech",
+      "canonical": "https://primeloft.tech/about.html",
+      "canonicalCount": 1,
+      "robots": [],
+      "schemas": [
+        {
+          "@type": "Organization",
+          "@id": "https://primeloft.tech/#organization",
+          "name": "PrimeLoft Tech",
+          "url": "https://primeloft.tech/",
+          "logo": "https://primeloft.tech/images/Primeloft%20Arc%20Logo.png",
+          "description": "A digital agency providing website and software development, design and related digital services."
+        },
+        {
+          "@type": "AboutPage",
+          "@id": "https://primeloft.tech/about.html#webpage",
+          "url": "https://primeloft.tech/about.html",
+          "name": "About PrimeLoft Tech | Digital Agency & Our Story",
+          "description": "Learn about PrimeLoft Tech, our approach to website development, software engineering, design, SEO and digital solutions for growing businesses.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://primeloft.tech/#website"
+          },
+          "about": {
+            "@id": "https://primeloft.tech/#organization"
+          },
+          "mainEntity": {
+            "@id": "https://primeloft.tech/#organization"
+          },
+          "breadcrumb": {
+            "@id": "https://primeloft.tech/about.html#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://primeloft.tech/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "About Us",
+              "item": "https://primeloft.tech/about.html"
+            }
+          ],
+          "@id": "https://primeloft.tech/about.html#breadcrumb"
+        }
+      ],
+      "localBusinessSuppressed": true,
+      "faqCount": 6,
+      "principlesCount": 4,
+      "serviceLinks": [
+        {
+          "text": "UI/UX design",
+          "href": "service-design.html"
+        },
+        {
+          "text": "AI-assisted workflow automation",
+          "href": "service-ai.html"
+        },
+        {
+          "text": "Cloud and DevOps",
+          "href": "service-cloud.html"
+        },
+        {
+          "text": "maintenance and support",
+          "href": "service-maintenance.html"
+        }
+      ],
+      "map": {
+        "title": "Google Map of GardenTown, Multan Road, Dera Ghazi Khan, Pakistan",
+        "loading": "lazy"
+      }
+    },
+    "faqs": [
+      {
+        "opens": true,
+        "closes": true,
+        "regionLinked": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "regionLinked": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "regionLinked": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "regionLinked": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "regionLinked": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "regionLinked": true
+      }
+    ],
+    "principles": [
+      {
+        "toggles": true,
+        "restores": true
+      },
+      {
+        "toggles": true,
+        "restores": true
+      },
+      {
+        "toggles": true,
+        "restores": true
+      },
+      {
+        "toggles": true,
+        "restores": true
+      }
+    ],
+    "keyboardFaq": {
+      "open": true,
+      "focused": true,
+      "outline": "solid"
+    },
+    "menu": true,
+    "escape": true,
+    "motion": {
+      "principleAnimation": "about-answer",
+      "capabilityReveal": true,
+      "ribbon": true
+    },
+    "reducedMotion": {
+      "active": true,
+      "hidden": 0
+    },
+    "links": [
+      {
+        "path": "services.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-engineering.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-design.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-mobile-app-development.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-seo.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-ai.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-cloud.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-quality.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-maintenance.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-wordpress.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-squarespace.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "contact.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "images/Primeloft%20Arc%20Logo.png",
+        "status": 200,
+        "robots": null
+      }
+    ],
+    "regression": {
+      "contact.html": {
+        "canonical": "https://primeloft.tech/contact.html",
+        "organizationCount": 1,
+        "localBusinessPresent": true
+      },
+      "service-wordpress.html": {
+        "canonical": "https://primeloft.tech/service-wordpress.html",
+        "organizationCount": 1,
+        "localBusinessPresent": false
+      }
+    },
+    "errors": []
+  },
+  "preserved": {
+    "sectionCount": true,
+    "sectionClasses": true,
+    "ribbonSvg": true,
+    "mapIframe": true,
+    "scriptFiles": true,
+    "originalAboutCssRules": true,
+    "faqCount": true
+  },
+  "unrelatedHtmlUnchanged": {
+    "404.html": true,
+    "contact.html": true,
+    "cookies.html": true,
+    "index.html": true,
+    "primeloft.html": true,
+    "privacy.html": true,
+    "service-ai.html": true,
+    "service-cloud.html": true,
+    "service-design.html": true,
+    "service-engineering.html": true,
+    "service-maintenance.html": true,
+    "service-mobile-app-development.html": true,
+    "service-quality.html": true,
+    "service-seo.html": true,
+    "service-squarespace.html": true,
+    "service-strategy.html": true,
+    "service-wordpress.html": true,
+    "services.html": true,
+    "terms.html": true
+  }
+}
