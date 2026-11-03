@@ -1,0 +1,743 @@
+{
+  "date": "2026-11-03",
+  "scope": "Local/browser tests; all submission requests intercepted and mocked, no production test inquiries",
+  "baselineAudit": {
+    "title": "Contact PrimeLoft | Discuss Your Project",
+    "description": "Get in touch with PrimeLoft. Share your project goals and discuss websites, apps, design, SEO and ongoing support.",
+    "headings": [
+      [
+        "1",
+        "Your next project.<br><span>Let's talk.</span>"
+      ],
+      [
+        "2",
+        "Tell us about your project"
+      ],
+      [
+        "2",
+        "A clear next step."
+      ],
+      [
+        "3",
+        "We read your brief"
+      ],
+      [
+        "3",
+        "We talk it through"
+      ],
+      [
+        "3",
+        "You get a plan"
+      ],
+      [
+        "2",
+        "Frequently asked <em>questions</em>"
+      ],
+      [
+        "3",
+        "Our Company"
+      ],
+      [
+        "3",
+        "Services"
+      ],
+      [
+        "3",
+        "Keep in Touch"
+      ]
+    ],
+    "score": 0.8,
+    "lcp": {
+      "type": "list",
+      "items": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 7.723
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 5184.081
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-P",
+          "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,2,P",
+          "selector": "section.contact-intro > div.pl-wrap > div.contact-story > p.contact-summary",
+          "boundingRect": {
+            "top": 265,
+            "bottom": 362,
+            "left": 20,
+            "right": 389,
+            "width": 369,
+            "height": 97
+          },
+          "snippet": "<p class=\"contact-summary\">",
+          "nodeLabel": "A new website, a better app, or a process that needs fixing. Tell us where you \u2026"
+        }
+      ]
+    }
+  },
+  "performance": {
+    "before": {
+      "score": 80,
+      "first-contentful-paint": 2557.3134,
+      "largest-contentful-paint": 3532.3134,
+      "speed-index": 7209.6505236188095,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-P",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,2,P",
+        "selector": "section.contact-intro > div.pl-wrap > div.contact-story > p.contact-summary",
+        "boundingRect": {
+          "top": 265,
+          "bottom": 362,
+          "left": 20,
+          "right": 389,
+          "width": 369,
+          "height": 97
+        },
+        "snippet": "<p class=\"contact-summary\">",
+        "nodeLabel": "A new website, a better app, or a process that needs fixing. Tell us where you \u2026"
+      }
+    },
+    "after": {
+      "score": 95,
+      "first-contentful-paint": 2427.5582999999997,
+      "largest-contentful-paint": 2427.5582999999997,
+      "speed-index": 2427.5582999999997,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-P",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,2,P",
+        "selector": "section.contact-intro > div.pl-wrap > div.contact-story > p.contact-summary",
+        "boundingRect": {
+          "top": 265,
+          "bottom": 427,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 161
+        },
+        "snippet": "<p class=\"contact-summary\">",
+        "nodeLabel": "Contact PrimeLoft Tech about a new project or an existing website, application \u2026"
+      }
+    },
+    "repeat": {
+      "score": 94,
+      "first-contentful-paint": 2446.1124,
+      "largest-contentful-paint": 2446.1124,
+      "speed-index": 2986.853927477882,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-P",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,2,P",
+        "selector": "section.contact-intro > div.pl-wrap > div.contact-story > p.contact-summary",
+        "boundingRect": {
+          "top": 265,
+          "bottom": 427,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 161
+        },
+        "snippet": "<p class=\"contact-summary\">",
+        "nodeLabel": "Contact PrimeLoft Tech about a new project or an existing website, application \u2026"
+      }
+    }
+  },
+  "browser": {
+    "widths": {
+      "320": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "fieldsFit": true,
+        "labelsLinked": true
+      },
+      "390": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "fieldsFit": true,
+        "labelsLinked": true
+      },
+      "768": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "fieldsFit": true,
+        "labelsLinked": true
+      },
+      "1024": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "fieldsFit": true,
+        "labelsLinked": true
+      },
+      "1440": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "fieldsFit": true,
+        "labelsLinked": true
+      }
+    },
+    "submitUnblocked": {
+      "320": true,
+      "390": true,
+      "768": true,
+      "1024": true,
+      "1440": true
+    },
+    "scenarios": {
+      "empty": {
+        "posts": 0,
+        "result": {
+          "state": "error",
+          "text": "Please check the marked fields before sending your inquiry.",
+          "disabled": false,
+          "busy": null,
+          "invalid": [
+            {
+              "id": "contact-name",
+              "described": true,
+              "error": "Error: Your Name \u2014 Please fill out this field."
+            },
+            {
+              "id": "contact-email",
+              "described": true,
+              "error": "Error: Email \u2014 Please fill out this field."
+            },
+            {
+              "id": "contact-service",
+              "described": true,
+              "error": "Error: What do you need \u2014 Please select an item in the list."
+            },
+            {
+              "id": "contact-message",
+              "described": true,
+              "error": "Error: Project details \u2014 Please fill out this field."
+            }
+          ],
+          "nameRetained": false,
+          "active": "contact-name"
+        }
+      },
+      "invalidEmail": {
+        "posts": 0,
+        "result": {
+          "state": "error",
+          "text": "Please check the marked fields before sending your inquiry.",
+          "disabled": false,
+          "busy": null,
+          "invalid": [
+            {
+              "id": "contact-email",
+              "described": true,
+              "error": "Error: Email \u2014 Please include an '@' in the email address. 'invalid' is missing an '@'."
+            }
+          ],
+          "nameRetained": true,
+          "active": "contact-email"
+        }
+      },
+      "missingService": {
+        "posts": 0,
+        "result": {
+          "state": "error",
+          "text": "Please check the marked fields before sending your inquiry.",
+          "disabled": false,
+          "busy": null,
+          "invalid": [
+            {
+              "id": "contact-service",
+              "described": true,
+              "error": "Error: What do you need \u2014 Please select an item in the list."
+            }
+          ],
+          "nameRetained": true,
+          "active": "contact-service"
+        }
+      },
+      "whitespace": {
+        "posts": 0,
+        "result": {
+          "state": "error",
+          "text": "Please check the marked fields before sending your inquiry.",
+          "disabled": false,
+          "busy": null,
+          "invalid": [
+            {
+              "id": "contact-message",
+              "described": true,
+              "error": "Error: Project details \u2014 Please complete this field."
+            }
+          ],
+          "nameRetained": true,
+          "active": "contact-message"
+        }
+      },
+      "longInput": {
+        "posts": 0,
+        "result": {
+          "state": "error",
+          "text": "Please check the marked fields before sending your inquiry.",
+          "disabled": false,
+          "busy": null,
+          "invalid": [
+            {
+              "id": "contact-message",
+              "described": true,
+              "error": "Error: Project details \u2014 Use no more than 10000 characters."
+            }
+          ],
+          "nameRetained": true,
+          "active": "contact-message"
+        }
+      },
+      "honeypot": {
+        "posts": 0,
+        "result": {
+          "state": "error",
+          "text": "Your inquiry could not be processed. Please try again or email contact@primeloft.tech.",
+          "disabled": false,
+          "busy": null,
+          "invalid": [],
+          "nameRetained": true,
+          "active": "contact-message"
+        }
+      },
+      "rapidClicks": {
+        "posts": 1,
+        "pending": {
+          "state": "pending",
+          "text": "Sending your inquiry\u2026",
+          "disabled": true,
+          "busy": "true",
+          "invalid": [],
+          "nameRetained": true,
+          "active": "contact-message"
+        },
+        "completed": {
+          "state": "success",
+          "text": "Thank you. Your inquiry has been accepted. We will review your project details.",
+          "disabled": false,
+          "busy": null,
+          "invalid": [],
+          "nameRetained": false,
+          "active": "contact-message"
+        }
+      },
+      "validation": {
+        "posts": 1,
+        "result": {
+          "state": "error",
+          "text": "Your inquiry was not accepted. Please check any marked fields, try again or email contact@primeloft.tech.",
+          "disabled": false,
+          "busy": null,
+          "invalid": [
+            {
+              "id": "contact-email",
+              "described": true,
+              "error": "Error: Email \u2014 Use a valid email address."
+            }
+          ],
+          "nameRetained": true,
+          "active": "contact-email"
+        }
+      },
+      "server": {
+        "posts": 1,
+        "result": {
+          "state": "error",
+          "text": "Your inquiry was not accepted. Please check any marked fields, try again or email contact@primeloft.tech.",
+          "disabled": false,
+          "busy": null,
+          "invalid": [],
+          "nameRetained": true,
+          "active": "contact-email"
+        }
+      },
+      "rate": {
+        "posts": 1,
+        "result": {
+          "state": "error",
+          "text": "Your inquiry was not accepted. Please try again later or email contact@primeloft.tech.",
+          "disabled": false,
+          "busy": null,
+          "invalid": [],
+          "nameRetained": true,
+          "active": "contact-email"
+        }
+      },
+      "network": {
+        "posts": 1,
+        "result": {
+          "state": "error",
+          "text": "We could not confirm that your inquiry was received. Please try again or email contact@primeloft.tech.",
+          "disabled": false,
+          "busy": null,
+          "invalid": [],
+          "nameRetained": true,
+          "active": "contact-email"
+        }
+      },
+      "timeout": {
+        "posts": 1,
+        "result": {
+          "state": "error",
+          "text": "We could not confirm that your inquiry was received. Please try again or email contact@primeloft.tech.",
+          "disabled": false,
+          "busy": null,
+          "invalid": [],
+          "nameRetained": true,
+          "active": "contact-email"
+        }
+      },
+      "keyboardMobileSuccess": {
+        "posts": 1,
+        "result": {
+          "state": "success",
+          "text": "Thank you. Your inquiry has been accepted. We will review your project details.",
+          "disabled": false,
+          "busy": null,
+          "invalid": [],
+          "nameRetained": false,
+          "active": ""
+        }
+      }
+    },
+    "rendered": {
+      "title": "Contact PrimeLoft Tech | Start Your Project",
+      "titleCount": 1,
+      "description": "Contact PrimeLoft Tech to discuss website development, software, mobile apps, SEO, design or automation. Share your project requirements with our team.",
+      "descriptionCount": 1,
+      "h1": "Let's Talk About Your Project",
+      "canonical": "https://primeloft.tech/contact.html",
+      "canonicalCount": 1,
+      "robots": [],
+      "schemas": [
+        {
+          "@type": "Organization",
+          "@id": "https://primeloft.tech/#organization",
+          "name": "PrimeLoft Tech",
+          "url": "https://primeloft.tech/",
+          "logo": "https://primeloft.tech/images/Primeloft%20Arc%20Logo.png",
+          "email": "contact@primeloft.tech",
+          "telephone": "+923359873132",
+          "sameAs": [
+            "https://www.linkedin.com/company/primloft/",
+            "https://www.facebook.com/share/1UUv6vvFdu/",
+            "https://wa.me/923359873132"
+          ]
+        },
+        {
+          "@type": "ContactPage",
+          "@id": "https://primeloft.tech/contact.html#webpage",
+          "url": "https://primeloft.tech/contact.html",
+          "name": "Contact PrimeLoft Tech | Start Your Project",
+          "description": "Contact PrimeLoft Tech to discuss website development, software, mobile apps, SEO, design or automation. Share your project requirements with our team.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://primeloft.tech/#website"
+          },
+          "about": {
+            "@id": "https://primeloft.tech/#organization"
+          },
+          "mainEntity": {
+            "@id": "https://primeloft.tech/#organization"
+          },
+          "breadcrumb": {
+            "@id": "https://primeloft.tech/contact.html#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://primeloft.tech/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Contact Us",
+              "item": "https://primeloft.tech/contact.html"
+            }
+          ],
+          "@id": "https://primeloft.tech/contact.html#breadcrumb"
+        }
+      ],
+      "localBusinessSuppressed": true,
+      "action": "https://formspree.io/f/xeajqqoy",
+      "phoneFieldPresent": false,
+      "directLinks": [
+        "mailto:contact@primeloft.tech",
+        "https://wa.me/923359873132",
+        "tel:+923359873132"
+      ],
+      "externalLinksSafe": true,
+      "trackingScripts": []
+    },
+    "faqs": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "menu": true,
+    "escape": true,
+    "preselection": [
+      {
+        "file": "service-engineering.html",
+        "expected": "Custom Website",
+        "value": "Custom Website",
+        "budgets": [
+          "Prefer not to choose",
+          "< $500",
+          "$500 - $1,000",
+          "$1,000 - $2,000",
+          "$2,000 - $5,000",
+          "$5,000+"
+        ]
+      },
+      {
+        "file": "service-design.html",
+        "expected": "UX/UI",
+        "value": "UX/UI",
+        "budgets": [
+          "Prefer not to choose",
+          "< $500",
+          "$500 - $1,000",
+          "$1,000 - $2,000",
+          "$2,000 - $5,000",
+          "$5,000+"
+        ]
+      },
+      {
+        "file": "service-mobile-app-development.html",
+        "expected": "Mobile Application",
+        "value": "Mobile Application",
+        "budgets": [
+          "Prefer not to choose",
+          "< $500",
+          "$500 - $1,000",
+          "$1,000 - $2,000",
+          "$2,000 - $5,000",
+          "$5,000+"
+        ]
+      },
+      {
+        "file": "service-seo.html",
+        "expected": "SEO",
+        "value": "SEO",
+        "budgets": [
+          "Prefer not to choose",
+          "$300 - $500",
+          "$500 - $1,000",
+          "$1,000 - $1,500"
+        ]
+      },
+      {
+        "file": "service-ai.html",
+        "expected": "Automation",
+        "value": "Automation",
+        "budgets": [
+          "Prefer not to choose",
+          "< $500",
+          "$500 - $1,000",
+          "$1,000 - $2,000",
+          "$2,000 - $5,000",
+          "$5,000+"
+        ]
+      },
+      {
+        "file": "service-cloud.html",
+        "expected": "DevOps",
+        "value": "DevOps",
+        "budgets": [
+          "Prefer not to choose",
+          "< $500",
+          "$500 - $1,000",
+          "$1,000 - $2,000",
+          "$2,000 - $5,000",
+          "$5,000+"
+        ]
+      },
+      {
+        "file": "service-quality.html",
+        "expected": "Testing & QA",
+        "value": "Testing & QA",
+        "budgets": [
+          "Prefer not to choose",
+          "< $500",
+          "$500 - $1,000",
+          "$1,000 - $2,000",
+          "$2,000 - $5,000",
+          "$5,000+"
+        ]
+      },
+      {
+        "file": "service-maintenance.html",
+        "expected": "Maintenance",
+        "value": "Maintenance",
+        "budgets": [
+          "Prefer not to choose",
+          "< $500",
+          "$500 - $1,000",
+          "$1,000 - $2,000",
+          "$2,000 - $5,000",
+          "$5,000+"
+        ]
+      },
+      {
+        "file": "service-wordpress.html",
+        "expected": "WordPress",
+        "value": "WordPress",
+        "budgets": [
+          "Prefer not to choose",
+          "< $500",
+          "$500 - $1,000",
+          "$1,000 - $2,000",
+          "$2,000 - $5,000",
+          "$5,000+"
+        ]
+      },
+      {
+        "file": "service-squarespace.html",
+        "expected": "Squarespace",
+        "value": "Squarespace",
+        "budgets": [
+          "Prefer not to choose",
+          "< $500",
+          "$500 - $1,000",
+          "$1,000 - $2,000",
+          "$2,000 - $5,000",
+          "$5,000+"
+        ]
+      }
+    ],
+    "unknownService": "",
+    "specialCharacters": {
+      "payloadPreserved": true,
+      "notExecuted": true
+    },
+    "tabOrder": {
+      "active": "contact-email",
+      "focusShadow": "none",
+      "border": "rgb(21, 84, 246)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "reducedMotion": {
+      "active": true,
+      "hidden": 0
+    },
+    "links": [
+      {
+        "path": "services.html",
+        "status": 200
+      },
+      {
+        "path": "privacy.html",
+        "status": 200
+      },
+      {
+        "path": "about.html",
+        "status": 200
+      }
+    ],
+    "mockPosts": 7,
+    "errors": []
+  },
+  "console": {
+    "consoleErrors": [],
+    "runtimeExceptions": []
+  },
+  "assertions": {
+    "empty": true,
+    "invalidEmail": true,
+    "missingService": true,
+    "whitespace": true,
+    "longInput": true,
+    "honeypot": true,
+    "validation": true,
+    "server": true,
+    "rate": true,
+    "network": true,
+    "timeout": true,
+    "duplicatePrevention": true,
+    "keyboardMobileSuccess": true,
+    "specialCharacters": true,
+    "allMappings": true,
+    "schema": true,
+    "allWidths": true,
+    "noRuntimeExceptions": true
+  },
+  "preserved": {
+    "action": true,
+    "fieldNames": true,
+    "serviceOptions": true,
+    "otherMainLogic": true,
+    "originalCssRules": true,
+    "sectionClasses": true,
+    "svgArtwork": true
+  },
+  "unrelatedHtmlUnchanged": {
+    "404.html": true,
+    "about.html": true,
+    "cookies.html": true,
+    "index.html": true,
+    "primeloft.html": true,
+    "privacy.html": true,
+    "service-ai.html": true,
+    "service-cloud.html": true,
+    "service-design.html": true,
+    "service-engineering.html": true,
+    "service-maintenance.html": true,
+    "service-mobile-app-development.html": true,
+    "service-quality.html": true,
+    "service-seo.html": true,
+    "service-squarespace.html": true,
+    "service-strategy.html": true,
+    "service-wordpress.html": true,
+    "services.html": true,
+    "terms.html": true
+  },
+  "contrast": {
+    "placeholderBefore": 3.7831409347,
+    "placeholderAfter": 4.7449408704,
+    "optionalPrivacyBefore": 4.4832840735,
+    "optionalPrivacyAfter": 4.9550504499,
+    "statusText": 14.7459458918
+  }
+}

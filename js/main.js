@@ -118,78 +118,109 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---------- 6. FORMSPREE AJAX SUBMISSION HANDLER ----------
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
+    const btn = document.getElementById('btnSubmitContact');
+    const status = document.getElementById('formStatus');
+    const fields = [...contactForm.querySelectorAll('input:not([type="hidden"]):not([name="_gotcha"]), select, textarea')];
+    const buttonLabel = btn?.querySelector('span');
+    const idleLabel = buttonLabel?.textContent;
+    let submitting = false;
+    const showStatus = (state, text) => {
+      if (!status) return;
+      status.style.display = 'block';
+      status.dataset.state = state;
+      status.textContent = text;
+    };
+    const clearError = field => {
+      field.setCustomValidity('');
+      field.removeAttribute('aria-invalid');
+      const errorId = `${field.id}-error`;
+      const error = document.getElementById(errorId);
+      if (error) error.hidden = true;
+      const descriptions = (field.getAttribute('aria-describedby') || '').split(' ').filter(id => id && id !== errorId);
+      if (descriptions.length) field.setAttribute('aria-describedby', descriptions.join(' '));
+      else field.removeAttribute('aria-describedby');
+    };
+    const showError = (field, message) => {
+      if (!field.id) return;
+      let error = document.getElementById(`${field.id}-error`);
+      if (!error) {
+        error = document.createElement('p');
+        error.id = `${field.id}-error`;
+        error.className = 'contact-field-error';
+        field.after(error);
+      }
+      const label = field.labels?.[0]?.textContent.replace('*', '').trim() || 'This field';
+      error.textContent = `Error: ${label} — ${message}`;
+      error.hidden = false;
+      field.setAttribute('aria-invalid', 'true');
+      const descriptions = new Set((field.getAttribute('aria-describedby') || '').split(' ').filter(Boolean));
+      descriptions.add(error.id);
+      field.setAttribute('aria-describedby', [...descriptions].join(' '));
+    };
+    fields.forEach(field => {
+      field.addEventListener('input', () => clearError(field));
+      field.addEventListener('change', () => clearError(field));
+    });
+    contactForm.addEventListener('invalid', event => {
+      if (!fields.includes(event.target)) return;
+      showError(event.target, event.target.validationMessage);
+      showStatus('error', 'Please check the marked fields before sending your inquiry.');
+    }, true);
+    contactForm.addEventListener('reset', () => fields.forEach(clearError));
+    contactForm.addEventListener('submit', async e => {
       e.preventDefault();
-      const btn = document.getElementById('btnSubmitContact');
-      const status = document.getElementById('formStatus');
-      if (btn?.disabled || !contactForm.reportValidity()) return;
-
-      // Invisible Honeypot Anti-Bot Trap: if filled, silently discard bot request
+      if (submitting) return;
+      fields.forEach(field => {
+        clearError(field);
+        if (field.required && !field.value.trim()) field.setCustomValidity('Please complete this field.');
+        if (field.maxLength > 0 && field.value.length > field.maxLength) field.setCustomValidity(`Use no more than ${field.maxLength} characters.`);
+      });
+      if (!contactForm.reportValidity()) return;
       const gotcha = contactForm.querySelector('input[name="_gotcha"]');
-      if (gotcha && gotcha.value.trim() !== '') {
-        if (status) {
-          status.style.display = 'block';
-          status.style.background = 'rgba(37, 211, 102, 0.15)';
-          status.style.color = '#25D366';
-          status.style.border = '1px solid rgba(37, 211, 102, 0.3)';
-          status.textContent = 'Thank you! Your message has been sent successfully. We will get back to you as soon as we can.';
-        }
-        contactForm.reset();
+      if (gotcha?.value.trim()) {
+        showStatus('error', 'Your inquiry could not be processed. Please try again or email contact@primeloft.tech.');
         return;
       }
-
-      if (btn) {
-        btn.disabled = true;
-        btn.style.opacity = '0.7';
-      }
-
-      if (status) {
-        status.style.display = 'block';
-        status.style.background = 'var(--bg-alt)';
-        status.style.color = 'var(--ink)';
-        status.textContent = 'Sending your message...';
-      }
-
+      submitting = true;
+      contactForm.setAttribute('aria-busy', 'true');
+      if (btn) { btn.disabled = true; btn.style.opacity = '0.7'; }
+      if (buttonLabel) buttonLabel.textContent = 'Sending inquiry…';
+      showStatus('pending', 'Sending your inquiry…');
       try {
-        const formData = new FormData(contactForm);
-        const endpoint = contactForm.getAttribute('action') || 'https://formspree.io/f/xeajqqoy';
-
-        const response = await fetch(endpoint, {
-          method: 'POST',
-          signal: AbortSignal.timeout(20000),
-          body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
+        const response = await fetch(contactForm.getAttribute('action') || 'https://formspree.io/f/xeajqqoy', {
+          method: 'POST', body: new FormData(contactForm), signal: AbortSignal.timeout(20000), headers: { Accept: 'application/json' }
         });
-
         if (response.ok) {
-          if (status) {
-            status.style.background = 'rgba(37, 211, 102, 0.15)';
-            status.style.color = '#25D366';
-            status.style.border = '1px solid rgba(37, 211, 102, 0.3)';
-            status.textContent = 'Thank you! Your message has been sent successfully. We will get back to you as soon as we can.';
-          }
           contactForm.reset();
+          showStatus('success', 'Thank you. Your inquiry has been accepted. We will review your project details.');
         } else {
-          const result = await response.json();
-          throw new Error(result.errors ? result.errors.map(err => err.message).join(', ') : 'Submission failed');
+          const result = await response.json().catch(() => null);
+          let firstInvalid;
+          if (Array.isArray(result?.errors)) result.errors.forEach(error => {
+            const field = fields.find(candidate => candidate.name === error.field);
+            if (!field) return;
+            const message = typeof error.message === 'string' ? error.message.slice(0, 300) : 'Please check this field.';
+            field.setCustomValidity(message);
+            showError(field, message);
+            firstInvalid ||= field;
+          });
+          showStatus('error', response.status === 429
+            ? 'Your inquiry was not accepted. Please try again later or email contact@primeloft.tech.'
+            : 'Your inquiry was not accepted. Please check any marked fields, try again or email contact@primeloft.tech.');
+          firstInvalid?.focus();
         }
-      } catch (error) {
-        if (status) {
-          status.style.background = 'rgba(239, 78, 56, 0.15)';
-          status.style.color = 'var(--red)';
-          status.style.border = '1px solid rgba(239, 78, 56, 0.3)';
-          status.textContent = 'Oops! There was an issue sending your message. Please try again or email contact@primeloft.tech directly.';
-        }
+      } catch {
+        // A timeout may happen after the server received the request; never claim success.
+        showStatus('error', 'We could not confirm that your inquiry was received. Please try again or email contact@primeloft.tech.');
       } finally {
-        if (btn) {
-          btn.disabled = false;
-          btn.style.opacity = '1';
-        }
+        submitting = false;
+        contactForm.removeAttribute('aria-busy');
+        if (btn) { btn.disabled = false; btn.style.opacity = '1'; }
+        if (buttonLabel) buttonLabel.textContent = idleLabel;
       }
     });
   }
+
 
   // ---------- 7. NEWSLETTER FORMSPREE SUBMISSION HANDLER ----------
   document.querySelectorAll('.newsletterForm').forEach(form => {
