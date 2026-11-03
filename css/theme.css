@@ -2272,3 +2272,22 @@ body.pl .pl-footer__mark-frame .pl-footer__mark { margin:0; background:linear-gr
   .pl-js .pl-footer__mark-frame.is-visible .pl-footer__mark { opacity:1; transform:translateY(0); }
 }
 @media(prefers-reduced-motion:reduce) { .pl-footer__mark-frame .pl-footer__mark { opacity:1; transform:none; transition:none; } }
+
+/* Consistent service FAQ controls for shared and native accordions. */
+body.pl[class*="pl-page-service-"] .faq-toggle-icon .faq-angle-icon { transform:rotate(90deg); }
+body.pl[class*="pl-page-service-"] .faq-item.is-open .faq-toggle-icon .faq-angle-icon { transform:rotate(270deg); }
+body.pl :is(.auto-faq,.ops-faq,.qa-faq,.care-faq,.platform-faq,.mob-faq) summary > .service-faq-toggle {
+  display:grid; place-items:center; width:28px; height:28px; flex:0 0 28px;
+  border-radius:8px; color:#fff; background:#1554F6; transform:none;
+}
+body.pl :is(.auto-faq,.ops-faq,.qa-faq,.care-faq,.platform-faq,.mob-faq) summary:hover > .service-faq-toggle { background:#1042CC; }
+.service-faq-angle { display:block; width:18px; height:18px; }
+body.pl :is(.auto-faq,.ops-faq,.qa-faq,.care-faq,.platform-faq,.mob-faq) details[open] > summary > .service-faq-toggle { transform:none; }
+body.pl :is(.auto-faq,.ops-faq,.qa-faq,.care-faq,.platform-faq,.mob-faq) details[open] .service-faq-angle { transform:rotate(180deg); }
+.mob-faq details { border-bottom:1px solid #dce5f5; }
+.mob-faq summary { display:flex; justify-content:space-between; align-items:flex-start; gap:20px; padding:20px 0; list-style:none; cursor:pointer; font-size:18px; font-weight:500; }
+.mob-faq summary::-webkit-details-marker { display:none; }
+.mob-faq summary:focus-visible { outline:2px solid #1554F6; outline-offset:4px; }
+body.pl .mob-faq details > p { color:#5d718f; font-size:16px; line-height:1.8; margin:0 0 24px; }
+@media(prefers-reduced-motion:no-preference) { .service-faq-angle { transition:transform .28s ease; } }
+@media(prefers-reduced-motion:reduce) { body.pl[class*="pl-page-service-"] .faq-angle-icon { transition:none; } }

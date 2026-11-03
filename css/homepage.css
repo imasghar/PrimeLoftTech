@@ -238,3 +238,40 @@ body.pl-page-index .agency-cta::after { width: 360px; height: 360px; right: -120
   body.pl-page-index .agency-cta .pl-ctas .pl-btn { flex: 1 1 190px; width: auto; }
   body.pl-page-index .agency-cta .pl-h2 { font-size: 29px !important; }
 }
+
+/* Logo-led collaboration strip, scoped to the homepage proof section. */
+.agency-proof--strip .agency-proof__inner { grid-template-columns:minmax(220px,.9fr) minmax(0,3fr); gap:40px; align-items:stretch; }
+.agency-proof--strip .agency-client-feature { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:20px; padding:28px 20px; background:#f5f8ff; border:0; border-radius:20px; }
+.agency-proof--strip .agency-client-feature__heading { order:2; }
+body.pl-page-index .agency-proof--strip .agency-client-feature h2 { font-size:19px; line-height:1.35; margin:8px 0 0; }
+.agency-proof--strip .agency-client-feature__logo { width:100px; height:100px; border:0; background:#fff; border-radius:50%; }
+.agency-proof--strip .agency-client-feature__logo img { width:76px; height:76px; }
+.agency-proof--strip .agency-commitments { grid-template-columns:repeat(3,minmax(0,1fr)); align-items:center; gap:0; }
+.agency-proof--strip .agency-commitment { height:100%; min-width:0; flex-direction:column; align-items:flex-start; justify-content:center; gap:24px; padding:24px; border-bottom:0; border-left:1px solid #e3eaf7; }
+.agency-proof--strip .agency-commitment:first-child { border-left:0; }
+.agency-proof--strip .agency-commitment > strong,.agency-proof--strip .agency-ownership { flex:0 0 auto; height:46px; }
+body.pl-page-index .agency-proof--strip .agency-commitment h3 { font-size:17px; line-height:1.4; }
+@media(max-width:1100px) {
+  .agency-proof--strip .agency-proof__inner { grid-template-columns:minmax(180px,.8fr) minmax(0,3fr); gap:20px; }
+  .agency-proof--strip .agency-commitment { padding:18px; }
+}
+@media(max-width:760px) {
+  .agency-proof--strip .agency-proof__inner { grid-template-columns:minmax(0,1fr); gap:20px; }
+  .agency-proof--strip .agency-client-feature { flex-direction:row; text-align:left; gap:24px; justify-content:flex-start; padding:24px; }
+  .agency-proof--strip .agency-commitment { padding:16px; gap:18px; }
+}
+@media(max-width:520px) {
+  .agency-proof--strip .agency-commitments { grid-template-columns:minmax(0,1fr); }
+  .agency-proof--strip .agency-commitment { flex-direction:row; justify-content:flex-start; align-items:center; gap:20px; padding:20px 0; border-left:0; border-bottom:1px solid #e3eaf7; }
+  .agency-proof--strip .agency-commitment:last-child { border-bottom:0; }
+  .agency-proof--strip .agency-commitment > strong,.agency-proof--strip .agency-ownership { flex:0 0 58px; }
+  .agency-proof--strip .agency-client-feature__logo { flex-shrink:0; width:76px; height:76px; }
+  .agency-proof--strip .agency-client-feature__logo img { width:58px; height:58px; }
+}
+
+/* Homepage FAQ: downward chevron when closed, upward when expanded. */
+body.pl-page-index .agency-faq .faq-toggle-icon .faq-angle-icon { transform:rotate(90deg); }
+body.pl-page-index .agency-faq .faq-item.is-open .faq-toggle-icon .faq-angle-icon { transform:rotate(270deg); }
+@media(prefers-reduced-motion:reduce) {
+  body.pl-page-index .agency-faq .faq-angle-icon { transition:none; }
+}
