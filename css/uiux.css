@@ -316,3 +316,8 @@ body.pl-page-service-design .ux-close__panel p { font-size: 17px; max-width: 34e
 @media (prefers-reduced-motion: reduce) {
   .ux-service-detail > summary h3,.ux-service-detail__toggle,.ux-service-detail__toggle svg { transition: none; }
 }
+
+/* Reuse the existing body-copy color for readable breadcrumb links. */
+body.pl-page-service-design .ux-breadcrumb a { color:#65728B; }
+body.pl-page-service-design .ux-breadcrumb a:hover { color:#1554F6; }
+body.pl-page-service-design .ux-faq .faq-answer-inner a { color:#1554F6; text-decoration:underline; text-underline-offset:3px; }
