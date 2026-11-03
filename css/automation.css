@@ -23,3 +23,7 @@ body.pl.pl-page-service-ai section:is(.auto-services,.auto-control,.auto-deliver
 @media(max-width:760px) { .auto-headline,.auto-control > .pl-wrap,.auto-example__copy { grid-template-columns:1fr; gap:26px; }.auto-play { max-width:320px; }.auto-service-list article { grid-template-columns:30px 1fr; gap:18px; }.auto-service-list article > p { grid-column:2; }.auto-workbench__top { align-items:flex-start; flex-direction:column; gap:14px; }.auto-faq-grid { grid-template-columns:1fr; } }
 @media(max-width:520px) { .auto-flow { grid-template-columns:1fr; gap:28px; }.auto-node { display:grid; grid-template-columns:32px 1fr; align-items:center; gap:6px 14px; }.auto-node__number { grid-row:1/3; }.auto-node:not(:last-child)::after { top:100%; left:32px; width:2px; height:28px; }.auto-node:not(:last-child)::before { top:calc(100% + 8px); left:29px; transform:rotate(135deg); }.auto-workbench__top,.auto-tabs,.auto-example__copy { padding-left:20px; padding-right:20px; }.auto-tabs { gap:6px; }.auto-tabs button { padding:9px 10px; font-size:12px; }.auto-control__grid,.auto-delivery ol { grid-template-columns:1fr; }.auto-preview-label { display:none; } }
 @media(prefers-reduced-motion:reduce) { .auto-node { transition:none; }.auto-node.is-active { transform:none; } }
+
+/* Keep contextual service links identifiable within the existing palette. */
+body.pl-page-service-ai :is(.auto-service-list,.auto-delivery) p a { color:#1554f6; text-decoration:underline; text-underline-offset:.18em; }
+#automation-solutions { scroll-margin-top:100px; }

@@ -1,0 +1,566 @@
+{
+  "date": "2026-11-03",
+  "scope": "Local laboratory tests, not production or field Core Web Vitals",
+  "baselineAudit": {
+    "title": "Workflow Automation &amp; Integration Services | PrimeLoft",
+    "description": "Business automation services for lead routing, onboarding, reporting and operations. Connect your tools with workflow automation, APIs and AI-assisted processes.",
+    "headings": [
+      [
+        "1",
+        "Less busywork.<br><span>More forward motion.</span>"
+      ],
+      [
+        "2",
+        "What is business automation?"
+      ],
+      [
+        "2",
+        "See how the pieces connect."
+      ],
+      [
+        "3",
+        "Give every inquiry a clear next step."
+      ],
+      [
+        "3",
+        "Start the relationship with less admin."
+      ],
+      [
+        "3",
+        "Keep the handoffs connected."
+      ],
+      [
+        "3",
+        "Turn incoming messages into organized work."
+      ],
+      [
+        "3",
+        "Stop rebuilding the same report."
+      ],
+      [
+        "2",
+        "Better connections.<br>Fewer manual steps."
+      ],
+      [
+        "3",
+        "Workflow automation"
+      ],
+      [
+        "3",
+        "API & system integration"
+      ],
+      [
+        "3",
+        "AI-assisted workflows"
+      ],
+      [
+        "3",
+        "Automation review & support"
+      ],
+      [
+        "2",
+        "Automation should<br>leave you in control."
+      ],
+      [
+        "3",
+        "Approval points"
+      ],
+      [
+        "3",
+        "Visible failures"
+      ],
+      [
+        "3",
+        "Appropriate access"
+      ],
+      [
+        "3",
+        "Documented handoff"
+      ],
+      [
+        "2",
+        "From manual process<br>to working automation."
+      ],
+      [
+        "3",
+        "Map the work"
+      ],
+      [
+        "3",
+        "Choose the approach"
+      ],
+      [
+        "3",
+        "Build & test"
+      ],
+      [
+        "3",
+        "Launch & hand over"
+      ],
+      [
+        "2",
+        "A few practical questions."
+      ],
+      [
+        "2",
+        "Which task would you like off your list?"
+      ],
+      [
+        "3",
+        "Our Company"
+      ],
+      [
+        "3",
+        "Services"
+      ],
+      [
+        "3",
+        "Keep in Touch"
+      ]
+    ],
+    "score": 0.85,
+    "lcp": {
+      "type": "list",
+      "items": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 5.729
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 4295.243
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-P",
+          "path": "1,HTML,1,BODY,5,MAIN,1,SECTION,0,DIV,1,DIV,0,P",
+          "selector": "section.service-definition > div.pl-wrap > div > p",
+          "boundingRect": {
+            "top": 643,
+            "bottom": 787,
+            "left": 20,
+            "right": 392,
+            "width": 372,
+            "height": 144
+          },
+          "snippet": "<p>",
+          "nodeLabel": "Business automation uses software to carry out repeatable tasks based on define\u2026"
+        }
+      ]
+    }
+  },
+  "performance": {
+    "before": {
+      "score": 85,
+      "first-contentful-paint": 2727.083312897617,
+      "largest-contentful-paint": 2727.083312897617,
+      "speed-index": 7453.514839158787,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-P",
+        "path": "1,HTML,1,BODY,5,MAIN,1,SECTION,0,DIV,1,DIV,0,P",
+        "selector": "section.service-definition > div.pl-wrap > div > p",
+        "boundingRect": {
+          "top": 643,
+          "bottom": 787,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 144
+        },
+        "snippet": "<p>",
+        "nodeLabel": "Business automation uses software to carry out repeatable tasks based on define\u2026"
+      }
+    },
+    "after": {
+      "score": 92,
+      "first-contentful-paint": 2608.019151793943,
+      "largest-contentful-paint": 2608.019151793943,
+      "speed-index": 3132.661040717276,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-P",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,1,DIV,1,DIV,0,P",
+        "selector": "div.pl-wrap > div.auto-headline > div > p",
+        "boundingRect": {
+          "top": 314,
+          "bottom": 480,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 166
+        },
+        "snippet": "<p>",
+        "nodeLabel": "AI automation services that connect your tools and simplify repeatable work. Co\u2026"
+      }
+    },
+    "repeat": {
+      "score": 93,
+      "first-contentful-paint": 2578.7767,
+      "largest-contentful-paint": 2578.7767,
+      "speed-index": 3087.4132980000377,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-P",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,1,DIV,1,DIV,0,P",
+        "selector": "div.pl-wrap > div.auto-headline > div > p",
+        "boundingRect": {
+          "top": 314,
+          "bottom": 480,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 166
+        },
+        "snippet": "<p>",
+        "nodeLabel": "AI automation services that connect your tools and simplify repeatable work. Co\u2026"
+      }
+    }
+  },
+  "browser": {
+    "widths": {
+      "320": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "390": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "768": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "1024": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "1440": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      }
+    },
+    "ctaUnblocked": {
+      "320": [
+        true,
+        true
+      ],
+      "390": [
+        true,
+        true
+      ],
+      "768": [
+        true,
+        true
+      ],
+      "1024": [
+        true,
+        true
+      ],
+      "1440": [
+        true,
+        true
+      ]
+    },
+    "rendered": {
+      "title": "AI Automation Services for Businesses | PrimeLoft Tech",
+      "titleCount": 1,
+      "description": "Automate business workflows with PrimeLoft Tech's AI automation services, API integrations, CRM routing and AI-assisted classification, summaries and drafts.",
+      "descriptionCount": 1,
+      "h1": "AI Automation & Integration Services for Businesses",
+      "canonical": "https://primeloft.tech/service-ai.html",
+      "canonicalCount": 1,
+      "robots": [],
+      "schemas": [
+        {
+          "type": "Organization",
+          "id": "https://primeloft.tech/#organization"
+        },
+        {
+          "type": "WebPage",
+          "id": "https://primeloft.tech/service-ai.html#webpage"
+        },
+        {
+          "type": "BreadcrumbList",
+          "id": "https://primeloft.tech/service-ai.html#breadcrumb"
+        },
+        {
+          "type": "Service",
+          "id": "https://primeloft.tech/service-ai.html#service"
+        },
+        {
+          "type": "FAQPage",
+          "id": "https://primeloft.tech/service-ai.html#faq"
+        }
+      ],
+      "faqCount": 10,
+      "serviceLinks": [
+        {
+          "text": "custom software development services",
+          "href": "service-engineering.html"
+        },
+        {
+          "text": "Product and workflow discovery",
+          "href": "service-strategy.html"
+        },
+        {
+          "text": "software testing and validation",
+          "href": "service-quality.html"
+        },
+        {
+          "text": "deployment and operations support",
+          "href": "service-cloud.html"
+        }
+      ]
+    },
+    "secondaryCta": {
+      "targetExists": true,
+      "targetTop": 90.5625
+    },
+    "tabs": [
+      {
+        "selected": true,
+        "panelVisible": true,
+        "visibleCount": 1
+      },
+      {
+        "selected": true,
+        "panelVisible": true,
+        "visibleCount": 1
+      },
+      {
+        "selected": true,
+        "panelVisible": true,
+        "visibleCount": 1
+      },
+      {
+        "selected": true,
+        "panelVisible": true,
+        "visibleCount": 1
+      },
+      {
+        "selected": true,
+        "panelVisible": true,
+        "visibleCount": 1
+      }
+    ],
+    "keyboardTabs": true,
+    "previewActive": {
+      "active": 1,
+      "disabled": true
+    },
+    "previewComplete": {
+      "done": 4,
+      "buttonEnabled": true,
+      "status": "Preview complete. No actions were sent."
+    },
+    "previewReset": true,
+    "faqs": [
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      }
+    ],
+    "keyboardFaq": {
+      "open": true,
+      "focused": true,
+      "outline": "solid"
+    },
+    "menu": true,
+    "escape": true,
+    "reducedMotion": {
+      "active": true,
+      "hidden": 0
+    },
+    "reducedPreviews": [
+      {
+        "done": 4,
+        "status": "Preview complete: four connected steps. No actions were sent.",
+        "buttonEnabled": true
+      },
+      {
+        "done": 4,
+        "status": "Preview complete: four connected steps. No actions were sent.",
+        "buttonEnabled": true
+      },
+      {
+        "done": 4,
+        "status": "Preview complete: four connected steps. No actions were sent.",
+        "buttonEnabled": true
+      },
+      {
+        "done": 4,
+        "status": "Preview complete: four connected steps. No actions were sent.",
+        "buttonEnabled": true
+      },
+      {
+        "done": 4,
+        "status": "Preview complete: four connected steps. No actions were sent.",
+        "buttonEnabled": true
+      }
+    ],
+    "links": [
+      {
+        "path": "services.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-engineering.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-strategy.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-cloud.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-quality.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "contact.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "css/fonts.css",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "images/primeloft-arc-logo-256.webp",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "images/primeloft-social-20261102.png",
+        "status": 200,
+        "robots": null
+      }
+    ],
+    "contactPreselection": "Automation",
+    "errors": []
+  },
+  "preserved": {
+    "sectionCount": true,
+    "sectionClasses": true,
+    "workflowMarkupApartFromLabelAndAnchor": true,
+    "scriptSources": true,
+    "originalCssRules": true
+  },
+  "unrelatedHtmlUnchanged": {
+    "404.html": true,
+    "about.html": true,
+    "contact.html": true,
+    "cookies.html": true,
+    "index.html": true,
+    "primeloft.html": true,
+    "privacy.html": true,
+    "service-cloud.html": true,
+    "service-design.html": true,
+    "service-engineering.html": true,
+    "service-maintenance.html": true,
+    "service-mobile-app-development.html": true,
+    "service-quality.html": true,
+    "service-seo.html": true,
+    "service-squarespace.html": true,
+    "service-strategy.html": true,
+    "service-wordpress.html": true,
+    "services.html": true,
+    "terms.html": true
+  }
+}
