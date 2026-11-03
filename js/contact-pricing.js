@@ -14,7 +14,17 @@ if (service && budget) {
     budget.replaceChildren(...options.map(({ text, value }) => new Option(text, value)));
     if (options.some(option => option.value === previous)) budget.value = previous;
   };
-  const requestedService = new URLSearchParams(window.location.search).get('service')?.toLowerCase();
+  const aliases = {
+    'ui-ux': 'UX/UI', 'ux-ui': 'UX/UI', 'design': 'UX/UI',
+    'software-development': 'Custom Website', 'software': 'Custom Website',
+    'website-development': 'Custom Website', 'engineering': 'Custom Website',
+    'mobile-apps': 'Mobile Application', 'mobile-app-development': 'Mobile Application',
+    'mobile': 'Mobile Application', 'ai': 'Automation', 'cloud': 'DevOps',
+    'qa': 'Testing & QA', 'quality': 'Testing & QA',
+    'strategy': 'Other / Consultation',
+  };
+  const parameter = new URLSearchParams(window.location.search).get('service')?.trim().toLowerCase();
+  const requestedService = (Object.hasOwn(aliases, parameter) ? aliases[parameter] : parameter)?.toLowerCase();
   const matchingOption = [...service.options].find(option => option.value.toLowerCase() === requestedService);
   if (matchingOption) service.value = matchingOption.value;
   service.addEventListener('change', updateBudget);
