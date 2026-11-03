@@ -32,3 +32,6 @@ body.pl-page-service-mobile-app-development .mob-platform-grid p { font-size:16p
 @media(hover:hover) and (prefers-reduced-motion:no-preference) { .mob-usecase:hover .mob-phone { transform:translateY(-8px) rotate(0); } }
 @media(prefers-reduced-motion:no-preference) { .mob-stage__device.is-in .mob-phone { animation:mob-arrive .9s cubic-bezier(.22,1,.36,1) both; }.mob-stage__device--left .mob-phone { animation-delay:.12s !important; }.mob-stage__device--right .mob-phone { animation-delay:.24s !important; }@keyframes mob-arrive { from { opacity:0; transform:translateY(45px); }to { opacity:1; transform:translateY(0); } } }
 @media(prefers-reduced-motion:reduce) { .mob-usecase__visual .mob-phone { transition:none; } }
+
+/* Contextual service links use the existing blue and remain identifiable without color. */
+body.pl-page-service-mobile-app-development :is(.mob-feature-grid,.mob-faq) p a { color:#1554f6; text-decoration:underline; text-underline-offset:.18em; }
