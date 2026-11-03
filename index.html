@@ -25,13 +25,13 @@
   <meta name="twitter:image:alt" content="PrimeLoft Tech — websites, mobile apps and custom software">
   <meta name="theme-color" content="#1554F6">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&family=Inter:wght@400..700&display=swap">
+  <link rel="preload" href="fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css?v=1.0.0">
   <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
   <link rel="apple-touch-icon" href="images/Glossy%20Blue%20Comet%20App%20Icon.png">
   <link rel="stylesheet" href="css/style.css?v=3.3.0">
-  <link rel="stylesheet" href="css/theme.css?v=1.7.0">
+  <link rel="stylesheet" href="css/theme.css?v=1.4.2">
   <link rel="stylesheet" href="css/chat.css?v=1.0.0">
   <link rel="stylesheet" href="css/homepage.css?v=1.3.2">
   <script type="module" src="js/main.js?v=3.2.0" defer></script>
@@ -123,7 +123,7 @@
     <div class="nav-row">
       <a href="index.html" class="logo-brand" aria-label="PrimeLoft Software Solutions">
         <picture class="logo-img">
-          <img src="images/Primeloft%20Arc%20Logo.png" class="logo-img" alt="PrimeLoft Software Solutions" width="1254" height="1254">
+          <img src="images/primeloft-arc-logo-256.webp" srcset="images/primeloft-arc-logo-256.webp 256w, images/primeloft-arc-logo-512.webp 512w" sizes="144px" class="logo-img" alt="PrimeLoft Software Solutions" width="1254" height="1254">
         </picture>
       </a>
       <nav class="primary" aria-label="Primary">
@@ -152,6 +152,7 @@
           </div>
         </div>
         <a href="about.html" class="navlink">About Us</a>
+        <a href="contact.html" class="navlink mobile-contact-link">Contact Us</a>
       </nav>
       <div class="header-right">
         <a href="contact.html" class="pl-btn pl-btn--dark pl-header-contact"><span>Contact Us</span><span class="pl-header-contact__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a>
@@ -178,7 +179,7 @@
       </div>
 
       <div class="pl-showcase agency-hero-art agency-agenda-art">
-        <img src="images/primeloft-agenda-hero.png" alt="PrimeLoft's project agenda: Discover, Design, Build and Launch, illustrated with website wireframes and mobile interfaces." width="1536" height="1024" fetchpriority="high" decoding="async">
+        <img src="images/primeloft-agenda-hero-768.webp" srcset="images/primeloft-agenda-hero-480.webp 480w, images/primeloft-agenda-hero-768.webp 768w, images/primeloft-agenda-hero-1024.webp 1024w, images/primeloft-agenda-hero-1536.webp 1536w" sizes="(max-width: 760px) calc(100vw - 44px), 46vw" alt="PrimeLoft's project agenda: Discover, Design, Build and Launch, illustrated with website wireframes and mobile interfaces." width="1536" height="1024" fetchpriority="high" decoding="async">
       </div>
     </section>
 
@@ -399,7 +400,7 @@
         <div class="pl-footer__brand">
           <a href="index.html" class="logo-brand" aria-label="PrimeLoft Software Solutions">
             <picture class="logo-img">
-              <img src="images/Primeloft%20Arc%20Logo.png" class="logo-img" alt="PrimeLoft Software Solutions" width="1254" height="1254" loading="lazy">
+              <img src="images/primeloft-arc-logo-256.webp" srcset="images/primeloft-arc-logo-256.webp 256w, images/primeloft-arc-logo-512.webp 512w" sizes="144px" class="logo-img" alt="PrimeLoft Software Solutions" width="1254" height="1254" loading="lazy">
             </picture>
           </a>
           <p>A web and software development agency building websites, mobile apps and business software, with design, SEO, automation and ongoing support.</p>

@@ -2291,3 +2291,10 @@ body.pl :is(.auto-faq,.ops-faq,.qa-faq,.care-faq,.platform-faq,.mob-faq) details
 body.pl .mob-faq details > p { color:#5d718f; font-size:16px; line-height:1.8; margin:0 0 24px; }
 @media(prefers-reduced-motion:no-preference) { .service-faq-angle { transition:transform .28s ease; } }
 @media(prefers-reduced-motion:reduce) { body.pl[class*="pl-page-service-"] .faq-angle-icon { transition:none; } }
+
+/* Keep the contact destination available when the header becomes a mobile menu. */
+body.pl .pl-header nav.primary .mobile-contact-link { display:none; }
+@media(max-width:960px) {
+  body.pl .pl-header nav.primary .mobile-contact-link { display:flex; }
+  body.pl .pl-header .header-right .pl-header-contact { display:none; }
+}
