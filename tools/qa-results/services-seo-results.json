@@ -1,0 +1,305 @@
+{
+  "date": "2026-11-03",
+  "scope": "services.html; local tests, not production or field data",
+  "browser": {
+    "widths": {
+      "320": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0
+      },
+      "390": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0
+      },
+      "768": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0
+      },
+      "1024": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0
+      },
+      "1440": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0
+      }
+    },
+    "rendered": {
+      "title": "Web & Software Development Services | PrimeLoft Tech",
+      "titleCount": 1,
+      "description": "Explore PrimeLoft Tech's website development, custom software, mobile apps, WordPress, Squarespace, SEO, AI automation and digital services.",
+      "descriptionCount": 1,
+      "canonical": "https://primeloft.tech/services.html",
+      "canonicalCount": 1,
+      "robots": [],
+      "schemas": [
+        {
+          "type": "BreadcrumbList",
+          "id": "https://primeloft.tech/services.html#breadcrumb"
+        },
+        {
+          "type": "CollectionPage",
+          "id": "https://primeloft.tech/services.html#webpage"
+        },
+        {
+          "type": "ItemList",
+          "id": "https://primeloft.tech/services.html#service-list"
+        },
+        {
+          "type": "Organization"
+        }
+      ],
+      "serviceLinks": [
+        {
+          "text": "Explore UI/UX design \u00e2\u2020\u2014",
+          "url": "service-design.html"
+        },
+        {
+          "text": "Explore websites & software \u00e2\u2020\u2014",
+          "url": "service-engineering.html"
+        },
+        {
+          "text": "Explore mobile app development \u00e2\u2020\u2014",
+          "url": "service-mobile-app-development.html"
+        },
+        {
+          "text": "Explore SEO services \u00e2\u2020\u2014",
+          "url": "service-seo.html"
+        },
+        {
+          "text": "Explore AI & automation \u00e2\u2020\u2014",
+          "url": "service-ai.html"
+        },
+        {
+          "text": "Explore cloud & DevOps \u00e2\u2020\u2014",
+          "url": "service-cloud.html"
+        },
+        {
+          "text": "Explore testing & QA \u00e2\u2020\u2014",
+          "url": "service-quality.html"
+        },
+        {
+          "text": "Explore maintenance & support \u00e2\u2020\u2014",
+          "url": "service-maintenance.html"
+        },
+        {
+          "text": "Explore WordPress development \u00e2\u2020\u2014",
+          "url": "service-wordpress.html"
+        },
+        {
+          "text": "Explore Squarespace development \u00e2\u2020\u2014",
+          "url": "service-squarespace.html"
+        }
+      ],
+      "strategy": true
+    },
+    "hover": true,
+    "reveal": true,
+    "faq": true,
+    "menu": true,
+    "escape": true,
+    "focus": {
+      "tag": "A",
+      "outline": "solid"
+    },
+    "reducedMotion": {
+      "active": true,
+      "hidden": 0
+    },
+    "errors": []
+  },
+  "links": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "finalURL": "http://127.0.0.1:8767/index.html",
+      "xRobotsTag": null
+    },
+    {
+      "path": "services.html",
+      "status": 200,
+      "finalURL": "http://127.0.0.1:8767/services.html",
+      "xRobotsTag": null
+    },
+    {
+      "path": "contact.html",
+      "status": 200,
+      "finalURL": "http://127.0.0.1:8767/contact.html",
+      "xRobotsTag": null
+    },
+    {
+      "path": "service-strategy.html",
+      "status": 200,
+      "finalURL": "http://127.0.0.1:8767/service-strategy.html",
+      "xRobotsTag": null
+    },
+    {
+      "path": "service-design.html",
+      "status": 200,
+      "finalURL": "http://127.0.0.1:8767/service-design.html",
+      "xRobotsTag": null
+    },
+    {
+      "path": "service-engineering.html",
+      "status": 200,
+      "finalURL": "http://127.0.0.1:8767/service-engineering.html",
+      "xRobotsTag": null
+    },
+    {
+      "path": "service-mobile-app-development.html",
+      "status": 200,
+      "finalURL": "http://127.0.0.1:8767/service-mobile-app-development.html",
+      "xRobotsTag": null
+    },
+    {
+      "path": "service-seo.html",
+      "status": 200,
+      "finalURL": "http://127.0.0.1:8767/service-seo.html",
+      "xRobotsTag": null
+    },
+    {
+      "path": "service-ai.html",
+      "status": 200,
+      "finalURL": "http://127.0.0.1:8767/service-ai.html",
+      "xRobotsTag": null
+    },
+    {
+      "path": "service-cloud.html",
+      "status": 200,
+      "finalURL": "http://127.0.0.1:8767/service-cloud.html",
+      "xRobotsTag": null
+    },
+    {
+      "path": "service-quality.html",
+      "status": 200,
+      "finalURL": "http://127.0.0.1:8767/service-quality.html",
+      "xRobotsTag": null
+    },
+    {
+      "path": "service-maintenance.html",
+      "status": 200,
+      "finalURL": "http://127.0.0.1:8767/service-maintenance.html",
+      "xRobotsTag": null
+    },
+    {
+      "path": "service-wordpress.html",
+      "status": 200,
+      "finalURL": "http://127.0.0.1:8767/service-wordpress.html",
+      "xRobotsTag": null
+    },
+    {
+      "path": "service-squarespace.html",
+      "status": 200,
+      "finalURL": "http://127.0.0.1:8767/service-squarespace.html",
+      "xRobotsTag": null
+    }
+  ],
+  "lighthouse": [
+    {
+      "run": "before",
+      "version": "13.6.0",
+      "score": 69,
+      "metrics": {
+        "first-contentful-paint": 2857.2861000000003,
+        "largest-contentful-paint": 3599.2506750000002,
+        "speed-index": 7678.415982098881,
+        "total-blocking-time": 373.00000000000045,
+        "cumulative-layout-shift": 0
+      }
+    },
+    {
+      "run": "after",
+      "version": "13.6.0",
+      "score": 81,
+      "metrics": {
+        "first-contentful-paint": 2563.5769,
+        "largest-contentful-paint": 4213.5769,
+        "speed-index": 3338.495536853625,
+        "total-blocking-time": 70.5,
+        "cumulative-layout-shift": 0
+      }
+    }
+  ],
+  "mapping": [
+    [
+      "design",
+      "UI/UX Design",
+      "Design clearer website and app experiences with user research, wireframes, interactive prototypes and reusable interface designs.",
+      "Explore UI/UX design",
+      "service-design.html"
+    ],
+    [
+      "engineering",
+      "Website & Software Development",
+      "Build a business website, online store or custom application with the layouts, features and integrations your customers and team need.",
+      "Explore websites & software",
+      "service-engineering.html"
+    ],
+    [
+      "mobile",
+      "Mobile App Development",
+      "Develop iOS and Android apps around your key user journeys, with backend connections and a defined scope for release.",
+      "Explore mobile app development",
+      "service-mobile-app-development.html"
+    ],
+    [
+      "seo",
+      "SEO Services",
+      "Identify search visibility issues through technical reviews, keyword research and on-page improvements, with recommendations for content and local search where relevant.",
+      "Explore SEO services",
+      "service-seo.html"
+    ],
+    [
+      "ai",
+      "AI & Business Automation",
+      "Connect tools and reduce repetitive handling with workflow integrations, automated notifications, reporting and AI-assisted tasks where appropriate.",
+      "Explore AI & automation",
+      "service-ai.html"
+    ],
+    [
+      "cloud",
+      "Cloud & DevOps",
+      "Prepare cloud infrastructure, deployment pipelines and monitoring so your team can release and operate software with a repeatable process.",
+      "Explore cloud & DevOps",
+      "service-cloud.html"
+    ],
+    [
+      "quality",
+      "Software Testing & QA",
+      "Check agreed features, key user journeys, browser compatibility and application performance with manual testing and suitable automation.",
+      "Explore testing & QA",
+      "service-quality.html"
+    ],
+    [
+      "maintenance",
+      "Maintenance & Support",
+      "Plan ongoing updates, fixes, backups and technical improvements for your website or application, with coverage agreed around your setup.",
+      "Explore maintenance & support",
+      "service-maintenance.html"
+    ],
+    [
+      "wordpress",
+      "WordPress Development",
+      "Create or improve an editable WordPress website with tailored layouts, reusable content sections, store features and agreed integrations.",
+      "Explore WordPress development",
+      "service-wordpress.html"
+    ],
+    [
+      "squarespace",
+      "Squarespace Development",
+      "Set up or refine a Squarespace business website, portfolio or store with responsive layouts, organized content and platform configuration.",
+      "Explore Squarespace development",
+      "service-squarespace.html"
+    ]
+  ]
+}
