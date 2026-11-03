@@ -40,3 +40,11 @@ body.pl-page-contact .contact-next li p { font-size:14px; line-height:1.7; color
 @media(max-width:1000px) { .contact-layout { gap:32px; }.contact-panel .form-row-2 { grid-template-columns:1fr; }.contact-next > .pl-wrap { grid-template-columns:1fr; gap:26px; } }
 @media(max-width:760px) { body.pl.pl-page-contact section.contact-intro { padding:20px 0 36px !important; }.contact-layout { grid-template-columns:1fr; gap:32px; }.contact-story { padding-top:12px; }.contact-direct { max-width:none; }.contact-panel { padding:24px 20px; border-radius:18px; }.contact-next ol { grid-template-columns:1fr; gap:24px; }.contact-next li { border-top:1px solid #dce5f5; padding-top:18px; } }
 @media(prefers-reduced-motion:reduce) { .contact-direct b,body.pl-page-contact .contact-panel :is(input,select,textarea) { transition:none; } }
+
+/* Field errors remain readable and are identified by text as well as styling. */
+body.pl-page-contact .contact-field-error { color:#142348; font-size:12px; line-height:1.6; margin:0; }
+body.pl-page-contact #formStatus { color:#142348; background:#f8faff; border:1px solid #dce5f5; overflow-wrap:anywhere; }
+body.pl-page-contact #formStatus[data-state="error"] { border-color:var(--red); }
+/* Reuse the existing muted ink for readable supporting text. */
+body.pl-page-contact .contact-panel input::placeholder, body.pl-page-contact .contact-panel textarea::placeholder { color:#60718c; }
+body.pl-page-contact .contact-panel .label-opt, body.pl-page-contact .contact-privacy { color:#60718c; }
