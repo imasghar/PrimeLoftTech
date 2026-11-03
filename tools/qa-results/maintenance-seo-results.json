@@ -1,0 +1,557 @@
+{
+  "date": "2026-11-03",
+  "scope": "Local laboratory results, not production or field Core Web Vitals",
+  "baselineAudit": {
+    "title": "Website &amp; Application Maintenance Services | PrimeLoft",
+    "description": "Website and application maintenance for updates, bug fixes, backups and ongoing improvements. Explore a practical care plan for your digital product with PrimeLoft.",
+    "headings": [
+      [
+        "1",
+        "Launch is a start.<br><span>Keep moving forward.</span>"
+      ],
+      [
+        "2",
+        "A rhythm for ongoing care."
+      ],
+      [
+        "3",
+        "Review"
+      ],
+      [
+        "3",
+        "Maintain"
+      ],
+      [
+        "3",
+        "Verify"
+      ],
+      [
+        "3",
+        "Report"
+      ],
+      [
+        "2",
+        "What is website and software maintenance?"
+      ],
+      [
+        "2",
+        "Care for the details<br>that keep things working."
+      ],
+      [
+        "3",
+        "Updates & compatibility"
+      ],
+      [
+        "3",
+        "Bug fixes & troubleshooting"
+      ],
+      [
+        "3",
+        "Backups & recovery checks"
+      ],
+      [
+        "3",
+        "Monitoring & technical checks"
+      ],
+      [
+        "3",
+        "Content & small improvements"
+      ],
+      [
+        "3",
+        "Performance & upkeep"
+      ],
+      [
+        "2",
+        "Different platforms.<br>Different maintenance needs."
+      ],
+      [
+        "3",
+        "Websites & online stores"
+      ],
+      [
+        "3",
+        "Web applications & software"
+      ],
+      [
+        "3",
+        "Mobile applications"
+      ],
+      [
+        "2",
+        "A focused fix or a longer-term plan."
+      ],
+      [
+        "3",
+        "One-off support"
+      ],
+      [
+        "3",
+        "Ongoing maintenance"
+      ],
+      [
+        "2",
+        "Get the context before making changes."
+      ],
+      [
+        "3",
+        "Review the setup"
+      ],
+      [
+        "3",
+        "Agree the priorities"
+      ],
+      [
+        "3",
+        "Establish a baseline"
+      ],
+      [
+        "3",
+        "Maintain & report"
+      ],
+      [
+        "2",
+        "Before you choose a care plan."
+      ],
+      [
+        "2",
+        "Give your product a plan for what comes next."
+      ],
+      [
+        "3",
+        "Our Company"
+      ],
+      [
+        "3",
+        "Services"
+      ],
+      [
+        "3",
+        "Keep in Touch"
+      ]
+    ],
+    "score": 0.8,
+    "lcp": {
+      "type": "list",
+      "items": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 9.919
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 4458.111
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-P",
+          "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,2,P",
+          "selector": "section.care-hero > div.pl-wrap > div.is-in > p.care-lead",
+          "boundingRect": {
+            "top": 320,
+            "bottom": 491,
+            "left": 20,
+            "right": 392,
+            "width": 372,
+            "height": 171
+          },
+          "snippet": "<p class=\"care-lead\">",
+          "nodeLabel": "Give your website or application the attention it needs after release. Practica\u2026"
+        }
+      ]
+    }
+  },
+  "performance": {
+    "before": {
+      "score": 80,
+      "first-contentful-paint": 2593.6733999999997,
+      "largest-contentful-paint": 3568.6733999999997,
+      "speed-index": 7406.950893607936,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-P",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,2,P",
+        "selector": "section.care-hero > div.pl-wrap > div.is-in > p.care-lead",
+        "boundingRect": {
+          "top": 320,
+          "bottom": 491,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 171
+        },
+        "snippet": "<p class=\"care-lead\">",
+        "nodeLabel": "Give your website or application the attention it needs after release. Practica\u2026"
+      }
+    },
+    "after": {
+      "score": 75,
+      "first-contentful-paint": 3035.347234440414,
+      "largest-contentful-paint": 3893.5312774909307,
+      "speed-index": 4903.288122023425,
+      "total-blocking-time": 232.50000000000045,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-P",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,2,P",
+        "selector": "section.care-hero > div.pl-wrap > div.is-in > p.care-lead",
+        "boundingRect": {
+          "top": 320,
+          "bottom": 525,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 205
+        },
+        "snippet": "<p class=\"care-lead\">",
+        "nodeLabel": "Website maintenance services for updates, troubleshooting and ongoing improveme\u2026"
+      }
+    },
+    "repeat": {
+      "score": 83,
+      "first-contentful-paint": 2584.040556861811,
+      "largest-contentful-paint": 3934.0405568618116,
+      "speed-index": 3257.896136436747,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-P",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,2,P",
+        "selector": "section.care-hero > div.pl-wrap > div.is-in > p.care-lead",
+        "boundingRect": {
+          "top": 320,
+          "bottom": 525,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 205
+        },
+        "snippet": "<p class=\"care-lead\">",
+        "nodeLabel": "Website maintenance services for updates, troubleshooting and ongoing improveme\u2026"
+      }
+    }
+  },
+  "externalFontRequests": {
+    "before": [
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&family=Inter:wght@400..700&display=swap",
+        "status": -1
+      }
+    ],
+    "after": [],
+    "repeat": []
+  },
+  "browser": {
+    "widths": {
+      "320": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "390": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "768": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "1024": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "1440": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      }
+    },
+    "ctaUnblocked": {
+      "320": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "390": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "768": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "1024": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "1440": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    "rendered": {
+      "title": "Website Maintenance & Support Services | PrimeLoft",
+      "titleCount": 1,
+      "description": "Keep your website running smoothly with PrimeLoft Tech's maintenance services. Get website updates, bug fixes, WordPress support and ongoing technical help.",
+      "descriptionCount": 1,
+      "h1": "Website & Software Maintenance Services",
+      "canonical": "https://primeloft.tech/service-maintenance.html",
+      "canonicalCount": 1,
+      "robots": [],
+      "schemas": [
+        {
+          "type": "Organization",
+          "id": "https://primeloft.tech/#organization"
+        },
+        {
+          "type": "WebPage",
+          "id": "https://primeloft.tech/service-maintenance.html#webpage"
+        },
+        {
+          "type": "BreadcrumbList",
+          "id": "https://primeloft.tech/service-maintenance.html#breadcrumb"
+        },
+        {
+          "type": "Service",
+          "id": "https://primeloft.tech/service-maintenance.html#service"
+        },
+        {
+          "type": "FAQPage",
+          "id": "https://primeloft.tech/service-maintenance.html#faq"
+        }
+      ],
+      "faqCount": 10,
+      "serviceLinks": [
+        {
+          "text": "cloud operations support",
+          "href": "service-cloud.html"
+        },
+        {
+          "text": "technical SEO improvements",
+          "href": "service-seo.html"
+        },
+        {
+          "text": "WordPress website support",
+          "href": "service-wordpress.html"
+        },
+        {
+          "text": "Squarespace website maintenance",
+          "href": "service-squarespace.html"
+        },
+        {
+          "text": "Custom web applications and software",
+          "href": "service-engineering.html"
+        },
+        {
+          "text": "software testing and regression checks",
+          "href": "service-quality.html"
+        }
+      ]
+    },
+    "reportAnimation": {
+      "revealed": true,
+      "names": [
+        "care-enter",
+        "care-enter",
+        "care-enter",
+        "care-enter"
+      ]
+    },
+    "faqs": [
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      }
+    ],
+    "keyboardFaq": {
+      "open": true,
+      "focused": true,
+      "outline": "solid"
+    },
+    "menu": true,
+    "escape": true,
+    "reducedMotion": {
+      "active": true,
+      "hidden": 0
+    },
+    "reducedAnimations": "none",
+    "links": [
+      {
+        "path": "services.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-engineering.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-wordpress.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-squarespace.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-quality.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-seo.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-cloud.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "contact.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "css/fonts.css",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "images/primeloft-arc-logo-256.webp",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "images/primeloft-social-20261102.png",
+        "status": 200,
+        "robots": null
+      }
+    ],
+    "contactPreselection": "Maintenance",
+    "errors": []
+  },
+  "preserved": {
+    "sectionCount": true,
+    "sectionClasses": true,
+    "careBoardMarkup": true,
+    "scriptSources": true,
+    "originalCssRules": true
+  },
+  "unrelatedHtmlUnchanged": {
+    "404.html": true,
+    "about.html": true,
+    "contact.html": true,
+    "cookies.html": true,
+    "index.html": true,
+    "primeloft.html": true,
+    "privacy.html": true,
+    "service-ai.html": true,
+    "service-cloud.html": true,
+    "service-design.html": true,
+    "service-engineering.html": true,
+    "service-mobile-app-development.html": true,
+    "service-quality.html": true,
+    "service-seo.html": true,
+    "service-squarespace.html": true,
+    "service-strategy.html": true,
+    "service-wordpress.html": true,
+    "services.html": true,
+    "terms.html": true
+  }
+}
