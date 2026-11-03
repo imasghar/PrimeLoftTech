@@ -31,3 +31,8 @@ body.pl .sq-sample--portfolio h3{color:#fff}body.pl .sq-sample h3{font-family:Ge
 
 /* Scope contextual link styling to WordPress; the shared Squarespace design is preserved. */
 body.pl-page-service-wordpress .platform-service p a { color:#1554f6; text-decoration:underline; text-underline-offset:.18em; }
+
+/* Squarespace contextual links retain the existing blue and use an underline. */
+body.pl-page-service-squarespace .platform-service p a { color:#1554f6; text-decoration:underline; text-underline-offset:.18em; }
+/* Keep existing gallery words inside narrow mobile cards without changing their type or layout. */
+body.pl-page-service-squarespace .sq-sample h3 { overflow-wrap:anywhere; }

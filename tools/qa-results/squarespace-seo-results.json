@@ -1,0 +1,560 @@
+{
+  "date": "2026-11-03",
+  "scope": "Local lab results; primary comparison uses controlled-before/after/repeat on port 8768",
+  "baselineAudit": {
+    "title": "Squarespace Website Design & Redesign Services | PrimeLoft",
+    "description": "Distinctive Squarespace website design for service businesses, portfolios and online stores. Explore custom layouts, redesigns, SEO setup, migration and editing support.",
+    "headings": [
+      [
+        "1",
+        "Make your next<br><em>first impression</em><br>count."
+      ],
+      [
+        "2",
+        "Space for<br>something<br><i>different.</i>"
+      ],
+      [
+        "3",
+        "Simple forms.<br>Lasting impressions."
+      ],
+      [
+        "3",
+        "A different<br>perspective."
+      ],
+      [
+        "2",
+        "What is Squarespace?"
+      ],
+      [
+        "2",
+        "One platform. Many ways to show up."
+      ],
+      [
+        "3",
+        "Squarespace website design"
+      ],
+      [
+        "4",
+        "A website that feels like your business."
+      ],
+      [
+        "3",
+        "Portfolios & service websites"
+      ],
+      [
+        "4",
+        "Let your work do more of the talking."
+      ],
+      [
+        "3",
+        "Squarespace online stores"
+      ],
+      [
+        "4",
+        "A considered route from browse to buy."
+      ],
+      [
+        "3",
+        "Booking & business integrations"
+      ],
+      [
+        "4",
+        "Connect interest to an actual conversation."
+      ],
+      [
+        "3",
+        "Squarespace redesign & migration"
+      ],
+      [
+        "4",
+        "Keep what matters. Rethink the experience."
+      ],
+      [
+        "3",
+        "SEO setup & editing support"
+      ],
+      [
+        "4",
+        "Ready to be found. Easier to keep fresh."
+      ],
+      [
+        "2",
+        "A clear path to your new website."
+      ],
+      [
+        "3",
+        "Get the structure right."
+      ],
+      [
+        "3",
+        "Shape the experience."
+      ],
+      [
+        "3",
+        "Make the handoff count."
+      ],
+      [
+        "2",
+        "Your Squarespace questions, answered."
+      ],
+      [
+        "2",
+        "Let's make your website work for you."
+      ],
+      [
+        "3",
+        "Our Company"
+      ],
+      [
+        "3",
+        "Services"
+      ],
+      [
+        "3",
+        "Keep in Touch"
+      ]
+    ],
+    "score": 0.81,
+    "lcp": {
+      "type": "list",
+      "items": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 13.251999998092652
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 4550.944000001908
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-H1",
+          "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,0,DIV,1,H1",
+          "selector": "div.pl-wrap > div.platform-hero-top > div > h1",
+          "boundingRect": {
+            "top": 156,
+            "bottom": 300,
+            "left": 20,
+            "right": 392,
+            "width": 372,
+            "height": 144
+          },
+          "snippet": "<h1>",
+          "nodeLabel": "Make your next\nfirst impression\ncount."
+        }
+      ]
+    }
+  },
+  "performance": {
+    "before": {
+      "score": 81,
+      "first-contentful-paint": 3026.5042000000003,
+      "largest-contentful-paint": 3026.5042000000003,
+      "speed-index": 7892.62738735448,
+      "total-blocking-time": 122,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-H1",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,0,DIV,1,H1",
+        "selector": "div.pl-wrap > div.platform-hero-top > div > h1",
+        "boundingRect": {
+          "top": 156,
+          "bottom": 300,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 144
+        },
+        "snippet": "<h1>",
+        "nodeLabel": "Make your next\nfirst impression\ncount."
+      }
+    },
+    "controlled-before": {
+      "score": 81,
+      "first-contentful-paint": 3026.0306,
+      "largest-contentful-paint": 3026.0306,
+      "speed-index": 7827.149379054165,
+      "total-blocking-time": 113.5,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-H1",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,0,DIV,1,H1",
+        "selector": "div.pl-wrap > div.platform-hero-top > div > h1",
+        "boundingRect": {
+          "top": 156,
+          "bottom": 300,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 144
+        },
+        "snippet": "<h1>",
+        "nodeLabel": "Make your next\nfirst impression\ncount."
+      }
+    },
+    "after": {
+      "score": 93,
+      "first-contentful-paint": 2572.434004585896,
+      "largest-contentful-paint": 2572.434004585896,
+      "speed-index": 3265.905637981906,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-H1",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,0,DIV,1,H1",
+        "selector": "div.pl-wrap > div.platform-hero-top > div > h1",
+        "boundingRect": {
+          "top": 156,
+          "bottom": 391,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 235
+        },
+        "snippet": "<h1>",
+        "nodeLabel": "Squarespace Website\nDesign & Development Services"
+      }
+    },
+    "repeat": {
+      "score": 93,
+      "first-contentful-paint": 2569.938,
+      "largest-contentful-paint": 2569.938,
+      "speed-index": 3304.611763048824,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-H1",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,0,DIV,1,H1",
+        "selector": "div.pl-wrap > div.platform-hero-top > div > h1",
+        "boundingRect": {
+          "top": 156,
+          "bottom": 391,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 235
+        },
+        "snippet": "<h1>",
+        "nodeLabel": "Squarespace Website\nDesign & Development Services"
+      }
+    }
+  },
+  "externalFontRequests": {
+    "before": [
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&family=Inter:wght@400..700&display=swap",
+        "status": -1
+      }
+    ],
+    "controlled-before": [
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&family=Inter:wght@400..700&display=swap",
+        "status": -1
+      }
+    ],
+    "after": [],
+    "repeat": []
+  },
+  "browser": {
+    "widths": {
+      "320": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "390": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "768": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "1024": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "1440": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      }
+    },
+    "ctaUnblocked": {
+      "320": [
+        true,
+        true,
+        true
+      ],
+      "390": [
+        true,
+        true,
+        true
+      ],
+      "768": [
+        true,
+        true,
+        true
+      ],
+      "1024": [
+        true,
+        true,
+        true
+      ],
+      "1440": [
+        true,
+        true,
+        true
+      ]
+    },
+    "rendered": {
+      "title": "Squarespace Website Design & Development | PrimeLoft",
+      "titleCount": 1,
+      "description": "Build or redesign your Squarespace website with PrimeLoft Tech. Get custom website design, Squarespace customization, SEO improvements and ongoing support.",
+      "descriptionCount": 1,
+      "h1": "Squarespace Website Design & Development Services",
+      "canonical": "https://primeloft.tech/service-squarespace.html",
+      "canonicalCount": 1,
+      "robots": [],
+      "schemas": [
+        {
+          "type": "Organization",
+          "id": "https://primeloft.tech/#organization"
+        },
+        {
+          "type": "WebPage",
+          "id": "https://primeloft.tech/service-squarespace.html#webpage"
+        },
+        {
+          "type": "BreadcrumbList",
+          "id": "https://primeloft.tech/service-squarespace.html#breadcrumb"
+        },
+        {
+          "type": "Service",
+          "id": "https://primeloft.tech/service-squarespace.html#service"
+        },
+        {
+          "type": "FAQPage",
+          "id": "https://primeloft.tech/service-squarespace.html#faq"
+        }
+      ],
+      "faqCount": 11,
+      "serviceLinks": [
+        {
+          "text": "website UI/UX design services",
+          "href": "service-design.html"
+        },
+        {
+          "text": "SEO audit and optimization services",
+          "href": "service-seo.html"
+        },
+        {
+          "text": "Squarespace maintenance and support",
+          "href": "service-maintenance.html"
+        }
+      ]
+    },
+    "galleryAnimations": [
+      {
+        "animation": "sq-enter",
+        "visible": true
+      },
+      {
+        "animation": "sq-enter",
+        "visible": true
+      },
+      {
+        "animation": "sq-enter",
+        "visible": true
+      }
+    ],
+    "faqs": [
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      }
+    ],
+    "keyboardFaq": {
+      "open": true,
+      "focused": true,
+      "outline": "solid"
+    },
+    "menu": true,
+    "escape": true,
+    "reducedMotion": {
+      "active": true,
+      "hidden": 0
+    },
+    "reducedAnimations": "none",
+    "links": [
+      {
+        "path": "services.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-engineering.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-maintenance.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-wordpress.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-design.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-seo.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "contact.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "css/fonts.css",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "images/primeloft-arc-logo-256.webp",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "images/primeloft-social-20261102.png",
+        "status": 200,
+        "robots": null
+      }
+    ],
+    "contactPreselection": "Squarespace",
+    "errors": []
+  },
+  "preserved": {
+    "sectionCount": true,
+    "sectionClasses": true,
+    "galleryMarkup": true,
+    "scriptSources": true,
+    "originalSharedCssRules": true,
+    "addedSelectorsSquarespaceOnly": true
+  },
+  "unrelatedHtmlUnchanged": {
+    "404.html": true,
+    "about.html": true,
+    "contact.html": true,
+    "cookies.html": true,
+    "index.html": true,
+    "primeloft.html": true,
+    "privacy.html": true,
+    "service-ai.html": true,
+    "service-cloud.html": true,
+    "service-design.html": true,
+    "service-engineering.html": true,
+    "service-maintenance.html": true,
+    "service-mobile-app-development.html": true,
+    "service-quality.html": true,
+    "service-seo.html": true,
+    "service-strategy.html": true,
+    "service-wordpress.html": true,
+    "services.html": true,
+    "terms.html": true
+  }
+}
