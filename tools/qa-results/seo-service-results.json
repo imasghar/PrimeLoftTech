@@ -1,0 +1,609 @@
+{
+  "date": "2026-11-03",
+  "scope": "Local lab tests; not production or field Core Web Vitals",
+  "baselineAudit": {
+    "title": "SEO Services | Technical, On-Page &amp; Local SEO | PrimeLoft",
+    "description": "Explore SEO services from PrimeLoft: keyword research, technical SEO, on-page optimization, local and ecommerce SEO. Get a clear plan for your website.",
+    "headings": [
+      [
+        "1",
+        "SEO services.<br><span>How will your next<br> customer find you?</span>"
+      ],
+      [
+        "2",
+        "What is SEO, and how does it help your website?"
+      ],
+      [
+        "2",
+        "Which SEO services does your website need?"
+      ],
+      [
+        "2",
+        "Not sure why your website is hard to find? Start with an SEO audit."
+      ],
+      [
+        "3",
+        "What we work on"
+      ],
+      [
+        "2",
+        "What are your customers actually searching for?"
+      ],
+      [
+        "3",
+        "What we work on"
+      ],
+      [
+        "2",
+        "Does each page answer the question that brought someone there?"
+      ],
+      [
+        "3",
+        "What we work on"
+      ],
+      [
+        "2",
+        "Can search engines reach and understand your important pages?"
+      ],
+      [
+        "3",
+        "What we work on"
+      ],
+      [
+        "2",
+        "What does the rest of the web say about your business?"
+      ],
+      [
+        "3",
+        "What we work on"
+      ],
+      [
+        "2",
+        "Will nearby customers find the services you offer?"
+      ],
+      [
+        "3",
+        "What we work on"
+      ],
+      [
+        "2",
+        "Can shoppers find the right category and the right product?"
+      ],
+      [
+        "3",
+        "What we work on"
+      ],
+      [
+        "2",
+        "Changing your website? What happens to the URLs people already find?"
+      ],
+      [
+        "3",
+        "What we work on"
+      ],
+      [
+        "2",
+        "Do your pages make sense for every market you want to reach?"
+      ],
+      [
+        "3",
+        "What we work on"
+      ],
+      [
+        "2",
+        "What happens after you share your website?"
+      ],
+      [
+        "3",
+        "Understand the starting point."
+      ],
+      [
+        "3",
+        "Prioritize and improve."
+      ],
+      [
+        "3",
+        "Review what changed."
+      ],
+      [
+        "3",
+        "What should an SEO report tell you?"
+      ],
+      [
+        "2",
+        "How much should you invest in SEO?"
+      ],
+      [
+        "3",
+        "A focused project"
+      ],
+      [
+        "3",
+        "Ongoing SEO support"
+      ],
+      [
+        "2",
+        "What else would you like to know?"
+      ],
+      [
+        "2",
+        "Where should your SEO start?<br><span>Let's look at your website.</span>"
+      ],
+      [
+        "3",
+        "Our Company"
+      ],
+      [
+        "3",
+        "Services"
+      ],
+      [
+        "3",
+        "Keep in Touch"
+      ]
+    ],
+    "sectionIds": [
+      "seo-meaning",
+      "seo-services",
+      "seo-audit",
+      "keyword-research",
+      "on-page-seo",
+      "technical-seo",
+      "off-page-seo",
+      "local-seo",
+      "ecommerce-seo",
+      "seo-migration",
+      "international-seo",
+      "seo-process",
+      "seo-cost",
+      "seo-faq"
+    ],
+    "performance": 0.83,
+    "lcp": {
+      "type": "list",
+      "items": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 7.528
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 4358.122
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-H1",
+          "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,1,DIV,0,DIV,0,H1",
+          "selector": "div.seo-wrap > div.seo-hero__grid > div > h1#seo-title",
+          "boundingRect": {
+            "top": 139,
+            "bottom": 278,
+            "left": 20,
+            "right": 392,
+            "width": 372,
+            "height": 139
+          },
+          "snippet": "<h1 id=\"seo-title\">",
+          "nodeLabel": "SEO services.\nHow will your next customer find you?"
+        }
+      ]
+    },
+    "animationRequests": [
+      {
+        "url": "http://127.0.0.1:8767/animations/seo-light.json",
+        "sessionTargetType": "page",
+        "protocol": "http/1.0",
+        "cache": "none",
+        "rendererStartTime": 23.578999999910593,
+        "networkRequestTime": 31.387000000104308,
+        "networkEndTime": 57.54000000003725,
+        "finished": true,
+        "transferSize": 334502,
+        "resourceSize": 333707,
+        "statusCode": 200,
+        "mimeType": "application/json",
+        "resourceType": "Other",
+        "priority": "High",
+        "isLinkPreload": true,
+        "experimentalFromMainFrame": true,
+        "entity": "127.0.0.1"
+      }
+    ]
+  },
+  "performance": {
+    "before": {
+      "score": 83,
+      "first-contentful-paint": 2876.409,
+      "largest-contentful-paint": 2876.409,
+      "speed-index": 7580.886825147402,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-H1",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,1,DIV,0,DIV,0,H1",
+        "selector": "div.seo-wrap > div.seo-hero__grid > div > h1#seo-title",
+        "boundingRect": {
+          "top": 139,
+          "bottom": 278,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 139
+        },
+        "snippet": "<h1 id=\"seo-title\">",
+        "nodeLabel": "SEO services.\nHow will your next customer find you?"
+      }
+    },
+    "after": {
+      "score": 91,
+      "first-contentful-paint": 2760.001,
+      "largest-contentful-paint": 2760.001,
+      "speed-index": 3345.88251615683,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-H1",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,1,DIV,0,DIV,0,H1",
+        "selector": "div.seo-wrap > div.seo-hero__grid > div > h1#seo-title",
+        "boundingRect": {
+          "top": 138,
+          "bottom": 324,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 186
+        },
+        "snippet": "<h1 id=\"seo-title\">",
+        "nodeLabel": "SEO Services to Help\nYour Business Get Found"
+      }
+    },
+    "repeat": {
+      "score": 91,
+      "first-contentful-paint": 2835.6565536782045,
+      "largest-contentful-paint": 2835.6565536782045,
+      "speed-index": 2835.6565536782045,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-H1",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,1,DIV,0,DIV,0,H1",
+        "selector": "div.seo-wrap > div.seo-hero__grid > div > h1#seo-title",
+        "boundingRect": {
+          "top": 138,
+          "bottom": 324,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 186
+        },
+        "snippet": "<h1 id=\"seo-title\">",
+        "nodeLabel": "SEO Services to Help\nYour Business Get Found"
+      }
+    }
+  },
+  "browser": {
+    "widths": {
+      "320": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true,
+        "indexOpen": false
+      },
+      "390": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true,
+        "indexOpen": false
+      },
+      "768": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true,
+        "indexOpen": false
+      },
+      "1024": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true,
+        "indexOpen": true
+      },
+      "1440": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true,
+        "indexOpen": true
+      }
+    },
+    "ctaUnblocked": {
+      "320": [
+        true,
+        true,
+        true
+      ],
+      "390": [
+        true,
+        true,
+        true
+      ],
+      "768": [
+        true,
+        true,
+        true
+      ],
+      "1024": [
+        true,
+        true,
+        true
+      ],
+      "1440": [
+        true,
+        true,
+        true
+      ]
+    },
+    "rendered": {
+      "title": "SEO Services for Businesses | PrimeLoft Tech",
+      "titleCount": 1,
+      "description": "Improve your website's search visibility with PrimeLoft Tech's technical SEO, on-page optimization, keyword research, local SEO and website audits.",
+      "descriptionCount": 1,
+      "h1": "SEO Services to Help Your Business Get Found",
+      "canonical": "https://primeloft.tech/service-seo.html",
+      "canonicalCount": 1,
+      "robots": [],
+      "schemas": [
+        {
+          "type": "Organization",
+          "id": "https://primeloft.tech/#organization"
+        },
+        {
+          "type": "WebPage",
+          "id": "https://primeloft.tech/service-seo.html#webpage"
+        },
+        {
+          "type": "BreadcrumbList",
+          "id": "https://primeloft.tech/service-seo.html#breadcrumb"
+        },
+        {
+          "type": "Service",
+          "id": "https://primeloft.tech/service-seo.html#service"
+        },
+        {
+          "type": "FAQPage",
+          "id": "https://primeloft.tech/service-seo.html#faq"
+        }
+      ],
+      "faqCount": 10,
+      "indexTargetsValid": true,
+      "contextLinks": [
+        {
+          "text": "website and software development services",
+          "href": "service-engineering.html"
+        },
+        {
+          "text": "website maintenance and support",
+          "href": "service-maintenance.html"
+        },
+        {
+          "text": "WordPress services",
+          "href": "service-wordpress.html"
+        },
+        {
+          "text": "Squarespace services",
+          "href": "service-squarespace.html"
+        }
+      ],
+      "animationPreload": false,
+      "loadedImages": [
+        {
+          "src": "http://127.0.0.1:8767/images/primeloft-arc-logo-256.webp",
+          "width": 144
+        },
+        {
+          "src": "http://127.0.0.1:8767/images/primeloft-arc-logo-256.webp",
+          "width": 144
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true,
+        "regionLinked": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true,
+        "regionLinked": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true,
+        "regionLinked": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true,
+        "regionLinked": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true,
+        "regionLinked": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true,
+        "regionLinked": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true,
+        "regionLinked": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true,
+        "regionLinked": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true,
+        "regionLinked": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true,
+        "regionLinked": true
+      }
+    ],
+    "keyboardFaq": {
+      "open": true,
+      "focused": true,
+      "outline": "solid"
+    },
+    "menu": true,
+    "escape": true,
+    "mobileIndex": {
+      "closed": true,
+      "hash": "",
+      "current": "#technical-seo"
+    },
+    "heroHover": {
+      "hover": true,
+      "transform": "matrix(1, 0, 0, 1, 0, -5)"
+    },
+    "reducedMotion": {
+      "active": true,
+      "hidden": 0,
+      "heroAnimations": 0
+    },
+    "links": [
+      {
+        "path": "services.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-wordpress.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-squarespace.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-engineering.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-maintenance.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "contact.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "css/fonts.css",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "images/primeloft-arc-logo-256.webp",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "images/primeloft-social-20261102.png",
+        "status": 200,
+        "robots": null
+      }
+    ],
+    "contactPreselection": {
+      "service": "SEO",
+      "budgets": [
+        "Prefer not to choose",
+        "$300 - $500",
+        "$500 - $1,000",
+        "$1,000 - $1,500"
+      ]
+    },
+    "errors": []
+  },
+  "preserved": {
+    "sectionCount": true,
+    "sectionIds": true,
+    "heroArtwork": true,
+    "scriptSources": true,
+    "existingCatalog": true,
+    "originalCssRules": true
+  },
+  "unrelatedHtmlUnchanged": {
+    "404.html": true,
+    "about.html": true,
+    "contact.html": true,
+    "cookies.html": true,
+    "index.html": true,
+    "primeloft.html": true,
+    "privacy.html": true,
+    "service-ai.html": true,
+    "service-cloud.html": true,
+    "service-design.html": true,
+    "service-engineering.html": true,
+    "service-maintenance.html": true,
+    "service-mobile-app-development.html": true,
+    "service-quality.html": true,
+    "service-squarespace.html": true,
+    "service-strategy.html": true,
+    "service-wordpress.html": true,
+    "services.html": true,
+    "terms.html": true
+  }
+}
