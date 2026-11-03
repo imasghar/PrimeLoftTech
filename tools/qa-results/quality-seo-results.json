@@ -1,0 +1,580 @@
+{
+  "date": "2026-11-03",
+  "scope": "Local lab results, not production or field Core Web Vitals",
+  "baselineAudit": {
+    "title": "Software Testing &amp; QA Services | PrimeLoft",
+    "description": "Software testing and QA services for websites, mobile apps and business software. Explore manual, automated, API, regression and performance testing with PrimeLoft.",
+    "headings": [
+      [
+        "1",
+        "Find the friction.<br><span>Before your users do.</span>"
+      ],
+      [
+        "2",
+        "From first click<br>to confirmation."
+      ],
+      [
+        "3",
+        "A failed payment should have a clear next step."
+      ],
+      [
+        "2",
+        "What are software testing and QA?"
+      ],
+      [
+        "2",
+        "The right coverage.<br>For your next release."
+      ],
+      [
+        "3",
+        "Functional & exploratory testing"
+      ],
+      [
+        "4",
+        "Does it do what the user expects?"
+      ],
+      [
+        "3",
+        "Regression & test automation"
+      ],
+      [
+        "4",
+        "Did a change affect something that already worked?"
+      ],
+      [
+        "3",
+        "Web & mobile compatibility"
+      ],
+      [
+        "4",
+        "Does the experience hold together across devices?"
+      ],
+      [
+        "3",
+        "API & integration testing"
+      ],
+      [
+        "4",
+        "Are your systems exchanging the right information?"
+      ],
+      [
+        "3",
+        "Performance testing"
+      ],
+      [
+        "4",
+        "How does the product behave under an agreed workload?"
+      ],
+      [
+        "3",
+        "Usability & accessibility checks"
+      ],
+      [
+        "4",
+        "Can people understand and complete the task?"
+      ],
+      [
+        "2",
+        "Findings you can act on."
+      ],
+      [
+        "3",
+        "Agreed test coverage"
+      ],
+      [
+        "3",
+        "Prioritized defect reports"
+      ],
+      [
+        "3",
+        "Retest results"
+      ],
+      [
+        "3",
+        "Release summary"
+      ],
+      [
+        "2",
+        "A focused review.<br>Or QA built into delivery."
+      ],
+      [
+        "3",
+        "Release review"
+      ],
+      [
+        "3",
+        "Ongoing QA support"
+      ],
+      [
+        "2",
+        "A clear testing cycle."
+      ],
+      [
+        "3",
+        "Scope"
+      ],
+      [
+        "3",
+        "Test"
+      ],
+      [
+        "3",
+        "Report"
+      ],
+      [
+        "3",
+        "Retest"
+      ],
+      [
+        "2",
+        "Your QA questions, answered."
+      ],
+      [
+        "2",
+        "Know what needs attention before release."
+      ],
+      [
+        "3",
+        "Our Company"
+      ],
+      [
+        "3",
+        "Services"
+      ],
+      [
+        "3",
+        "Keep in Touch"
+      ]
+    ],
+    "score": 0.71,
+    "lcp": {
+      "type": "list",
+      "items": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 8.784000000953675
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 5207.519999999046
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-P",
+          "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,2,DIV,0,P",
+          "selector": "section.qa-hero > div.pl-wrap > div.qa-hero__bottom > p",
+          "boundingRect": {
+            "top": 317,
+            "bottom": 488,
+            "left": 20,
+            "right": 392,
+            "width": 372,
+            "height": 171
+          },
+          "snippet": "<p>",
+          "nodeLabel": "Practical testing for websites, mobile apps and business software. Check the cr\u2026"
+        }
+      ]
+    }
+  },
+  "performance": {
+    "before": {
+      "score": 71,
+      "first-contentful-paint": 3025.9773999999998,
+      "largest-contentful-paint": 3602.4604499999996,
+      "speed-index": 7835.831983978469,
+      "total-blocking-time": 292.99999999999955,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-P",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,2,DIV,0,P",
+        "selector": "section.qa-hero > div.pl-wrap > div.qa-hero__bottom > p",
+        "boundingRect": {
+          "top": 317,
+          "bottom": 488,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 171
+        },
+        "snippet": "<p>",
+        "nodeLabel": "Practical testing for websites, mobile apps and business software. Check the cr\u2026"
+      }
+    },
+    "after": {
+      "score": 82,
+      "first-contentful-paint": 2612.9038,
+      "largest-contentful-paint": 4112.9038,
+      "speed-index": 3235.684165714615,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-1-P",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,2,DIV,0,P",
+        "selector": "section.qa-hero > div.pl-wrap > div.qa-hero__bottom > p",
+        "boundingRect": {
+          "top": 317,
+          "bottom": 523,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 205
+        },
+        "snippet": "<p>",
+        "nodeLabel": "Software testing services for websites, mobile apps and business software, incl\u2026"
+      }
+    },
+    "repeat": {
+      "score": 92,
+      "first-contentful-paint": 2602.190730315724,
+      "largest-contentful-paint": 2602.190730315724,
+      "speed-index": 3237.899872409126,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-P",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,2,DIV,0,P",
+        "selector": "section.qa-hero > div.pl-wrap > div.qa-hero__bottom > p",
+        "boundingRect": {
+          "top": 317,
+          "bottom": 523,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 205
+        },
+        "snippet": "<p>",
+        "nodeLabel": "Software testing services for websites, mobile apps and business software, incl\u2026"
+      }
+    },
+    "confirm": {
+      "score": 93,
+      "first-contentful-paint": 2595.280372872647,
+      "largest-contentful-paint": 2595.280372872647,
+      "speed-index": 3231.7470113228287,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-P",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,2,DIV,0,P",
+        "selector": "section.qa-hero > div.pl-wrap > div.qa-hero__bottom > p",
+        "boundingRect": {
+          "top": 317,
+          "bottom": 523,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 205
+        },
+        "snippet": "<p>",
+        "nodeLabel": "Software testing services for websites, mobile apps and business software, incl\u2026"
+      }
+    }
+  },
+  "externalFontRequests": {
+    "before": [
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&family=Inter:wght@400..700&display=swap",
+        "status": -1
+      }
+    ],
+    "after": [],
+    "repeat": [],
+    "confirm": []
+  },
+  "browser": {
+    "widths": {
+      "320": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "390": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "768": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "1024": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "1440": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      }
+    },
+    "ctaUnblocked": {
+      "320": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "390": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "768": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "1024": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "1440": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    "rendered": {
+      "title": "Software Testing & QA Services | PrimeLoft Tech",
+      "titleCount": 1,
+      "description": "Improve software quality with PrimeLoft Tech's QA and testing services, including functional testing, regression testing, test automation and API testing.",
+      "descriptionCount": 1,
+      "h1": "Software Quality Assurance & Testing Services",
+      "canonical": "https://primeloft.tech/service-quality.html",
+      "canonicalCount": 1,
+      "robots": [],
+      "schemas": [
+        {
+          "type": "Organization",
+          "id": "https://primeloft.tech/#organization"
+        },
+        {
+          "type": "WebPage",
+          "id": "https://primeloft.tech/service-quality.html#webpage"
+        },
+        {
+          "type": "BreadcrumbList",
+          "id": "https://primeloft.tech/service-quality.html#breadcrumb"
+        },
+        {
+          "type": "Service",
+          "id": "https://primeloft.tech/service-quality.html#service"
+        },
+        {
+          "type": "FAQPage",
+          "id": "https://primeloft.tech/service-quality.html#faq"
+        }
+      ],
+      "faqCount": 10,
+      "serviceLinks": [
+        {
+          "text": "CI/CD testing workflows",
+          "href": "service-cloud.html"
+        },
+        {
+          "text": "mobile application workflows",
+          "href": "service-mobile-app-development.html"
+        },
+        {
+          "text": "web application and backend development",
+          "href": "service-engineering.html"
+        },
+        {
+          "text": "application maintenance and support",
+          "href": "service-maintenance.html"
+        }
+      ]
+    },
+    "reportAnimation": {
+      "revealed": true,
+      "names": [
+        "qa-report-in",
+        "qa-report-in",
+        "qa-report-in",
+        "qa-report-in"
+      ]
+    },
+    "faqs": [
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      }
+    ],
+    "keyboardFaq": {
+      "open": true,
+      "focused": true,
+      "outline": "solid"
+    },
+    "menu": true,
+    "escape": true,
+    "reducedMotion": {
+      "active": true,
+      "hidden": 0
+    },
+    "reducedAnimations": "none",
+    "links": [
+      {
+        "path": "services.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-engineering.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-mobile-app-development.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-maintenance.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-cloud.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "contact.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "css/fonts.css",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "images/primeloft-arc-logo-256.webp",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "images/primeloft-social-20261102.png",
+        "status": 200,
+        "robots": null
+      }
+    ],
+    "contactPreselection": "Testing & QA",
+    "errors": []
+  },
+  "preserved": {
+    "sectionCount": true,
+    "sectionClasses": true,
+    "illustrativeReportMarkup": true,
+    "scriptSources": true,
+    "originalCssRules": true
+  },
+  "unrelatedHtmlUnchanged": {
+    "404.html": true,
+    "about.html": true,
+    "contact.html": true,
+    "cookies.html": true,
+    "index.html": true,
+    "primeloft.html": true,
+    "privacy.html": true,
+    "service-ai.html": true,
+    "service-cloud.html": true,
+    "service-design.html": true,
+    "service-engineering.html": true,
+    "service-maintenance.html": true,
+    "service-mobile-app-development.html": true,
+    "service-seo.html": true,
+    "service-squarespace.html": true,
+    "service-strategy.html": true,
+    "service-wordpress.html": true,
+    "services.html": true,
+    "terms.html": true
+  }
+}

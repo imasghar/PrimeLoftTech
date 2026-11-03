@@ -15,3 +15,6 @@ body.pl.pl-page-service-quality section:is(.qa-coverage,.qa-deliverables,.qa-eng
 @media(max-width:760px) { .qa-evidence,.qa-deliverables > .pl-wrap,.qa-engagement-grid,.qa-faq-grid { grid-template-columns:1fr; }.qa-deliverables > .pl-wrap { gap:0; }.qa-process ol { grid-template-columns:1fr 1fr; }.qa-report,.qa-evidence__journey { padding:24px; } }
 @media(max-width:520px) { .qa-coverage-grid,.qa-process ol { grid-template-columns:1fr; }.qa-report__top { flex-direction:column; gap:8px; }.qa-engagement-grid article { padding:24px; } }
 @media(prefers-reduced-motion:no-preference) { .qa-evidence.is-in .qa-report dl > div { animation:qa-report-in .55s ease both; }.qa-report dl > div:nth-child(2) { animation-delay:.1s !important; }.qa-report dl > div:nth-child(3) { animation-delay:.2s !important; }.qa-report dl > div:nth-child(4) { animation-delay:.3s !important; }@keyframes qa-report-in { from { opacity:0; transform:translateX(12px); }to { opacity:1; transform:none; } } }
+
+/* Contextual service links use the existing blue and an underline. */
+body.pl-page-service-quality :is(.qa-coverage-grid,.qa-engagement-grid) p a { color:#1554f6; text-decoration:underline; text-underline-offset:.18em; }
