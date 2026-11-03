@@ -48,3 +48,6 @@ body.pl-page-about .pl-chat-prompt-card { display:none !important; }
 .about-location__heading { display:flex; align-items:center; justify-content:space-between; gap:24px; margin-bottom:24px; }
 .about-location__map { display:block; width:100%; height:380px; border:1px solid #d8e3f7; border-radius:18px; background:#eaf0fa; }
 @media(max-width:600px) { .about-location__heading { flex-direction:column; align-items:flex-start; gap:18px; }.about-location__map { height:300px; } }
+
+/* Contextual company-service links retain the existing blue and are identifiable without color. */
+body.pl-page-about :is(.about-story__copy,.about-capabilities) p a { color:#1554f6; text-decoration:underline; text-underline-offset:.18em; }
