@@ -15,3 +15,7 @@ The supplied pages informed topic coverage and visual direction. Page copy and i
 
 - https://uiuxservices.com/
 - https://primaconsulting.org/services/ui-ux-design/
+
+## Responsive delivery (3 November 2026)
+
+The original PNG is retained unchanged. Four WebP derivatives (480, 768, 1024 and 1536 pixels wide) use the same composition, generated with sharp 0.35.5, quality 90 and effort 6. The page chooses a size through srcset/sizes; existing CSS retains its original crop and animation behavior. No new artwork or client claim was generated.

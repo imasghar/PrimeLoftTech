@@ -1,0 +1,255 @@
+{
+  "date": "2026-11-03",
+  "scope": "UI/UX page only; local tests",
+  "browser": {
+    "widths": {
+      "320": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0
+      },
+      "390": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0
+      },
+      "768": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0
+      },
+      "1024": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0
+      },
+      "1440": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0
+      }
+    },
+    "rendered": {
+      "title": "UI/UX Design Services for Web & Apps | PrimeLoft Tech",
+      "titleCount": 1,
+      "description": "PrimeLoft Tech offers UI/UX design services for websites, mobile apps and SaaS products, including interface design, wireframes, prototypes and UX improvements.",
+      "descriptionCount": 1,
+      "canonical": "https://primeloft.tech/service-design.html",
+      "canonicalCount": 1,
+      "robots": [],
+      "schemas": [
+        {
+          "type": "Organization",
+          "id": "https://primeloft.tech/#organization"
+        },
+        {
+          "type": "BreadcrumbList",
+          "id": "https://primeloft.tech/service-design.html#breadcrumb"
+        },
+        {
+          "type": "WebPage",
+          "id": "https://primeloft.tech/service-design.html#webpage"
+        },
+        {
+          "type": "Service",
+          "id": "https://primeloft.tech/service-design.html#service"
+        },
+        {
+          "type": "FAQPage",
+          "id": "https://primeloft.tech/service-design.html#faq"
+        }
+      ],
+      "serviceLinks": [
+        {
+          "text": "Explore UI/UX Services \u00e2\u2020\u201c",
+          "url": "#ux-services"
+        },
+        {
+          "text": "Discuss a UX audit \u00e2\u2020\u2014",
+          "url": "contact.html?service=UX%2FUI"
+        },
+        {
+          "text": "Discuss website design \u00e2\u2020\u2014",
+          "url": "contact.html?service=UX%2FUI"
+        },
+        {
+          "text": "Discuss app design \u00e2\u2020\u2014",
+          "url": "contact.html?service=UX%2FUI"
+        },
+        {
+          "text": "Discuss dashboard design \u00e2\u2020\u2014",
+          "url": "contact.html?service=UX%2FUI"
+        },
+        {
+          "text": "Discuss wireframes & prototypes \u00e2\u2020\u2014",
+          "url": "contact.html?service=UX%2FUI"
+        },
+        {
+          "text": "Discuss a design system \u00e2\u2020\u2014",
+          "url": "contact.html?service=UX%2FUI"
+        },
+        {
+          "text": "Explore website development \u00e2\u2020\u2014",
+          "url": "service-engineering.html"
+        },
+        {
+          "text": "Explore mobile app development \u00e2\u2020\u2014",
+          "url": "service-mobile-app-development.html"
+        },
+        {
+          "text": "Discuss your product \u00e2\u2020\u2014",
+          "url": "contact.html?service=UX%2FUI"
+        },
+        {
+          "text": "Ask us a question \u00e2\u2020\u2014",
+          "url": "contact.html"
+        }
+      ],
+      "capabilityCount": 6,
+      "faqCount": 9
+    },
+    "hover": true,
+    "reveal": true,
+    "accordion": true,
+    "faq": true,
+    "menu": true,
+    "escape": true,
+    "focus": {
+      "tag": "SUMMARY",
+      "outline": "solid"
+    },
+    "reducedMotion": {
+      "active": true,
+      "hidden": 0
+    },
+    "contactPreselection": "UX/UI",
+    "errors": []
+  },
+  "lighthouse": [
+    {
+      "phase": "before",
+      "score": 56,
+      "version": "13.6.0",
+      "metrics": {
+        "first-contentful-paint": 3338.5879,
+        "largest-contentful-paint": 13857.881850000002,
+        "speed-index": 7673.5789658875065,
+        "total-blocking-time": 278,
+        "cumulative-layout-shift": 0
+      }
+    },
+    {
+      "phase": "after",
+      "score": 90,
+      "version": "13.6.0",
+      "metrics": {
+        "first-contentful-paint": 2881.8740406779675,
+        "largest-contentful-paint": 2881.8740406779675,
+        "speed-index": 3210.276531489265,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0
+      }
+    },
+    {
+      "phase": "final",
+      "score": 90,
+      "version": "13.6.0",
+      "metrics": {
+        "first-contentful-paint": 2873.6078427081034,
+        "largest-contentful-paint": 2873.6078427081034,
+        "speed-index": 3024.866491084451,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0
+      }
+    }
+  ],
+  "links": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "xRobotsTag": null
+    },
+    {
+      "path": "services.html",
+      "status": 200,
+      "xRobotsTag": null
+    },
+    {
+      "path": "service-design.html",
+      "status": 200,
+      "xRobotsTag": null
+    },
+    {
+      "path": "service-engineering.html",
+      "status": 200,
+      "xRobotsTag": null
+    },
+    {
+      "path": "service-mobile-app-development.html",
+      "status": 200,
+      "xRobotsTag": null
+    },
+    {
+      "path": "contact.html?service=UX%2FUI",
+      "status": 200,
+      "xRobotsTag": null
+    }
+  ],
+  "images": [
+    {
+      "path": "images/uiux/product-design-hero-480.webp",
+      "width": 480,
+      "bytes": 21974
+    },
+    {
+      "path": "images/uiux/product-design-hero-768.webp",
+      "width": 768,
+      "bytes": 42862
+    },
+    {
+      "path": "images/uiux/product-design-hero-1024.webp",
+      "width": 1024,
+      "bytes": 63432
+    },
+    {
+      "path": "images/uiux/product-design-hero-1536.webp",
+      "width": 1536,
+      "bytes": 112392
+    }
+  ],
+  "sampledContrast": {
+    "breadcrumbBefore": 4.46,
+    "breadcrumbAfter": 4.85,
+    "blueOnWhite": 5.78
+  },
+  "interactionChecks": {
+    "tabs": [
+      {
+        "tab": "ux-tab-web",
+        "selected": true,
+        "panelVisible": true,
+        "onlyOneSelected": true
+      },
+      {
+        "tab": "ux-tab-mobile",
+        "selected": true,
+        "panelVisible": true,
+        "onlyOneSelected": true
+      },
+      {
+        "tab": "ux-tab-product",
+        "selected": true,
+        "panelVisible": true,
+        "onlyOneSelected": true
+      }
+    ],
+    "breadcrumb": "rgb(101, 114, 139)",
+    "faqLink": "underline",
+    "arrowNavigation": true
+  }
+}
