@@ -54,3 +54,6 @@ body.pl.pl-page-service-seo section.seo-close { padding:34px 0 !important; backg
 @media (prefers-reduced-motion:reduce) {
   .seo-button,.seo-button > span,.seo-text-link > span,.seo-aside-link > span,.seo-search-result,.seo-index nav a { transition:none; }
 }
+
+/* Contextual links retain the existing brand blue and are identifiable without color. */
+body.pl-page-service-seo :is(.seo-topic__explanation,.seo-engagements p,.seo-faq p) a { color:#1554F6; text-decoration:underline; text-underline-offset:.18em; }
