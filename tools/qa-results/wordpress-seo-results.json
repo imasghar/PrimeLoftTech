@@ -1,0 +1,515 @@
+{
+  "date": "2026-11-03",
+  "scope": "Local laboratory results; not production or field Core Web Vitals",
+  "baselineAudit": {
+    "title": "WordPress Website Design & Development Services | PrimeLoft",
+    "description": "Custom WordPress websites, WooCommerce stores, redesigns and migrations. PrimeLoft builds editable websites with thoughtful UX, SEO foundations and ongoing support.",
+    "headings": [
+      [
+        "1",
+        "Your website.<br>Your content.<br><em>Your way forward.</em>"
+      ],
+      [
+        "2",
+        "Good ideas.<br>Built to grow."
+      ],
+      [
+        "2",
+        "What is WordPress?"
+      ],
+      [
+        "2",
+        "Built around how your business works."
+      ],
+      [
+        "3",
+        "Custom WordPress website design"
+      ],
+      [
+        "4",
+        "A recognizable brand. An easier next step."
+      ],
+      [
+        "3",
+        "WooCommerce development"
+      ],
+      [
+        "4",
+        "Turn a product catalog into a shopping experience."
+      ],
+      [
+        "3",
+        "WordPress migration & redesign"
+      ],
+      [
+        "4",
+        "Move forward without losing the essentials."
+      ],
+      [
+        "3",
+        "Custom blocks & integrations"
+      ],
+      [
+        "4",
+        "Make the editor work for your team."
+      ],
+      [
+        "3",
+        "WordPress SEO & performance"
+      ],
+      [
+        "4",
+        "Give useful content a stronger foundation."
+      ],
+      [
+        "3",
+        "WordPress maintenance"
+      ],
+      [
+        "4",
+        "Keep improving after the launch."
+      ],
+      [
+        "2",
+        "A clear path to your new website."
+      ],
+      [
+        "3",
+        "Get the structure right."
+      ],
+      [
+        "3",
+        "Shape the experience."
+      ],
+      [
+        "3",
+        "Make the handoff count."
+      ],
+      [
+        "2",
+        "Your WordPress questions, answered."
+      ],
+      [
+        "2",
+        "Let's make your website work for you."
+      ],
+      [
+        "3",
+        "Our Company"
+      ],
+      [
+        "3",
+        "Services"
+      ],
+      [
+        "3",
+        "Keep in Touch"
+      ]
+    ],
+    "score": 0.81,
+    "lcp": {
+      "type": "list",
+      "items": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 5.909
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 4561.009
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-H1",
+          "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,0,DIV,1,H1",
+          "selector": "div.pl-wrap > div.platform-hero-top > div > h1",
+          "boundingRect": {
+            "top": 156,
+            "bottom": 297,
+            "left": 20,
+            "right": 392,
+            "width": 372,
+            "height": 141
+          },
+          "snippet": "<h1>",
+          "nodeLabel": "Your website.\nYour content.\nYour way forward."
+        }
+      ]
+    }
+  },
+  "performance": {
+    "before": {
+      "score": 81,
+      "first-contentful-paint": 3021.2097,
+      "largest-contentful-paint": 3021.2097,
+      "speed-index": 7762.479377182666,
+      "total-blocking-time": 111,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-H1",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,0,DIV,1,H1",
+        "selector": "div.pl-wrap > div.platform-hero-top > div > h1",
+        "boundingRect": {
+          "top": 156,
+          "bottom": 297,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 141
+        },
+        "snippet": "<h1>",
+        "nodeLabel": "Your website.\nYour content.\nYour way forward."
+      }
+    },
+    "after": {
+      "score": 93,
+      "first-contentful-paint": 2579.496795760191,
+      "largest-contentful-paint": 2579.496795760191,
+      "speed-index": 2579.496795760191,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-H1",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,0,DIV,1,H1",
+        "selector": "div.pl-wrap > div.platform-hero-top > div > h1",
+        "boundingRect": {
+          "top": 156,
+          "bottom": 344,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 188
+        },
+        "snippet": "<h1>",
+        "nodeLabel": "Custom WordPress\nWebsite Development Services"
+      }
+    },
+    "repeat": {
+      "score": 92,
+      "first-contentful-paint": 2582.8757,
+      "largest-contentful-paint": 2582.8757,
+      "speed-index": 3431.456488618265,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-H1",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,0,DIV,1,H1",
+        "selector": "div.pl-wrap > div.platform-hero-top > div > h1",
+        "boundingRect": {
+          "top": 156,
+          "bottom": 344,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 188
+        },
+        "snippet": "<h1>",
+        "nodeLabel": "Custom WordPress\nWebsite Development Services"
+      }
+    }
+  },
+  "externalFontRequests": {
+    "before": [
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&family=Inter:wght@400..700&display=swap",
+        "status": -1
+      }
+    ],
+    "after": [],
+    "repeat": []
+  },
+  "browser": {
+    "widths": {
+      "320": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "390": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "768": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "1024": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "1440": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      }
+    },
+    "ctaUnblocked": {
+      "320": [
+        true,
+        true,
+        true
+      ],
+      "390": [
+        true,
+        true,
+        true
+      ],
+      "768": [
+        true,
+        true,
+        true
+      ],
+      "1024": [
+        true,
+        true,
+        true
+      ],
+      "1440": [
+        true,
+        true,
+        true
+      ]
+    },
+    "rendered": {
+      "title": "WordPress Development Services | PrimeLoft Tech",
+      "titleCount": 1,
+      "description": "Build or improve your WordPress website with PrimeLoft Tech. Explore custom WordPress development, redesigns, WooCommerce, SEO and ongoing website support.",
+      "descriptionCount": 1,
+      "h1": "Custom WordPress Website Development Services",
+      "canonical": "https://primeloft.tech/service-wordpress.html",
+      "canonicalCount": 1,
+      "robots": [],
+      "schemas": [
+        {
+          "type": "Organization",
+          "id": "https://primeloft.tech/#organization"
+        },
+        {
+          "type": "WebPage",
+          "id": "https://primeloft.tech/service-wordpress.html#webpage"
+        },
+        {
+          "type": "BreadcrumbList",
+          "id": "https://primeloft.tech/service-wordpress.html#breadcrumb"
+        },
+        {
+          "type": "Service",
+          "id": "https://primeloft.tech/service-wordpress.html#service"
+        },
+        {
+          "type": "FAQPage",
+          "id": "https://primeloft.tech/service-wordpress.html#faq"
+        }
+      ],
+      "faqCount": 10,
+      "serviceLinks": [
+        {
+          "text": "website UI/UX design services",
+          "href": "service-design.html"
+        },
+        {
+          "text": "custom website and software development",
+          "href": "service-engineering.html"
+        },
+        {
+          "text": "SEO optimization services",
+          "href": "service-seo.html"
+        },
+        {
+          "text": "WordPress maintenance and support",
+          "href": "service-maintenance.html"
+        }
+      ]
+    },
+    "reportAnimation": {
+      "illustrationPresent": true,
+      "names": [
+        "wp-float",
+        "wp-float",
+        "wp-float"
+      ]
+    },
+    "faqs": [
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      }
+    ],
+    "keyboardFaq": {
+      "open": true,
+      "focused": true,
+      "outline": "solid"
+    },
+    "menu": true,
+    "escape": true,
+    "reducedMotion": {
+      "active": true,
+      "hidden": 0
+    },
+    "reducedAnimations": "none",
+    "links": [
+      {
+        "path": "services.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-engineering.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-maintenance.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-squarespace.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-design.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-seo.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "contact.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "css/fonts.css",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "images/primeloft-arc-logo-256.webp",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "images/primeloft-social-20261102.png",
+        "status": 200,
+        "robots": null
+      }
+    ],
+    "contactPreselection": "WordPress",
+    "errors": []
+  },
+  "preserved": {
+    "sectionCount": true,
+    "sectionClasses": true,
+    "editorIllustrationMarkup": true,
+    "scriptSources": true,
+    "originalSharedCssRules": true,
+    "addedCssScopedToWordPress": true
+  },
+  "unrelatedHtmlUnchanged": {
+    "404.html": true,
+    "about.html": true,
+    "contact.html": true,
+    "cookies.html": true,
+    "index.html": true,
+    "primeloft.html": true,
+    "privacy.html": true,
+    "service-ai.html": true,
+    "service-cloud.html": true,
+    "service-design.html": true,
+    "service-engineering.html": true,
+    "service-maintenance.html": true,
+    "service-mobile-app-development.html": true,
+    "service-quality.html": true,
+    "service-seo.html": true,
+    "service-squarespace.html": true,
+    "service-strategy.html": true,
+    "services.html": true,
+    "terms.html": true
+  }
+}
