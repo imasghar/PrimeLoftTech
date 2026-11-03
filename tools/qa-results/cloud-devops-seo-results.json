@@ -1,0 +1,538 @@
+{
+  "date": "2026-11-03",
+  "scope": "Local lab tests, not production or field Core Web Vitals",
+  "baselineAudit": {
+    "title": "DevOps &amp; Cloud Engineering Services | PrimeLoft",
+    "description": "DevOps services for CI/CD pipelines, cloud infrastructure, containers, monitoring and migration. Build repeatable releases and manageable operations with PrimeLoft.",
+    "headings": [
+      [
+        "1",
+        "From code to cloud.<br><span>With a clearer path.</span>"
+      ],
+      [
+        "2",
+        "Turn a change into a versioned release."
+      ],
+      [
+        "2",
+        "Promote changes with a repeatable process."
+      ],
+      [
+        "2",
+        "Know where to look when something changes."
+      ],
+      [
+        "2",
+        "What is DevOps?"
+      ],
+      [
+        "2",
+        "Build a foundation<br>your team can work with."
+      ],
+      [
+        "3",
+        "CI/CD pipelines"
+      ],
+      [
+        "4",
+        "Is releasing still a checklist of manual steps?"
+      ],
+      [
+        "3",
+        "Cloud infrastructure"
+      ],
+      [
+        "4",
+        "Can your team understand and reproduce the setup?"
+      ],
+      [
+        "3",
+        "Containers & deployment"
+      ],
+      [
+        "4",
+        "Does the application behave differently between environments?"
+      ],
+      [
+        "3",
+        "Monitoring & observability"
+      ],
+      [
+        "4",
+        "Will the right person know when something needs attention?"
+      ],
+      [
+        "3",
+        "Cloud migration & optimization"
+      ],
+      [
+        "4",
+        "Is the current environment holding you back?"
+      ],
+      [
+        "3",
+        "Reliability & operational support"
+      ],
+      [
+        "4",
+        "What happens when a release or service fails?"
+      ],
+      [
+        "2",
+        "Start with the bottleneck."
+      ],
+      [
+        "3",
+        "Assess"
+      ],
+      [
+        "3",
+        "Prioritize"
+      ],
+      [
+        "3",
+        "Implement"
+      ],
+      [
+        "3",
+        "Transfer"
+      ],
+      [
+        "2",
+        "Your infrastructure.<br>Your team in control."
+      ],
+      [
+        "2",
+        "Before we change the setup."
+      ],
+      [
+        "2",
+        "Make your next release easier to manage."
+      ],
+      [
+        "3",
+        "Our Company"
+      ],
+      [
+        "3",
+        "Services"
+      ],
+      [
+        "3",
+        "Keep in Touch"
+      ]
+    ],
+    "score": 0.74,
+    "lcp": {
+      "type": "list",
+      "items": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 5.855
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 5209.854
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-P",
+          "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,1,DIV,0,P",
+          "selector": "div.pl-wrap > div.ops-intro > div > p",
+          "boundingRect": {
+            "top": 278,
+            "bottom": 449,
+            "left": 20,
+            "right": 392,
+            "width": 372,
+            "height": 171
+          },
+          "snippet": "<p>",
+          "nodeLabel": "Repeatable releases. Manageable infrastructure. Useful monitoring. DevOps servi\u2026"
+        }
+      ]
+    }
+  },
+  "performance": {
+    "before": {
+      "score": 74,
+      "first-contentful-paint": 3020.3335000000006,
+      "largest-contentful-paint": 3549.583625,
+      "speed-index": 7713.797404309827,
+      "total-blocking-time": 228,
+      "cumulative-layout-shift": 2.94990802464856e-05,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-P",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,1,DIV,0,P",
+        "selector": "div.pl-wrap > div.ops-intro > div > p",
+        "boundingRect": {
+          "top": 278,
+          "bottom": 449,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 171
+        },
+        "snippet": "<p>",
+        "nodeLabel": "Repeatable releases. Manageable infrastructure. Useful monitoring. DevOps servi\u2026"
+      }
+    },
+    "after": {
+      "score": 93,
+      "first-contentful-paint": 2578.2469,
+      "largest-contentful-paint": 2578.2469,
+      "speed-index": 3246.8174187770273,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-P",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,1,DIV,0,P",
+        "selector": "div.pl-wrap > div.ops-intro > div > p",
+        "boundingRect": {
+          "top": 278,
+          "bottom": 483,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 205
+        },
+        "snippet": "<p>",
+        "nodeLabel": "DevOps services for repeatable releases, manageable cloud infrastructure and us\u2026"
+      }
+    },
+    "repeat": {
+      "score": 93,
+      "first-contentful-paint": 2575.0043,
+      "largest-contentful-paint": 2575.0043,
+      "speed-index": 3305.7139236618996,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "lcpElement": {
+        "type": "node",
+        "lhId": "page-0-P",
+        "path": "1,HTML,1,BODY,5,MAIN,0,SECTION,0,DIV,0,DIV,1,DIV,0,P",
+        "selector": "div.pl-wrap > div.ops-intro > div > p",
+        "boundingRect": {
+          "top": 278,
+          "bottom": 483,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 205
+        },
+        "snippet": "<p>",
+        "nodeLabel": "DevOps services for repeatable releases, manageable cloud infrastructure and us\u2026"
+      }
+    }
+  },
+  "externalFontRequests": {
+    "before": [
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&family=Inter:wght@400..700&display=swap",
+        "status": -1
+      }
+    ],
+    "after": [],
+    "repeat": []
+  },
+  "browser": {
+    "widths": {
+      "320": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "390": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "768": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "1024": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "1440": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      }
+    },
+    "ctaUnblocked": {
+      "320": [
+        true,
+        true
+      ],
+      "390": [
+        true,
+        true
+      ],
+      "768": [
+        true,
+        true
+      ],
+      "1024": [
+        true,
+        true
+      ],
+      "1440": [
+        true,
+        true
+      ]
+    },
+    "rendered": {
+      "title": "Cloud & DevOps Services | PrimeLoft Tech",
+      "titleCount": 1,
+      "description": "Streamline deployments with PrimeLoft Tech's cloud and DevOps services, including CI/CD pipelines, cloud infrastructure, deployment automation and monitoring.",
+      "descriptionCount": 1,
+      "h1": "Cloud Engineering & DevOps Services",
+      "canonical": "https://primeloft.tech/service-cloud.html",
+      "canonicalCount": 1,
+      "robots": [],
+      "schemas": [
+        {
+          "type": "Organization",
+          "id": "https://primeloft.tech/#organization"
+        },
+        {
+          "type": "WebPage",
+          "id": "https://primeloft.tech/service-cloud.html#webpage"
+        },
+        {
+          "type": "BreadcrumbList",
+          "id": "https://primeloft.tech/service-cloud.html#breadcrumb"
+        },
+        {
+          "type": "Service",
+          "id": "https://primeloft.tech/service-cloud.html#service"
+        },
+        {
+          "type": "FAQPage",
+          "id": "https://primeloft.tech/service-cloud.html#faq"
+        }
+      ],
+      "faqCount": 9,
+      "serviceLinks": [
+        {
+          "text": "software testing and release checks",
+          "href": "service-quality.html"
+        },
+        {
+          "text": "website and software development",
+          "href": "service-engineering.html"
+        },
+        {
+          "text": "application maintenance and support",
+          "href": "service-maintenance.html"
+        },
+        {
+          "text": "AI and workflow automation integrations",
+          "href": "service-ai.html"
+        }
+      ]
+    },
+    "secondaryCta": {
+      "targetExists": true,
+      "targetTop": 90.84375
+    },
+    "tabs": [
+      {
+        "selected": true,
+        "panelVisible": true,
+        "visibleCount": 1,
+        "entranceAnimation": "ops-enter",
+        "connectorAnimation": "ops-travel"
+      },
+      {
+        "selected": true,
+        "panelVisible": true,
+        "visibleCount": 1,
+        "entranceAnimation": "ops-enter",
+        "connectorAnimation": "ops-travel"
+      },
+      {
+        "selected": true,
+        "panelVisible": true,
+        "visibleCount": 1,
+        "entranceAnimation": "ops-enter",
+        "connectorAnimation": "ops-travel"
+      }
+    ],
+    "keyboardTabs": true,
+    "faqs": [
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      },
+      {
+        "opens": true,
+        "closes": true,
+        "schemaMatches": true
+      }
+    ],
+    "keyboardFaq": {
+      "open": true,
+      "focused": true,
+      "outline": "solid"
+    },
+    "menu": true,
+    "escape": true,
+    "reducedMotion": {
+      "active": true,
+      "hidden": 0
+    },
+    "reducedAnimations": {
+      "panel": "none",
+      "connector": "none"
+    },
+    "links": [
+      {
+        "path": "services.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-engineering.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-ai.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-maintenance.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "service-quality.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "contact.html",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "css/fonts.css",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "images/primeloft-arc-logo-256.webp",
+        "status": 200,
+        "robots": null
+      },
+      {
+        "path": "images/primeloft-social-20261102.png",
+        "status": 200,
+        "robots": null
+      }
+    ],
+    "contactPreselection": "DevOps",
+    "errors": []
+  },
+  "preserved": {
+    "sectionCount": true,
+    "sectionClasses": true,
+    "releaseConsoleMarkup": true,
+    "scriptSources": true,
+    "originalCssRules": true
+  },
+  "unrelatedHtmlUnchanged": {
+    "404.html": true,
+    "about.html": true,
+    "contact.html": true,
+    "cookies.html": true,
+    "index.html": true,
+    "primeloft.html": true,
+    "privacy.html": true,
+    "service-ai.html": true,
+    "service-design.html": true,
+    "service-engineering.html": true,
+    "service-maintenance.html": true,
+    "service-mobile-app-development.html": true,
+    "service-quality.html": true,
+    "service-seo.html": true,
+    "service-squarespace.html": true,
+    "service-strategy.html": true,
+    "service-wordpress.html": true,
+    "services.html": true,
+    "terms.html": true
+  }
+}
