@@ -1,0 +1,212 @@
+{
+  "date": "2026-11-03",
+  "scope": "Local engineering-page tests, not production/field data",
+  "browser": {
+    "widths": {
+      "320": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "390": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "768": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "1024": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      },
+      "1440": {
+        "noOverflow": true,
+        "headingsFit": true,
+        "h1Count": 1,
+        "brokenLoadedImages": 0,
+        "ctaLabelsFit": true
+      }
+    },
+    "rendered": {
+      "title": "Custom Web & Software Development | PrimeLoft Tech",
+      "titleCount": 1,
+      "description": "PrimeLoft Tech builds custom websites, web applications and business software tailored to your needs. Explore our development services and discuss your project.",
+      "descriptionCount": 1,
+      "canonical": "https://primeloft.tech/service-engineering.html",
+      "canonicalCount": 1,
+      "robots": [],
+      "schemas": [
+        {
+          "type": "Organization",
+          "id": "https://primeloft.tech/#organization"
+        },
+        {
+          "type": "BreadcrumbList",
+          "id": "https://primeloft.tech/service-engineering.html#breadcrumb"
+        },
+        {
+          "type": "WebPage",
+          "id": "https://primeloft.tech/service-engineering.html#webpage"
+        },
+        {
+          "type": "Service",
+          "id": "https://primeloft.tech/service-engineering.html#service"
+        },
+        {
+          "type": "FAQPage",
+          "id": "https://primeloft.tech/service-engineering.html#faq"
+        }
+      ],
+      "serviceLinks": [
+        {
+          "text": "Find your project type \u00e2\u2020\u201c",
+          "url": "#website-types"
+        },
+        {
+          "text": "Discuss a business website \u00e2\u2020\u2014",
+          "url": "contact.html?service=Custom%20Website"
+        },
+        {
+          "text": "Discuss a landing page \u00e2\u2020\u2014",
+          "url": "contact.html?service=Custom%20Website"
+        },
+        {
+          "text": "Discuss an online store \u00e2\u2020\u2014",
+          "url": "contact.html?service=Custom%20Website"
+        },
+        {
+          "text": "Discuss a web application \u00e2\u2020\u2014",
+          "url": "contact.html?service=Custom%20Website"
+        },
+        {
+          "text": "Discuss a portal \u00e2\u2020\u2014",
+          "url": "contact.html?service=Custom%20Website"
+        },
+        {
+          "text": "Discuss business software \u00e2\u2020\u2014",
+          "url": "contact.html?service=Custom%20Website"
+        },
+        {
+          "text": "Discuss a redesign \u00e2\u2020\u2014",
+          "url": "contact.html?service=Custom%20Website"
+        }
+      ],
+      "capabilityCount": 7,
+      "faqCount": 6
+    },
+    "hover": true,
+    "reveal": true,
+    "accordion": true,
+    "faq": true,
+    "menu": true,
+    "escape": true,
+    "focus": {
+      "tag": "SUMMARY",
+      "outline": "solid"
+    },
+    "reducedMotion": {
+      "active": true,
+      "hidden": 0
+    },
+    "contactPreselection": "Custom Website",
+    "errors": []
+  },
+  "links": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "xRobotsTag": null
+    },
+    {
+      "path": "services.html",
+      "status": 200,
+      "xRobotsTag": null
+    },
+    {
+      "path": "service-engineering.html",
+      "status": 200,
+      "xRobotsTag": null
+    },
+    {
+      "path": "service-design.html",
+      "status": 200,
+      "xRobotsTag": null
+    },
+    {
+      "path": "service-maintenance.html",
+      "status": 200,
+      "xRobotsTag": null
+    },
+    {
+      "path": "service-wordpress.html",
+      "status": 200,
+      "xRobotsTag": null
+    },
+    {
+      "path": "service-squarespace.html",
+      "status": 200,
+      "xRobotsTag": null
+    },
+    {
+      "path": "contact.html?service=Custom%20Website",
+      "status": 200,
+      "xRobotsTag": null
+    }
+  ],
+  "lighthouse": [
+    {
+      "phase": "before",
+      "version": "13.6.0",
+      "score": 84,
+      "metrics": {
+        "first-contentful-paint": 2746.3772,
+        "largest-contentful-paint": 2746.3772,
+        "speed-index": 7951.850039987123,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0
+      }
+    },
+    {
+      "phase": "final",
+      "version": "13.6.0",
+      "score": 92,
+      "metrics": {
+        "first-contentful-paint": 2586.468,
+        "largest-contentful-paint": 2586.468,
+        "speed-index": 3453.7818152240425,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0
+      }
+    },
+    {
+      "phase": "repeat",
+      "version": "13.6.0",
+      "score": 92,
+      "metrics": {
+        "first-contentful-paint": 2576.7439999999997,
+        "largest-contentful-paint": 2576.7439999999997,
+        "speed-index": 3501.1264319965594,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0
+      }
+    }
+  ],
+  "scopeChecks": {
+    "otherPagesUnchanged": true,
+    "svgArtworkUnchanged": true,
+    "scriptReferencesUnchanged": true,
+    "faqSchemaMatchesVisible": true
+  }
+}
