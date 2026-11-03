@@ -1,0 +1,70 @@
+{
+  "runs": [
+    {
+      "run": "before",
+      "score": 76,
+      "lighthouse": "13.6.0",
+      "metrics": {
+        "first-contentful-paint": 3014.52084798192,
+        "largest-contentful-paint": 3544.41148396836,
+        "speed-index": 7639.712776418295,
+        "total-blocking-time": 166.63021199547984,
+        "cumulative-layout-shift": 0
+      }
+    },
+    {
+      "run": "after",
+      "score": 85,
+      "lighthouse": "13.6.0",
+      "metrics": {
+        "first-contentful-paint": 2565.7634,
+        "largest-contentful-paint": 3315.7634,
+        "speed-index": 3267.863913948733,
+        "total-blocking-time": 194,
+        "cumulative-layout-shift": 0
+      }
+    }
+  ],
+  "styles": {
+    "rows": [
+      {
+        "width": 320,
+        "noOverflow": true,
+        "styleDifferences": 0,
+        "examples": []
+      },
+      {
+        "width": 390,
+        "noOverflow": true,
+        "styleDifferences": 0,
+        "examples": []
+      },
+      {
+        "width": 768,
+        "noOverflow": true,
+        "styleDifferences": 0,
+        "examples": []
+      },
+      {
+        "width": 1024,
+        "noOverflow": true,
+        "styleDifferences": 0,
+        "examples": []
+      },
+      {
+        "width": 1440,
+        "noOverflow": true,
+        "styleDifferences": 0,
+        "examples": []
+      }
+    ],
+    "details": true,
+    "faq": true,
+    "metadata": {
+      "title": "About PrimeLoft | Design, Development & Digital Services",
+      "h1": 1,
+      "fonts": true,
+      "googleFontsLinks": 0
+    }
+  }
+}
