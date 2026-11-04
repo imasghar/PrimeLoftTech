@@ -8,6 +8,9 @@ import { SeoService } from './services/seo-service.js?v=1.1.0';
 import { InertiaScrollService } from './services/inertia-scroll.js';
 import { ChatbotService } from './services/chatbot.js?v=4.1.0';
 import { FAQAccordion } from './services/faq-accordion.js';
+import { initLeadAnalytics, trackConfirmedLead } from './services/lead-analytics.js?v=1.0.0';
+
+initLeadAnalytics();
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -117,7 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---------- 6. FORMSPREE AJAX SUBMISSION HANDLER ----------
   const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
+  if (contactForm && !contactForm[Symbol.for('primeloft.contactFormInitialized')]) {
+    contactForm[Symbol.for('primeloft.contactFormInitialized')] = true;
     const btn = document.getElementById('btnSubmitContact');
     const status = document.getElementById('formStatus');
     const fields = [...contactForm.querySelectorAll('input:not([type="hidden"]):not([name="_gotcha"]), select, textarea')];
@@ -191,6 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
           method: 'POST', body: new FormData(contactForm), signal: AbortSignal.timeout(20000), headers: { Accept: 'application/json' }
         });
         if (response.ok) {
+          trackConfirmedLead(response);
           contactForm.reset();
           showStatus('success', 'Thank you. Your inquiry has been accepted. We will review your project details.');
         } else {
