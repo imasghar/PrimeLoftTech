@@ -1,0 +1,37 @@
+# PrimeLoft Tech
+
+> PrimeLoft Tech provides website and software development, mobile app development, UI/UX design, SEO and related digital services.
+
+Website: https://primeloft.tech/
+
+This file is a concise guide to the public website. The linked pages provide service details and contact information.
+
+## About
+
+- [Homepage](https://primeloft.tech/): Overview of PrimeLoft Tech and its digital services.
+- [About PrimeLoft Tech](https://primeloft.tech/about.html): Company information and approach to working with businesses.
+
+## Services
+
+- [Services overview](https://primeloft.tech/services.html): Explore the available services.
+- [UI/UX design](https://primeloft.tech/service-design.html): Interface design, wireframes and prototypes for websites, mobile apps and software products.
+- [Digital product strategy](https://primeloft.tech/service-strategy.html): Product discovery, platform selection, technical feasibility and development roadmaps.
+- [Website and software development](https://primeloft.tech/service-engineering.html): Custom websites, web applications and business software.
+- [Mobile app development](https://primeloft.tech/service-mobile-app-development.html): iOS, Android and cross-platform applications, including API integration and support.
+- [SEO](https://primeloft.tech/service-seo.html): Technical SEO, on-page optimization, keyword research and website audits.
+- [AI and automation](https://primeloft.tech/service-ai.html): Business workflow automation, API integrations and AI-assisted tasks.
+- [Cloud engineering and DevOps](https://primeloft.tech/service-cloud.html): Cloud infrastructure, deployment automation, CI/CD pipelines and monitoring.
+- [Software testing and QA](https://primeloft.tech/service-quality.html): Functional testing, regression testing, test automation and API testing.
+- [Website and software maintenance](https://primeloft.tech/service-maintenance.html): Updates, bug fixes and ongoing technical support.
+- [WordPress development](https://primeloft.tech/service-wordpress.html): WordPress development, redesigns, WooCommerce and ongoing support.
+- [Squarespace design and development](https://primeloft.tech/service-squarespace.html): Website design, customization, redesigns and support.
+
+## Contact
+
+- [Contact PrimeLoft Tech](https://primeloft.tech/contact.html): Share project requirements or find business contact details.
+
+## Optional
+
+- [Privacy policy](https://primeloft.tech/privacy.html): Information about personal data and website services.
+- [Cookie policy](https://primeloft.tech/cookies.html): Information about cookies and browser storage.
+- [Terms](https://primeloft.tech/terms.html): Website terms and conditions.

@@ -20,7 +20,7 @@ DEST = ROOT / 'dist'
 DEST.mkdir(exist_ok=True)
 for p in ROOT.glob('*.html'):
     shutil.copy2(p, DEST / p.name)
-for name in ['_headers', 'CNAME', 'robots.txt', 'sitemap.xml', 'site.webmanifest', 'favicon.svg', 'favicon.ico', 'favicon.png']:
+for name in ['_headers', 'CNAME', 'robots.txt', 'llms.txt', 'sitemap.xml', 'site.webmanifest', 'favicon.svg', 'favicon.ico', 'favicon.png']:
     shutil.copy2(ROOT / name, DEST / name)
 for folder in ['css', 'js', 'images', 'animations', 'fonts']:
     for source in (ROOT / folder).rglob('*'):
