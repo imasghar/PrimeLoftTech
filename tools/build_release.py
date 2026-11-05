@@ -15,6 +15,16 @@ if not css_bundle.exists() or f'source hash {css_hash}.' not in css_bundle.read_
         raise SystemExit('About CSS changed: run npm ci --prefix tools/css-build, then rebuild.')
     subprocess.run(['node', str(ROOT / 'tools/build_about_css.mjs')], cwd=ROOT, check=True)
 
+# Preserve the homepage CSS cascade in a formatting-only bundle.
+home_sources = json.loads((ROOT / 'tools/css-build/home-sources.json').read_text(encoding='utf-8'))
+home_source = '\n'.join((ROOT / name).read_bytes().decode('utf-8') for name in home_sources)
+home_hash = hashlib.sha256(home_source.encode('utf-8')).hexdigest()[:12]
+home_bundle = ROOT / 'css/home.bundle.min.css'
+if not home_bundle.exists() or f'source hash {home_hash}.' not in home_bundle.read_text(encoding='utf-8').split('\n', 1)[0]:
+    if not (ROOT / 'tools/css-build/node_modules/clean-css').is_dir():
+        raise SystemExit('Homepage CSS changed: run npm ci --prefix tools/css-build, then rebuild.')
+    subprocess.run(['node', str(ROOT / 'tools/build_home_css.mjs')], cwd=ROOT, check=True)
+
 DEST = ROOT / 'dist'
 # Never publish the repository itself, scratch data, tools or local configuration.
 DEST.mkdir(exist_ok=True)
