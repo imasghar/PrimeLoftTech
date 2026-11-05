@@ -992,7 +992,7 @@ body.pl footer.pl-footer {
   padding-top: 20px;
   border-top: 1px solid var(--line);
   font-size: 13.5px;
-  color: var(--ink-faint);
+  color: var(--ink-soft);
 }
 
 .pl-footer__bottom a { color: var(--ink-soft); }

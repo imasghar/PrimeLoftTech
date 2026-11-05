@@ -1,0 +1,141 @@
+{
+  "runs": {
+    "live-before": {
+      "scores": {
+        "performance": 84,
+        "accessibility": 96,
+        "best-practices": 92
+      },
+      "metrics": {
+        "first-contentful-paint": 1840.602,
+        "largest-contentful-paint": 3842.371,
+        "speed-index": 3570.0041748262765,
+        "total-blocking-time": 169.1869999999999,
+        "cumulative-layout-shift": 0
+      },
+      "contrastPass": false,
+      "cssMinificationPass": false,
+      "errors": [
+        {
+          "source": "security",
+          "description": "Connecting to 'https://stats.g.doubleclick.net/g/collect?v=2&tid=G-B2J46QTCHB&cid=1563290132.1793858394&gtm=45je6b31v9285141424za208zd9285141424xf1&rcb=5&aip=1&dma=0&gcd=13l3l3l3l1l1&npa=0&frm=0&tag_exp=115616986~115938466~115938469~118897920~118897930~120213116~120385422~120412526~120420416~120469145~120469153~121246026~121246034~123814185' violates the following Content Security Policy directive: \"connect-src 'self' https://formspree.io https://analytics.google.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com\". The action has been blocked.",
+          "sourceLocation": {
+            "type": "source-location",
+            "url": "https://www.googletagmanager.com/gtag/js?id=G-B2J46QTCHB",
+            "urlProvider": "network",
+            "line": 369,
+            "column": 226
+          }
+        },
+        {
+          "source": "security",
+          "description": "Executing inline script violates the following Content Security Policy directive 'script-src 'self' https://www.googletagmanager.com 'sha256-xLRD/n8tp97mxUTSay8n5lJJo4id5NZrRSDfNnUvbTc=''. Either the 'unsafe-inline' keyword, a hash ('sha256-VPuM15u7RjIzNrkE5JK4/6lR6Cs67TVVtc1uoLq1NvQ='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.",
+          "sourceLocation": {
+            "type": "source-location",
+            "url": "https://primeloft.tech/",
+            "urlProvider": "network",
+            "line": 470,
+            "column": 0
+          }
+        },
+        {
+          "source": "security",
+          "description": "Loading the image 'https://www.google.com.pk/ads/ga-audiences?v=1&t=sr&slf_rd=1&_r=4&tid=G-B2J46QTCHB&cid=1563290132.1793858394&gtm=45je6b31v9285141424za208zd9285141424xf1&rcb=5&aip=1&dma=0&gcd=13l3l3l3l1l1&npa=0&frm=0&tag_exp=115616986~115938466~115938469~118897920~118897930~120213116~120385422~120412526~120420416~120469145~120469153~121246026~121246034~123814185&z=1517100628' violates the following Content Security Policy directive: \"img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com\". The action has been blocked.",
+          "sourceLocation": {
+            "type": "source-location",
+            "url": "https://primeloft.tech/",
+            "urlProvider": "network",
+            "line": 0,
+            "column": 0
+          }
+        },
+        {
+          "source": "security",
+          "description": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092' violates the following Content Security Policy directive: \"script-src 'self' https://www.googletagmanager.com 'sha256-xLRD/n8tp97mxUTSay8n5lJJo4id5NZrRSDfNnUvbTc='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+          "sourceLocation": {
+            "type": "source-location",
+            "url": "https://primeloft.tech/",
+            "urlProvider": "network",
+            "line": 0,
+            "column": 0
+          }
+        }
+      ]
+    },
+    "verified-before": {
+      "scores": {
+        "performance": 96,
+        "accessibility": 96,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1085.1983,
+        "largest-contentful-paint": 2677.79745,
+        "speed-index": 3235.5824981488163,
+        "total-blocking-time": 2,
+        "cumulative-layout-shift": 0
+      },
+      "contrastPass": false,
+      "cssMinificationPass": false,
+      "errors": []
+    },
+    "verified-after": {
+      "scores": {
+        "performance": 97,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 980.5714,
+        "largest-contentful-paint": 2536.7142000000003,
+        "speed-index": 3046.9425678092416,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0
+      },
+      "contrastPass": true,
+      "cssMinificationPass": true,
+      "errors": []
+    }
+  },
+  "realGoogleTagInterceptedValidation": {
+    "eventsConfirmedInInterceptedRequests": [
+      "page_view",
+      "whatsapp_click",
+      "email_click",
+      "generate_lead"
+    ],
+    "collectionRequests": 4,
+    "advertisingRequests": 0,
+    "consoleErrors": [],
+    "liveGoogleReceiptVerified": false,
+    "productionCollectionRequestsSent": 0
+  },
+  "footerContrast": {
+    "before": 3.21,
+    "after": 5.67
+  },
+  "responsiveLayout": {
+    "widths": [
+      320,
+      390,
+      768,
+      1024,
+      1440
+    ],
+    "elements": 450,
+    "geometryUnchanged": true,
+    "onlyStyleChange": "footer inherited text color"
+  },
+  "hero648AvifBytes": 31453,
+  "cssBytes": {
+    "before": 216993,
+    "after": 205049
+  },
+  "remaining": [
+    "Cloudflare injects a request-specific inline challenge script that needs edge CSP nonce integration or a reviewed bot-feature setting.",
+    "Live static asset TTL is four hours; GitHub Pages ignores _headers. Cloudflare cache rules are required to change it.",
+    "Google tag unused code is vendor-managed.",
+    "Unused initial-viewport CSS includes interactive and below-fold styles.",
+    "No live after measurements or deployment."
+  ]
+}
