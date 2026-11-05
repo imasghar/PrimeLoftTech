@@ -1,0 +1,231 @@
+{
+  "runs": {
+    "mobile-baseline-1": {
+      "score": 76,
+      "metrics": {
+        "first-contentful-paint": 2734.1342268467233,
+        "largest-contentful-paint": 4900.768453693447,
+        "speed-index": 3856.789626311169,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0
+      },
+      "lcpElement": "div.nav-row > a.logo-brand > picture.logo-img > img.logo-img",
+      "lighthouseVersion": "13.6.0",
+      "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "warnings": []
+    },
+    "mobile-baseline-2": {
+      "score": 78,
+      "metrics": {
+        "first-contentful-paint": 2737.5368,
+        "largest-contentful-paint": 4907.5736,
+        "speed-index": 2737.5368,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0
+      },
+      "lcpElement": "main#main-content > section.pl-hero > div.pl-showcase > img",
+      "lighthouseVersion": "13.6.0",
+      "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "warnings": []
+    },
+    "mobile-final-1": {
+      "score": 85,
+      "metrics": {
+        "first-contentful-paint": 1985.34583300432,
+        "largest-contentful-paint": 4028.018749506481,
+        "speed-index": 3460.785029440516,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0
+      },
+      "lcpElement": "section.pl-hero > div.pl-showcase > picture > img",
+      "lighthouseVersion": "13.6.0",
+      "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "warnings": []
+    },
+    "live-before": {
+      "score": 92,
+      "metrics": {
+        "first-contentful-paint": 1594.704,
+        "largest-contentful-paint": 2926.2039999999997,
+        "speed-index": 3547.454350537092,
+        "total-blocking-time": 131.0619999999999,
+        "cumulative-layout-shift": 0
+      },
+      "lcpElement": "main#main-content > section.pl-hero > div.pl-showcase > img",
+      "lighthouseVersion": "13.6.0",
+      "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "warnings": []
+    },
+    "gzip-before-1": {
+      "score": 93,
+      "metrics": {
+        "first-contentful-paint": 1375.538,
+        "largest-contentful-paint": 3063.8450000000003,
+        "speed-index": 3235.9262773531145,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0
+      },
+      "lcpElement": "main#main-content > section.pl-hero > div.pl-showcase > img",
+      "lighthouseVersion": "13.6.0",
+      "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "warnings": []
+    },
+    "gzip-before-2": {
+      "score": 93,
+      "metrics": {
+        "first-contentful-paint": 1365.636,
+        "largest-contentful-paint": 3039.09,
+        "speed-index": 3185.0445648613636,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0
+      },
+      "lcpElement": "main#main-content > section.pl-hero > div.pl-showcase > img",
+      "lighthouseVersion": "13.6.0",
+      "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "warnings": []
+    },
+    "gzip-after-1": {
+      "score": 96,
+      "metrics": {
+        "first-contentful-paint": 1088.1571,
+        "largest-contentful-paint": 2682.2356500000005,
+        "speed-index": 3018.099198332606,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0
+      },
+      "lcpElement": "section.pl-hero > div.pl-showcase > picture > img",
+      "lighthouseVersion": "13.6.0",
+      "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "warnings": []
+    },
+    "gzip-after-2": {
+      "score": 96,
+      "metrics": {
+        "first-contentful-paint": 1238.3503,
+        "largest-contentful-paint": 2603.02545,
+        "speed-index": 2831.7136487429216,
+        "total-blocking-time": 86.67515000000003,
+        "cumulative-layout-shift": 0
+      },
+      "lcpElement": "section.pl-hero > div.pl-showcase > picture > img",
+      "lighthouseVersion": "13.6.0",
+      "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "warnings": []
+    }
+  },
+  "functional": {
+    "faqs": true,
+    "menu": true,
+    "escape": true,
+    "chatPresent": true,
+    "lenis": true,
+    "heroSource": "http://127.0.0.1:8767/images/primeloft-agenda-hero-480.avif",
+    "heroNotLazy": true,
+    "heroPriority": "high",
+    "heroDecoded": true,
+    "headings": 1,
+    "title": "Web & Software Development Agency | PrimeLoft Tech",
+    "canonical": "https://primeloft.tech/",
+    "heroEntranceAnimationObserved": true
+  },
+  "layout": {
+    "widths": [
+      320,
+      390,
+      768,
+      1024,
+      1440
+    ],
+    "elementsComparedPerWidth": 450,
+    "maxAllowedDifferencePx": 0.03,
+    "noOverflow": true,
+    "computedStylesPreserved": true
+  },
+  "seoLinksAndHeadingContentPreserved": true,
+  "scriptAndAnimationLogicPreserved": true,
+  "cssBytes": {
+    "before": 262258,
+    "after": 216993
+  },
+  "assetBytes": {
+    "images\\primeloft-agenda-hero-1024.avif": 67886,
+    "images\\primeloft-agenda-hero-1536.avif": 115263,
+    "images\\primeloft-agenda-hero-480.avif": 22677,
+    "images\\primeloft-agenda-hero-768.avif": 45504,
+    "images\\primeloft-arc-logo-256.avif": 2585,
+    "images\\primeloft-arc-logo-512.avif": 5044
+  },
+  "limitations": [
+    "Local gzip comparison is not a live after measurement.",
+    "Local default server is uncompressed; do not compare its numbers with the live score.",
+    "External Google tag failed to download in local Lighthouse runs; live run loaded it.",
+    "LCP remains above 2.5 seconds.",
+    "TBT variation 0-86.68ms; no improvement claimed.",
+    "First interstitial run excluded; missing local server.",
+    "Two intermediate picture experiments had CLS 0.102; fixed and excluded from final comparison."
+  ]
+}

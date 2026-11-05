@@ -48,5 +48,6 @@ body.pl-page-index .agency-engagement .agency-plan--accent { background:linear-g
 
 body.pl-page-index .agency-hero-art.agency-agenda-art { padding:0; height:auto; overflow:hidden; background:#edf3ff; border-radius:24px; }
 body.pl-page-index .agency-agenda-art::after { display:none; }
+.agency-agenda-art > picture { display:block; width:100%; aspect-ratio:3 / 2; }
 .agency-agenda-art img { display:block; width:100%; height:auto; aspect-ratio:3 / 2; object-fit:contain; }
 @media(prefers-reduced-motion:no-preference) { .agency-agenda-art img { animation:agenda-arrive 1.6s cubic-bezier(.16,1,.3,1) both; }@keyframes agenda-arrive { from { transform:scale(1.12); opacity:.3; } to { transform:scale(1); opacity:1; } } }
