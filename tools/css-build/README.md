@@ -17,4 +17,4 @@ The homepage uses `css/home.bundle.min.css`. Its seven original stylesheets and 
 
     node tools/build_home_css.mjs
 
-This uses the same pinned clean-css dependency and level 0 formatting-only settings as the About bundle. It retains every rule and animation, updates the homepage source-hash URL, and is checked automatically by `python tools/build_release.py`. Original files remain in use on other pages.
+This uses the same pinned clean-css dependency as the About bundle. The homepage uses level 1 value/whitespace minification with selector sorting disabled, no numeric rounding and no level 2 rule merging or unused-rule removal. It retains the rule order and animations, updates the homepage source-hash URL, and is checked automatically by `python tools/build_release.py`. Original files remain in use on other pages.
