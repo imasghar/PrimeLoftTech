@@ -6,9 +6,11 @@
 
 import { SeoService } from './services/seo-service.js?v=1.1.0';
 import { InertiaScrollService } from './services/inertia-scroll.js';
-import { ChatbotService } from './services/chatbot.js?v=4.1.0';
+import { ChatbotService } from './services/chatbot.js?v=4.2.0';
 import { FAQAccordion } from './services/faq-accordion.js';
 import { initLeadAnalytics, trackConfirmedLead } from './services/lead-analytics.js?v=1.0.0';
+
+import { submitWeb3Form } from './services/form-submission.js?v=1.0.0';
 
 initLeadAnalytics();
 
@@ -118,13 +120,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ---------- 6. FORMSPREE AJAX SUBMISSION HANDLER ----------
+  // ---------- 6. WEB3FORMS AJAX SUBMISSION HANDLER ----------
   const contactForm = document.getElementById('contactForm');
   if (contactForm && !contactForm[Symbol.for('primeloft.contactFormInitialized')]) {
     contactForm[Symbol.for('primeloft.contactFormInitialized')] = true;
     const btn = document.getElementById('btnSubmitContact');
     const status = document.getElementById('formStatus');
-    const fields = [...contactForm.querySelectorAll('input:not([type="hidden"]):not([name="_gotcha"]), select, textarea')];
+    const fields = [...contactForm.querySelectorAll('input:not([type="hidden"]):not([name="botcheck"]):not([name="_gotcha"]), select, textarea')];
     const buttonLabel = btn?.querySelector('span');
     const idleLabel = buttonLabel?.textContent;
     let submitting = false;
@@ -180,8 +182,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (field.maxLength > 0 && field.value.length > field.maxLength) field.setCustomValidity(`Use no more than ${field.maxLength} characters.`);
       });
       if (!contactForm.reportValidity()) return;
-      const gotcha = contactForm.querySelector('input[name="_gotcha"]');
-      if (gotcha?.value.trim()) {
+      const gotcha = contactForm.querySelector('input[name="botcheck"]');
+      if (gotcha && (gotcha.type === 'checkbox' ? gotcha.checked : gotcha.value.trim())) {
         showStatus('error', 'Your inquiry could not be processed. Please try again or email contact@primeloft.tech.');
         return;
       }
@@ -191,15 +193,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (buttonLabel) buttonLabel.textContent = 'Sending inquiry…';
       showStatus('pending', 'Sending your inquiry…');
       try {
-        const response = await fetch(contactForm.getAttribute('action') || 'https://formspree.io/f/xeajqqoy', {
-          method: 'POST', body: new FormData(contactForm), signal: AbortSignal.timeout(20000), headers: { Accept: 'application/json' }
-        });
-        if (response.ok) {
+        const { response, result, success } = await submitWeb3Form(new FormData(contactForm));
+        if (success) {
           trackConfirmedLead(response);
           contactForm.reset();
           showStatus('success', 'Thank you. Your inquiry has been accepted. We will review your project details.');
         } else {
-          const result = await response.json().catch(() => null);
           let firstInvalid;
           if (Array.isArray(result?.errors)) result.errors.forEach(error => {
             const field = fields.find(candidate => candidate.name === error.field);
@@ -227,24 +226,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // ---------- 7. NEWSLETTER FORMSPREE SUBMISSION HANDLER ----------
+  // ---------- 7. NEWSLETTER WEB3FORMS SUBMISSION HANDLER ----------
   document.querySelectorAll('.newsletterForm').forEach(form => {
+    if (form[Symbol.for('primeloft.newsletterInitialized')]) return;
+    form[Symbol.for('primeloft.newsletterInitialized')] = true;
+    let submitting = false;
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (submitting || !form.reportValidity()) return;
       const btn = form.querySelector('button[type="submit"]');
       const status = form.nextElementSibling;
 
-      // Invisible Honeypot Anti-Bot Trap: if filled, silently discard bot request
-      const gotcha = form.querySelector('input[name="_gotcha"]');
-      if (gotcha && gotcha.value.trim() !== '') {
-        if (status && status.classList.contains('newsletterStatus')) {
+      const gotcha = form.querySelector('input[name="botcheck"], input[name="_gotcha"]');
+      if (gotcha && (gotcha.type === 'checkbox' ? gotcha.checked : gotcha.value.trim())) {
+        if (status?.classList.contains('newsletterStatus')) {
           status.style.display = 'block';
-          status.style.color = '#25D366';
-          status.textContent = 'âœ“ Subscribed successfully!';
+          status.style.color = 'var(--red)';
+          status.textContent = 'Your request could not be processed. Please try again.';
         }
-        form.reset();
         return;
       }
+      submitting = true;
 
       if (btn) btn.disabled = true;
       if (status && status.classList.contains('newsletterStatus')) {
@@ -255,19 +257,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       try {
         const formData = new FormData(form);
-        const endpoint = form.getAttribute('action') || 'https://formspree.io/f/xeajqqoy';
+        const { success } = await submitWeb3Form(formData);
 
-        const response = await fetch(endpoint, {
-          method: 'POST',
-          signal: AbortSignal.timeout(20000),
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
+        if (success) {
           if (status && status.classList.contains('newsletterStatus')) {
             status.style.color = '#25D366';
-            status.textContent = 'âœ“ Subscribed successfully!';
+            status.textContent = 'Subscribed successfully!';
           }
           form.reset();
         } else {
@@ -279,6 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
           status.textContent = 'Failed to subscribe. Please try again.';
         }
       } finally {
+        submitting = false;
         if (btn) btn.disabled = false;
       }
     });

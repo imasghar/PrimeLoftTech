@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "name": "native required/email/service and whitespace validation send no requests",
+      "pass": true
+    },
+    {
+      "name": "all Contact maxlength limits enforce oversized scripted input",
+      "pass": true
+    },
+    {
+      "name": "Contact honeypot blocks with error and no reset",
+      "pass": true
+    },
+    {
+      "name": "HTTP/provider/malformed/network failures preserve data and never emit a lead",
+      "pass": true
+    },
+    {
+      "name": "provider error HTML is inert text with linked accessible field errors",
+      "pass": true
+    },
+    {
+      "name": "rapid submissions stay busy and create one request; confirmed success resets and tracks once",
+      "pass": true
+    },
+    {
+      "name": "literal malicious input stays form data and never enters GA payload",
+      "pass": true
+    },
+    {
+      "name": "denied consent permits form submission but suppresses lead analytics",
+      "pass": true
+    },
+    {
+      "name": "a blocked provider fails safely and allows retry",
+      "pass": true
+    },
+    {
+      "name": "real 20-second timeout restores controls and preserves values",
+      "pass": true
+    },
+    {
+      "name": "mobile/tablet/desktop labels, status announcements, focus and layout",
+      "pass": true
+    },
+    {
+      "name": "keyboard Space submits the valid Contact form once",
+      "pass": true
+    },
+    {
+      "name": "guide full service-to-contact journey validates names/emails and escapes input",
+      "pass": true
+    },
+    {
+      "name": "guide consent/oversized notes and transport failures retain retry",
+      "pass": true
+    },
+    {
+      "name": "guide confirmed success advances once and renders malicious notes as text",
+      "pass": true
+    },
+    {
+      "name": "legacy newsletter fixture validates and rejects honeypot without fake success",
+      "pass": true
+    },
+    {
+      "name": "newsletter provider failure retries and rapid success sends one request",
+      "pass": true
+    }
+  ],
+  "caseGroups": 17,
+  "interceptedSubmissions": 29,
+  "payloadChecks": {
+    "fixedEndpointAndConfiguredKey": true,
+    "noLegacySubject": true
+  },
+  "runtimeErrors": [],
+  "productionRequestsSent": 0,
+  "unexpectedRedirects": 0,
+  "notes": "Local Chrome; all external traffic intercepted. Provider-side security and inbox delivery are not verified."
+}

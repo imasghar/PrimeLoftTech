@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-06",
+  "unitTests": {
+    "passed": 27,
+    "failed": 0
+  },
+  "browserGroups": {
+    "passed": 17,
+    "failed": 0
+  },
+  "interceptedSubmissions": 29,
+  "productionSubmissions": 0,
+  "fixes": [
+    "Centralized honeypot rejection before network",
+    "Newsletter success requires provider confirmation; validation and duplicate guards",
+    "Guide name/email/requirements/notes length limits",
+    "Fixed API endpoint, redirects rejected, credentials omitted"
+  ],
+  "externalPreflight": {
+    "verified": false,
+    "shellStatus": 403,
+    "browserResult": "No successful preflight observation; no POST was sent."
+  },
+  "unverified": [
+    "Access key activation and configured recipient",
+    "Real inbox delivery and spam-folder placement",
+    "Provider backend validation, anti-spam and rate limits",
+    "Real provider CORS acceptance",
+    "Safari/Firefox/real mobile devices",
+    "Manual assistive-technology audit"
+  ]
+}
