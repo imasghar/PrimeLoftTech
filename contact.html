@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://static.cloudflareinsights.com 'sha256-A5D0XjZE4r8SqdQPxGzhZhmofbbtwldFVZQ5IG5x7j4='; object-src 'none'; base-uri 'none'; form-action https://formspree.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://cloudflareinsights.com https://analytics.google.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-src https://www.google.com https://maps.google.com; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://static.cloudflareinsights.com 'sha256-A5D0XjZE4r8SqdQPxGzhZhmofbbtwldFVZQ5IG5x7j4='; object-src 'none'; base-uri 'none'; form-action https://api.web3forms.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://cloudflareinsights.com https://analytics.google.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-src https://www.google.com https://maps.google.com; upgrade-insecure-requests">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2J46QTCHB"></script>
   <script>
@@ -45,7 +45,7 @@
   <link rel="stylesheet" href="css/style.css?v=3.3.0">
   <link rel="stylesheet" href="css/theme.css?v=1.4.2">
   <link rel="stylesheet" href="css/chat.css?v=1.0.0">
-  <script type="module" src="js/main.js?v=3.3.0" defer></script>
+  <script type="module" src="js/main.js?v=3.4.0" defer></script>
   <script type="module" src="js/theme.js?v=1.4.0"></script>
   <!-- Contact identity, ContactPage and breadcrumb graph -->
   <script type="application/ld+json" id="org-schema">
@@ -178,11 +178,12 @@
 </div>
 <div class="contact-panel contact-form" id="contact-form" data-reveal>
 <div class="contact-panel__head"><h2>Tell us about your project</h2><p>Share your goals, current website or app, and any timing or integration needs. We review the requirements before discussing scope. Fields marked * are required.</p></div>
-<form id="contactForm" action="https://formspree.io/f/xeajqqoy" method="POST">
-            <!-- Formspree Subject -->
-            <input type="hidden" name="_subject" value="New Project Inquiry | PrimeLoft Tech">
+<form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="b33a8396-5f53-4cd3-b766-ad23a1e3a996">
+            <!-- Web3Forms Subject -->
+            <input type="hidden" name="subject" value="New Project Inquiry | PrimeLoft Tech">
             <!-- Invisible Honeypot Anti-Bot Field -->
-            <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="checkbox" name="botcheck" style="display:none !important;" tabindex="-1" autocomplete="off" aria-hidden="true">
 
             <div class="form-fields">
               <!-- Row 1: Your Name & Email -->

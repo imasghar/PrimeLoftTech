@@ -1,0 +1,172 @@
+﻿TAP version 13
+# Subtest: confirmed success
+ok 1 - confirmed success
+  ---
+  duration_ms: 33.311
+  type: 'test'
+  ...
+# Subtest: created success
+ok 2 - created success
+  ---
+  duration_ms: 0.4378
+  type: 'test'
+  ...
+# Subtest: explicit rejection
+ok 3 - explicit rejection
+  ---
+  duration_ms: 0.6041
+  type: 'test'
+  ...
+# Subtest: missing success
+ok 4 - missing success
+  ---
+  duration_ms: 0.7429
+  type: 'test'
+  ...
+# Subtest: truthy string
+ok 5 - truthy string
+  ---
+  duration_ms: 0.7251
+  type: 'test'
+  ...
+# Subtest: truthy number
+ok 6 - truthy number
+  ---
+  duration_ms: 0.7288
+  type: 'test'
+  ...
+# Subtest: null
+ok 7 - null
+  ---
+  duration_ms: 0.4722
+  type: 'test'
+  ...
+# Subtest: array
+ok 8 - array
+  ---
+  duration_ms: 0.3715
+  type: 'test'
+  ...
+# Subtest: malformed JSON
+ok 9 - malformed JSON
+  ---
+  duration_ms: 1.8868
+  type: 'test'
+  ...
+# Subtest: empty response
+ok 10 - empty response
+  ---
+  duration_ms: 0.7353
+  type: 'test'
+  ...
+# Subtest: invalid key
+ok 11 - invalid key
+  ---
+  duration_ms: 0.5609
+  type: 'test'
+  ...
+# Subtest: unauthorized
+ok 12 - unauthorized
+  ---
+  duration_ms: 0.3735
+  type: 'test'
+  ...
+# Subtest: forbidden
+ok 13 - forbidden
+  ---
+  duration_ms: 0.2483
+  type: 'test'
+  ...
+# Subtest: rate limit
+ok 14 - rate limit
+  ---
+  duration_ms: 0.3022
+  type: 'test'
+  ...
+# Subtest: server error
+ok 15 - server error
+  ---
+  duration_ms: 0.2768
+  type: 'test'
+  ...
+# Subtest: unavailable
+ok 16 - unavailable
+  ---
+  duration_ms: 0.231
+  type: 'test'
+  ...
+# Subtest: uses fixed HTTPS endpoint, multipart body, accept header and live timeout signal
+ok 17 - uses fixed HTTPS endpoint, multipart body, accept header and live timeout signal
+  ---
+  duration_ms: 2.3911
+  type: 'test'
+  ...
+# Subtest: configured public key overrides a caller key without mutating source form data
+ok 18 - configured public key overrides a caller key without mutating source form data
+  ---
+  duration_ms: 0.5792
+  type: 'test'
+  ...
+# Subtest: normalizes legacy subject and strips AJAX redirect and empty legacy trap
+ok 19 - normalizes legacy subject and strips AJAX redirect and empty legacy trap
+  ---
+  duration_ms: 0.4186
+  type: 'test'
+  ...
+# Subtest: explicit subject wins over legacy subject
+ok 20 - explicit subject wins over legacy subject
+  ---
+  duration_ms: 0.3777
+  type: 'test'
+  ...
+# Subtest: preserves unicode, literal XSS/SQL-looking input and repeated fields as body data only
+ok 21 - preserves unicode, literal XSS/SQL-looking input and repeated fields as body data only
+  ---
+  duration_ms: 0.6344
+  type: 'test'
+  ...
+# Subtest: rejects filled botcheck without a network request
+ok 22 - rejects filled botcheck without a network request
+  ---
+  duration_ms: 0.5216
+  type: 'test'
+  ...
+# Subtest: rejects filled _gotcha without a network request
+ok 23 - rejects filled _gotcha without a network request
+  ---
+  duration_ms: 0.1769
+  type: 'test'
+  ...
+# Subtest: propagates TypeError instead of false success
+ok 24 - propagates TypeError instead of false success
+  ---
+  duration_ms: 0.5323
+  type: 'test'
+  ...
+# Subtest: propagates AbortError instead of false success
+ok 25 - propagates AbortError instead of false success
+  ---
+  duration_ms: 0.1751
+  type: 'test'
+  ...
+# Subtest: propagates TimeoutError instead of false success
+ok 26 - propagates TimeoutError instead of false success
+  ---
+  duration_ms: 0.1607
+  type: 'test'
+  ...
+# Subtest: 20-second timeout is requested and cancellation reaches fetch
+ok 27 - 20-second timeout is requested and cancellation reaches fetch
+  ---
+  duration_ms: 0.4344
+  type: 'test'
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 27
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 199.3059

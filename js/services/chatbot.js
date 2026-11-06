@@ -9,11 +9,13 @@
  * - Straightforward timeline selector
  * - Step-by-step contact input stepper (Name -> Email -> Notes/Consent)
  * - Animated typing indicator before bot messages
- * - Native AJAX submission to Formspree AI endpoint
+ * - Native AJAX submission to Web3Forms
  * - Direct WhatsApp and Close actions at completion (no suggestion cards)
  * - Responsive chat panel styled to match the PrimeLoft website
  * - Isolated scrolling: does not scroll parent website
  */
+
+import { submitWeb3Form } from './form-submission.js?v=1.0.0';
 
 export class ChatbotService {
   static services = [
@@ -492,7 +494,7 @@ export class ChatbotService {
           card.innerHTML = `
             <form class="pl-input-step-form" id="plFormStepOther" novalidate>
               <div class="pl-form-group">
-                <textarea class="pl-input-step-field pl-input-step-textarea" id="plInputStepOther" aria-label="Project requirements" rows="3" placeholder="Tell us about the project, technology, or service you need..." required></textarea>
+                <textarea class="pl-input-step-field pl-input-step-textarea" id="plInputStepOther" maxlength="10000" aria-label="Project requirements" rows="3" placeholder="Tell us about the project, technology, or service you need..." required></textarea>
               </div>
               <span class="pl-form-error" id="plErrorStepOther" aria-live="polite"></span>
               <button class="pl-btn-step-next" id="plBtnOtherNext" type="submit" style="align-self: flex-end; margin-top: 4px;">
@@ -522,8 +524,8 @@ export class ChatbotService {
             e.preventDefault();
             err.textContent = '';
             const val = input.value.trim();
-            if (!val || val.length < 3) {
-              err.textContent = 'Please provide a brief description (at least 3 characters).';
+            if (!val || val.length < 3 || val.length > 10000) {
+              err.textContent = 'Please provide a brief description (3 to 10,000 characters).';
               input.focus();
               return;
             }
@@ -672,7 +674,7 @@ export class ChatbotService {
    * STEP 5: Stepper Contact Inputs (One at a time)
    * Sub-step 1: Name -> Next / Enter
    * Sub-step 2: Email -> Next / Enter
-   * Sub-step 3: Notes & Privacy Consent -> Submit inquiry -> Formspree
+   * Sub-step 3: Notes & Privacy Consent -> Submit inquiry -> Web3Forms
    */
   static renderStep5Input() {
     const body = document.getElementById('plChatBody');
@@ -690,7 +692,7 @@ export class ChatbotService {
         card.innerHTML = `
           <form class="pl-input-step-form" id="plFormStepName" novalidate>
             <div class="pl-input-step-row">
-              <input class="pl-input-step-field" id="plInputStepName" aria-label="Your name" type="text" placeholder="Your name" autocomplete="name" required>
+              <input class="pl-input-step-field" id="plInputStepName" maxlength="120" aria-label="Your name" type="text" placeholder="Your name" autocomplete="name" required>
               <button class="pl-btn-step-next" id="plBtnNameNext" type="submit">
                 <span>Next</span>
                 <span aria-hidden="true">&rarr;</span>
@@ -713,8 +715,8 @@ export class ChatbotService {
           e.preventDefault();
           err.textContent = '';
           const val = input.value.trim();
-          if (!val || val.length < 2) {
-            err.textContent = 'Please enter your name (at least 2 characters).';
+          if (!val || val.length < 2 || val.length > 120) {
+            err.textContent = 'Please enter your name (2 to 120 characters).';
             input.focus();
             return;
           }
@@ -742,7 +744,7 @@ export class ChatbotService {
         card.innerHTML = `
           <form class="pl-input-step-form" id="plFormStepEmail" novalidate>
             <div class="pl-input-step-row">
-              <input class="pl-input-step-field" id="plInputStepEmail" aria-label="Email address" type="email" placeholder="you@company.com" autocomplete="email" required>
+              <input class="pl-input-step-field" id="plInputStepEmail" maxlength="254" aria-label="Email address" type="email" placeholder="you@company.com" autocomplete="email" required>
               <button class="pl-btn-step-next" id="plBtnEmailNext" type="submit">
                 <span>Next</span>
                 <span aria-hidden="true">&rarr;</span>
@@ -766,7 +768,7 @@ export class ChatbotService {
           err.textContent = '';
           const val = input.value.trim();
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!val || !emailRegex.test(val)) {
+          if (!val || val.length > 254 || !emailRegex.test(val)) {
             err.textContent = 'Please enter a valid work email address.';
             input.focus();
             return;
@@ -794,7 +796,7 @@ export class ChatbotService {
         card.innerHTML = `
           <form class="pl-input-step-form" id="plFormStepDetails" novalidate>
             <div class="pl-form-group">
-              <textarea class="pl-input-step-field pl-input-step-textarea" id="plInputStepNotes" aria-label="Project notes" rows="2" placeholder="Tell us a little about your project (optional)"></textarea>
+              <textarea class="pl-input-step-field pl-input-step-textarea" id="plInputStepNotes" maxlength="10000" aria-label="Project notes" rows="2" placeholder="Tell us a little about your project (optional)"></textarea>
             </div>
 
             <div class="pl-form-checkbox-row">
@@ -847,6 +849,13 @@ export class ChatbotService {
           }
 
           const notesVal = notesInput.value.trim();
+          if (notesVal.length > 10000) {
+            statusMsg.style.display = 'block';
+            statusMsg.className = 'pl-form-status pl-status-error';
+            statusMsg.textContent = 'Please keep project notes within 10,000 characters.';
+            notesInput.focus();
+            return;
+          }
           this.state.answers.notes = notesVal;
           this.state.answers.consent = consentInput.checked;
 
@@ -860,7 +869,7 @@ export class ChatbotService {
             formData.append('service', this.state.answers.service);
             formData.append('stage', this.state.answers.stage);
             formData.append('timeline', this.state.answers.timeline);
-            formData.append('_subject', `New Project Inquiry: ${this.state.answers.service} | ${this.state.answers.name}`);
+            formData.append('subject', `New Project Inquiry: ${this.state.answers.service} | ${this.state.answers.name}`);
             formData.append('message', `[PrimeLoft Project Guide Submission]
 Service: ${this.state.answers.service}
 Details: ${this.state.answers.stage}
@@ -869,17 +878,9 @@ Client Name: ${this.state.answers.name}
 Client Email: ${this.state.answers.email}
 Client Notes: ${notesVal || 'None provided'}`);
 
-            const endpoint = 'https://formspree.io/f/xeajqqoy';
-            const response = await fetch(endpoint, {
-              method: 'POST',
-              signal: AbortSignal.timeout(20000),
-              body: formData,
-              headers: {
-                'Accept': 'application/json'
-              }
-            });
+            const { success } = await submitWeb3Form(formData);
 
-            if (response.ok) {
+            if (success) {
               this.state.submitted = true;
               card.remove();
               if (notesVal) {
@@ -890,11 +891,10 @@ Client Notes: ${notesVal || 'None provided'}`);
               this.state.step = 6;
               this.renderCurrentStep();
             } else {
-              const result = await response.json().catch(() => ({}));
-              throw new Error(result.error || 'Submission failed. Please try again or email contact@primeloft.tech');
+              throw new Error('Submission failed. Please try again or email contact@primeloft.tech');
             }
           } catch (err) {
-            console.warn('Chatbot Formspree submission error:', err);
+            console.warn('Project guide submission error:', err);
             statusMsg.style.display = 'block';
             statusMsg.className = 'pl-form-status pl-status-error';
             statusMsg.textContent = err.message || 'Could not send details right now. You can also reach us directly at contact@primeloft.tech.';
