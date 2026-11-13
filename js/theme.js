@@ -49,7 +49,7 @@ if (serviceMotionPage) {
 // Extend the motion language across home, about, contact and every service page.
 const siteCards = document.querySelectorAll('main article, main .pl-step, main .pl-plan, main .pl-head, main .service-definition > .pl-wrap, main .about-capabilities__rows > *, main .agency-client-feature');
 siteCards.forEach((card, index) => {
-  if (card.hasAttribute('data-reveal-direction') || card.parentElement.closest('[data-reveal]') || card.closest('[role="tabpanel"]')) return;
+  if (card.querySelector('[data-reveal]') || card.hasAttribute('data-reveal-direction') || card.parentElement.closest('[data-reveal]') || card.closest('[role="tabpanel"]')) return;
   card.setAttribute('data-reveal', '');
   card.dataset.revealDirection = index % 2 ? 'right' : 'left';
   card.style.setProperty('--reveal-delay', `${index % 3 * 90}ms`);
@@ -76,6 +76,12 @@ document.querySelectorAll('.pl-footer__mark').forEach(mark => {
   observer.observe(frame);
 });
 
+document.querySelectorAll('.pl-page-services [data-reveal], .pl-hero [data-reveal], .contact-story[data-reveal]').forEach(el => {
+  el.removeAttribute('data-reveal');
+  el.removeAttribute('data-reveal-direction');
+  el.style.removeProperty('--reveal-delay');
+  el.classList.add('is-in');
+});
 const revealEls = document.querySelectorAll('[data-reveal]');
 if ('IntersectionObserver' in window && !reduceMotion) {
   const revealObserver = new IntersectionObserver(entries => {

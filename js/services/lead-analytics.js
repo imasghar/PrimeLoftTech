@@ -4,14 +4,14 @@ const state = window[STATE_KEY] ||= { initialized: false, responses: new WeakSet
 
 function analyticsAllowed() {
   if (typeof window.gtag !== 'function' || window[`ga-disable-${MEASUREMENT_ID}`] === true || navigator.globalPrivacyControl === true) return false;
-  // No CMP currently exists. Honor explicit Google consent commands if introduced.
+  // Require the visitor to opt in through the cookie controls.
   let analyticsStorage;
   for (const command of window.dataLayer || []) {
     if (command?.[0] === 'consent' && ['default', 'update'].includes(command[1]) && command[2]?.analytics_storage) {
       analyticsStorage = command[2].analytics_storage;
     }
   }
-  return analyticsStorage !== 'denied';
+  return analyticsStorage === 'granted';
 }
 
 function track(name) {

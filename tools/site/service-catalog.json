@@ -1,0 +1,67 @@
+[
+  {
+    "id": "design",
+    "name": "UI/UX Design",
+    "url": "service-design.html"
+  },
+  {
+    "id": "engineering",
+    "name": "Website & Software Development",
+    "url": "service-engineering.html"
+  },
+  {
+    "id": "mobile",
+    "name": "Mobile App Development",
+    "url": "service-mobile-app-development.html"
+  },
+  {
+    "id": "seo",
+    "name": "SEO Services",
+    "url": "service-seo.html"
+  },
+  {
+    "id": "ai",
+    "name": "AI & Automation",
+    "url": "service-ai.html"
+  },
+  {
+    "id": "cloud",
+    "name": "Cloud & DevOps",
+    "url": "service-cloud.html"
+  },
+  {
+    "id": "quality",
+    "name": "Software Testing & QA",
+    "url": "service-quality.html"
+  },
+  {
+    "id": "maintenance",
+    "name": "Maintenance & Support",
+    "url": "service-maintenance.html"
+  },
+  {
+    "id": "wordpress",
+    "name": "WordPress Development",
+    "url": "service-wordpress.html"
+  },
+  {
+    "id": "squarespace",
+    "name": "Squarespace Development",
+    "url": "service-squarespace.html"
+  },
+  {
+    "id": "strategy",
+    "name": "Product Strategy",
+    "url": "service-strategy.html"
+  },
+  {
+    "id": "ecommerce",
+    "name": "E-commerce Development",
+    "url": "service-ecommerce.html"
+  },
+  {
+    "id": "integrations",
+    "name": "API Integration",
+    "url": "service-integrations.html"
+  }
+]

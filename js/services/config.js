@@ -13,7 +13,7 @@ export const CONFIG = {
   CONTACT_EMAIL: 'contact@primeloft.tech',
   CONTACT_PHONE: '+923359873132',
   ADDRESS: {
-    streetAddress: 'GardenTown, Multan Road',
+    streetAddress: 'Garden Town, Multan Road',
     addressLocality: 'Dera Ghazi Khan',
     addressRegion: 'Punjab',
     postalCode: '32200',

@@ -14,17 +14,20 @@ This file is a concise guide to the public website. The linked pages provide ser
 ## Services
 
 - [Services overview](https://primeloft.tech/services.html): Explore the available services.
-- [UI/UX design](https://primeloft.tech/service-design.html): Interface design, wireframes and prototypes for websites, mobile apps and software products.
-- [Digital product strategy](https://primeloft.tech/service-strategy.html): Product discovery, platform selection, technical feasibility and development roadmaps.
-- [Website and software development](https://primeloft.tech/service-engineering.html): Custom websites, web applications and business software.
-- [Mobile app development](https://primeloft.tech/service-mobile-app-development.html): iOS, Android and cross-platform applications, including API integration and support.
-- [SEO](https://primeloft.tech/service-seo.html): Technical SEO, on-page optimization, keyword research and website audits.
-- [AI and automation](https://primeloft.tech/service-ai.html): Business workflow automation, API integrations and AI-assisted tasks.
-- [Cloud engineering and DevOps](https://primeloft.tech/service-cloud.html): Cloud infrastructure, deployment automation, CI/CD pipelines and monitoring.
-- [Software testing and QA](https://primeloft.tech/service-quality.html): Functional testing, regression testing, test automation and API testing.
-- [Website and software maintenance](https://primeloft.tech/service-maintenance.html): Updates, bug fixes and ongoing technical support.
-- [WordPress development](https://primeloft.tech/service-wordpress.html): WordPress development, redesigns, WooCommerce and ongoing support.
-- [Squarespace design and development](https://primeloft.tech/service-squarespace.html): Website design, customization, redesigns and support.
+- [UI/UX Design](https://primeloft.tech/service-design.html): Interface design, wireframes and prototypes for websites, mobile apps and software products.
+- [Product Strategy](https://primeloft.tech/service-strategy.html): Product discovery, platform selection, technical feasibility and development roadmaps.
+- [Website & Software Development](https://primeloft.tech/service-engineering.html): Custom websites, web applications and business software.
+- [Mobile App Development](https://primeloft.tech/service-mobile-app-development.html): iOS, Android and cross-platform applications, including API integration and support.
+- [SEO Services](https://primeloft.tech/service-seo.html): Technical SEO, on-page optimization, keyword research and website audits.
+- [AI & Automation](https://primeloft.tech/service-ai.html): Business workflow automation, API integrations and AI-assisted tasks.
+- [Cloud & DevOps](https://primeloft.tech/service-cloud.html): Cloud infrastructure, deployment automation, CI/CD pipelines and monitoring.
+- [Software Testing & QA](https://primeloft.tech/service-quality.html): Functional testing, regression testing, test automation and API testing.
+- [Maintenance & Support](https://primeloft.tech/service-maintenance.html): Updates, bug fixes and ongoing technical support.
+- [WordPress Development](https://primeloft.tech/service-wordpress.html): WordPress development, redesigns, WooCommerce and ongoing support.
+- [Squarespace Development](https://primeloft.tech/service-squarespace.html): Website design, customization, redesigns and support.
+
+- [E-commerce Development](https://primeloft.tech/service-ecommerce.html): Storefronts, checkout, payments and order workflows.
+- [API Integration](https://primeloft.tech/service-integrations.html): Connected business tools, APIs and webhooks.
 
 ## Contact
 

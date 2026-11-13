@@ -2113,7 +2113,7 @@ body.pl .pl-footer__services ul {
   gap: 2px 20px;
 }
 body.pl .pl-footer__company ul { gap: 2px; }
-body.pl .pl-footer li a {
+body.pl .pl-footer :is(li, .pl-footer__legal) a {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -2128,7 +2128,7 @@ body.pl .pl-footer li a {
   text-decoration: none;
   transition: color .2s ease;
 }
-body.pl .pl-footer li a::before {
+body.pl .pl-footer :is(li, .pl-footer__legal) a::before {
   content: '';
   position: absolute;
   left: 0;
@@ -2140,7 +2140,7 @@ body.pl .pl-footer li a::before {
   transform-origin: left;
   transition: transform .2s ease;
 }
-body.pl .pl-footer li a::after {
+body.pl .pl-footer :is(li, .pl-footer__legal) a::after {
   content: '';
   flex: 0 0 11px;
   width: 11px;
@@ -2152,17 +2152,15 @@ body.pl .pl-footer li a::after {
   transform: translate(-3px, 3px);
   transition: opacity .2s ease, transform .2s ease;
 }
-body.pl .pl-footer li a:hover,
-body.pl .pl-footer li a:focus-visible { color: #1554F6; }
-body.pl .pl-footer li a:hover::before,
-body.pl .pl-footer li a:focus-visible::before { transform: scaleX(1); }
-body.pl .pl-footer li a:hover::after,
-body.pl .pl-footer li a:focus-visible::after { opacity: 1; transform: none; }
+body.pl .pl-footer :is(li, .pl-footer__legal) a:hover,
+body.pl .pl-footer :is(li, .pl-footer__legal) a:focus-visible { color: #1554F6; }
+body.pl .pl-footer :is(li, .pl-footer__legal) a:hover::before,
+body.pl .pl-footer :is(li, .pl-footer__legal) a:focus-visible::before { transform: scaleX(1); }
+body.pl .pl-footer :is(li, .pl-footer__legal) a:hover::after,
+body.pl .pl-footer :is(li, .pl-footer__legal) a:focus-visible::after { opacity: 1; transform: none; }
 body.pl .pl-footer a:focus-visible { outline: 2px solid #1554F6; outline-offset: 4px; border-radius: 3px; }
 body.pl .pl-footer address { font-size: 13px; gap: 12px; }
 body.pl .pl-footer address a { width: fit-content; max-width: 100%; font-size: 13px; overflow-wrap: anywhere; transition: color .2s ease; }
-body.pl .pl-footer__legal a { text-underline-offset: 4px; text-decoration-color: transparent; transition: color .2s ease, text-decoration-color .2s ease; }
-body.pl .pl-footer__legal a:hover { color: #1554F6; text-decoration: underline; }
 @media (max-width: 1000px) {
   body.pl .pl-footer__top { grid-template-columns: 1fr 1fr; grid-template-areas: "brand contact" "company services"; gap: 36px 32px; }
 }
@@ -2170,12 +2168,12 @@ body.pl .pl-footer__legal a:hover { color: #1554F6; text-decoration: underline; 
   body.pl .pl-footer__top { grid-template-areas: "brand brand" "company contact" "services services"; gap: 30px 20px; }
   body.pl .pl-footer__services ul { gap: 2px 24px; }
   body.pl .pl-footer h3 { margin-bottom: 12px; }
-  body.pl .pl-footer li a { min-height: 40px; }
+  body.pl .pl-footer :is(li, .pl-footer__legal) a { min-height: 40px; }
   body.pl .pl-footer address { font-size: 12px; }
   body.pl .pl-footer address a { font-size: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  body.pl .pl-footer li a, body.pl .pl-footer li a::before, body.pl .pl-footer li a::after { transition: none; }
+  body.pl .pl-footer :is(li, .pl-footer__legal) a, body.pl .pl-footer :is(li, .pl-footer__legal) a::before, body.pl .pl-footer :is(li, .pl-footer__legal) a::after { transition: none; }
 }
 
 /* Give footer column headings a clear hierarchy above their links. */

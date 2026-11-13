@@ -25,3 +25,16 @@ The browser suite requires localhost:8767 and the dedicated debug port 9346. It 
 Results are written to tools/qa-results/web3forms-browser-tests.json. Tests and QA evidence are excluded from public releases. Browser tests inspect synthetic reserved-domain data only and do not dump form payloads or the configured public key.
 
 These are client-side tests, not a penetration test of Web3Forms or evidence of inbox delivery. A separate authorized real submission and account-side checks are needed for those.
+
+## Site consistency, footer and consent checks
+
+With the same local server and dedicated Chrome instance running:
+
+    node tools/tests/site-consistency-browser.test.mjs
+
+This suite checks all active pages at four widths, service labels and icons,
+the five lower-footer hover states, Contact alignment, new service metadata and
+FAQs, legal sidebars, the ARC favicon, and consent behavior including disabled
+storage and Global Privacy Control. Run browser suites sequentially because
+they share the dedicated Chrome tab. Results are in
+`tools/qa-results/site-consistency-browser.json`.

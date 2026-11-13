@@ -3,6 +3,7 @@ body.pl-page-contact .pl-chat-prompt-card { display:none !important; }
 body.pl.pl-page-contact section.contact-intro { padding:48px 0 64px !important; background:radial-gradient(ellipse at 0 0,#edf3ff,transparent 60%); }
 .contact-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.12fr); gap:clamp(40px,7vw,112px); align-items:start; }
 .contact-story { padding-top:22px; }
+body.pl-page-contact .contact-response-promise { max-width:480px; margin:24px 0 0; padding:14px 16px; border:1px solid #dce5f5; border-radius:12px; background:#f4f7ff; color:#46546a; font-size:14px; line-height:1.65; }
 body.pl-page-contact .contact-eyebrow { color:#1554f6; font-size:11px; font-weight:600; letter-spacing:.14em; margin:0 0 24px; }
 body.pl-page-contact .contact-story h1 { font-size:clamp(44px,5vw,76px); line-height:1.06; letter-spacing:-.055em; font-weight:500; color:#101c46; margin:0; }
 .contact-story h1 span { color:#1554f6; }
