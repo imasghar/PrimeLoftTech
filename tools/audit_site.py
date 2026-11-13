@@ -19,7 +19,7 @@ for name,tags in pages.items():
         for key in ['src','href']:
             url=a.get(key,''); parsed=urlsplit(url)
             if not url or parsed.scheme or parsed.netloc: continue
-            target=ROOT / (unquote(parsed.path) or name)
+            target=ROOT / (unquote(parsed.path).lstrip('/') or name)
             if not target.exists(): errors.append(f'{name}: missing {url}')
             elif parsed.fragment and target.name in pages:
                 ids={x.get('id') for _,x in pages[target.name]}

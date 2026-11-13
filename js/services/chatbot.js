@@ -1,7 +1,7 @@
 /**
  * PrimeLoft Tech - PrimeLoft Guide (Rule-Based Interactive Chatbot)
  * Features:
- * - Floating prompt teaser card ("Not sure which service you need?")
+ * - Opens only when the visitor activates the floating launcher
  * - Concentric ring launcher button with speech bubble icon
  * - Multi-step interactive diagnostic questionnaire
  * - Services match the current header and footer catalog, with an optional custom inquiry.
@@ -20,7 +20,7 @@ import { submitWeb3Form } from './form-submission.js?v=1.0.0';
 export class ChatbotService {
   static services = [
   {
-    "label": "UX/UI",
+    "label": "UI/UX Design",
     "question": "What kind of design help do you need?",
     "options": [
       "UX research or an audit",
@@ -30,7 +30,7 @@ export class ChatbotService {
     "guidance": "We can scope research, user flows, wireframes, interactive prototypes and design systems."
   },
   {
-    "label": "Custom Website",
+    "label": "Website & Software Development",
     "question": "What would you like your website to do?",
     "options": [
       "Business website or landing page",
@@ -40,7 +40,7 @@ export class ChatbotService {
     "guidance": "We can plan responsive pages, content structure, functionality and the development approach."
   },
   {
-    "label": "Mobile Application",
+    "label": "Mobile App Development",
     "question": "What do you need for your mobile application?",
     "options": [
       "New iOS and Android application",
@@ -50,7 +50,7 @@ export class ChatbotService {
     "guidance": "We can review your core app journeys, target platforms and the features needed for your next release."
   },
   {
-    "label": "SEO",
+    "label": "SEO Services",
     "question": "Where do you need help with search visibility?",
     "options": [
       "Technical SEO audit",
@@ -61,7 +61,7 @@ export class ChatbotService {
     "guidance": "We can review technical issues, page content and search priorities before proposing an SEO scope."
   },
   {
-    "label": "Automation",
+    "label": "AI & Automation",
     "question": "What would you like to automate?",
     "options": [
       "Repetitive business workflows",
@@ -71,7 +71,7 @@ export class ChatbotService {
     "guidance": "We can map the current process, integrations and approval steps to identify a practical automation approach."
   },
   {
-    "label": "DevOps",
+    "label": "Cloud & DevOps",
     "question": "Which part of your delivery setup needs attention?",
     "options": [
       "CI/CD and automated deployments",
@@ -81,7 +81,7 @@ export class ChatbotService {
     "guidance": "We can review your deployment workflow, infrastructure and monitoring needs to define the right DevOps scope."
   },
   {
-    "label": "Testing & QA",
+    "label": "Software Testing & QA",
     "question": "What would you like us to test?",
     "options": [
       "Website or mobile app testing",
@@ -91,7 +91,7 @@ export class ChatbotService {
     "guidance": "We can define test coverage, priority user journeys and a reporting approach for your product."
   },
   {
-    "label": "Maintenance",
+    "label": "Maintenance & Support",
     "question": "What kind of ongoing support do you need?",
     "options": [
       "Bug fixes and troubleshooting",
@@ -101,7 +101,7 @@ export class ChatbotService {
     "guidance": "We can review your existing product and agree the support tasks, priorities and maintenance arrangement."
   },
   {
-    "label": "WordPress",
+    "label": "WordPress Development",
     "question": "What do you need for your WordPress website?",
     "options": [
       "New WordPress website",
@@ -111,7 +111,7 @@ export class ChatbotService {
     "guidance": "We can scope your WordPress pages, theme needs, integrations and ongoing management requirements."
   },
   {
-    "label": "Squarespace",
+    "label": "Squarespace Development",
     "question": "What do you need for your Squarespace website?",
     "options": [
       "New Squarespace website",
@@ -119,7 +119,10 @@ export class ChatbotService {
       "Content migration or store setup"
     ],
     "guidance": "We can review your content, layout and Squarespace setup to plan a website that fits your requirements."
-  }
+  },
+{"label": "Product Strategy", "question": "What do you need help with?", "options": ["Product discovery", "MVP scope and priorities", "Product roadmap"], "guidance": "We can review your goals, existing systems and constraints before agreeing a scope."},
+{"label": "E-commerce Development", "question": "What do you need help with?", "options": ["New online store", "Improve checkout or catalog", "Store migration"], "guidance": "We can review your goals, existing systems and constraints before agreeing a scope."},
+{"label": "API Integration", "question": "What do you need help with?", "options": ["Connect business tools", "Build an API or webhook", "Improve an existing integration"], "guidance": "We can review your goals, existing systems and constraints before agreeing a scope."}
 ];
 
   static escapeHtml(value) {
@@ -157,25 +160,6 @@ export class ChatbotService {
     root.id = 'plChatWidget';
     root.className = 'pl-chat-widget';
     root.innerHTML = `
-      <!-- Prompt Callout Card -->
-      <div class="pl-chat-prompt-card" id="plChatPromptCard">
-        <div class="pl-prompt-header">
-          <div class="pl-prompt-bot-wrap">
-            <div class="pl-prompt-bot" id="plPromptBot" aria-hidden="true">${guideIcon}</div>
-            <span class="pl-prompt-pulse"></span>
-          </div>
-          <div class="pl-prompt-header-text">
-            <span class="pl-prompt-kicker">PrimeLoft Guide</span>
-            <h4 class="pl-prompt-title">Not sure which service you need?</h4>
-          </div>
-        </div>
-        <p class="pl-prompt-desc">Answer a few quick questions and I'll point you to the right team.</p>
-        <div class="pl-prompt-actions">
-          <button class="pl-prompt-btn-go" id="plPromptGo" type="button">Let's go</button>
-          <button class="pl-prompt-btn-dismiss" id="plPromptDismiss" type="button">Not now</button>
-        </div>
-      </div>
-
       <!-- Floating launcher with a static brand icon -->
       <button class="pl-chat-launcher" id="plChatLauncher" type="button" aria-label="Open PrimeLoft Project Guide" aria-controls="plChatWindow" aria-expanded="false">
         <span class="pl-chat-launcher-ring" aria-hidden="true">
@@ -234,38 +218,15 @@ export class ChatbotService {
     `;
 
     document.body.appendChild(root);
-
-    // Check if prompt was previously dismissed in session
-    if (sessionStorage.getItem('pl-guide-prompt-dismissed') === 'true') {
-      const promptCard = document.getElementById('plChatPromptCard');
-      if (promptCard) promptCard.style.display = 'none';
-    }
   }
 
   static bindEvents() {
     const launcher = document.getElementById('plChatLauncher');
     const closeBtn = document.getElementById('plChatClose');
     const restartBtn = document.getElementById('plChatRestart');
-    const promptGo = document.getElementById('plPromptGo');
-    const promptDismiss = document.getElementById('plPromptDismiss');
-
     if (launcher) {
       launcher.addEventListener('click', () => {
-        this.dismissPromptCard();
         this.toggleChat();
-      });
-    }
-
-    if (promptGo) {
-      promptGo.addEventListener('click', () => {
-        this.dismissPromptCard();
-        this.openChat();
-      });
-    }
-
-    if (promptDismiss) {
-      promptDismiss.addEventListener('click', () => {
-        this.dismissPromptCard();
       });
     }
 
@@ -307,21 +268,6 @@ export class ChatbotService {
     });
   }
 
-  static dismissPromptCard() {
-    const card = document.getElementById('plChatPromptCard');
-    if (card) {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(10px) scale(0.95)';
-      card.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
-      setTimeout(() => {
-        card.style.display = 'none';
-      }, 200);
-    }
-    try {
-      sessionStorage.setItem('pl-guide-prompt-dismissed', 'true');
-    } catch (_) {}
-  }
-
   static toggleChat() {
     if (this.state.isOpen) {
       this.closeChat();
@@ -332,7 +278,6 @@ export class ChatbotService {
 
   static openChat() {
     this.state.isOpen = true;
-    this.dismissPromptCard();
     const win = document.getElementById('plChatWindow');
     const launcher = document.getElementById('plChatLauncher');
     if (win) {

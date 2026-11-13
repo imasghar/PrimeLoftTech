@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "checks": [
+    "analytics stays unloaded before consent; Guide is button only",
+    "hero has readable contrast and no heading entrance animation",
+    "cookie card retains spacing and accessible touch targets",
+    "reject persists across pages and settings can reopen",
+    "accept loads analytics once; withdrawal disables it and removes cookies",
+    "all 13 service names agree across nav, footer, cards, schema, Contact and Guide",
+    "Guide opens on click, closes on Escape and returns focus",
+    "services are stable across reloads and maintenance copy is not duplicated",
+    "Cookie settings and all four legal links match service-link hover underline and arrow",
+    "mobile, tablet and desktop remain within viewport",
+    "every active page has 13 menu icons, one cookie link, working images and responsive layout",
+    "Contact text and service rows have no residual reveal transform",
+    "expanded service pages have unique metadata, matching schema, substantive scope and working FAQs",
+    "legal pages reuse the SEO sidebar, section links, collapse and active-section behavior",
+    "Global Privacy Control keeps analytics disabled even after Accept",
+    "blocked browser storage does not break consent or the Guide",
+    "ARC favicon is a 512px PNG and the homepage references its refreshed URL"
+  ],
+  "externalRequestsIntercepted": true,
+  "errors": []
+}

@@ -23,7 +23,7 @@ if ('IntersectionObserver' in window) {
   }, { threshold: .1 });
   cards.forEach(card => observer.observe(card));
 }
-document.querySelectorAll('.agency-hero .pl-hero__inner > *, .agency-hero-art').forEach((element, index) => enter(element, index * 95));
+document.querySelectorAll('.agency-hero-art').forEach((element, index) => enter(element, index * 95));
 
 // Pointer motion stays on decorative cards; it does not change scrolling or focus.
 document.querySelectorAll('.agency-tech-grid li, .agency-hero-art').forEach(card => {

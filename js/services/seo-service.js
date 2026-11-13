@@ -47,7 +47,7 @@ export class SeoService {
       },
       "sameAs": [
         "https://www.linkedin.com/company/primloft/",
-        "https://www.facebook.com/share/1UUv6vvFdu/",
+        "https://www.facebook.com/profile.php?id=61595467045536",
         "https://wa.me/923359873132"
       ]
     };
