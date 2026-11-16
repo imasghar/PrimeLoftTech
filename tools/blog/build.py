@@ -1,6 +1,7 @@
 """Render the supplied Drive drafts as crawlable static blog pages."""
 from pathlib import Path
 import html
+import hashlib
 import json
 import re
 import sys
@@ -11,6 +12,7 @@ import markdown
 
 SITE = 'https://primeloft.tech'
 DATE = '2026-11-16'
+BLOG_CSS_VERSION = hashlib.sha256((ROOT / 'css/blog.css').read_text(encoding='utf-8').encode()).hexdigest()[:12]
 POSTS = [
     dict(source='cost', slug='small-business-website-cost-2026', category='Pricing guides',
          image='blog-01-cost-hero.webp',
@@ -54,7 +56,7 @@ def page(title, description, path, main, graph, image=None, alt=None):
         h = h.replace('content="1200"', 'content="2352"').replace('content="630"', 'content="1008"')
         h = h.replace('content="image/png"', 'content="image/webp"').replace('content="PrimeLoft Tech logo"', 'content="' + esc(alt) + '"')
         h += f'\n  <meta property="article:published_time" content="{DATE}T09:00:00+05:00">\n  <meta property="article:author" content="PrimeLoft Tech">\n'
-    h += '\n  <link rel="stylesheet" href="/css/blog.css?v=1.0.1">\n'
+    h += f'\n  <link rel="stylesheet" href="/css/blog.css?v={BLOG_CSS_VERSION}">\n'
     graph.insert(0, {'@type': 'Organization', '@id': SITE + '/#organization', 'name': 'PrimeLoft Tech', 'url': SITE + '/', 'logo': {'@type': 'ImageObject', 'url': SITE + '/images/primeloft-arc-logo-512.webp'}})
     h += '<script type="application/ld+json" id="org-schema">' + json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False).replace('</', '<\\/') + '</script>\n'
     return '<!DOCTYPE html>\n<html lang="en" data-theme="light">\n<head>' + root_paths(h) + '</head>\n<body class="pl pl-page-blog">\n<a class="pl-skip" href="#main-content">Skip to content</a>\n' + root_paths(header) + '\n<div class="pl-top-space" aria-hidden="true"></div>\n<main id="main-content">' + main + '</main>\n' + root_paths(footer) + '\n</body>\n</html>\n'
