@@ -41,12 +41,6 @@ body.pl-page-blog .blog-list { padding: 0 0 96px; }
 .blog-hero-image { margin: 0 0 56px; border-radius: 18px; overflow: hidden; background: #edf2ff; }
 .blog-hero-image img { display: block; width: 100%; height: auto; aspect-ratio: 7 / 3; object-fit: cover; }
 .blog-reading-layout { display: grid; grid-template-columns: 230px minmax(0, 760px); justify-content: space-between; gap: 48px; align-items: start; }
-.blog-toc { position: sticky; top: 112px; max-height: calc(100dvh - 140px); overflow-y: auto; font-size: 12px; line-height: 1.6; padding-right: 12px; }
-.blog-toc summary { color: #0b123b; font-size: 14px; font-weight: 650; cursor: pointer; margin-bottom: 18px; }
-.blog-toc ul { list-style: none; padding: 0 0 0 14px; margin: 0; border-left: 1px solid #dce3ef; }
-.blog-toc li + li { margin-top: 13px; }
-.blog-toc a { text-decoration: none; color: #56617b; }
-.blog-toc a:hover { color: #1554f6; text-decoration: underline; }
 .blog-prose { min-width: 0; color: #3e4c63; font-size: 17px; line-height: 1.85; overflow-wrap: break-word; }
 .blog-prose > p:first-child { font-size: 20px; color: #263451; line-height: 1.75; }
 .blog-prose p { margin: 0 0 24px; }
@@ -76,12 +70,11 @@ body.pl-page-blog section.blog-related { padding: 40px !important; border: 1px s
 .blog-all-link { color: #46546a; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 10px; padding: 12px 0; }
 .blog-all-link:hover { color: #1554f6; }
 .pl-page-blog a:focus-visible, .blog-table:focus-visible, .blog-toc summary:focus-visible { outline: 2px solid #1554f6; outline-offset: 5px; }
-@media (max-width: 960px) {
+@media (max-width: 1100px) {
+  .blog-reading-layout { grid-template-columns: 185px minmax(0, 1fr); gap: 36px; }
+}
+@media (max-width: 900px) {
   .blog-reading-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; max-width: 760px; margin: 0 auto; }
-  .blog-toc { position: static; max-height: none; padding: 22px; background: #f7f9ff; border: 1px solid #e3e8f0; border-radius: 12px; }
-  .blog-toc nav { max-height: 240px; overflow-y: auto; }
-  .blog-toc summary { margin-bottom: 0; }
-  .blog-toc details[open] summary { margin-bottom: 16px; }
 }
 @media (max-width: 640px) {
   .blog-shell { width: calc(100% - 40px); }

@@ -51,6 +51,7 @@ def page(title, description, path, main, graph, image=None, alt=None):
     for name, value in [('og:title', title), ('twitter:title', title), ('og:description', description), ('twitter:description', description), ('og:url', SITE + path)]:
         h = re.sub(r'(<meta (?:property|name)="' + name + r'" content=")[^"]*', lambda m: m[1] + esc(value), h)
     if image:
+        h += '\n  <link rel="stylesheet" href="/css/seo.css?v=1.1.1">\n  <script type="module" src="/js/seo.js?v=1.1.0"></script>\n'
         h = h.replace('content="website"', 'content="article"')
         h = h.replace(SITE + '/images/primeloft-social-20261103.png', SITE + '/images/blog/' + image)
         h = h.replace('content="1200"', 'content="2352"').replace('content="630"', 'content="1008"')
@@ -95,7 +96,7 @@ for post in POSTS:
     rendered = rendered.replace('<table>', '<div class="blog-table" role="region" aria-label="Website cost comparison" tabindex="0"><table>').replace('</table>', '</table></div>')
     post['minutes'] = max(1, round(len(re.findall(r'\b\w+\b', body)) / 220))
     post['rendered'] = rendered
-    post['toc'] = '<ul>' + ''.join('<li><a href="#' + esc(t['id']) + '">' + t['name'] + '</a></li>' for t in md.toc_tokens if t['level'] == 2) + '</ul>'
+    post['toc'] = ''.join('<a href="#' + esc(t['id']) + '">' + t['name'] + '</a>' for t in md.toc_tokens if t['level'] == 2)
 
 def card(post, number):
     url = '/blog/' + post['slug'] + '/'
@@ -107,7 +108,7 @@ for i, post in enumerate(POSTS):
     main = '<div class="blog-shell"><nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog/">Blog</a><span aria-hidden="true">/</span><span>' + esc(post['category']) + '</span></nav>'
     main += f'<div class="blog-article-head"><span class="blog-kicker">{esc(post["category"])}</span><h1>{esc(post["title"])}</h1><div class="blog-byline"><span>By PrimeLoft Tech</span><time datetime="{DATE}">16 November 2026</time><span>{post["minutes"]} min read</span></div></div>'
     main += '<figure class="blog-hero-image"><img src="/images/blog/' + post['image'] + '" alt="' + esc(post['alt']) + '" width="2352" height="1008" fetchpriority="high" decoding="async"></figure>'
-    main += '<div class="blog-reading-layout"><aside class="blog-toc"><details open><summary>On this page</summary><nav aria-label="Article contents">' + post['toc'] + '</nav></details></aside><article class="blog-prose">' + post['rendered'] + '</article></div>'
+    main += '<div class="blog-reading-layout"><aside class="blog-toc seo-reading-aside"><details class="seo-index" open><summary>On this page <span aria-hidden="true">&#8964;</span></summary><nav aria-label="Article contents">' + post['toc'] + '</nav></details><a class="seo-aside-link" href="/contact.html?service=seo">Have a website to review? <span aria-hidden="true">&#8599;</span></a></aside><article class="blog-prose">' + post['rendered'] + '</article></div>'
     main += '<section class="blog-related" aria-labelledby="relatedTitle"><div><span class="blog-kicker">Keep reading</span><h2 id="relatedTitle"><a href="/blog/' + other['slug'] + '/">' + esc(other['title']) + '</a></h2><p>' + esc(other['summary']) + '</p><div class="blog-related-actions"><a class="pl-btn pl-btn--dark blog-related-link" href="/blog/' + other['slug'] + '/">Read next guide <span aria-hidden="true">&#8599;</span></a><a class="blog-all-link" href="/blog/">All articles <span aria-hidden="true">&#8599;</span></a></div></div></section></div>'
     article = {'@type': 'BlogPosting', '@id': SITE + path + '#article', 'headline': post['title'], 'description': post['description'], 'image': {'@type': 'ImageObject', 'url': SITE + '/images/blog/' + post['image'], 'width': 2352, 'height': 1008}, 'datePublished': DATE + 'T09:00:00+05:00', 'dateModified': DATE + 'T09:00:00+05:00', 'author': {'@type': 'Organization', '@id': SITE + '/#organization', 'name': 'PrimeLoft Tech', 'url': SITE + '/about.html'}, 'publisher': {'@id': SITE + '/#organization'}, 'mainEntityOfPage': {'@type': 'WebPage', '@id': SITE + path}, 'articleSection': post['category'], 'inLanguage': 'en', 'isPartOf': {'@id': SITE + '/blog/#blog'}}
     dest = ROOT / 'blog' / post['slug'] / 'index.html'

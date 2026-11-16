@@ -36,6 +36,14 @@ async function waitForPath(path) {
   throw new Error('Page did not initialize: '+path);
 }
 const paths = ['/blog/','/blog/small-business-website-cost-2026/','/blog/choose-web-design-agency-dera-ghazi-khan/'];
+const sidebarStyle = `(()=>{
+  const aside=getComputedStyle(document.querySelector('.seo-reading-aside'));
+  const index=getComputedStyle(document.querySelector('.seo-index'));
+  const summary=getComputedStyle(document.querySelector('.seo-index summary'));
+  const nav=getComputedStyle(document.querySelector('.seo-index nav'));
+  const link=getComputedStyle(document.querySelector('.seo-index nav a:not([aria-current])'));
+  return {position:aside.position,top:aside.top,border:index.borderTop,summaryPadding:summary.padding,summaryColor:summary.color,navDisplay:nav.display,font:link.fontSize,padding:link.padding,color:link.color};
+})()`;
 try {
   await call('Page.enable'); await call('Runtime.enable');
   await call('Fetch.enable',{patterns:[{urlPattern:'*'}]});
@@ -60,6 +68,12 @@ try {
   await waitForPath('/contact.html');
   assert(await ev(`!!document.querySelector('#contactForm')`));
   checks.push('Happy path: Home > Blog > cost guide > contents > hiring guide > SEO service > Blog > hiring guide > Contact');
+  const sidebarReferences={};
+  for (const width of [320,390,768,1440]) {
+    await call('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:width<650});
+    await navigate('/service-seo.html');
+    sidebarReferences[width]=await ev(sidebarStyle);
+  }
   for (const path of paths) {
     const res=await fetch(base+path); assert.equal(res.status,200);
     const source=await res.text();
@@ -77,7 +91,7 @@ try {
         active:document.querySelector('nav.primary a[aria-current="page"]')?.textContent.trim(),
         canonical:document.querySelector('link[rel="canonical"]').href,
         schema:JSON.parse(document.querySelector('#org-schema').textContent),
-        toc:[...document.querySelectorAll('.blog-toc a')].every(a=>document.getElementById(a.hash.slice(1))),
+        toc:[...document.querySelectorAll('.blog-toc nav a')].every(a=>document.getElementById(a.hash.slice(1))),
         blogLink:document.querySelector('.cookie-policy-link')?.getAttribute('href')
         , titlePosition:getComputedStyle(document.querySelector('.blog-index-head, .blog-article-head')).position
         , titleTop:document.querySelector('h1').getBoundingClientRect().top
@@ -101,6 +115,11 @@ try {
         legacy.replaceWith(original);return okay;
       })()`), 'Legacy heading markup inherits navbar positioning');
       if (path !== '/blog/') {
+        assert.deepEqual(await ev(sidebarStyle),sidebarReferences[width], 'Blog sidebar differs from the SEO service sidebar');
+        assert.equal(await ev(`document.querySelector('.seo-index').open`),width>900);
+        await ev(`document.querySelector('.seo-index summary').click()`);
+        assert.equal(await ev(`document.querySelector('.seo-index').open`),width<=900);
+        await ev(`document.querySelector('.seo-index summary').click()`);
         assert(await ev(`(()=>{
           const card=document.querySelector('.blog-related'), style=getComputedStyle(card);
           const bounds=card.getBoundingClientRect(), title=card.querySelector('h2').getBoundingClientRect();
