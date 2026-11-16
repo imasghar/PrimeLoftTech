@@ -101,6 +101,11 @@ try {
         legacy.replaceWith(original);return okay;
       })()`), 'Legacy heading markup inherits navbar positioning');
       if (path !== '/blog/') {
+        assert(await ev(`(()=>{
+          const card=document.querySelector('.blog-related'), style=getComputedStyle(card);
+          const bounds=card.getBoundingClientRect(), title=card.querySelector('h2').getBoundingClientRect();
+          return parseFloat(style.paddingLeft)>=24&&parseFloat(style.paddingTop)>=24&&title.left-bounds.left>=24&&!!card.querySelector('.blog-related-actions .pl-btn')&&!!card.querySelector('.blog-all-link');
+        })()`), 'Related article card has no usable padding or actions');
         assert(state.schema['@graph'].some(n=>n['@type']==='BlogPosting'));
         assert.equal(await ev(`document.querySelectorAll('.blog-inline-image img').length`),1);
         assert(await ev(`document.querySelector('.blog-prose').innerText.length>10000`));
