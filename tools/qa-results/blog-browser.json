@@ -13,7 +13,8 @@
     "/blog/choose-web-design-agency-dera-ghazi-khan/: 320px, readable content, images, metadata and navigation",
     "/blog/choose-web-design-agency-dera-ghazi-khan/: 390px, readable content, images, metadata and navigation",
     "/blog/choose-web-design-agency-dera-ghazi-khan/: 768px, readable content, images, metadata and navigation",
-    "/blog/choose-web-design-agency-dera-ghazi-khan/: 1440px, readable content, images, metadata and navigation"
+    "/blog/choose-web-design-agency-dera-ghazi-khan/: 1440px, readable content, images, metadata and navigation",
+    "Article starts level with sidebar; native index scrolling does not move the page"
   ],
   "errors": [],
   "externalRequestsIntercepted": true

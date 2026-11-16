@@ -47,7 +47,7 @@ if (serviceMotionPage) {
   });
 }
 // Extend the motion language across home, about, contact and every service page.
-const siteCards = document.querySelectorAll('main article, main .pl-step, main .pl-plan, main .pl-head, main .service-definition > .pl-wrap, main .about-capabilities__rows > *, main .agency-client-feature');
+const siteCards = document.querySelectorAll('main article:not(.blog-prose), main .pl-step, main .pl-plan, main .pl-head, main .service-definition > .pl-wrap, main .about-capabilities__rows > *, main .agency-client-feature');
 siteCards.forEach((card, index) => {
   if (card.querySelector('[data-reveal]') || card.hasAttribute('data-reveal-direction') || card.parentElement.closest('[data-reveal]') || card.closest('[role="tabpanel"]')) return;
   card.setAttribute('data-reveal', '');

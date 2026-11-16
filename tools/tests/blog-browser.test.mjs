@@ -115,6 +115,12 @@ try {
         legacy.replaceWith(original);return okay;
       })()`), 'Legacy heading markup inherits navbar positioning');
       if (path !== '/blog/') {
+        assert(await ev(`(()=>{
+          const prose=document.querySelector('.blog-prose'), layout=document.querySelector('.blog-reading-layout');
+          return !prose.hasAttribute('data-reveal')&&getComputedStyle(prose).transform==='none'&&prose.getAnimations().length===0&&
+            (innerWidth<=900||Math.abs(prose.getBoundingClientRect().top-layout.getBoundingClientRect().top)<2);
+        })()`), 'Article animation shifts the text below the sidebar');
+        assert(await ev(`document.querySelector('.blog-toc nav').hasAttribute('data-lenis-prevent')`));
         assert.deepEqual(await ev(sidebarStyle),sidebarReferences[width], 'Blog sidebar differs from the SEO service sidebar');
         assert.equal(await ev(`document.querySelector('.seo-index').open`),width>900);
         await ev(`document.querySelector('.seo-index summary').click()`);
@@ -149,6 +155,19 @@ try {
     const targets=await ev(`[...document.querySelectorAll('main a')].map(a=>new URL(a.href)).filter(u=>u.origin==='https://primeloft.tech'||u.origin===${JSON.stringify(base)}).map(u=>u.pathname)`);
     for (const target of new Set(targets)) assert.equal((await fetch(base+target)).status,200,target);
   }
+  await call('Emulation.setDeviceMetricsOverride',{width:1665,height:911,deviceScaleFactor:1,mobile:false});
+  await navigate(paths[1]);
+  await ev(`(()=>{document.documentElement.style.scrollBehavior='auto';const layout=document.querySelector('.blog-reading-layout');if(window.lenis)window.lenis.scrollTo(layout,{offset:-120,immediate:true});else scrollTo({top:layout.getBoundingClientRect().top+scrollY-120,behavior:'instant'});})()`);
+  await pause(500);
+  const before=await ev(`(()=>{const nav=document.querySelector('.blog-toc nav'),b=nav.getBoundingClientRect();nav.scrollTop=0;return {page:scrollY,x:b.x+30,y:b.y+40,scrollable:nav.scrollHeight>nav.clientHeight};})()`);
+  assert(before.scrollable, 'Sidebar wheel test requires the real overflowing index');
+  await call('Input.dispatchMouseEvent',{type:'mouseWheel',x:before.x,y:before.y,deltaX:0,deltaY:180});
+  await pause(400);
+  const after=await ev(`({page:scrollY,nav:document.querySelector('.blog-toc nav').scrollTop})`);
+  assert(after.nav>0&&Math.abs(after.page-before.page)<2, 'Index scroll mismatch: '+JSON.stringify({before,after}));
+  checks.push('Article starts level with sidebar; native index scrolling does not move the page');
+  const layoutShot=await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});
+  fs.writeFileSync('scratch/blog-preview/scroll-layout.png',Buffer.from(layoutShot.data,'base64'));
   assert.deepEqual(errors,[]);
   fs.writeFileSync('tools/qa-results/blog-browser.json',JSON.stringify({passed:true,checks,errors,externalRequestsIntercepted:true},null,2));
   console.log(`PASS: ${checks.length} responsive page checks, cross-links, mobile menu, article schema and images.`);
