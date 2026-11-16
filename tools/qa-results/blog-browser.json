@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "checks": [
+    "/blog/: 320px, readable content, images, metadata and navigation",
+    "/blog/: 390px, readable content, images, metadata and navigation",
+    "/blog/: 768px, readable content, images, metadata and navigation",
+    "/blog/: 1440px, readable content, images, metadata and navigation",
+    "/blog/small-business-website-cost-2026/: 320px, readable content, images, metadata and navigation",
+    "/blog/small-business-website-cost-2026/: 390px, readable content, images, metadata and navigation",
+    "/blog/small-business-website-cost-2026/: 768px, readable content, images, metadata and navigation",
+    "/blog/small-business-website-cost-2026/: 1440px, readable content, images, metadata and navigation",
+    "/blog/choose-web-design-agency-dera-ghazi-khan/: 320px, readable content, images, metadata and navigation",
+    "/blog/choose-web-design-agency-dera-ghazi-khan/: 390px, readable content, images, metadata and navigation",
+    "/blog/choose-web-design-agency-dera-ghazi-khan/: 768px, readable content, images, metadata and navigation",
+    "/blog/choose-web-design-agency-dera-ghazi-khan/: 1440px, readable content, images, metadata and navigation"
+  ],
+  "errors": [],
+  "externalRequestsIntercepted": true
+}

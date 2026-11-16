@@ -211,7 +211,7 @@ export class ChatbotService {
 
         <!-- Footer Actions Bar -->
         <div class="pl-chat-footer">
-          <span class="pl-footer-help">Prefer a person? <a href="contact.html" id="plFooterContactLink">Talk to the team</a></span>
+          <span class="pl-footer-help">Prefer a person? <a href="/contact.html" id="plFooterContactLink">Talk to the team</a></span>
           <button class="pl-footer-restart" id="plChatRestart" type="button">Restart</button>
         </div>
       </div>
@@ -748,7 +748,7 @@ export class ChatbotService {
               <label class="pl-checkbox-label">
                 <input type="checkbox" id="plInputStepConsent" class="pl-checkbox-input" checked required>
                 <span class="pl-checkbox-text">
-                  I agree to PrimeLoft contacting me about this enquiry. <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>
+                  I agree to PrimeLoft contacting me about this enquiry. <a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a>
                 </span>
               </label>
               <span class="pl-form-error" id="plErrorStepConsent" aria-live="polite"></span>

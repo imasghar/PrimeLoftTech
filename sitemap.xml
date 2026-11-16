@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://primeloft.tech/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -93,4 +93,16 @@
   <url><loc>https://primeloft.tech/service-squarespace.html</loc><lastmod>2026-11-03</lastmod></url>
 <url><loc>https://primeloft.tech/service-ecommerce.html</loc></url>
 <url><loc>https://primeloft.tech/service-integrations.html</loc></url>
+  <url>
+    <loc>https://primeloft.tech/blog/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://primeloft.tech/blog/small-business-website-cost-2026/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://primeloft.tech/blog/choose-web-design-agency-dera-ghazi-khan/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
 </urlset>

@@ -9,8 +9,9 @@ class Page(HTMLParser):
     def __init__(self): super().__init__(); self.tags=[]
     def handle_starttag(self, tag, attrs): self.tags.append((tag,dict(attrs)))
 pages={}; errors=[]
-for path in ROOT.glob('*.html'):
-    parser=Page(); parser.feed(path.read_text(encoding='utf-8')); pages[path.name]=parser.tags
+paths = list(ROOT.glob('*.html')) + list((ROOT/'blog').rglob('*.html'))
+for path in paths:
+    parser=Page(); parser.feed(path.read_text(encoding='utf-8')); pages[path.relative_to(ROOT).as_posix()]=parser.tags
 for name,tags in pages.items():
     for key,count in Counter(a['id'] for _,a in tags if 'id' in a).items():
         if count>1: errors.append(f'{name}: duplicate ID {key}')
@@ -18,13 +19,16 @@ for name,tags in pages.items():
         if tag=='img' and 'alt' not in a: errors.append(f'{name}: image missing alt')
         for key in ['src','href']:
             url=a.get(key,''); parsed=urlsplit(url)
-            if not url or parsed.scheme or parsed.netloc: continue
-            target=ROOT / (unquote(parsed.path).lstrip('/') or name)
+            if not url or (parsed.netloc and parsed.netloc != 'primeloft.tech') or (parsed.scheme and parsed.scheme not in ['http', 'https']): continue
+            base = ROOT if parsed.path.startswith('/') else (ROOT/name).parent
+            target = base / unquote(parsed.path).lstrip('/') if parsed.path else ROOT/name
+            if target.is_dir(): target = target/'index.html'
+            target_name = target.resolve().relative_to(ROOT).as_posix()
             if not target.exists(): errors.append(f'{name}: missing {url}')
-            elif parsed.fragment and target.name in pages:
-                ids={x.get('id') for _,x in pages[target.name]}
+            elif parsed.fragment and target_name in pages:
+                ids={x.get('id') for _,x in pages[target_name]}
                 if unquote(parsed.fragment) not in ids: errors.append(f'{name}: missing anchor {url}')
-    for block in re.findall(r'<script type="application/ld\+json">(.*?)</script>',(ROOT/name).read_text(encoding='utf-8'),re.S):
+    for block in re.findall(r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>',(ROOT/name).read_text(encoding='utf-8'),re.S):
         try: json.loads(block)
         except ValueError: errors.append(f'{name}: invalid JSON-LD')
 for path in (ROOT/'js').rglob('*.js'):

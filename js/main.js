@@ -6,7 +6,7 @@
 
 import { SeoService } from './services/seo-service.js?v=1.1.0';
 import { InertiaScrollService } from './services/inertia-scroll.js';
-import { ChatbotService } from './services/chatbot.js?v=4.3.0';
+import { ChatbotService } from './services/chatbot.js?v=4.3.1';
 import { FAQAccordion } from './services/faq-accordion.js';
 import { initLeadAnalytics, trackConfirmedLead } from './services/lead-analytics.js?v=1.1.0';
 

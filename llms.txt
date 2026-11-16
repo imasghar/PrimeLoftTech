@@ -29,6 +29,12 @@ This file is a concise guide to the public website. The linked pages provide ser
 - [E-commerce Development](https://primeloft.tech/service-ecommerce.html): Storefronts, checkout, payments and order workflows.
 - [API Integration](https://primeloft.tech/service-integrations.html): Connected business tools, APIs and webhooks.
 
+## Blog
+
+- [Blog](https://primeloft.tech/blog/): Website pricing and hiring guides.
+- [Small business website cost in 2026](https://primeloft.tech/blog/small-business-website-cost-2026/): Build costs, ongoing costs, timelines and ownership.
+- [Choosing a web design agency](https://primeloft.tech/blog/choose-web-design-agency-dera-ghazi-khan/): Questions to ask before hiring an agency.
+
 ## Contact
 
 - [Contact PrimeLoft Tech](https://primeloft.tech/contact.html): Share project requirements or find business contact details.
