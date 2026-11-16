@@ -89,6 +89,17 @@ try {
       assert.equal(state.canonical,'https://primeloft.tech'+path);
       assert.equal(state.blogLink,'/cookies.html');
       assert.equal(state.titlePosition,'static'); assert(state.titleTop>80, 'Title overlaps the site header');
+      // Older cached HTML used a semantic header here. The blog CSS must
+      // neutralize the global navbar rule even with that older markup.
+      assert(await ev(`(()=>{
+        const original=document.querySelector('.blog-index-head, .blog-article-head');
+        const legacy=document.createElement('header');
+        legacy.className=original.className;legacy.innerHTML=original.innerHTML;
+        original.replaceWith(legacy);
+        const style=getComputedStyle(legacy),rect=legacy.getBoundingClientRect();
+        const okay=style.position==='static'&&style.backdropFilter==='none'&&rect.top>=80&&rect.left>=16;
+        legacy.replaceWith(original);return okay;
+      })()`), 'Legacy heading markup inherits navbar positioning');
       if (path !== '/blog/') {
         assert(state.schema['@graph'].some(n=>n['@type']==='BlogPosting'));
         assert.equal(await ev(`document.querySelectorAll('.blog-inline-image img').length`),1);
