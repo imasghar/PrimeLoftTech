@@ -89,6 +89,7 @@ export class InertiaScrollService {
       try { target = document.getElementById(decodeURIComponent(href.slice(1))); } catch { return; }
       if (target) {
         e.preventDefault();
+        if (window.location.hash !== href) window.history.pushState(null, '', href);
         const header = document.querySelector('header');
         const headerOffset = header ? header.offsetHeight + 10 : 70;
         lenis.scrollTo(target, { offset: -headerOffset, duration: 1.2 });

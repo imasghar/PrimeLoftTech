@@ -1,6 +1,7 @@
 {
   "passed": true,
   "checks": [
+    "Happy path: Home > Blog > cost guide > contents > hiring guide > SEO service > Blog > hiring guide > Contact",
     "/blog/: 320px, readable content, images, metadata and navigation",
     "/blog/: 390px, readable content, images, metadata and navigation",
     "/blog/: 768px, readable content, images, metadata and navigation",

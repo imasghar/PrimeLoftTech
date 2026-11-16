@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 const base = 'http://127.0.0.1:8767';
+const guideModule = new URL(fs.readFileSync('js/main.js','utf8').match(/from '([^']*chatbot[^']*)'/)[1], base + '/js/main.js').href;
 const tabs = await (await fetch('http://127.0.0.1:9346/json')).json();
 const ws = new WebSocket(tabs.find(t => t.type === 'page').webSocketDebuggerUrl);
 await new Promise(resolve => ws.onopen = resolve);
@@ -78,7 +79,7 @@ try {
     assert.deepEqual(await ev(`[...document.querySelectorAll('article.pl-split h2')].map(e=>e.textContent)`), names);
     const schema = await ev(`JSON.parse(document.querySelector('script[type="application/ld+json"]').textContent)['@graph'].find(n=>n['@type']==='ItemList')`);
     assert.equal(schema.numberOfItems, 13); assert.deepEqual(schema.itemListElement.map(s => s.name), names);
-    assert.deepEqual(await ev(`import('./js/services/chatbot.js?v=4.3.0').then(m=>m.ChatbotService.services.map(s=>s.label))`), names);
+    assert.deepEqual(await ev(`import(${JSON.stringify(guideModule)}).then(m=>m.ChatbotService.services.map(s=>s.label))`), names);
     await navigate('contact.html?service=integrations');
     assert.deepEqual(await ev(`[...document.querySelector('#contact-service').options].slice(1,-1).map(e=>e.textContent)`), names);
     assert.equal(await ev(`document.querySelector('#contact-service').value`), 'API Integration');

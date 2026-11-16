@@ -6,6 +6,22 @@ These tests do not send real form submissions. Unit tests stub fetch; browser te
 
     node --test tools/tests/web3forms-unit.test.mjs
 
+Anchor scrolling and section URL regression coverage:
+
+    node --test tools/tests/inertia-scroll-unit.test.mjs
+
+## Blog happy path and responsive SEO checks
+
+With the local server and dedicated Chrome below running:
+
+    node tools/tests/blog-browser.test.mjs
+
+This suite clicks Home > Blog > cost guide > table of contents > hiring guide >
+SEO service > Blog > hiring guide > Contact. It also checks all three blog pages
+at 320, 390, 768 and 1440 pixels, images, canonical URLs, article schema,
+navigation, mobile menu, section targets and internal links. All external
+traffic is intercepted. Results are in `tools/qa-results/blog-browser.json`.
+
 ## Chrome integration/security/accessibility checks
 
 Start the local server in one terminal:

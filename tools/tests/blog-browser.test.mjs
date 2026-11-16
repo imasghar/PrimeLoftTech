@@ -26,6 +26,9 @@ async function ev(expression) {
 }
 async function navigate(path) {
   await call('Page.navigate', {url:base+path});
+  await waitForPath(path);
+}
+async function waitForPath(path) {
   for (let i=0;i<100;i++) {
     await pause(80);
     if (await ev(`location.pathname===${JSON.stringify(path)} && document.readyState==='complete' && !!document.querySelector('#plChatLauncher')`)) return;
@@ -36,6 +39,27 @@ const paths = ['/blog/','/blog/small-business-website-cost-2026/','/blog/choose-
 try {
   await call('Page.enable'); await call('Runtime.enable');
   await call('Fetch.enable',{patterns:[{urlPattern:'*'}]});
+  // Happy path uses real link clicks, including both articles and a contact CTA.
+  await call('Emulation.setDeviceMetricsOverride',{width:1440,height:1000,deviceScaleFactor:1,mobile:false});
+  await navigate('/index.html');
+  await ev(`document.querySelector('nav.primary a[href="/blog/"]').click()`);
+  await waitForPath('/blog/');
+  await ev(`document.querySelector('.blog-card h2 a').click()`);
+  await waitForPath(paths[1]);
+  await ev(`document.querySelector('.blog-toc a').click()`);
+  assert(await ev(`location.hash && !!document.getElementById(location.hash.slice(1))`));
+  await ev(`document.querySelector('.blog-related-link').click()`);
+  await waitForPath(paths[2]);
+  await ev(`document.querySelector('.blog-prose a[href="/service-seo.html"]').click()`);
+  await waitForPath('/service-seo.html');
+  await ev(`document.querySelector('nav.primary a[href="/blog/"]').click()`);
+  await waitForPath('/blog/');
+  await ev(`document.querySelectorAll('.blog-card h2 a')[1].click()`);
+  await waitForPath(paths[2]);
+  await ev(`document.querySelector('.blog-prose a[href="/contact.html"]').click()`);
+  await waitForPath('/contact.html');
+  assert(await ev(`!!document.querySelector('#contactForm')`));
+  checks.push('Happy path: Home > Blog > cost guide > contents > hiring guide > SEO service > Blog > hiring guide > Contact');
   for (const path of paths) {
     const res=await fetch(base+path); assert.equal(res.status,200);
     const source=await res.text();
@@ -87,7 +111,7 @@ try {
   // Cross-links resolve locally without relying on JavaScript or external hosts.
   for (const path of paths.slice(1)) {
     await navigate(path);
-    const targets=await ev(`[...document.querySelectorAll('main a')].map(a=>new URL(a.href)).filter(u=>u.origin==='https://primeloft.tech').map(u=>u.pathname)`);
+    const targets=await ev(`[...document.querySelectorAll('main a')].map(a=>new URL(a.href)).filter(u=>u.origin==='https://primeloft.tech'||u.origin===${JSON.stringify(base)}).map(u=>u.pathname)`);
     for (const target of new Set(targets)) assert.equal((await fetch(base+target)).status,200,target);
   }
   assert.deepEqual(errors,[]);

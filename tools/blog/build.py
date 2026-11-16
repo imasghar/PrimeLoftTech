@@ -84,6 +84,8 @@ for post in POSTS:
         body = re.sub(r'(?<![\w\[])' + re.escape(label) + r'(?![\w\]])', '[' + label + '](https://primeloft.tech/service-' + slug + '.html)', body, count=1)
     md = markdown.Markdown(extensions=['tables', 'toc', 'sane_lists'])
     rendered = md.convert(body)
+    # Same-site links work on local previews as well as the production domain.
+    rendered = rendered.replace('href="' + SITE + '/', 'href="/')
     def image_tag(match):
         alt, filename = html.unescape(match[1]), match[2]
         return '<figure class="blog-inline-image"><img src="/images/blog/' + filename + '" alt="' + esc(alt) + '" width="1600" height="1600" loading="lazy" decoding="async"></figure>'
