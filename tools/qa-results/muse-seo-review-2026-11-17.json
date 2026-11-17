@@ -1,0 +1,130 @@
+[
+  {
+    "page": "about.html",
+    "title": "About PrimeLoft Tech | Web Design Agency in Dera Ghazi Khan",
+    "h1": "About PrimeLoft Tech",
+    "faqCount": 6,
+    "faqSchemaMatches": false,
+    "canonical": "https://primeloft.tech/about.html"
+  },
+  {
+    "page": "contact.html",
+    "title": "Get a Quote | Contact PrimeLoft Tech, Dera Ghazi Khan",
+    "h1": "Get a Quote for Your Website, App or Software",
+    "faqCount": 7,
+    "faqSchemaMatches": false,
+    "canonical": "https://primeloft.tech/contact.html"
+  },
+  {
+    "page": "service-ai.html",
+    "title": "AI Automation Services Pakistan | PrimeLoft Tech",
+    "h1": "AI Automation & Business Process Automation in Pakistan",
+    "faqCount": 10,
+    "faqSchemaMatches": true,
+    "canonical": "https://primeloft.tech/service-ai.html"
+  },
+  {
+    "page": "service-cloud.html",
+    "title": "DevOps & Cloud Services Pakistan | PrimeLoft Tech",
+    "h1": "DevOps Services & Cloud Migration in Pakistan",
+    "faqCount": 10,
+    "faqSchemaMatches": true,
+    "canonical": "https://primeloft.tech/service-cloud.html"
+  },
+  {
+    "page": "service-design.html",
+    "title": "UI/UX Design Agency Dera Ghazi Khan | PrimeLoft Tech",
+    "h1": "UI/UX Design Services for Websites, Apps & Software",
+    "faqCount": 10,
+    "faqSchemaMatches": true,
+    "canonical": "https://primeloft.tech/service-design.html"
+  },
+  {
+    "page": "service-ecommerce.html",
+    "title": "E-commerce Website Development in Pakistan | PrimeLoft Tech",
+    "h1": "E-commerce Website Development Services in Pakistan",
+    "faqCount": 8,
+    "faqSchemaMatches": false,
+    "canonical": "https://primeloft.tech/service-ecommerce.html"
+  },
+  {
+    "page": "service-engineering.html",
+    "title": "Web Development Agency Pakistan | PrimeLoft Tech",
+    "h1": "Custom Website & Software Development in Dera Ghazi Khan, Pakistan",
+    "faqCount": 9,
+    "faqSchemaMatches": true,
+    "canonical": "https://primeloft.tech/service-engineering.html"
+  },
+  {
+    "page": "service-integrations.html",
+    "title": "API Integration Services in Pakistan | PrimeLoft Tech",
+    "h1": "API Integration Services",
+    "faqCount": 9,
+    "faqSchemaMatches": false,
+    "canonical": "https://primeloft.tech/service-integrations.html"
+  },
+  {
+    "page": "service-maintenance.html",
+    "title": "Website Maintenance Services in Pakistan | PrimeLoft Tech",
+    "h1": "Website Maintenance & Support Services in Pakistan",
+    "faqCount": 10,
+    "faqSchemaMatches": true,
+    "canonical": "https://primeloft.tech/service-maintenance.html"
+  },
+  {
+    "page": "service-mobile-app-development.html",
+    "title": "Mobile App Development Dera Ghazi Khan | PrimeLoft Tech",
+    "h1": "Mobile App Development in Dera Ghazi Khan, Pakistan",
+    "faqCount": 10,
+    "faqSchemaMatches": true,
+    "canonical": "https://primeloft.tech/service-mobile-app-development.html"
+  },
+  {
+    "page": "service-quality.html",
+    "title": "Software Testing & QA Services in Pakistan | PrimeLoft Tech",
+    "h1": "Software Testing & QA Services in Pakistan",
+    "faqCount": 10,
+    "faqSchemaMatches": true,
+    "canonical": "https://primeloft.tech/service-quality.html"
+  },
+  {
+    "page": "service-seo.html",
+    "title": "SEO Services Pakistan | PrimeLoft Tech",
+    "h1": "SEO Services in Pakistan — Technical, On-Page & Local SEO",
+    "faqCount": 10,
+    "faqSchemaMatches": true,
+    "canonical": "https://primeloft.tech/service-seo.html"
+  },
+  {
+    "page": "service-squarespace.html",
+    "title": "Squarespace Developer Dera Ghazi Khan | PrimeLoft Tech",
+    "h1": "Squarespace Website Design & Development Services",
+    "faqCount": 12,
+    "faqSchemaMatches": true,
+    "canonical": "https://primeloft.tech/service-squarespace.html"
+  },
+  {
+    "page": "service-strategy.html",
+    "title": "Product Strategy Services Pakistan | PrimeLoft Tech",
+    "h1": "Digital Product Strategy Services",
+    "faqCount": 8,
+    "faqSchemaMatches": false,
+    "canonical": "https://primeloft.tech/service-strategy.html"
+  },
+  {
+    "page": "service-wordpress.html",
+    "title": "WordPress Developer Dera Ghazi Khan | PrimeLoft Tech",
+    "h1": "Custom WordPress Website Development Services",
+    "faqCount": 11,
+    "faqSchemaMatches": true,
+    "canonical": "https://primeloft.tech/service-wordpress.html"
+  },
+  {
+    "page": "services.html",
+    "title": "Web Design Services Dera Ghazi Khan | PrimeLoft Tech",
+    "h1": "Web Design, Development & Digital Services in Dera Ghazi Khan",
+    "faqCount": 6,
+    "faqSchemaMatches": false,
+    "canonical": "https://primeloft.tech/services.html"
+  }
+]

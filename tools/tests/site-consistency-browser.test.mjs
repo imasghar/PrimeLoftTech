@@ -152,7 +152,8 @@ try {
     for(const page of ['service-ecommerce.html','service-integrations.html']) {
       await navigate(page);
       titles.push(await ev('document.title'));
-      assert(await ev(`document.querySelectorAll('.platform-service').length===6 && document.querySelectorAll('.platform-faq details').length===8 && document.querySelectorAll('.platform-process li').length===3 && document.querySelectorAll('.detail-grid article').length===3`));
+      const expectedFaqs = page === 'service-integrations.html' ? 9 : 8;
+      assert(await ev(`document.querySelectorAll('.platform-service').length===6 && document.querySelectorAll('.platform-faq details').length===${expectedFaqs} && document.querySelectorAll('.platform-process li').length===3 && document.querySelectorAll('.detail-grid article').length===3`));
       const metadata=await ev(`({canonical:document.querySelector('link[rel="canonical"]').href,description:document.querySelector('meta[name="description"]').content,og:document.querySelector('meta[property="og:url"]').content,schema:JSON.parse(document.querySelector('script[type="application/ld+json"]').textContent),words:document.querySelector('main').textContent.split(/\\s+/).length})`);
       assert.equal(metadata.canonical,'https://primeloft.tech/'+page);assert.equal(metadata.og,metadata.canonical);
       assert(metadata.description.length>100); assert(metadata.words>900);
@@ -196,7 +197,7 @@ try {
     await call('Page.removeScriptToEvaluateOnNewDocument',{identifier});
   });
   await check('ARC favicon is a 512px PNG and the homepage references its refreshed URL', async () => {
-    assert(await ev(`document.querySelector('link[rel="icon"]').getAttribute('href')==='/favicon.png?v=3'`));
+    assert(await ev(`document.querySelector('link[rel="icon"]').getAttribute('href')==='/favicon.png?v=4'`));
     const bytes=fs.readFileSync('favicon.png');
     assert.equal(bytes.readUInt32BE(16),512); assert.equal(bytes.readUInt32BE(20),512);
     assert(fs.readFileSync('favicon.ico').length>1000);
